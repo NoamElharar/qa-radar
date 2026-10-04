@@ -1,0 +1,800 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-04T08:27:15.595Z",
+  "sources": [
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "type": "board",
+      "tier": "D",
+      "homepage": "https://www.linkedin.com/jobs/",
+      "quickLinks": [
+        {
+          "label": "משרות QA מהיממה האחרונה",
+          "url": "https://www.linkedin.com/jobs/search-results/?keywords=qa&geoId=104243116&distance=0.0&f_TPR=r86400"
+        },
+        {
+          "label": "בודק תוכנה מהיממה האחרונה",
+          "url": "https://www.linkedin.com/jobs/search-results/?keywords=%D7%91%D7%95%D7%93%D7%A7%20%D7%AA%D7%95%D7%9B%D7%A0%D7%94&geoId=104243116&distance=0.0&f_TPR=r86400"
+        }
+      ],
+      "note": "robots.txt אוסר גישה אוטומטית",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "glassdoor",
+      "name": "Glassdoor",
+      "type": "board",
+      "tier": "D",
+      "homepage": "https://www.glassdoor.com/",
+      "quickLinks": [
+        {
+          "label": "משרות QA מהיממה האחרונה",
+          "url": "https://www.glassdoor.com/Job/israel-qa-jobs-SRCH_IL.0,6_IN119_KO7,9.htm?fromAge=1"
+        }
+      ],
+      "note": "תנאי השימוש אוסרים גישה אוטומטית",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "indeed",
+      "name": "Indeed",
+      "type": "board",
+      "tier": "D",
+      "homepage": "https://il.indeed.com/",
+      "quickLinks": [
+        {
+          "label": "משרות QA מהיממה האחרונה",
+          "url": "https://il.indeed.com/jobs?q=QA&fromage=1&sort=date"
+        },
+        {
+          "label": "בודק תוכנה מהיממה האחרונה",
+          "url": "https://il.indeed.com/jobs?q=%D7%91%D7%95%D7%93%D7%A7+%D7%AA%D7%95%D7%9B%D7%A0%D7%94&fromage=1&sort=date"
+        }
+      ],
+      "note": "תנאי השימוש אוסרים גישה אוטומטית",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "drushim",
+      "name": "דרושים IL",
+      "type": "board",
+      "tier": "D",
+      "homepage": "https://www.drushim.co.il/",
+      "quickLinks": [
+        {
+          "label": "חיפוש QA",
+          "url": "https://www.drushim.co.il/jobs/search/QA/"
+        },
+        {
+          "label": "חיפוש בודק תוכנה",
+          "url": "https://www.drushim.co.il/jobs/search/%D7%91%D7%95%D7%93%D7%A7%20%D7%AA%D7%95%D7%9B%D7%A0%D7%94/"
+        }
+      ],
+      "note": "תקנון סעיף 15 אוסר איסוף אוטומטי",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "jobnet",
+      "name": "Jobnet",
+      "type": "board",
+      "tier": "D",
+      "homepage": "https://www.jobnet.co.il/",
+      "quickLinks": [
+        {
+          "label": "לוח המשרות",
+          "url": "https://www.jobnet.co.il/"
+        }
+      ],
+      "note": "תקנון סעיף 27 אוסר סריקה אוטומטית",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "gotfriends",
+      "name": "GotFriends",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://www.gotfriends.co.il/jobslobby/qa/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        390
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 390,
+      "kept": 375,
+      "durationMs": 100900
+    },
+    {
+      "id": "goozali",
+      "name": "Goozali",
+      "type": "board",
+      "tier": "D",
+      "homepage": "https://goozali.com/",
+      "quickLinks": [
+        {
+          "label": "משרות פתוחות",
+          "url": "https://goozali.com/#jobopenings"
+        }
+      ],
+      "note": "המשרות יושבות בטבלאות Airtable מוטמעות, אין API ציבורי",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "ness",
+      "name": "NESS",
+      "type": "agency",
+      "tier": "A",
+      "homepage": "https://www.ness-tech.co.il/careers/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        213
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 213,
+      "kept": 30,
+      "durationMs": 3312
+    },
+    {
+      "id": "proceed",
+      "name": "Proceed",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://proceed.co.il/career",
+      "quickLinks": [
+        {
+          "label": "לוח המשרות",
+          "url": "https://proceed.co.il/career"
+        }
+      ],
+      "note": "המשרות נטענות מ-API של adamtotal שה-robots.txt שלו חוסם רובוטים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "prologic",
+      "name": "Prologic",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://www.prologic.co.il/",
+      "quickLinks": [
+        {
+          "label": "בודקי תוכנה QA",
+          "url": "https://www.prologic.co.il/בודקי-תוכנה-QA"
+        }
+      ],
+      "note": "עמודי הקטגוריה קיימים אך ריקים ממשרות (נבדק 10/2026)",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "gtech",
+      "name": "Gtech",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://gtech.co.il/משרות/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        15
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 15,
+      "kept": 3,
+      "durationMs": 7305
+    },
+    {
+      "id": "sqlink",
+      "name": "SQLink",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://www.sqlink.com/career/db/qa/",
+      "status": "error",
+      "consecutiveFailures": 1,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 0,
+      "kept": 0,
+      "error": "HTTP 403 for https://www.sqlink.com/career/db/qa/",
+      "durationMs": 2552
+    },
+    {
+      "id": "logica",
+      "name": "Logica-IT",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://www.logica-it.com/",
+      "quickLinks": [
+        {
+          "label": "המשרות שלהם בדרושים",
+          "url": "https://www.drushim.co.il/דרושים-311679-logica-it/"
+        }
+      ],
+      "note": "האתר לא זמין (לולאת הפניות 308); המשרות שלהם מתפרסמות בדרושים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "compie",
+      "name": "Compie",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://www.compie.co.il/he/work/?joinus",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        15
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 15,
+      "kept": 0,
+      "durationMs": 3320
+    },
+    {
+      "id": "commit",
+      "name": "CommIT",
+      "type": "agency",
+      "tier": "A",
+      "homepage": "https://www.comm-it.com/commit-jobs",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        151
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 151,
+      "kept": 4,
+      "durationMs": 5360
+    },
+    {
+      "id": "comblack",
+      "name": "Comblack",
+      "type": "agency",
+      "tier": "A",
+      "homepage": "https://comblack.co.il/career/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        314
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 314,
+      "kept": 23,
+      "durationMs": 13163
+    },
+    {
+      "id": "tesnet",
+      "name": "Tesnet",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://tesnet-group.com/job/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        31
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 31,
+      "kept": 11,
+      "durationMs": 4099
+    },
+    {
+      "id": "aman",
+      "name": "Aman Group",
+      "type": "agency",
+      "tier": "A",
+      "homepage": "https://www.aman-global.com/careers/בדיקות-תוכנה-qa/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        7
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 7,
+      "kept": 6,
+      "durationMs": 3518
+    },
+    {
+      "id": "yael",
+      "name": "קבוצת יעל",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://yaelgroup.com/jobs/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        370
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 370,
+      "kept": 37,
+      "durationMs": 5223
+    },
+    {
+      "id": "malamteam",
+      "name": "Malam Team",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://www.malamteam.com/",
+      "quickLinks": [
+        {
+          "label": "לובי קריירה",
+          "url": "https://www.malamteam.com/לובי-קריירה/"
+        }
+      ],
+      "note": "מוגן ע\"י אתגר בוטים של Cloudflare — לא עוקפים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "inmanage",
+      "name": "InManage",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://www.inmanage.co.il/דרושים",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        17
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 17,
+      "kept": 1,
+      "durationMs": 3996
+    },
+    {
+      "id": "moveo",
+      "name": "Moveo",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://www.moveosource.com/#jobs",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        67
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 67,
+      "kept": 7,
+      "durationMs": 3616
+    },
+    {
+      "id": "abra",
+      "name": "Abra",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://www.abra-it.com/career/?category=Automation+%26+QA#jobs",
+      "status": "error",
+      "consecutiveFailures": 1,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 0,
+      "kept": 0,
+      "error": "HTTP 403 for https://www.abra-it.com/career/?category=Automation+%26+QA",
+      "durationMs": 3525
+    },
+    {
+      "id": "onezero",
+      "name": "ONE ZERO",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://www.onezerobank.com/en/career/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        12
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 12,
+      "kept": 0,
+      "durationMs": 8314
+    },
+    {
+      "id": "max",
+      "name": "MAX",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://www.max.co.il/jobs/lobby",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        22
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 22,
+      "kept": 0,
+      "durationMs": 4378
+    },
+    {
+      "id": "isracard",
+      "name": "ישראכרט",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://marketing.isracard.co.il/careershome/",
+      "quickLinks": [
+        {
+          "label": "משרות טכנולוגיות",
+          "url": "https://marketing.isracard.co.il/careershome/divisions/טכנולוגיות/"
+        }
+      ],
+      "note": "מוגן ע\"י Cloudflare — לא עוקפים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "ibi",
+      "name": "IBI",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://www.ibi.co.il/career/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        55
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 55,
+      "kept": 1,
+      "durationMs": 3796
+    },
+    {
+      "id": "mataf",
+      "name": "מת\"ף (הבינלאומי)",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://www.fibi.co.il/private/general/about/jobs/jobsmataf/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        0
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 0,
+      "kept": 0,
+      "durationMs": 5250
+    },
+    {
+      "id": "shva",
+      "name": "שב\"א",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://www.shva.co.il/קריירה-חדש/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        4
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 4,
+      "kept": 0,
+      "durationMs": 9631
+    },
+    {
+      "id": "masav",
+      "name": "מס\"ב",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://www.masav.co.il/careers-2/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        3
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 3,
+      "kept": 1,
+      "durationMs": 5232
+    },
+    {
+      "id": "altshuler",
+      "name": "אלטשולר שחם",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://career.adamtotal.co.il/Home/Index?token=1EB6B34D-8783-4AD3-8SS80-7FA0CFA5DFC8",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        1
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 1,
+      "kept": 1,
+      "durationMs": 8299
+    },
+    {
+      "id": "wix",
+      "name": "Wix",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://careers.wix.com/positions",
+      "quickLinks": [
+        {
+          "label": "כל המשרות",
+          "url": "https://careers.wix.com/positions"
+        }
+      ],
+      "note": "האתר נטען ב-JavaScript וה-API של SmartRecruiters חסום ב-robots.txt — מתוכנן דפדפן אוטומטי בשלב 2",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "base44",
+      "name": "Base44",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://careers.base44.com/home",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        25
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 25,
+      "kept": 0,
+      "durationMs": 6856
+    },
+    {
+      "id": "elal",
+      "name": "אל על",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://www.elal.com/heb/career/all-jobs",
+      "status": "error",
+      "consecutiveFailures": 1,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 0,
+      "kept": 0,
+      "error": "Invalid JSON from https://www.elal.com/api/contentPage/path/x00xhebx00xcareerx00xall-jobs (starts with: <!DOCTYPE html><html><head><meta charset=\"utf-8\"><script type=\"text/javascript\" )",
+      "durationMs": 4298
+    },
+    {
+      "id": "railways",
+      "name": "רכבת ישראל",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://railcareer.adamtotal.co.il/Home/Index?token=45e7ea44-8787-4910-3423-c84e9fttredbccf_ext",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        30
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 30,
+      "kept": 0,
+      "durationMs": 11021
+    },
+    {
+      "id": "cbc",
+      "name": "CBC ישראל (קוקה-קולה)",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://career.adamtotal.co.il/Home/Index?token=4fiBEcF763Em2UKTVQ4OPb1hiX9SxJtoMHssWX",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        4
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 4,
+      "kept": 0,
+      "durationMs": 10543
+    },
+    {
+      "id": "nta",
+      "name": "נת\"ע",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://www.nta.co.il/",
+      "quickLinks": [
+        {
+          "label": "משרות פתוחות",
+          "url": "https://www.nta.co.il/קריירה/#jobOffers"
+        }
+      ],
+      "note": "מוגן ע\"י Cloudflare Turnstile — לא עוקפים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "clalit",
+      "name": "כללית",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://jobs.clalitapps.co.il/clalit/index.html?ci=0",
+      "status": "error",
+      "consecutiveFailures": 1,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 0,
+      "kept": 0,
+      "error": "robots.txt disallows https://jobs.clalitapps.co.il/CandidateAPI/api//position/Search/9E6C0368-A39E-4D83-803E-CF2AF0BA28DD",
+      "durationMs": 11522
+    },
+    {
+      "id": "maccabi",
+      "name": "מכבי",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://www.maccabi4u.co.il/careers/",
+      "quickLinks": [
+        {
+          "label": "משרות טכנולוגיה",
+          "url": "https://www.maccabi4u.co.il/careers/search-job-positions/?&Professions=8"
+        }
+      ],
+      "note": "המשרות נטענות מ-/api/ שחסום ב-robots.txt",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "maccabident",
+      "name": "מכבידנט",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://maccabi-dent.com/קריירה-במכבידנט/",
+      "quickLinks": [
+        {
+          "label": "קריירה",
+          "url": "https://maccabi-dent.com/קריירה-במכבידנט/"
+        }
+      ],
+      "note": "עמודי תחומים בלבד (רפואת שיניים), בלי משרות בודדות",
+      "status": "disabled",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "iec",
+      "name": "חברת החשמל",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://careers.iec.co.il/",
+      "status": "error",
+      "consecutiveFailures": 1,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 0,
+      "kept": 0,
+      "error": "HTTP 403 for https://careers.iec.co.il/?referid=&freeText=&profs%5B%5D=15%2C44&page=1",
+      "durationMs": 5228
+    },
+    {
+      "id": "noga",
+      "name": "נגה",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://www.noga-iso.co.il/jobs/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        14
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 14,
+      "kept": 0,
+      "durationMs": 5228
+    },
+    {
+      "id": "reshet13",
+      "name": "רשת 13",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://13tv.co.il/item/general/jobs-13529/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        12
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 12,
+      "kept": 1,
+      "durationMs": 5245
+    },
+    {
+      "id": "keshet",
+      "name": "קשת",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://jobs.keshet-mediagroup.com/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        22
+      ],
+      "lastRunAt": "2026-10-04T08:27:15.595Z",
+      "lastSuccessAt": "2026-10-04T08:27:15.595Z",
+      "fetched": 22,
+      "kept": 0,
+      "durationMs": 11651
+    }
+  ]
+}
