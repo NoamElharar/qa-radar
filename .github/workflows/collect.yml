@@ -1,0 +1,106 @@
+name: Collect & deploy
+
+on:
+  schedule:
+    # Every hour at :17 UTC (off the busy top of the hour). The collector itself decides, in Israel time,
+    # whether this slot runs: hourly Sun–Thu 07:00–21:00, every 3 hours otherwise. DST needs no edits.
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Run every source now (ignore the schedule)'
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths-ignore: ['**.md', 'docs/**']
+
+permissions:
+  contents: write # push collected data to the `data` branch
+  pages: write
+  id-token: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Does the data branch exist?
+        id: branch
+        run: |
+          if git ls-remote --exit-code --heads origin data > /dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out previous data
+        if: steps.branch.outputs.exists == 'true'
+        uses: actions/checkout@v7
+        with:
+          ref: data
+          path: data
+
+      - name: Start an empty data branch (first run)
+        if: steps.branch.outputs.exists != 'true'
+        run: |
+          mkdir -p data && cd data
+          git init -b data
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Collect jobs
+        run: npm run collect -- ${{ (github.event_name == 'workflow_dispatch' && inputs.force) && '--force' || '' }}
+
+      - name: Commit data
+        id: commit
+        working-directory: data
+        run: |
+          git config user.name "qa-radar-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -q -m "data: $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push -q origin HEAD:data
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build dashboard
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        run: |
+          npm run build
+          mkdir -p web/dist/data
+          cp data/*.json web/dist/data/ 2>/dev/null || echo "No data files yet."
+
+      - name: Upload Pages artifact
+        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: web/dist
+
+  deploy:
+    needs: collect
+    if: needs.collect.outputs.changed == 'true' || github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
