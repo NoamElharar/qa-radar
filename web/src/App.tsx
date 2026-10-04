@@ -7,7 +7,7 @@ import { MineView } from './components/MineView.tsx';
 import { QuickLaunch } from './components/QuickLaunch.tsx';
 import { SourcesView } from './components/SourcesView.tsx';
 import { Toolbar } from './components/Toolbar.tsx';
-import { loadData, type RadarData } from './lib/data.ts';
+import { useRadarData } from './lib/useRadarData.ts';
 import { applyFilters, applySourceTypeFilter, defaultFilters } from './lib/filters.ts';
 import {
   exportPersonal,
@@ -56,8 +56,7 @@ export function App() {
   const now = useNow();
   const [theme, setTheme] = useTheme();
   const { filters, setFilters, setView, resetFilters } = useUrlFilters();
-  const [data, setData] = useState<RadarData>();
-  const [loadError, setLoadError] = useState<string>();
+  const { data, error: loadError, refreshing, notice, refresh } = useRadarData();
   const [personal, setPersonal] = useState<PersonalData>(loadPersonal);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [limit, setLimit] = useState(PAGE_SIZE);
@@ -65,7 +64,6 @@ export function App() {
   const [previousVisit] = useState(() => (personal.lastVisitAt ? new Date(personal.lastVisitAt) : undefined));
 
   useEffect(() => {
-    loadData().then(setData, (e: unknown) => setLoadError(e instanceof Error ? e.message : String(e)));
     const remember = () => document.visibilityState === 'hidden' && saveLastVisit(new Date().toISOString());
     document.addEventListener('visibilitychange', remember);
     window.addEventListener('pagehide', () => saveLastVisit(new Date().toISOString()));
@@ -183,7 +181,14 @@ export function App() {
 
   return (
     <>
-      <Header updatedAt={data?.health.generatedAt} now={now} theme={theme} onTheme={setTheme} />
+      <Header
+        updatedAt={data?.health.generatedAt}
+        now={now}
+        theme={theme}
+        onTheme={setTheme}
+        refreshing={refreshing}
+        onRefresh={() => void refresh()}
+      />
       <main className="mx-auto max-w-3xl space-y-4 px-4 pt-4 pb-28">
         {loadError && (
           <p role="alert" className="rounded-xl bg-rose-50 p-4 text-rose-800 dark:bg-rose-950 dark:text-rose-200">
@@ -288,6 +293,14 @@ export function App() {
         onReset={resetFilters}
         onClose={() => setFiltersOpen(false)}
       />
+      {notice && (
+        <div
+          role="status"
+          className="fixed inset-x-4 bottom-20 z-40 mx-auto max-w-sm rounded-xl bg-slate-900 px-4 py-3 text-center text-sm text-white shadow-lg dark:bg-slate-100 dark:text-slate-900"
+        >
+          {notice}
+        </div>
+      )}
       <BottomNav
         view={filters.view}
         counts={{ new: newTodayCount, mine: Object.keys(personal.statuses).length || undefined, sources: failing.length || undefined }}

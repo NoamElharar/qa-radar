@@ -2,12 +2,21 @@ import type { ReactNode } from 'react';
 import type { View } from '../lib/filters.ts';
 import type { ThemePreference } from '../lib/storage.ts';
 import { relativeTime } from '../lib/time.ts';
-import { AutoThemeIcon, BoltIcon, ListIcon, MoonIcon, PulseIcon, SunIcon, UserIcon } from './icons.tsx';
+import { AutoThemeIcon, BoltIcon, ListIcon, MoonIcon, PulseIcon, RefreshIcon, SunIcon, UserIcon } from './icons.tsx';
 
 const THEME_NEXT: Record<ThemePreference, ThemePreference> = { system: 'light', light: 'dark', dark: 'system' };
 const THEME_LABEL: Record<ThemePreference, string> = { system: 'ערכת נושא: לפי המכשיר', light: 'ערכת נושא: בהירה', dark: 'ערכת נושא: כהה' };
 
-export function Header({ updatedAt, now, theme, onTheme }: { updatedAt?: string; now: Date; theme: ThemePreference; onTheme: (t: ThemePreference) => void }) {
+interface HeaderProps {
+  updatedAt?: string;
+  now: Date;
+  theme: ThemePreference;
+  onTheme: (t: ThemePreference) => void;
+  refreshing: boolean;
+  onRefresh: () => void;
+}
+
+export function Header({ updatedAt, now, theme, onTheme, refreshing, onRefresh }: HeaderProps) {
   const Icon = theme === 'dark' ? MoonIcon : theme === 'light' ? SunIcon : AutoThemeIcon;
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/85 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85">
@@ -18,15 +27,27 @@ export function Header({ updatedAt, now, theme, onTheme }: { updatedAt?: string;
           </h1>
           {updatedAt && <p className="text-xs text-slate-500">עודכן {relativeTime(updatedAt, now)}</p>}
         </div>
-        <button
-          type="button"
-          onClick={() => onTheme(THEME_NEXT[theme])}
-          className="rounded-full p-2.5 text-lg text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
-          aria-label={THEME_LABEL[theme]}
-          title={THEME_LABEL[theme]}
-        >
-          <Icon />
-        </button>
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={onRefresh}
+            disabled={refreshing}
+            className="rounded-full p-2.5 text-lg text-slate-600 hover:bg-slate-100 disabled:opacity-60 dark:text-slate-300 dark:hover:bg-slate-800"
+            aria-label="רענון — טעינת הנתונים האחרונים"
+            title="רענון — טעינת הנתונים האחרונים"
+          >
+            <RefreshIcon className={refreshing ? 'animate-spin' : ''} />
+          </button>
+          <button
+            type="button"
+            onClick={() => onTheme(THEME_NEXT[theme])}
+            className="rounded-full p-2.5 text-lg text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+            aria-label={THEME_LABEL[theme]}
+            title={THEME_LABEL[theme]}
+          >
+            <Icon />
+          </button>
+        </div>
       </div>
     </header>
   );

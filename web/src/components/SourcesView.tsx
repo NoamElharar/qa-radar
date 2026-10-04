@@ -1,5 +1,6 @@
 import type { SourceHealth, SourceStatus } from '@qa-radar/shared';
 import { SOURCE_TYPE_LABELS } from '@qa-radar/shared';
+import { COLLECT_WORKFLOW_URL } from '../lib/data.ts';
 import { formatDateTime, relativeTime } from '../lib/time.ts';
 import { ExternalIcon } from './icons.tsx';
 
@@ -26,6 +27,21 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
         <Stat label="בבעיה" value={failing.length} tone={failing.length ? 'bad' : 'ok'} />
       </div>
       <p className="text-xs text-slate-500">ריצה אחרונה: {formatDateTime(generatedAt)} ({relativeTime(generatedAt, now)})</p>
+      <div className="rounded-xl border border-brand-200 bg-brand-50 p-3 text-sm dark:border-brand-800 dark:bg-brand-900/40">
+        <p className="font-semibold">צריך איסוף עכשיו?</p>
+        <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
+          האיסוף רץ לבד כל שעה (א׳–ה׳ 07:00–21:00, ובשאר הזמן כל 3 שעות). לאיסוף מיידי: פתחו את דף ההרצה ב-GitHub, לחצו{' '}
+          <bdi dir="ltr" className="font-mono">Run workflow</bdi> (צריך להיות מחוברים ל-GitHub), וכעבור כ-3 דקות לחצו על ↻ למעלה.
+        </p>
+        <a
+          href={COLLECT_WORKFLOW_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-brand-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-800"
+        >
+          הרצת איסוף ב-GitHub <ExternalIcon />
+        </a>
+      </div>
       <ul className="space-y-2">
         {sorted.map((s) => {
           const meta = STATUS_META[s.status];
