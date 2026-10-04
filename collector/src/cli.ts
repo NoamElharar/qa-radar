@@ -41,6 +41,13 @@ async function main(): Promise<void> {
   const previous = readState(paths);
   const result = await collect({ config, previous, now, force: values.force, only, log });
 
+  // Two timers (GitHub's schedule + the external backup) may fire in the same hour. When no source was
+  // due, leave the data files untouched so the run is a true no-op (no commit, no redeploy).
+  if (!result.results.length) {
+    log('no source is due yet (see everyHours) — data files left unchanged');
+    return;
+  }
+
   const ok = result.results.filter((r) => r.ok).length;
   const active = result.jobs.jobs.filter((j) => j.state === 'active');
   const fresh = active.filter((j) => !j.baseline && Date.parse(j.firstSeenAt) === now.getTime());
