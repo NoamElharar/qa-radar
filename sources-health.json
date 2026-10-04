@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-04T17:38:19.443Z",
+  "generatedAt": "2026-10-04T17:47:16.384Z",
   "sources": [
     {
       "id": "linkedin",
@@ -624,13 +624,14 @@
       "baselineDone": true,
       "recentCounts": [
         1,
+        1,
         1
       ],
-      "lastRunAt": "2026-10-04T12:04:33.733Z",
-      "lastSuccessAt": "2026-10-04T12:04:33.733Z",
+      "lastRunAt": "2026-10-04T17:47:16.384Z",
+      "lastSuccessAt": "2026-10-04T17:47:16.384Z",
       "fetched": 1,
       "kept": 1,
-      "durationMs": 7476
+      "durationMs": 6441
     },
     {
       "id": "wix",
@@ -679,14 +680,14 @@
       "tier": "A",
       "homepage": "https://www.elal.com/heb/career/all-jobs",
       "status": "error",
-      "consecutiveFailures": 2,
+      "consecutiveFailures": 3,
       "baselineDone": false,
       "recentCounts": [],
-      "lastRunAt": "2026-10-04T12:04:33.733Z",
+      "lastRunAt": "2026-10-04T17:47:16.384Z",
       "fetched": 0,
       "kept": 0,
       "error": "Invalid JSON from https://www.elal.com/api/contentPage/path/x00xhebx00xcareerx00xall-jobs (starts with: <!DOCTYPE html><html><head><meta charset=\"utf-8\"><script type=\"text/javascript\" )",
-      "durationMs": 4900
+      "durationMs": 2350
     },
     {
       "id": "railways",
@@ -751,14 +752,14 @@
       "tier": "A",
       "homepage": "https://jobs.clalitapps.co.il/clalit/index.html?ci=0",
       "status": "error",
-      "consecutiveFailures": 2,
+      "consecutiveFailures": 3,
       "baselineDone": false,
       "recentCounts": [],
-      "lastRunAt": "2026-10-04T12:04:33.733Z",
+      "lastRunAt": "2026-10-04T17:47:16.384Z",
       "fetched": 0,
       "kept": 0,
       "error": "robots.txt unavailable for https://jobs.clalitapps.co.il (unreachable: fetch failed) — skipped this run to be safe",
-      "durationMs": 10976
+      "durationMs": 10940
     },
     {
       "id": "maccabi",
@@ -803,14 +804,14 @@
       "tier": "B",
       "homepage": "https://careers.iec.co.il/",
       "status": "error",
-      "consecutiveFailures": 2,
+      "consecutiveFailures": 3,
       "baselineDone": false,
       "recentCounts": [],
-      "lastRunAt": "2026-10-04T12:04:33.733Z",
+      "lastRunAt": "2026-10-04T17:47:16.384Z",
       "fetched": 0,
       "kept": 0,
       "error": "HTTP 403 for https://careers.iec.co.il/?referid=&freeText=&profs%5B%5D=15%2C44&page=1",
-      "durationMs": 5071
+      "durationMs": 3090
     },
     {
       "id": "noga",
