@@ -1,0 +1,93 @@
+# My matching profile. The match score (0–100) and the ✓/✗ lists on each job card come from here.
+# Deliberately generic: no employer names (the "hide company" list lives only in the browser).
+
+home: קריית עקרון
+yearsExperience: 2
+targetRegions: [center, shfela]
+
+# Skills I have → shown as ✓ when a job mentions them.
+skills:
+  - label: Manual / E2E
+    terms: [manual, ידני, ידניות, E2E, end to end]
+  - label: רגרסיה / סניטי
+    terms: [regression, רגרסיה, sanity, סניטי]
+  - label: STP/STD/STR
+    terms: [STP, STD, STR, תרחישי בדיקה, test plan, test cases]
+  - label: API testing
+    terms: [API, REST, RESTful]
+  - label: Postman
+    terms: [Postman]
+  - label: SOAP
+    terms: [SOAP]
+  - label: Swagger
+    terms: [Swagger, OpenAPI]
+  - label: SQL
+    terms: [SQL, SSMS, Teradata, 'T-SQL']
+  - label: MongoDB
+    terms: [MongoDB, Mongo, DocumentDB]
+  - label: Splunk
+    terms: [Splunk]
+  - label: Kafka
+    terms: [Kafka]
+  - label: JMeter / עומסים
+    terms: [JMeter, load test, load testing, עומסים]
+  - label: MQ
+    terms: [MQ, IBM MQ, RabbitMQ]
+  - label: AWS
+    terms: [AWS, EKS, SQS]
+  - label: Jira / Xray
+    terms: [Jira, Xray]
+  - label: TestRail
+    terms: [TestRail]
+  - label: Figma / Zeplin
+    terms: [Figma, Zeplin]
+  - label: Mobile (iOS/Android)
+    terms: [mobile, מובייל, iOS, Android, אנדרואיד]
+  - label: Backend / Batch
+    terms: [backend, back-end, batch, באצ', אצווה, integration, אינטגרציה]
+  - label: Selenium (בסיסי)
+    terms: [Selenium]
+  - label: Java (בסיסי)
+    terms: [Java]
+  - label: JavaScript (בסיסי)
+    terms: [JavaScript, JS]
+  - label: Agile
+    terms: [Agile, Scrum, אג'ייל]
+  - label: AI agents for QA
+    terms: [AI agents, LLM, GenAI, Generative AI]
+
+# Requirements I don't (yet) have → shown as ✗ when a job asks for them.
+gaps:
+  - label: Python
+    terms: [Python, pytest]
+  - label: 'C#'
+    terms: ['C#', '.NET', 'dotnet']
+  - label: TypeScript
+    terms: [TypeScript]
+  - label: Playwright
+    terms: [Playwright]
+  - label: Cypress
+    terms: [Cypress]
+  - label: Appium
+    terms: [Appium]
+  - label: Kubernetes / Docker
+    terms: [Kubernetes, k8s, Docker]
+  - label: CI/CD
+    terms: [CI/CD, Jenkins, GitHub Actions, GitLab CI, Azure DevOps]
+  - label: C / C++
+    terms: ['C++', 're:\bc\b(?=\s*(?:/|,|and|או|ו-))']
+  - label: Go
+    terms: [Golang]
+  - label: Robot Framework
+    terms: [Robot Framework]
+  - label: ISTQB
+    terms: [ISTQB]
+  - label: Linux
+    terms: [Linux, Bash, shell scripting]
+  - label: Salesforce / SAP
+    terms: [Salesforce, SAP]
+
+# Domains I like → bonus points (matched against the job's tags).
+bonusTags:
+  פינטק/בנקאות/ביטוח: 10
+  גיימינג/אודיו/מדיה: 8

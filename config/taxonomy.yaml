@@ -1,0 +1,133 @@
+# Classification dictionaries — edit freely, no code changes needed.
+#
+# Matching rules (see shared/src/hebrew.ts):
+#  - Text is normalized first: niqqud removed, Latin lower-cased, gender markers collapsed ("בודק/ת" → "בודק").
+#  - Hebrew terms tolerate up to two attached prefix letters (ה/ב/ל/ו/מ/ש/כ) and common inflections,
+#    so "בודק" also matches "הבודקת", "לבודקי", "בודקים".
+#  - English terms match whole words (plural "s" allowed).
+#  - Prefix a term with "re:" to use a raw regular expression (case-insensitive).
+
+qa:
+  # A job title containing one of these is a QA role (unless it hits `exclude`).
+  strong:
+    - QA
+    - SDET
+    - tester
+    - testing
+    - test engineer
+    - test automation
+    - automation tester
+    - quality engineer
+    - quality engineering
+    - quality assurance
+    - בודק תוכנה
+    - בדיקות תוכנה
+    - הבטחת איכות
+  # Ambiguous title words: accepted only with software/QA context (see `context`) or when the
+  # source page is already a QA category (sources.yaml → categoryQa: true).
+  weak:
+    - בודק
+    - בדיקות
+    - בדיקה
+    - אוטומציה
+    - automation
+    - test
+    - quality
+    - validation
+    - verification
+    - עומסים
+    - performance engineer
+  # Software/QA context words, looked up in title + description.
+  context:
+    - תוכנה
+    - software
+    - QA
+    - באגים
+    - bugs
+    - תרחישי בדיקה
+    - test cases
+    - test plan
+    - STD
+    - STP
+    - STR
+    - Jira
+    - Xray
+    - TestRail
+    - regression
+    - רגרסיה
+    - Selenium
+    - Playwright
+    - Cypress
+    - Appium
+    - Postman
+    - API
+    - E2E
+    - Web
+    - mobile
+    - מובייל
+    - אפליקציה
+    - JMeter
+    - מערכות מידע
+  # Title-level vetoes: non-software quality roles and look-alikes (real false positives from the audit).
+  exclude:
+    - ביטחוני # "אגף ביטחון - בודק/ת ביטחוני" (El Al)
+    - מתקנים # "בודק/ת מתקנים במתח גבוה" (IEC)
+    - מתח גבוה
+    - אל הרס # "בדיקות אל הרס" (IEC)
+    - בדיקות מעבדה
+    - בקרת איכות
+    - מבקר איכות
+    - quality control
+    - quality controller # "Electromechanical Quality Controller" (Abra)
+    - QC
+    - מזון
+    - תרופות
+    - GMP
+    - regulatory
+    - רגולציה
+    - רגולטורי
+    - איכות סביבה
+    - איכות הסביבה
+    - תביעות
+    - חשבונות
+    - RPA # "מפתח.ת אוטומציה RPA" (Aman)
+    - penetration # "Application Penetration Tester" (security, not QA)
+    - pen tester
+    - marketing automation
+    - treasury
+    - בודק מוסמך
+    - 're:בודק[\s-]+(?:ביטוח|רכב|גז|חשמל|ביטחוני)'
+
+# Subject tags. `field: title` restricts matching to the title (default: title + description).
+tags:
+  - label: בדיקות ידניות/E2E
+    terms: [manual, ידני, ידניות, E2E, end to end, רגרסיה, regression, sanity, STD, STP, תרחישי בדיקה, test cases]
+  - label: אוטומציה
+    terms: [automation, אוטומציה, Selenium, Playwright, Cypress, Appium, WebDriver, pytest, TestNG, JUnit, Robot Framework, SDET]
+  - label: API/Backend
+    terms: [API, REST, SOAP, Postman, Swagger, backend, back-end, server side, microservices, Kafka, MQ, web services]
+  - label: מובייל
+    terms: [mobile, מובייל, iOS, Android, אנדרואיד, Appium, אפליקציה, אפליקציות]
+  - label: ביצועים ועומסים
+    terms: [performance, load test, load testing, JMeter, Gatling, k6, LoadRunner, עומסים, ביצועים]
+  - label: דאטה/DB
+    terms: [SQL, database, MongoDB, Teradata, Oracle, ETL, BI, big data, דאטה, data engineer]
+  - label: ענן/DevOps
+    terms: [AWS, Azure, GCP, cloud, ענן, Kubernetes, Docker, CI/CD, Jenkins, DevOps, EKS]
+  - label: פינטק/בנקאות/ביטוח
+    terms: [fintech, פינטק, בנק, בנקאות, בנקאי, banking, ביטוח, insurance, פיננסי, פיננסית, financial, אשראי, credit, שוק ההון, capital market, תשלומים, payments, סליקה, משכנתאות]
+  - label: גיימינג/אודיו/מדיה
+    terms: [gaming, game, games, משחקים, audio, אודיו, media, מדיה, video, וידאו, streaming, OTT, Unity, FMOD, broadcast, שידור]
+  - label: אמבדד/חומרה
+    terms: [embedded, אמבדד, hardware, חומרה, firmware, low level, kernel, electronics, אלקטרוניקה, RF]
+  - label: ראש צוות/QA Lead
+    field: title
+    terms: [team lead, team leader, ראש צוות, 'ר"צ', lead, head of, group manager, מנהל, manager]
+
+# Seniority from the title. Checked in this order: management → senior → junior → mid.
+# If none match, years of experience decide: ≤1 junior, 2–4 mid, ≥5 senior.
+seniority:
+  management: [ראש צוות, 'ר"צ', team lead, team leader, group manager, head of, director, מנהל, manager]
+  senior: [senior, סניור, בכיר, sr, architect, ארכיטקט, principal, staff, expert, מומחה]
+  junior: [junior, "ג'וניור", גוניור, ללא ניסיון, בוגר, בוגרי, entry level, graduate, student, סטודנט, intern]
+  mid: [מנוסה, experienced, mid]

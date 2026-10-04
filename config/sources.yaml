@@ -1,0 +1,516 @@
+# QA Radar — source registry. One entry per source; adding a company on a supported platform = one entry.
+#
+# Fields
+#   id          stable identifier (used in job ids — never rename once data exists)
+#   name        display name;  company: hiring company shown on cards (direct sources)
+#   type        direct | agency | board
+#   tier        A (JSON/RSS) | B (HTML) | D (link-out only)  — see docs/PHASE-0-SOURCE-AUDIT.md
+#   adapter     platform adapter (collector/src/adapters) or "link-out"
+#   everyHours  minimum hours between runs (heavy or low-yield sources run less often)
+#   categoryQa  true when the fetched page is already a QA category (ambiguous titles are accepted)
+#   quickLinks  one-tap searches shown in the "check manually" panel (link-out sources)
+#
+# The collector checks robots.txt for every URL it requests (API hosts included) and refuses disallowed ones.
+
+sources:
+  # ─────────────────────────── Job boards / aggregators ───────────────────────────
+  - id: linkedin
+    name: LinkedIn
+    type: board
+    tier: D
+    adapter: link-out
+    homepage: https://www.linkedin.com/jobs/
+    note: robots.txt אוסר גישה אוטומטית
+    quickLinks:
+      - { label: 'משרות QA מהיממה האחרונה', url: 'https://www.linkedin.com/jobs/search-results/?keywords=qa&geoId=104243116&distance=0.0&f_TPR=r86400' }
+      - { label: 'בודק תוכנה מהיממה האחרונה', url: 'https://www.linkedin.com/jobs/search-results/?keywords=%D7%91%D7%95%D7%93%D7%A7%20%D7%AA%D7%95%D7%9B%D7%A0%D7%94&geoId=104243116&distance=0.0&f_TPR=r86400' }
+
+  - id: glassdoor
+    name: Glassdoor
+    type: board
+    tier: D
+    adapter: link-out
+    homepage: https://www.glassdoor.com/
+    note: תנאי השימוש אוסרים גישה אוטומטית
+    quickLinks:
+      - { label: 'משרות QA מהיממה האחרונה', url: 'https://www.glassdoor.com/Job/israel-qa-jobs-SRCH_IL.0,6_IN119_KO7,9.htm?fromAge=1' }
+
+  - id: indeed
+    name: Indeed
+    type: board
+    tier: D
+    adapter: link-out
+    homepage: https://il.indeed.com/
+    note: תנאי השימוש אוסרים גישה אוטומטית
+    quickLinks:
+      - { label: 'משרות QA מהיממה האחרונה', url: 'https://il.indeed.com/jobs?q=QA&fromage=1&sort=date' }
+      - { label: 'בודק תוכנה מהיממה האחרונה', url: 'https://il.indeed.com/jobs?q=%D7%91%D7%95%D7%93%D7%A7+%D7%AA%D7%95%D7%9B%D7%A0%D7%94&fromage=1&sort=date' }
+
+  - id: drushim
+    name: דרושים IL
+    type: board
+    tier: D
+    adapter: link-out
+    homepage: https://www.drushim.co.il/
+    note: תקנון סעיף 15 אוסר איסוף אוטומטי
+    quickLinks:
+      - { label: 'חיפוש QA', url: 'https://www.drushim.co.il/jobs/search/QA/' }
+      - { label: 'חיפוש בודק תוכנה', url: 'https://www.drushim.co.il/jobs/search/%D7%91%D7%95%D7%93%D7%A7%20%D7%AA%D7%95%D7%9B%D7%A0%D7%94/' }
+
+  - id: jobnet
+    name: Jobnet
+    type: board
+    tier: D
+    adapter: link-out
+    homepage: https://www.jobnet.co.il/
+    note: תקנון סעיף 27 אוסר סריקה אוטומטית
+    quickLinks:
+      - { label: 'לוח המשרות', url: 'https://www.jobnet.co.il/' }
+
+  - id: gotfriends
+    name: GotFriends
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://www.gotfriends.co.il/jobslobby/qa/
+    categoryQa: true
+    options:
+      url: https://www.gotfriends.co.il/jobslobby/qa/
+      item: '.jobs_list .item'
+      title: 'h2.title'
+      link: { selector: 'a.position', attr: href }
+      id: { selector: '.career_num', regex: '(\d+)' }
+      location: '.info-data'
+      description: '.desc'
+      pagination: { param: page, start: 1, max: 40 } # ~10 jobs per page; the QA lobby holds 240+
+
+  - id: goozali
+    name: Goozali
+    type: board
+    tier: D
+    adapter: link-out
+    homepage: https://goozali.com/
+    note: המשרות יושבות בטבלאות Airtable מוטמעות, אין API ציבורי
+    quickLinks:
+      - { label: 'משרות פתוחות', url: 'https://goozali.com/#jobopenings' }
+
+  # ─────────────────────────── Outsourcing / QA & IT services ───────────────────────────
+  - id: ness
+    name: NESS
+    type: agency
+    tier: A
+    adapter: ness
+    homepage: https://www.ness-tech.co.il/careers/
+    options:
+      url: https://www.ness-tech.co.il/careers/api/Careers/GetAllItems
+      jobUrl: https://www.ness-tech.co.il/careers/
+
+  - id: proceed
+    name: Proceed
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://proceed.co.il/career
+    note: המשרות נטענות מ-API של adamtotal שה-robots.txt שלו חוסם רובוטים
+    quickLinks:
+      - { label: 'לוח המשרות', url: 'https://proceed.co.il/career' }
+
+  - id: prologic
+    name: Prologic
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://www.prologic.co.il/
+    note: עמודי הקטגוריה קיימים אך ריקים ממשרות (נבדק 10/2026)
+    quickLinks:
+      - { label: 'בודקי תוכנה QA', url: 'https://www.prologic.co.il/בודקי-תוכנה-QA' }
+
+  - id: gtech
+    name: Gtech
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://gtech.co.il/משרות/
+    options:
+      url: https://gtech.co.il/משרות/
+      item: 'article.elementor-post'
+      title: 'h3.elementor-post__title'
+      link: { selector: 'h3.elementor-post__title a', attr: href }
+      description: '.elementor-post__excerpt'
+
+  - id: sqlink
+    name: SQLink
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://www.sqlink.com/career/db/qa/
+    categoryQa: true
+    options:
+      url: https://www.sqlink.com/career/db/qa/
+      item: 'div.boxInput'
+      title: 'h3.positionTitle'
+      link: { selector: 'a', attr: href }
+      id: { selector: ':self', attr: id }
+      description: '.text, .jobText'
+
+  - id: logica
+    name: Logica-IT
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://www.logica-it.com/
+    note: האתר לא זמין (לולאת הפניות 308); המשרות שלהם מתפרסמות בדרושים
+    quickLinks:
+      - { label: 'המשרות שלהם בדרושים', url: 'https://www.drushim.co.il/דרושים-311679-logica-it/' }
+
+  - id: compie
+    name: Compie
+    type: agency
+    tier: B
+    adapter: embedded-json
+    homepage: https://www.compie.co.il/he/work/?joinus
+    options:
+      url: https://www.compie.co.il/he/work/?joinus
+      nextData: true
+      path: props.pageProps.jobs
+      fields:
+        id: jobNumber
+        title: title
+        postedAt: published_at
+        description: [ShortTextForSharing, 'uWillDo[].description', AboutTheRole]
+
+  - id: commit
+    name: CommIT
+    type: agency
+    tier: A
+    adapter: comeet
+    homepage: https://www.comm-it.com/commit-jobs
+    options: { uid: '76.008', token: 67826D067833C0CF002D48020581368, hostedSlug: comm-it }
+
+  - id: comblack
+    name: Comblack
+    type: agency
+    tier: A
+    adapter: wp-rest
+    homepage: https://comblack.co.il/career/
+    options: { baseUrl: 'https://comblack.co.il', postType: careers }
+
+  - id: tesnet
+    name: Tesnet
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://tesnet-group.com/job/
+    options:
+      url: https://tesnet-group.com/job/
+      item: 'div.item-wrap'
+      title: 'h3.title'
+      link: { selector: 'a[href*="sharer.php"]', attr: href, regex: '[?&]u=([^&]+)' }
+      location: { selector: '.locations', regex: '(?:איזור|אזור)\s*:?\s*(.+)' }
+      description: '.description'
+
+  - id: aman
+    name: Aman Group
+    type: agency
+    tier: A
+    adapter: rss
+    homepage: https://www.aman-global.com/careers/בדיקות-תוכנה-qa/
+    categoryQa: true
+    options:
+      feedUrl: https://www.aman-global.com/careers/בדיקות-תוכנה-qa/feed/
+
+  - id: yael
+    name: קבוצת יעל
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://yaelgroup.com/jobs/
+    everyHours: 2 # one 5 MB page holding all ~370 jobs; robots.txt asks for Crawl-delay 10
+    options:
+      url: https://yaelgroup.com/jobs/
+      item: 'div.job_item'
+      title: 'h3.job_title'
+      link: { selector: 'button.share_link', attr: data-copy }
+      id: { from: link, regex: '/order/(\d+)' }
+      description: '.job_description'
+
+  - id: malamteam
+    name: Malam Team
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://www.malamteam.com/
+    note: מוגן ע"י אתגר בוטים של Cloudflare — לא עוקפים
+    quickLinks:
+      - { label: 'לובי קריירה', url: 'https://www.malamteam.com/לובי-קריירה/' }
+
+  - id: inmanage
+    name: InManage
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://www.inmanage.co.il/דרושים
+    options:
+      url: https://www.inmanage.co.il/דרושים
+      item: 'div.job-item'
+      title: '.job-title'
+      link: { selector: 'a[href]:not(.js-apply-job)', attr: href }
+      id: { selector: 'a.js-apply-job', attr: data-job-id }
+      description: '.js_job_require'
+
+  - id: moveo
+    name: Moveo
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://www.moveosource.com/#jobs
+    options:
+      url: https://www.moveosource.com/
+      item: 'div.fs-collection-item'
+      title: '.job-titel'
+      link: { selector: 'a[href*="/jobs/"]', attr: href }
+      location: '.text-block-9'
+      endClient: '.text-block-8'
+      description: '.paragraph-6'
+
+  - id: abra
+    name: Abra
+    type: agency
+    tier: B
+    adapter: abra
+    homepage: https://www.abra-it.com/career/?category=Automation+%26+QA#jobs
+    categoryQa: true
+    options:
+      url: https://www.abra-it.com/career/?category=Automation+%26+QA
+      ajaxUrl: https://www.abra-it.com/wp-admin/admin-ajax.php
+      category: Automation & QA
+
+  # ─────────────────────────── Banks, finance & payments ───────────────────────────
+  - id: onezero
+    name: ONE ZERO
+    type: direct
+    tier: A
+    adapter: comeet
+    homepage: https://www.onezerobank.com/en/career/
+    options: { uid: '36.00A', token: 63A255C63A63A18E831D063A31D063A1F22 }
+
+  - id: max
+    name: MAX
+    type: direct
+    tier: A
+    adapter: max
+    homepage: https://www.max.co.il/jobs/lobby
+    everyHours: 3
+    options: { url: 'https://www.max.co.il/api/lobby/getLobby?lobbyName=jobs&isMobile=false&catHashName=&isBusiness=false' }
+
+  - id: isracard
+    name: ישראכרט
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://marketing.isracard.co.il/careershome/
+    note: מוגן ע"י Cloudflare — לא עוקפים
+    quickLinks:
+      - { label: 'משרות טכנולוגיות', url: 'https://marketing.isracard.co.il/careershome/divisions/טכנולוגיות/' }
+
+  - id: ibi
+    name: IBI
+    type: direct
+    tier: B
+    adapter: html
+    homepage: https://www.ibi.co.il/career/
+    options:
+      url: https://www.ibi.co.il/career/
+      item: 'div.col-career-post'
+      title: 'p.career-title'
+      link: { selector: 'a.career-post', attr: href }
+      id: { selector: '.career-number', regex: '(\d+)' }
+
+  - id: mataf
+    name: 'מת"ף (הבינלאומי)'
+    type: direct
+    tier: B
+    adapter: html
+    homepage: https://www.fibi.co.il/private/general/about/jobs/jobsmataf/
+    everyHours: 3
+    options:
+      url: https://www.fibi.co.il/private/general/about/jobs/jobsmataf/
+      item: 'div.article-sections > section'
+      title: 'h2'
+      id: { selector: ':self', attr: id }
+      urlTemplate: '{pageUrl}#{id}'
+      location: { selector: ':self', regex: 'מיקום המשרה\s*:\s*([^,.\n]+)' }
+      description: ':self'
+      skipTitle: 'מדיניות'
+
+  - id: shva
+    name: 'שב"א'
+    type: direct
+    tier: A
+    adapter: comeet
+    homepage: https://www.shva.co.il/קריירה-חדש/
+    options: { uid: '1B.007', token: B174DA14DA12C5C21452145428A58B82C5C428A, hostedSlug: shva }
+
+  - id: masav
+    name: 'מס"ב'
+    type: direct
+    tier: A
+    adapter: wp-rest
+    homepage: https://www.masav.co.il/careers-2/
+    options: { baseUrl: 'https://www.masav.co.il', postType: position }
+
+  - id: altshuler
+    name: אלטשולר שחם
+    type: direct
+    tier: B
+    adapter: adamtotal-site
+    homepage: https://career.adamtotal.co.il/Home/Index?token=1EB6B34D-8783-4AD3-8SS80-7FA0CFA5DFC8
+    everyHours: 6 # pages are ~6 MB (inline images); one IT-filtered page
+    options:
+      baseUrl: https://career.adamtotal.co.il
+      token: 1EB6B34D-8783-4AD3-8SS80-7FA0CFA5DFC8
+      params: { prof: מחשוב ומערכות מידע }
+
+  # ─────────────────────────── Tech companies ───────────────────────────
+  - id: wix
+    name: Wix
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://careers.wix.com/positions
+    note: 'האתר נטען ב-JavaScript וה-API של SmartRecruiters חסום ב-robots.txt — מתוכנן דפדפן אוטומטי בשלב 2'
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://careers.wix.com/positions' }
+
+  - id: base44
+    name: Base44
+    type: direct
+    tier: A
+    adapter: base44
+    homepage: https://careers.base44.com/home
+    options: { url: 'https://base44.app/api/apps/68f7942ed453646e397708fb/functions/getJobs' }
+
+  # ─────────────────────────── Public sector, health, infrastructure & transport ───────────────────────────
+  - id: elal
+    name: אל על
+    type: direct
+    tier: A
+    adapter: elal
+    homepage: https://www.elal.com/heb/career/all-jobs
+    everyHours: 6
+    options: { url: 'https://www.elal.com/api/contentPage/path/x00xhebx00xcareerx00xall-jobs', jobsPage: 'https://www.elal.com/heb/career/all-jobs' }
+
+  - id: railways
+    name: רכבת ישראל
+    type: direct
+    tier: B
+    adapter: adamtotal-site
+    homepage: https://railcareer.adamtotal.co.il/Home/Index?token=45e7ea44-8787-4910-3423-c84e9fttredbccf_ext
+    everyHours: 12 # 5 pages × ~2 MB (inline images), QA roles are rare
+    options:
+      baseUrl: https://railcareer.adamtotal.co.il
+      token: 45e7ea44-8787-4910-3423-c84e9fttredbccf_ext
+      maxPages: 10
+
+  - id: cbc
+    name: CBC ישראל (קוקה-קולה)
+    type: direct
+    tier: B
+    adapter: adamtotal-site
+    homepage: https://career.adamtotal.co.il/Home/Index?token=4fiBEcF763Em2UKTVQ4OPb1hiX9SxJtoMHssWX
+    everyHours: 12
+    options:
+      baseUrl: https://career.adamtotal.co.il
+      token: 4fiBEcF763Em2UKTVQ4OPb1hiX9SxJtoMHssWX
+      params: { prof: טכנולוגיות מידע }
+
+  - id: nta
+    name: 'נת"ע'
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://www.nta.co.il/
+    note: מוגן ע"י Cloudflare Turnstile — לא עוקפים
+    quickLinks:
+      - { label: 'משרות פתוחות', url: 'https://www.nta.co.il/קריירה/#jobOffers' }
+
+  - id: clalit
+    name: כללית
+    type: direct
+    tier: A
+    adapter: redmatch
+    homepage: https://jobs.clalitapps.co.il/clalit/index.html?ci=0
+    everyHours: 6 # 1.6 MB response, QA roles are rare
+    options:
+      searchUrl: https://jobs.clalitapps.co.il/CandidateAPI/api//position/Search/9E6C0368-A39E-4D83-803E-CF2AF0BA28DD
+      countryId: 2
+      jobsPage: https://jobs.clalitapps.co.il/clalit/index.html?ci=0
+
+  - id: maccabi
+    name: מכבי
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://www.maccabi4u.co.il/careers/
+    note: 'המשרות נטענות מ-/api/ שחסום ב-robots.txt'
+    quickLinks:
+      - { label: 'משרות טכנולוגיה', url: 'https://www.maccabi4u.co.il/careers/search-job-positions/?&Professions=8' }
+
+  - id: maccabident
+    name: מכבידנט
+    type: direct
+    tier: D
+    adapter: link-out
+    enabled: false
+    homepage: https://maccabi-dent.com/קריירה-במכבידנט/
+    note: עמודי תחומים בלבד (רפואת שיניים), בלי משרות בודדות
+    quickLinks:
+      - { label: 'קריירה', url: 'https://maccabi-dent.com/קריירה-במכבידנט/' }
+
+  - id: iec
+    name: חברת החשמל
+    type: direct
+    tier: B
+    adapter: html
+    homepage: https://careers.iec.co.il/
+    everyHours: 6
+    options:
+      url: 'https://careers.iec.co.il/?referid=&freeText=&profs%5B%5D=15%2C44&page=1'
+      item: 'div.job_item'
+      title: '.archive-job_item-title'
+      id: { selector: ':self', attr: data-order_id }
+      urlTemplate: 'https://careers.iec.co.il/order/{id}/'
+      location: { selector: '.career_location', remove: '.hidden_span1' }
+      description: ':self'
+
+  - id: noga
+    name: נגה
+    type: direct
+    tier: B
+    adapter: embedded-json
+    homepage: https://www.noga-iso.co.il/jobs/
+    everyHours: 12
+    options:
+      url: https://www.noga-iso.co.il/jobs/
+      pattern: 'var openJobs = (\[[\s\S]*?\]);'
+      fields: { id: jobCode, title: title, url: url, location: location }
+
+  # ─────────────────────────── Media ───────────────────────────
+  - id: reshet13
+    name: רשת 13
+    type: direct
+    tier: B
+    adapter: html
+    homepage: https://13tv.co.il/item/general/jobs-13529/
+    everyHours: 3
+    options:
+      url: https://13tv.co.il/item/general/jobs-13529/
+      headings: 'article h2'
+
+  - id: keshet
+    name: קשת
+    type: direct
+    tier: A
+    adapter: comeet
+    homepage: https://jobs.keshet-mediagroup.com/
+    options: { uid: '26.009', token: 62924F603771314818A4127B24F631483771 }

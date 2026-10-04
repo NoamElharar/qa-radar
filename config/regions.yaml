@@ -1,0 +1,110 @@
+# Region map. A city may belong to more than one region (e.g. ראשון לציון → מרכז + שפלה).
+# `aliases` are matched like taxonomy terms (Hebrew prefixes tolerated: "בתל אביב", "לפתח תקווה").
+# Coordinates are approximate city centres, used only for the "distance from home" filter.
+# `nameIsAmbiguous: true` → the display name is a common word (e.g. "אזור" = "area"), so only aliases are matched.
+# Region aliases are only matched against a job's location field; cities are also looked up in the title.
+
+regions:
+  center:
+    label: מרכז
+    aliases: [מרכז, המרכז, אזור המרכז, מרכז הארץ, גוש דן, 'ת"א והמרכז', תל אביב והמרכז, center, central]
+  shfela:
+    label: שפלה
+    aliases: [שפלה, השפלה, אזור השפלה, shfela]
+  sharon:
+    label: שרון
+    aliases: [שרון, השרון, אזור השרון, sharon]
+  jerusalem:
+    label: ירושלים
+    aliases: [ירושלים והסביבה, אזור ירושלים, 'ירושלים ויו"ש', 'יו"ש']
+  north:
+    label: צפון וחיפה
+    aliases: [צפון, הצפון, אזור הצפון, חיפה והצפון, חיפה והקריות, north, haifa area]
+  south:
+    label: דרום
+    aliases: [דרום, הדרום, אזור הדרום, נגב, נגב ואילת, south]
+  remote:
+    label: מהבית/היברידי
+    aliases: [מהבית, עבודה מהבית, remote, היברידי, היברידית, hybrid]
+
+cities:
+  # ── מרכז ──
+  - { name: תל אביב-יפו, regions: [center], lat: 32.0853, lon: 34.7818, aliases: [תל אביב, תל-אביב, 'ת"א', יפו, רמת החייל, tel aviv, tel-aviv] }
+  - { name: רמת גן, regions: [center], lat: 32.0684, lon: 34.8248, aliases: [רמת-גן, הבורסה, ramat gan] }
+  - { name: גבעתיים, regions: [center], lat: 32.0722, lon: 34.8125, aliases: [givatayim] }
+  - { name: בני ברק, regions: [center], lat: 32.0807, lon: 34.8338, aliases: [בני-ברק, bnei brak] }
+  - { name: פתח תקווה, regions: [center], lat: 32.0840, lon: 34.8878, aliases: [פתח תקוה, פתח-תקווה, 'פ"ת', קריית אריה, קרית אריה, קריית מטלון, petah tikva, petach tikva, petah tiqwa] }
+  - { name: חולון, regions: [center], lat: 32.0158, lon: 34.7874, aliases: [holon] }
+  - { name: בת ים, regions: [center], lat: 32.0171, lon: 34.7454, aliases: [בת-ים, bat yam] }
+  - { name: ראש העין, regions: [center], lat: 32.0956, lon: 34.9566, aliases: [ראש-העין, פארק אפק, rosh haayin, rosh ha'ayin] }
+  - { name: אור יהודה, regions: [center], lat: 32.0306, lon: 34.8533, aliases: [or yehuda] }
+  - { name: יהוד-מונוסון, regions: [center], lat: 32.0333, lon: 34.8833, aliases: [יהוד מונוסון, yehud] }
+  - { name: קריית אונו, regions: [center], lat: 32.0636, lon: 34.8553, aliases: [קרית אונו, kiryat ono] }
+  - { name: אזור, nameIsAmbiguous: true, regions: [center], lat: 32.0244, lon: 34.8064, aliases: [azor] }
+  - { name: שוהם, regions: [center], lat: 31.9987, lon: 34.9466, aliases: [shoham] }
+  - { name: איירפורט סיטי, regions: [center], lat: 31.9930, lon: 34.8860, aliases: [קריית שדה התעופה, airport city] }
+  - { name: ראשון לציון, regions: [center, shfela], lat: 31.9730, lon: 34.7925, aliases: ['ראשל"צ', rishon lezion, rishon le zion] }
+  - { name: גני תקווה, regions: [center], lat: 32.0600, lon: 34.8730, aliases: [ganei tikva] }
+  - { name: אלעד, regions: [center], lat: 32.0520, lon: 34.9510, aliases: [elad] }
+  - { name: סביון, regions: [center], lat: 32.0470, lon: 34.8780, aliases: [savyon] }
+  # ── שפלה ──
+  - { name: רחובות, regions: [shfela], lat: 31.8928, lon: 34.8113, aliases: [rehovot] }
+  - { name: נס ציונה, regions: [shfela], lat: 31.9293, lon: 34.7987, aliases: [נס-ציונה, ness ziona, nes ziona] }
+  - { name: יבנה, regions: [shfela], lat: 31.8781, lon: 34.7398, aliases: [yavne] }
+  - { name: גן יבנה, regions: [shfela], lat: 31.7875, lon: 34.7069, aliases: [gan yavne] }
+  - { name: גדרה, regions: [shfela], lat: 31.8142, lon: 34.7792, aliases: [gedera] }
+  - { name: קריית עקרון, regions: [shfela], lat: 31.8611, lon: 34.8222, aliases: [קרית עקרון, kiryat ekron] }
+  - { name: מזכרת בתיה, regions: [shfela], lat: 31.8536, lon: 34.8467, aliases: [mazkeret batya] }
+  - { name: באר יעקב, regions: [shfela], lat: 31.9425, lon: 34.8344, aliases: [beer yaakov, be'er ya'akov] }
+  - { name: לוד, regions: [shfela], lat: 31.9510, lon: 34.8881, aliases: [lod] }
+  - { name: רמלה, regions: [shfela], lat: 31.9293, lon: 34.8656, aliases: [ramla] }
+  # "מודיעין עסקי" = business intelligence, so the bare word is matched only when not followed by עסקי/תחרותי.
+  - { name: מודיעין, nameIsAmbiguous: true, regions: [shfela], lat: 31.8980, lon: 35.0104, aliases: [מודיעין-מכבים-רעות, modiin, modi'in, 're:(?<![א-ת])[בלמה]?מודיעין(?!\s*(?:עסקי|תחרותי))(?![א-ת])'] }
+  - { name: גן שורק, regions: [shfela], lat: 31.9440, lon: 34.7550, aliases: [] }
+  - { name: בית דגן, regions: [shfela], lat: 32.0010, lon: 34.8300, aliases: [] }
+  # ── שרון ──
+  - { name: הרצליה, regions: [sharon], lat: 32.1624, lon: 34.8447, aliases: [הרצליה פיתוח, herzliya] }
+  - { name: רעננה, regions: [sharon], lat: 32.1848, lon: 34.8713, aliases: [raanana, ra'anana] }
+  - { name: כפר סבא, regions: [sharon], lat: 32.1750, lon: 34.9069, aliases: [כפר-סבא, kfar saba] }
+  - { name: הוד השרון, regions: [sharon], lat: 32.1500, lon: 34.8880, aliases: [hod hasharon] }
+  - { name: רמת השרון, regions: [sharon], lat: 32.1461, lon: 34.8394, aliases: [ramat hasharon] }
+  - { name: נתניה, regions: [sharon], lat: 32.3215, lon: 34.8532, aliases: [netanya] }
+  - { name: אבן יהודה, regions: [sharon], lat: 32.2700, lon: 34.8870, aliases: [even yehuda] }
+  - { name: כפר יונה, regions: [sharon], lat: 32.3170, lon: 34.9350, aliases: [kfar yona] }
+  - { name: חדרה, regions: [sharon, north], lat: 32.4340, lon: 34.9196, aliases: [hadera] }
+  - { name: קיסריה, regions: [sharon, north], lat: 32.5000, lon: 34.9000, aliases: [caesarea] }
+  # ── ירושלים ──
+  - { name: ירושלים, regions: [jerusalem], lat: 31.7683, lon: 35.2137, aliases: [jerusalem, הר חוצבים] }
+  - { name: בית שמש, regions: [jerusalem], lat: 31.7470, lon: 34.9881, aliases: [beit shemesh] }
+  - { name: מבשרת ציון, regions: [jerusalem], lat: 31.8020, lon: 35.1500, aliases: [mevaseret zion] }
+  - { name: מעלה אדומים, regions: [jerusalem], lat: 31.7774, lon: 35.2983, aliases: [maale adumim] }
+  # ── צפון וחיפה ──
+  - { name: חיפה, regions: [north], lat: 32.7940, lon: 34.9896, aliases: ['מת"ם', haifa] }
+  - { name: יוקנעם, regions: [north], lat: 32.6590, lon: 35.1090, aliases: [יוקנעם עילית, yokneam] }
+  - { name: נוף הגליל, regions: [north], lat: 32.7000, lon: 35.3200, aliases: [nof hagalil] }
+  - { name: נצרת, regions: [north], lat: 32.6996, lon: 35.3035, aliases: [nazareth] }
+  - { name: כרמיאל, regions: [north], lat: 32.9190, lon: 35.2950, aliases: [karmiel] }
+  - { name: עכו, regions: [north], lat: 32.9281, lon: 35.0820, aliases: [acre, akko] }
+  - { name: נהריה, regions: [north], lat: 33.0058, lon: 35.0940, aliases: [nahariya] }
+  - { name: עפולה, regions: [north], lat: 32.6078, lon: 35.2897, aliases: [afula] }
+  - { name: טבריה, regions: [north], lat: 32.7959, lon: 35.5300, aliases: [tiberias] }
+  - { name: מגדל העמק, regions: [north], lat: 32.6750, lon: 35.2400, aliases: [migdal haemek] }
+  - { name: קריית ביאליק, regions: [north], lat: 32.8330, lon: 35.0850, aliases: [קרית ביאליק, kiryat bialik] }
+  - { name: קריית אתא, regions: [north], lat: 32.8090, lon: 35.1060, aliases: [קרית אתא, kiryat ata] }
+  - { name: טירת כרמל, regions: [north], lat: 32.7600, lon: 34.9700, aliases: [tirat carmel] }
+  - { name: זכרון יעקב, regions: [north], lat: 32.5700, lon: 34.9500, aliases: [zichron yaakov] }
+  - { name: צפת, regions: [north], lat: 32.9646, lon: 35.4960, aliases: [safed] }
+  - { name: קריית שמונה, regions: [north], lat: 33.2073, lon: 35.5721, aliases: [קרית שמונה, kiryat shmona] }
+  - { name: בת גלים, regions: [north], lat: 32.8300, lon: 34.9800, aliases: [] }
+  # ── דרום ──
+  - { name: באר שבע, regions: [south], lat: 31.2520, lon: 34.7915, aliases: [באר-שבע, 'ב"ש', beer sheva, be'er sheva, beersheba] }
+  - { name: אשדוד, regions: [south], lat: 31.8014, lon: 34.6435, aliases: [ashdod] }
+  - { name: אשקלון, regions: [south], lat: 31.6688, lon: 34.5743, aliases: [ashkelon] }
+  - { name: קריית גת, regions: [south], lat: 31.6100, lon: 34.7642, aliases: [קרית גת, kiryat gat] }
+  - { name: קריית מלאכי, regions: [south], lat: 31.7300, lon: 34.7450, aliases: [קרית מלאכי, kiryat malakhi] }
+  - { name: שדרות, regions: [south], lat: 31.5250, lon: 34.5960, aliases: [sderot] }
+  - { name: נתיבות, regions: [south], lat: 31.4210, lon: 34.5880, aliases: [netivot] }
+  - { name: אופקים, regions: [south], lat: 31.3140, lon: 34.6200, aliases: [ofakim] }
+  - { name: דימונה, regions: [south], lat: 31.0700, lon: 35.0300, aliases: [dimona] }
+  - { name: ערד, regions: [south], lat: 31.2600, lon: 35.2100, aliases: [arad] }
+  - { name: אילת, regions: [south], lat: 29.5577, lon: 34.9519, aliases: [eilat] }
