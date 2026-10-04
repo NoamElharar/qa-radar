@@ -2,9 +2,9 @@ name: Collect & deploy
 
 on:
   schedule:
-    # Every hour at :17 UTC (off the busy top of the hour). The collector itself decides, in Israel time,
+    # Every hour at :23 UTC (off the busy top of the hour). The collector itself decides, in Israel time,
     # whether this slot runs: hourly Sun–Thu 07:00–21:00, every 3 hours otherwise. DST needs no edits.
-    - cron: '17 * * * *'
+    - cron: '23 * * * *'
   workflow_dispatch:
     inputs:
       force:

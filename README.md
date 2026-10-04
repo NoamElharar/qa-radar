@@ -21,7 +21,7 @@ A personal radar for **QA / Test Engineer jobs in Israel**. A polite, scheduled 
 
 ```mermaid
 flowchart LR
-  cron["GitHub Actions cron (:17 hourly)"] --> gate{"Israel-time window?"}
+  cron["GitHub Actions cron (:23 hourly)"] --> gate{"Israel-time window?"}
   gate -- no --> stop([exit])
   gate -- yes --> fetch["Adapters<br/>per-host queue · robots.txt · ≥2s"]
   fetch --> norm[Normalize]
