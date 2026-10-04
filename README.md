@@ -112,6 +112,15 @@ Then check it with `npm run try-source -- some-agency`. QA keywords, tags and se
 2. **Actions → Collect & deploy → Run workflow** once (with *force*). It creates the `data` branch and publishes the site.
 3. From then on the schedule runs by itself. Pushing to `main` redeploys the dashboard.
 
+### Backup hourly trigger
+
+GitHub's `schedule` trigger is best-effort (it can be delayed for hours, especially on new repositories), so an external timer also starts the workflow every hour:
+
+- A **fine-grained personal access token** limited to this repository with only **Actions: Read and write** (it can start workflow runs; it cannot change code).
+- A free **[cron-job.org](https://cron-job.org)** job: `POST https://api.github.com/repos/NoamElharar/qa-radar/actions/workflows/collect.yml/dispatches` with headers `Accept: application/vnd.github+json`, `Authorization: Bearer <token>`, `X-GitHub-Api-Version: 2022-11-28` and body `{"ref":"main","inputs":{"force":"false"}}`. GitHub answers `204 No Content`.
+
+Timed runs pass `force=false`, so they still follow the Israel-time schedule and each source's `everyHours`; duplicate triggers are harmless. Renew the token before it expires.
+
 No secrets are needed for Phase 1 (Telegram alerts arrive in Phase 2 and will use `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` repository secrets).
 
 ## Project structure

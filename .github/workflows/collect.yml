@@ -5,6 +5,9 @@ on:
     # Every hour at :23 UTC (off the busy top of the hour). The collector itself decides, in Israel time,
     # whether this slot runs: hourly Sun–Thu 07:00–21:00, every 3 hours otherwise. DST needs no edits.
     - cron: '23 * * * *'
+  # Also triggered hourly by an external timer (cron-job.org → workflow_dispatch with force=false), because
+  # GitHub's own scheduler is best-effort and may be delayed or skipped. Non-forced runs still obey the
+  # Israel-time gate and each source's `everyHours`, so overlapping triggers cost nothing extra.
   workflow_dispatch:
     inputs:
       force:
@@ -29,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     outputs:
-      changed: ${{ steps.commit.outputs.changed }}
+      publish: ${{ steps.publish.outputs.publish }}
     steps:
       - uses: actions/checkout@v7
 
@@ -81,22 +84,35 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
+      # Publish when the data changed, when code changed (push), or on a manual forced run.
+      # Routine timed runs with nothing new don't redeploy the site.
+      - name: Decide whether to publish
+        id: publish
+        run: |
+          if [ "${{ steps.commit.outputs.changed }}" = "true" ] \
+            || [ "${{ github.event_name }}" = "push" ] \
+            || [ "${{ github.event_name == 'workflow_dispatch' && inputs.force }}" = "true" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build dashboard
-        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        if: steps.publish.outputs.publish == 'true'
         run: |
           npm run build
           mkdir -p web/dist/data
           cp data/*.json web/dist/data/ 2>/dev/null || echo "No data files yet."
 
       - name: Upload Pages artifact
-        if: steps.commit.outputs.changed == 'true' || github.event_name != 'schedule'
+        if: steps.publish.outputs.publish == 'true'
         uses: actions/upload-pages-artifact@v5
         with:
           path: web/dist
 
   deploy:
     needs: collect
-    if: needs.collect.outputs.changed == 'true' || github.event_name != 'schedule'
+    if: needs.collect.outputs.publish == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
