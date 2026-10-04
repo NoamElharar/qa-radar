@@ -1,0 +1,18 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+
+# Collected data lives on the `data` branch (see README → "How data is stored").
+/data/
+
+# Private notes (personal profile details) — never commit.
+/docs/private/
+
+# Local scratch / editor tooling
+.scratch/
+.claude/
+.env
+.env.*

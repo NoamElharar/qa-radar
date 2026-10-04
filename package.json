@@ -1,0 +1,39 @@
+{
+  "name": "qa-radar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal radar for new QA / Test Engineer jobs in Israel — Hebrew RTL dashboard fed by a polite scheduled collector.",
+  "type": "module",
+  "workspaces": [
+    "shared",
+    "collector",
+    "web"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "collect": "npm run collect -w collector --",
+    "collect:force": "npm run collect -w collector -- --force",
+    "try-source": "npm run try-source -w collector --",
+    "dev": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "preview": "npm run preview -w web",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "npm run typecheck --workspaces",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "check": "npm run lint && npm run typecheck && npm run test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2",
+    "vitest": "^3.0.0"
+  }
+}
