@@ -6,9 +6,17 @@ export const USER_AGENT =
 const ROBOTS_TOKEN = 'QA-Radar';
 
 export class RobotsDisallowedError extends Error {
-  constructor(url: string) {
-    super(`robots.txt disallows ${url}`);
+  constructor(url: string, message = `robots.txt disallows ${url}`) {
+    super(message);
     this.name = 'RobotsDisallowedError';
+  }
+}
+
+/** robots.txt could not be read (5xx / network error): we skip the host this run rather than guess. */
+export class RobotsUnavailableError extends RobotsDisallowedError {
+  constructor(url: string, reason: string) {
+    super(url, `robots.txt unavailable for ${new URL(url).origin} (${reason}) — skipped this run to be safe`);
+    this.name = 'RobotsUnavailableError';
   }
 }
 
@@ -42,6 +50,8 @@ export interface PoliteClientOptions {
 interface RobotsInfo {
   isAllowed: (url: string) => boolean;
   crawlDelayMs: number;
+  /** Set when robots.txt could not be read; every URL on the host is then skipped. */
+  unavailable?: string;
 }
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -109,6 +119,7 @@ export class PoliteClient {
     const release = await this.acquire(host);
     try {
       const robots = await this.getRobots(target.origin, host);
+      if (robots.unavailable) throw new RobotsUnavailableError(target.href, robots.unavailable);
       if (!robots.isAllowed(target.href)) throw new RobotsDisallowedError(target.href);
       return await this.fetchWithRetry(target.href, options, host, robots.crawlDelayMs);
     } finally {
@@ -151,6 +162,7 @@ export class PoliteClient {
     await this.waitForSlot(host);
     let status = 0;
     let text = '';
+    let failure = '';
     try {
       this.requestCount++;
       const res = await this.fetchImpl(robotsUrl, {
@@ -164,13 +176,14 @@ export class PoliteClient {
       if (res.ok && !type.includes('text/html')) text = await res.text();
     } catch (error) {
       status = -1;
-      this.log(`robots.txt unreachable for ${origin}: ${(error as Error).message}`);
+      failure = (error as Error).message;
+      this.log(`robots.txt unreachable for ${origin}: ${failure}`);
     } finally {
       this.markSlot(host, 0);
     }
     // Same policy as major crawlers: 4xx → no restrictions; 5xx/unreachable → assume disallow for now.
     if (status === -1 || status >= 500) {
-      return { isAllowed: () => false, crawlDelayMs: 0 };
+      return { isAllowed: () => false, crawlDelayMs: 0, unavailable: status === -1 ? `unreachable: ${failure}` : `HTTP ${status}` };
     }
     const parsed = robotsParser(robotsUrl, normalizeRobotsTxt(text));
     const crawlDelaySec = parsed.getCrawlDelay(ROBOTS_TOKEN) ?? 0;

@@ -49,6 +49,11 @@ export const htmlOptionsSchema = z
       .optional(),
     /** Article layout: each heading is a job; the blocks after it (until the next heading) are its text. */
     headings: z.string().optional(),
+    /**
+     * By default a page with zero job items is reported as an error (layout changed, or the site served
+     * a block page with HTTP 200). Set true for sources that can legitimately list no jobs.
+     */
+    allowEmpty: z.boolean().default(false),
   })
   .refine((o) => o.headings || (o.item && o.title), {
     message: 'html adapter needs either `headings` or both `item` and `title`',
@@ -145,10 +150,19 @@ function parseHeadings($: CheerioAPI, pageUrl: string, headingSelector: string):
   return jobs;
 }
 
+function assertNotEmpty(jobs: RawJob[], options: HtmlOptions): RawJob[] {
+  if (!jobs.length && !options.allowEmpty) {
+    throw new Error(
+      `no job items matched "${options.headings ?? options.item}" — the page layout changed or the site served a block page`,
+    );
+  }
+  return jobs;
+}
+
 export const htmlAdapter: Adapter = async ({ source, http, log }) => {
   const options = htmlOptionsSchema.parse(source.options);
   if (!options.pagination) {
-    return parseHtmlJobs(await http.text(options.url), options.url, options);
+    return assertNotEmpty(parseHtmlJobs(await http.text(options.url), options.url, options), options);
   }
   const { param, start, max } = options.pagination;
   const all: RawJob[] = [];
@@ -167,5 +181,5 @@ export const htmlAdapter: Adapter = async ({ source, http, log }) => {
     if (!fresh.length) break;
     if (page === start + max - 1) log(`stopped at pagination limit (${max} pages)`);
   }
-  return all;
+  return assertNotEmpty(all, options);
 };

@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { HttpError, normalizeRobotsTxt, PoliteClient, RobotsDisallowedError, USER_AGENT } from '../src/http.ts';
+import {
+  HttpError,
+  normalizeRobotsTxt,
+  PoliteClient,
+  RobotsDisallowedError,
+  RobotsUnavailableError,
+  USER_AGENT,
+} from '../src/http.ts';
 
 type Route = (url: string, init?: RequestInit) => Response | Promise<Response>;
 
@@ -49,11 +56,12 @@ describe('PoliteClient', () => {
     expect(await client.text('https://b.test/jobs')).toBe('B');
   });
 
-  it('assumes disallow when robots.txt errors (5xx), like major crawlers', async () => {
-    const { impl } = fakeFetch({ 'https://down.test/robots.txt': text('oops', 503), 'https://down.test/jobs': text('x') });
-    await expect(new PoliteClient({ fetchImpl: impl, minDelayMs: 0 }).text('https://down.test/jobs')).rejects.toBeInstanceOf(
-      RobotsDisallowedError,
-    );
+  it('assumes disallow when robots.txt errors (5xx), like major crawlers — with a clear reason', async () => {
+    const { impl, calls } = fakeFetch({ 'https://down.test/robots.txt': text('oops', 503), 'https://down.test/jobs': text('x') });
+    const attempt = new PoliteClient({ fetchImpl: impl, minDelayMs: 0 }).text('https://down.test/jobs');
+    await expect(attempt).rejects.toBeInstanceOf(RobotsUnavailableError);
+    await expect(attempt).rejects.toThrow(/robots\.txt unavailable for https:\/\/down\.test \(HTTP 503\)/);
+    expect(calls.map((c) => c.url)).toEqual(['https://down.test/robots.txt']);
   });
 
   it('spaces requests to the same host and honours Crawl-delay', async () => {

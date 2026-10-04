@@ -3,7 +3,9 @@ import { parseAbraItems } from '../src/adapters/abra.ts';
 import { parseAdamtotalPage } from '../src/adapters/adamtotal.ts';
 import { mapComeet } from '../src/adapters/comeet.ts';
 import { getPath, parseEmbeddedJson } from '../src/adapters/embedded-json.ts';
-import { htmlOptionsSchema, parseHtmlJobs } from '../src/adapters/html.ts';
+import { htmlAdapter, htmlOptionsSchema, parseHtmlJobs } from '../src/adapters/html.ts';
+import type { SourceConfig } from '../src/config.ts';
+import type { PoliteClient } from '../src/http.ts';
 import { collectElalBanners, mapMax, mapNess } from '../src/adapters/json-sites.ts';
 import { parseRss } from '../src/adapters/rss.ts';
 import { mapWpPosts } from '../src/adapters/wp-rest.ts';
@@ -99,6 +101,19 @@ describe('html adapter (selector-driven)', () => {
 
   it('rejects incomplete configs', () => {
     expect(() => htmlOptionsSchema.parse({ url: 'https://x.test/' })).toThrow();
+  });
+
+  it('reports a page with zero job items as an error (block page / layout change) unless allowEmpty', async () => {
+    const source = (extra: Record<string, unknown>) =>
+      ({ id: 'x', options: { url: 'https://x.test/jobs', item: '.job', title: 'h3', ...extra } }) as unknown as SourceConfig;
+    const ctx = (s: SourceConfig) => ({
+      source: s,
+      http: { text: async () => '<html><body>Access denied</body></html>' } as unknown as PoliteClient,
+      log: () => {},
+      isQaCandidate: () => true,
+    });
+    await expect(htmlAdapter(ctx(source({})))).rejects.toThrow(/no job items matched/);
+    await expect(htmlAdapter(ctx(source({ allowEmpty: true })))).resolves.toEqual([]);
   });
 });
 

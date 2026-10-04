@@ -82,7 +82,7 @@ sources:
       id: { selector: '.career_num', regex: '(\d+)' }
       location: '.info-data'
       description: '.desc'
-      pagination: { param: page, start: 1, max: 40 } # ~10 jobs per page; the QA lobby holds 240+
+      pagination: { param: page, start: 1, max: 60 } # ~10 jobs per page; the QA lobby held ~390 on 2026-10-04
 
   - id: goozali
     name: Goozali
