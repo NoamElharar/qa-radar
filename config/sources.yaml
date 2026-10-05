@@ -244,6 +244,16 @@ sources:
       id: { from: link, regex: '/order/(\d+)' }
       description: '.job_description'
 
+  - id: ozsoftware
+    name: OZ Software
+    type: agency
+    tier: A
+    adapter: wpml-ajax
+    homepage: https://ozsoftware.com/he/careers/
+    options:
+      ajaxUrl: https://ozsoftware.com/wp-admin/admin-ajax.php
+      pageId: 3090
+
   - id: malamteam
     name: Malam Team
     type: agency
