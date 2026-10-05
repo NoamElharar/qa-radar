@@ -27,6 +27,9 @@ export interface StatusEntry {
   note?: string;
   appliedAt?: string;
   updatedAt: string;
+  /** Pinned entries are shown first in "המועמדויות שלי". */
+  pinned?: boolean;
+  pinnedAt?: string;
   /** Snapshot so the entry stays readable after the job leaves jobs.json. */
   snapshot?: { title: string; company?: string; url: string };
 }

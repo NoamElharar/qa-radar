@@ -14,6 +14,31 @@
   --color-brand-900: #134e4a;
 }
 
+/*
+ * Application-status identity colors (dots and the weekly chart's legend only — never text).
+ * Validated with the dataviz palette checker on the card surfaces (#ffffff light, #0f172a dark):
+ * every adjacent pair clears the normal-vision floor; light mode needs labels beside each dot
+ * (yellow/magenta < 3:1, red↔green CVD 7.2), so a status is never shown by color alone.
+ */
+:root {
+  --st-saved: #eda100;
+  --st-applied: #2a78d6;
+  --st-interview: #e87ba4;
+  --st-offer: #008300;
+  --st-rejected: #e34948;
+  --st-irrelevant: #94a3b8;
+  --st-viewed: #cbd5e1;
+}
+html[data-theme='dark'] {
+  --st-saved: #c98500;
+  --st-applied: #3987e5;
+  --st-interview: #d55181;
+  --st-offer: #008300;
+  --st-rejected: #e66767;
+  --st-irrelevant: #64748b;
+  --st-viewed: #475569;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   background-color: #f8fafc;

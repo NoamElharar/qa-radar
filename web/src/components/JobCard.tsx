@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { BADGE_LABELS, badgeFor, REGION_LABELS, SENIORITY_LABELS, type Badge, type Job } from '@qa-radar/shared';
 import { STATUS_LABELS, STATUS_ORDER, type JobStatus, type StatusEntry } from '../lib/storage.ts';
+import { textDir } from '../lib/bidi.ts';
 import { formatDate, relativeTime } from '../lib/time.ts';
 import { CheckIcon, DotsIcon, ExternalIcon, PinIcon, StarIcon } from './icons.tsx';
 
@@ -11,13 +12,6 @@ const BADGE_STYLES: Record<Badge, string> = {
   closed: 'bg-slate-300 text-slate-700 dark:bg-slate-700 dark:text-slate-200',
 };
 
-/**
- * Base direction for mixed titles: any Hebrew → RTL (so "Manual QA בחברת Gaming" reads naturally),
- * pure Latin → LTR. Safer than dir="auto", which picks LTR whenever the first letter is Latin.
- */
-export function textDir(text: string): 'rtl' | 'ltr' {
-  return /[\u0590-\u05FF]/.test(text) ? 'rtl' : 'ltr';
-}
 
 const MAX_TAGS = 5;
 

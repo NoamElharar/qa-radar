@@ -14,17 +14,23 @@ const dateTimeFmt = new Intl.DateTimeFormat('he-IL', {
 });
 const dayKeyFmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Jerusalem' });
 
-/** "לפני 3 שעות", "אתמול", "לפני 5 ימים" — relative to now, in Hebrew. */
+const HOUR_MS = 3600000;
+const DAY_MS = 24 * HOUR_MS;
+
+/** Some ICU versions append the count to Hebrew dual forms: "לפני שעתיים (2)". Drop it. */
+const format = (value: number, unit: Intl.RelativeTimeFormatUnit) => rtf.format(value, unit).replace(/\s*\(\d+\)\s*$/, '');
+
+/** "לפני 3 שעות", "אתמול", "לפני 5 ימים", "לפני 3 שבועות" — relative to now, in Hebrew. */
 export function relativeTime(iso: string | undefined, now: Date = new Date()): string {
   if (!iso) return '';
   const diffMs = Date.parse(iso) - now.getTime();
   const abs = Math.abs(diffMs);
-  const minutes = Math.round(diffMs / 60000);
   if (abs < 60000) return 'עכשיו';
-  if (abs < 3600000) return rtf.format(minutes, 'minute');
-  if (abs < 86400000) return rtf.format(Math.round(diffMs / 3600000), 'hour');
-  if (abs < 30 * 86400000) return rtf.format(Math.round(diffMs / 86400000), 'day');
-  return rtf.format(Math.round(diffMs / (30 * 86400000)), 'month');
+  if (abs < HOUR_MS) return format(Math.round(diffMs / 60000), 'minute');
+  if (abs < DAY_MS) return format(Math.round(diffMs / HOUR_MS), 'hour');
+  if (abs < 14 * DAY_MS) return format(Math.round(diffMs / DAY_MS), 'day');
+  if (abs < 56 * DAY_MS) return format(Math.round(diffMs / (7 * DAY_MS)), 'week');
+  return format(Math.round(diffMs / (30 * DAY_MS)), 'month');
 }
 
 /** Israeli day-first date, e.g. 04.10.2026. */

@@ -148,6 +148,15 @@ export function App() {
     if (!prev) return;
     updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: { ...prev, ...patch, updatedAt: new Date().toISOString() } } });
   };
+  /** Pinning is about display order only, so it doesn't count as an update (keeps "waiting" timers honest). */
+  const togglePin = (id: string) => {
+    const prev = personal.statuses[id];
+    if (!prev) return;
+    const next: StatusEntry = prev.pinned
+      ? { ...prev, pinned: undefined, pinnedAt: undefined }
+      : { ...prev, pinned: true, pinnedAt: new Date().toISOString() };
+    updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: next } });
+  };
   const clearEntry = (id: string) => {
     const statuses = { ...personal.statuses };
     delete statuses[id];
@@ -266,7 +275,9 @@ export function App() {
             <MineView
               personal={personal}
               jobsById={jobsById}
+              now={now}
               onUpdate={updateEntry}
+              onTogglePin={togglePin}
               onClear={clearEntry}
               onHide={hideCompany}
               onUnhide={unhideCompany}
@@ -303,7 +314,12 @@ export function App() {
       )}
       <BottomNav
         view={filters.view}
-        counts={{ new: newTodayCount, mine: Object.keys(personal.statuses).length || undefined, sources: failing.length || undefined }}
+        counts={{
+          new: newTodayCount,
+          // "נצפה" is set automatically when a posting is opened — not something to act on, so not counted.
+          mine: Object.values(personal.statuses).filter((e) => e.status !== 'viewed').length || undefined,
+          sources: failing.length || undefined,
+        }}
         onView={setView}
       />
     </>
