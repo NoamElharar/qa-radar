@@ -23,6 +23,66 @@ interface Props {
   showStatus: boolean;
 }
 
+const fieldClass =
+  'w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900';
+
+/** Title / company / link are editable only for applications added by hand (collected ones come from the source). */
+function ManualDetails({
+  id,
+  entry,
+  onUpdate,
+}: {
+  id: string;
+  entry: StatusEntry;
+  onUpdate: (id: string, patch: Partial<StatusEntry>) => void;
+}) {
+  const snapshot = entry.snapshot ?? { title: '', url: '' };
+  const save = (patch: Partial<NonNullable<StatusEntry['snapshot']>>) => {
+    const next = { ...snapshot, ...patch };
+    if (!next.title.trim()) return; // a title is required
+    if (
+      next.title === snapshot.title &&
+      next.company === snapshot.company &&
+      next.url === snapshot.url
+    )
+      return;
+    onUpdate(id, { snapshot: next });
+  };
+  return (
+    <div className="grid gap-3 sm:grid-cols-3">
+      <label className="text-sm">
+        <span className="mb-1 block text-xs text-slate-500">שם המשרה</span>
+        <input
+          defaultValue={snapshot.title}
+          onBlur={(e) => save({ title: e.target.value.trim() })}
+          className={fieldClass}
+        />
+      </label>
+      <label className="text-sm">
+        <span className="mb-1 block text-xs text-slate-500">חברה</span>
+        <input
+          defaultValue={snapshot.company ?? ''}
+          onBlur={(e) => save({ company: e.target.value.trim() || undefined })}
+          className={fieldClass}
+        />
+      </label>
+      <label className="text-sm">
+        <span className="mb-1 block text-xs text-slate-500">קישור</span>
+        <input
+          type="url"
+          dir="ltr"
+          defaultValue={snapshot.url}
+          placeholder="https://"
+          onBlur={(e) =>
+            save({ url: /^https?:/i.test(e.target.value.trim()) ? e.target.value.trim() : '' })
+          }
+          className={`${fieldClass} text-start`}
+        />
+      </label>
+    </div>
+  );
+}
+
 /** One application: two calm lines when collapsed; status, date and notes when expanded. */
 export const MineRow = memo(function MineRow({
   item,
@@ -74,6 +134,13 @@ export const MineRow = memo(function MineRow({
                 ⏳ {daysWaiting(entry, now)} ימים בלי תגובה
               </span>
             )}
+            {entry.manual ? (
+              <span className="rounded-md bg-slate-100 px-1.5 py-px text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                ✍️ ידני{entry.channel ? ` · ${entry.channel}` : ''}
+              </span>
+            ) : (
+              entry.channel && <span>דרך {entry.channel}</span>
+            )}
             {gone && <span className="text-slate-400">· המשרה הוסרה מהמקור</span>}
             {entry.note && <span title={entry.note}>📝 הערה</span>}
           </span>
@@ -117,7 +184,22 @@ export const MineRow = memo(function MineRow({
             ))}
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-[12rem_1fr]">
+          {entry.manual && <ManualDetails id={id} entry={entry} onUpdate={onUpdate} />}
+
+          <div className="grid gap-3 sm:grid-cols-[12rem_12rem_1fr]">
+            <label className="text-sm">
+              <span className="mb-1 block text-xs text-slate-500">איפה הגשתי</span>
+              <input
+                defaultValue={entry.channel ?? ''}
+                list="qa-radar-channels"
+                placeholder="LinkedIn, AllJobs…"
+                onBlur={(e) =>
+                  e.target.value.trim() !== (entry.channel ?? '') &&
+                  onUpdate(id, { channel: e.target.value.trim() || undefined })
+                }
+                className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
+              />
+            </label>
             <label className="text-sm">
               <span className="mb-1 block text-xs text-slate-500">תאריך הגשה</span>
               <input

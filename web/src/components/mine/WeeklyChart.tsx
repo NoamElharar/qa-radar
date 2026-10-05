@@ -31,7 +31,10 @@ export function WeeklyChart({ weeks }: { weeks: WeekCount[] }) {
       </figcaption>
 
       <div dir="ltr" className="relative mt-3">
-        <div className="flex items-end gap-1 border-b border-slate-200 dark:border-slate-700" style={{ height: PLOT_PX + 18 }}>
+        <div
+          className="flex items-end gap-1 border-b border-slate-200 dark:border-slate-700"
+          style={{ height: PLOT_PX + 18 }}
+        >
           {weeks.map((w, i) => {
             const height = max ? Math.max((w.count / max) * PLOT_PX, w.count ? 3 : 0) : 0;
             const showLabel = (i === last || i === peak) && w.count > 0;
@@ -47,7 +50,11 @@ export function WeeklyChart({ weeks }: { weeks: WeekCount[] }) {
                 onBlur={() => setActive(null)}
                 className="relative flex h-full flex-1 cursor-default flex-col items-center justify-end outline-none"
               >
-                {showLabel && <span className="mb-1 text-[11px] text-slate-600 dark:text-slate-300">{w.count}</span>}
+                {showLabel && (
+                  <span className="mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+                    {w.count}
+                  </span>
+                )}
                 <div
                   className={`w-full max-w-6 rounded-t ${
                     i === last ? 'bg-brand-600 dark:bg-brand-500' : 'bg-slate-300 dark:bg-slate-600'
@@ -57,7 +64,7 @@ export function WeeklyChart({ weeks }: { weeks: WeekCount[] }) {
                 {active === i && (
                   <div
                     dir="rtl"
-                    className="pointer-events-none absolute bottom-full z-10 mb-1 rounded-lg bg-slate-900 px-2 py-1 text-xs whitespace-nowrap text-white shadow-lg dark:bg-slate-100 dark:text-slate-900"
+                    className={`pointer-events-none absolute bottom-full z-10 mb-1 rounded-lg ${i < 2 ? 'left-0' : i > weeks.length - 3 ? 'right-0' : 'left-1/2 -translate-x-1/2'} bg-slate-900 px-2 py-1 text-xs whitespace-nowrap text-white shadow-lg dark:bg-slate-100 dark:text-slate-900`}
                   >
                     {dayMonth(w.week)}–{dayMonth(weekEnd(w.week))}: {w.count} הגשות
                   </div>
@@ -68,7 +75,10 @@ export function WeeklyChart({ weeks }: { weeks: WeekCount[] }) {
         </div>
         <div className="mt-1 flex gap-1 text-[10px] text-slate-400 tabular-nums">
           {weeks.map((w, i) => (
-            <span key={w.week} className={`flex-1 text-center ${i === last ? 'font-semibold text-slate-600 dark:text-slate-300' : ''}`}>
+            <span
+              key={w.week}
+              className={`flex-1 text-center ${i === last ? 'font-semibold text-slate-600 dark:text-slate-300' : ''}`}
+            >
               {i === last ? 'השבוע' : dayMonth(w.week)}
             </span>
           ))}

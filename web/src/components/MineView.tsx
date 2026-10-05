@@ -5,6 +5,7 @@ import {
   APPLIED_WINDOW_LABELS,
   applyMineFilters,
   buildItems,
+  CHANNEL_SUGGESTIONS,
   COLLAPSED_BY_DEFAULT,
   DEFAULT_MINE_FILTERS,
   groupItems,
@@ -25,6 +26,7 @@ import {
   type StatusEntry,
 } from '../lib/storage.ts';
 import { SearchIcon } from './icons.tsx';
+import { AddApplication } from './mine/AddApplication.tsx';
 import { MineRow } from './mine/MineRow.tsx';
 import { MineSummary } from './mine/MineSummary.tsx';
 import { StatusDot } from './mine/StatusDot.tsx';
@@ -36,6 +38,7 @@ interface Props {
   jobsById: Map<string, Job>;
   now: Date;
   onUpdate: (jobId: string, patch: Partial<StatusEntry>) => void;
+  onAdd: (jobId: string, entry: StatusEntry) => void;
   onTogglePin: (jobId: string) => void;
   onClear: (jobId: string) => void;
   onUnhide: (name: string) => void;
@@ -48,6 +51,7 @@ const FLAG_LABELS: Record<MineFlag, string> = {
   pinned: '📌 נעוצים',
   stale: '⏳ ממתינות 14+ ימים',
   notes: '📝 עם הערות',
+  manual: '✍️ ידניות',
 };
 
 function useMineFilters() {
@@ -68,6 +72,7 @@ export function MineView({
   jobsById,
   now,
   onUpdate,
+  onAdd,
   onTogglePin,
   onClear,
   onUnhide,
@@ -127,9 +132,16 @@ export function MineView({
 
   return (
     <div className="space-y-4">
+      <AddApplication onAdd={onAdd} />
+      <datalist id="qa-radar-channels">
+        {CHANNEL_SUGGESTIONS.map((c) => (
+          <option key={c} value={c} />
+        ))}
+      </datalist>
       {!items.length ? (
         <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-slate-500 dark:border-slate-700">
-          עוד לא סימנת משרות. השתמש/י בכוכב או בתפריט הסטטוס בכרטיס משרה, והן יופיעו כאן.
+          עוד לא סימנת משרות. השתמש/י בכוכב או בתפריט הסטטוס בכרטיס משרה — או הוסף/י ידנית מועמדות
+          שהגשת במקום אחר.
         </p>
       ) : (
         <>

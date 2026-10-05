@@ -30,6 +30,10 @@ export interface StatusEntry {
   /** Pinned entries are shown first in "המועמדויות שלי". */
   pinned?: boolean;
   pinnedAt?: string;
+  /** Added by hand for a job the collector never saw (id starts with "manual:"). */
+  manual?: boolean;
+  /** Where I applied, e.g. "LinkedIn", "AllJobs", "חבר מביא חבר". */
+  channel?: string;
   /** Snapshot so the entry stays readable after the job leaves jobs.json. */
   snapshot?: { title: string; company?: string; url: string };
 }

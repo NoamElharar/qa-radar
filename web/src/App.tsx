@@ -148,6 +148,8 @@ export function App() {
     if (!prev) return;
     updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: { ...prev, ...patch, updatedAt: new Date().toISOString() } } });
   };
+  const addManual = (id: string, entry: StatusEntry) =>
+    updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: entry } });
   /** Pinning is about display order only, so it doesn't count as an update (keeps "waiting" timers honest). */
   const togglePin = (id: string) => {
     const prev = personal.statuses[id];
@@ -277,6 +279,7 @@ export function App() {
               jobsById={jobsById}
               now={now}
               onUpdate={updateEntry}
+              onAdd={addManual}
               onTogglePin={togglePin}
               onClear={clearEntry}
               onHide={hideCompany}

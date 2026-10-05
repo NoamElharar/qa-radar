@@ -67,6 +67,16 @@ sources:
     quickLinks:
       - { label: 'לוח המשרות', url: 'https://www.jobnet.co.il/' }
 
+  - id: alljobs
+    name: AllJobs
+    type: board
+    tier: D
+    adapter: link-out
+    homepage: https://www.alljobs.co.il/
+    note: תנאי השימוש (סעיפים 4–5) אוסרים העתקה ופרסום של תוכן האתר
+    quickLinks:
+      - { label: 'משרות QA של Gtech', url: 'https://www.alljobs.co.il/Employer/HP/default.aspx?cid=90589&JobCategoriesFilter=431' }
+
   - id: gotfriends
     name: GotFriends
     type: agency

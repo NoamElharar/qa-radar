@@ -14,7 +14,17 @@ interface Props {
   onToggleStale: () => void;
 }
 
-function Tile({ label, value, sub, children }: { label: string; value: ReactNode; sub?: ReactNode; children?: ReactNode }) {
+function Tile({
+  label,
+  value,
+  sub,
+  children,
+}: {
+  label: string;
+  value: ReactNode;
+  sub?: ReactNode;
+  children?: ReactNode;
+}) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
       <p className="text-xs text-slate-500">{label}</p>
@@ -26,7 +36,15 @@ function Tile({ label, value, sub, children }: { label: string; value: ReactNode
 }
 
 /** KPI row + weekly chart + the pipeline chips (which double as the status filter and the legend). */
-export function MineSummary({ stats, total, selected, staleActive, onToggleStatus, onClearStatuses, onToggleStale }: Props) {
+export function MineSummary({
+  stats,
+  total,
+  selected,
+  staleActive,
+  onToggleStatus,
+  onClearStatuses,
+  onToggleStale,
+}: Props) {
   const delta = stats.appliedThisWeek - stats.appliedLastWeek;
   const pct = Math.round(stats.interviewRate * 100);
 
@@ -46,7 +64,9 @@ export function MineSummary({ stats, total, selected, staleActive, onToggleStatu
       >
         <StatusDot status={s} />
         {STATUS_LABELS[s]}
-        <span className={`tabular-nums ${active ? '' : 'text-slate-500'}`}>{stats.byStatus[s]}</span>
+        <span className={`tabular-nums ${active ? '' : 'text-slate-500'}`}>
+          {stats.byStatus[s]}
+        </span>
       </button>
     );
   };
@@ -92,7 +112,11 @@ export function MineSummary({ stats, total, selected, staleActive, onToggleStatu
 
       {stats.applications > 0 && <WeeklyChart weeks={stats.weekly} />}
 
-      <div className="no-scrollbar -mx-4 flex items-center gap-1.5 overflow-x-auto px-4 pb-1" role="group" aria-label="סינון לפי סטטוס">
+      <div
+        className="no-scrollbar -mx-4 flex items-center gap-1.5 overflow-x-auto px-4 pb-1"
+        role="group"
+        aria-label="סינון לפי סטטוס"
+      >
         <button
           type="button"
           aria-pressed={!selected.length}
@@ -105,7 +129,10 @@ export function MineSummary({ stats, total, selected, staleActive, onToggleStatu
         >
           הכל <span className="tabular-nums opacity-80">{total}</span>
         </button>
-        <span className="mx-1 h-5 w-px shrink-0 bg-slate-200 dark:bg-slate-700" aria-hidden="true" />
+        <span
+          className="mx-1 h-5 w-px shrink-0 bg-slate-200 dark:bg-slate-700"
+          aria-hidden="true"
+        />
         {PIPELINE.map((s, i) => (
           <span key={s} className="flex shrink-0 items-center gap-1.5">
             {chip(s)}
@@ -116,7 +143,10 @@ export function MineSummary({ stats, total, selected, staleActive, onToggleStatu
             )}
           </span>
         ))}
-        <span className="mx-1 h-5 w-px shrink-0 bg-slate-200 dark:bg-slate-700" aria-hidden="true" />
+        <span
+          className="mx-1 h-5 w-px shrink-0 bg-slate-200 dark:bg-slate-700"
+          aria-hidden="true"
+        />
         {OUTCOMES.map(chip)}
       </div>
     </section>
