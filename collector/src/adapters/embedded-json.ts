@@ -105,6 +105,9 @@ export function parseEmbeddedJson(body: string, options: Options): RawJob[] {
     jsonText = new RegExp(options.pattern).exec(body)?.[1];
   }
   if (!jsonText) throw new Error('embedded JSON not found in page (layout changed?)');
+  if (options.api && /^\s*</.test(jsonText)) {
+    throw new Error('the API answered with an HTML page instead of JSON (bot protection or a moved API)');
+  }
   const data: unknown = JSON.parse(jsonText);
   const items = options.findKey
     ? findArray(data, options.findKey)

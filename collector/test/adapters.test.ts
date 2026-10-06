@@ -256,6 +256,16 @@ describe('embedded JSON adapter', () => {
     expect(jobs.map((j) => j.country)).toEqual(['Israel', 'Poland']);
   });
 
+  it('names the problem when a JSON API serves an HTML page', () => {
+    expect(() =>
+      parseEmbeddedJson('<!DOCTYPE html><html>challenge</html>', {
+        url: 'https://x.test/api',
+        api: true,
+        fields: { title: 'title' },
+      }),
+    ).toThrow(/HTML page instead of JSON/);
+  });
+
   it('leaves the URL empty when a template field is missing', () => {
     const jobs = parseEmbeddedJson(JSON.stringify([{ title: 'QA' }]), {
       url: 'https://x.test/api',
