@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-06T08:00:33.221Z",
+  "generatedAt": "2026-10-06T08:34:33.803Z",
   "sources": [
     {
       "id": "linkedin",
@@ -436,7 +436,6 @@
       "consecutiveFailures": 0,
       "baselineDone": true,
       "recentCounts": [
-        364,
         361,
         359,
         359,
@@ -445,13 +444,14 @@
         355,
         355,
         355,
+        355,
         355
       ],
-      "lastRunAt": "2026-10-06T06:40:34.003Z",
-      "lastSuccessAt": "2026-10-06T06:40:34.003Z",
+      "lastRunAt": "2026-10-06T08:34:33.803Z",
+      "lastSuccessAt": "2026-10-06T08:34:33.803Z",
       "fetched": 355,
       "kept": 36,
-      "durationMs": 4993
+      "durationMs": 3860
     },
     {
       "id": "ozsoftware",
@@ -498,6 +498,24 @@
       "fetched": 20,
       "kept": 19,
       "durationMs": 6200
+    },
+    {
+      "id": "bynet",
+      "name": "בינת",
+      "type": "direct",
+      "tier": "B",
+      "homepage": "https://www.bynet.co.il/career/open-positions/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        36
+      ],
+      "lastRunAt": "2026-10-06T08:34:33.803Z",
+      "lastSuccessAt": "2026-10-06T08:34:33.803Z",
+      "fetched": 36,
+      "kept": 2,
+      "durationMs": 6502
     },
     {
       "id": "malamteam",

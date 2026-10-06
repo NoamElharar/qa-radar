@@ -1,7 +1,91 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-06T08:00:33.221Z",
+  "generatedAt": "2026-10-06T08:34:33.803Z",
   "jobs": [
+    {
+      "id": "bynet:10224",
+      "sourceId": "bynet",
+      "sourceJobId": "10224",
+      "url": "https://www.bynet.co.il/career/open-positions/#job-10224",
+      "title": "QA Team Leader",
+      "company": "בינת",
+      "locationText": "צפון KALEIDOO",
+      "snippet": "QA Team Lead — Manual, Automation & AI-Driven Testing (AIQ Platform) About Kaleidoo & AIQ Kaleidoo is a leading provider of Big Data and AI solutions. AIQ is our flagship AI platform — combining advanced AI models across documents, audio, and media. AIQ is deployed across various environments and serves large-scale, enterprise customers. Role Overview As QA Team Lead for AIQ, you will own quality across a complex, AI-first, multi-modal platform — combining classical software QA discipline with AI quality engineering practices for LLM, RAG, and ML-driven features. You will define how we…",
+      "postedAt": "2026-07-16T03:19:00.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "API/Backend",
+        "מובייל",
+        "ביצועים ועומסים",
+        "דאטה/DB",
+        "ענן/DevOps",
+        "גיימינג/אודיו/מדיה",
+        "ראש צוות/QA Lead"
+      ],
+      "seniority": "management",
+      "regions": [
+        "north"
+      ],
+      "score": 49,
+      "matched": [
+        "Manual / E2E",
+        "API testing",
+        "Swagger",
+        "JMeter / עומסים",
+        "AWS",
+        "Mobile (iOS/Android)",
+        "Selenium (בסיסי)",
+        "JavaScript (בסיסי)",
+        "Agile",
+        "AI agents for QA"
+      ],
+      "missing": [
+        "Python",
+        "TypeScript",
+        "Playwright",
+        "Cypress",
+        "Appium",
+        "Kubernetes / Docker",
+        "CI/CD"
+      ],
+      "firstSeenAt": "2026-10-06T08:34:33.803Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": true
+    },
+    {
+      "id": "bynet:10267",
+      "sourceId": "bynet",
+      "sourceJobId": "10267",
+      "url": "https://www.bynet.co.il/career/open-positions/#job-10267",
+      "title": "Junior QA - Contact Center",
+      "company": "בינת",
+      "locationText": "גוש דן חטיבת COLBORATION",
+      "snippet": "מחפש/ת את הצעד הראשון שלך בעולם ה-QA והטכנולוגיה? זו ההזדמנות להשתלב בצוות מקצועי ולעבוד על מערכות Contact Center מתקדמות המשמשות ארגונים מובילים. איך ייראה היום שלך? ביצוע בדיקות ידניות על מערכות Contact Center בדיקת תהליכי שירות לקוח מקצה לקצה בדיקות IVR, תפריטים קוליים וזרימות שיחה בדיקות של ערוצים דיגיטליים כגון Chat, WhatsApp ו-Mail תיעוד תקלות ומעקב אחר הטיפול בהן עבודה מול מנהלי פרויקטים, מנתחי מערכות וצוותי פיתוח ביצוע בדיקות לפני עלייה לייצור ולאחר שינויים במערכת מה אנחנו מחפשים? אוריינטציה טכנולוגית גבוהה יכולת למידה עצמית מהירה חשיבה אנליטית ויכולת ירידה לפרטים עבודה מסודרת ויכולת…",
+      "postedAt": "2026-10-05T12:53:00.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "דאטה/DB"
+      ],
+      "seniority": "junior",
+      "regions": [
+        "center"
+      ],
+      "score": 76,
+      "matched": [
+        "Manual / E2E",
+        "SQL",
+        "Jira / Xray"
+      ],
+      "missing": [],
+      "firstSeenAt": "2026-10-06T08:34:33.803Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": true
+    },
     {
       "id": "mertens:34008",
       "sourceId": "mertens",
@@ -1564,7 +1648,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-05T09:00:32.334Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -2483,7 +2567,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-05T00:00:32.841Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -2515,7 +2599,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-05T00:00:32.841Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -26752,7 +26836,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26785,7 +26869,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26822,7 +26906,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26847,7 +26931,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26876,7 +26960,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26905,7 +26989,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26959,7 +27043,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26996,7 +27080,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27034,7 +27118,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27072,7 +27156,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27099,7 +27183,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27163,7 +27247,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27195,7 +27279,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27232,7 +27316,7 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27265,7 +27349,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27349,7 +27433,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27379,7 +27463,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27419,7 +27503,7 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27455,7 +27539,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27490,7 +27574,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27515,7 +27599,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27554,7 +27638,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27587,7 +27671,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27642,7 +27726,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27665,7 +27749,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27695,7 +27779,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27721,7 +27805,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27747,7 +27831,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27774,7 +27858,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27800,7 +27884,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27826,7 +27910,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27852,7 +27936,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27882,7 +27966,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-06T06:40:34.003Z",
+      "lastSeenAt": "2026-10-06T08:34:33.803Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
