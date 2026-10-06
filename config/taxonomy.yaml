@@ -68,6 +68,14 @@ qa:
     - אפליקציה
     - JMeter
     - מערכות מידע
+  # For ambiguous titles only ("Verification Engineer"): description words showing the role is chip or
+  # lab work, not software testing. Checked before `context`.
+  notSoftware:
+    - UVM
+    - SystemVerilog
+    - Verilog
+    - VHDL
+    - reliability lab
   # Title-level vetoes: non-software quality roles and look-alikes (real false positives from the audit).
   exclude:
     - ביטחוני # "אגף ביטחון - בודק/ת ביטחוני" (El Al)
@@ -97,6 +105,13 @@ qa:
     - treasury
     - בודק מוסמך
     - 're:בודק[\s-]+(?:ביטוח|רכב|גז|חשמל|ביטחוני)'
+    - SoC # chip design verification, not software testing ("Experienced SoC Verification Engineer", Mobileye)
+    - formal verification
+    - design verification
+    - VLSI
+    - ASIC
+    - FPGA
+    - electrical validation
 
 # Subject tags. `field: title` restricts matching to the title (default: title + description).
 tags:

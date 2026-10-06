@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { parseAbraItems } from '../src/adapters/abra.ts';
-import { parseAdamtotalPage } from '../src/adapters/adamtotal.ts';
+import { adamtotalSiteAdapter, parseAdamtotalPage } from '../src/adapters/adamtotal.ts';
 import { mapComeet } from '../src/adapters/comeet.ts';
 import { getPath, parseEmbeddedJson } from '../src/adapters/embedded-json.ts';
 import { htmlAdapter, htmlOptionsSchema, parseHtmlJobs } from '../src/adapters/html.ts';
@@ -98,6 +98,28 @@ describe('html adapter (selector-driven)', () => {
     expect(parseHtmlJobs(html, options.url, options)[0]?.sourceJobId).toBe('25685');
   });
 
+  it('keeps only matching locations on a global careers page (Mobileye)', () => {
+    const card = (title: string, office: string) =>
+      `<div class="jobItem"><a href="/jobs/x/${title.length}"></a><p class="jobTitle">${title}</p>
+        <div class="tagsWrapper"><div class="tagItem"><p>${office}</p></div></div></div>`;
+    const html = [
+      card('Test Automation Engineer', 'Jerusalem'),
+      card('Automation Testing Engineer', 'Beijing'),
+      card('System Validation Engineer', 'Petah Tikva'),
+    ].join('');
+    const options = htmlOptionsSchema.parse({
+      url: 'https://mobileye.test/jobs',
+      item: 'div.jobItem',
+      title: 'p.jobTitle',
+      location: '.tagsWrapper .tagItem',
+      keepLocation: 'Jerusalem|Petah Tikva',
+    });
+    expect(parseHtmlJobs(html, options.url, options).map((j) => j.location)).toEqual([
+      'Jerusalem',
+      'Petah Tikva',
+    ]);
+  });
+
   it('splits an article into jobs by heading (Reshet 13)', () => {
     const html = `<article><div class="text">
       <div><h2>בודק/ת תוכנה (QA)</h2></div><div><p>בדיקות ידניות למערכות דיגיטל</p></div><div><p>ניסיון של שנה</p></div>
@@ -178,6 +200,70 @@ describe('embedded JSON adapter', () => {
       url: 'https://noga.test/jobs/jb-56/',
       location: 'חיפה',
     });
+  });
+
+  it('reads a CMS content API: finds the list by key and builds URLs from item fields (xnes)', () => {
+    const page = {
+      body: {
+        columns: [
+          {
+            entries: [
+              { hero: 'x' },
+              {
+                jobsBank: [
+                  {
+                    id: 11225,
+                    name: 'qa-engineer-1423',
+                    title: 'בודק.ת תוכנה',
+                    jobDescription: ['בדיקות ידניות', 'API'],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    };
+    const jobs = parseEmbeddedJson(JSON.stringify(page), {
+      url: 'https://xnes.test/api/v1/page?route=/jobs/',
+      api: true,
+      findKey: 'jobsBank',
+      urlTemplate: 'https://xnes.test/jobs/{name}/',
+      fields: { id: 'id', title: 'title', description: 'jobDescription[]' },
+    });
+    expect(jobs).toEqual([
+      expect.objectContaining({
+        sourceJobId: '11225',
+        url: 'https://xnes.test/jobs/qa-engineer-1423/',
+        description: 'בדיקות ידניות\nAPI',
+      }),
+    ]);
+  });
+
+  it('passes the country on so jobs abroad are dropped (Ashby board, SciPlay)', () => {
+    const board = {
+      jobs: [
+        { id: 'a', title: 'QA Engineer', address: { postalAddress: { addressCountry: 'Israel' } } },
+        { id: 'b', title: 'QA Engineer', address: { postalAddress: { addressCountry: 'Poland' } } },
+      ],
+    };
+    const jobs = parseEmbeddedJson(JSON.stringify(board), {
+      url: 'https://api.ashby.test/posting-api/job-board/x',
+      api: true,
+      path: 'jobs',
+      fields: { id: 'id', title: 'title', country: 'address.postalAddress.addressCountry' },
+    });
+    expect(jobs.map((j) => j.country)).toEqual(['Israel', 'Poland']);
+  });
+
+  it('leaves the URL empty when a template field is missing', () => {
+    const jobs = parseEmbeddedJson(JSON.stringify([{ title: 'QA' }]), {
+      url: 'https://x.test/api',
+      api: true,
+      urlTemplate: 'https://x.test/jobs/{slug}/',
+      fields: { title: 'title' },
+    });
+    expect(jobs[0]!.url).toBeUndefined();
   });
 
   it('getPath flattens arrays', () => {
@@ -308,6 +394,37 @@ describe('platform mappers', () => {
       location: 'גוש דן',
       url: 'https://career.adamtotal.co.il/Jobs/JobDetails?token=abc',
     });
+  });
+
+  it('adamtotal keyword searches: one request per term, results merged by job id (Harel)', async () => {
+    const card = (id: string, title: string) =>
+      `<article class="job-card" data-job-id="${id}" data-job-title="${title}"></article>`;
+    const pages: Record<string, string> = {
+      QA: card('1', 'QA') + card('2', 'בודק/ת QA'),
+      בודק: card('2', 'בודק/ת QA'),
+    };
+    const requested: string[] = [];
+    const jobs = await adamtotalSiteAdapter({
+      source: {
+        id: 'harel',
+        options: {
+          baseUrl: 'https://career.adam.test',
+          token: 't',
+          searches: ['QA', 'בודק', 'בדיקות'],
+        },
+      } as unknown as SourceConfig,
+      http: {
+        text: async (url: string) => {
+          const search = new URL(url).searchParams.get('search') ?? '';
+          requested.push(search);
+          return pages[search] ?? '<html></html>';
+        },
+      } as unknown as PoliteClient,
+      log: () => {},
+      isQaCandidate: () => true,
+    });
+    expect(requested).toEqual(['QA', 'בודק', 'בדיקות']);
+    expect(jobs.map((j) => j.sourceJobId)).toEqual(['1', '2']);
   });
 
   it('Abra career items', () => {

@@ -13,6 +13,11 @@ export const adamtotalSiteOptionsSchema = z.object({
   token: z.string(),
   params: z.record(z.string()).default({}),
   maxPages: z.number().default(5),
+  /**
+   * Run the site's own keyword search once per term and merge the results. For sites whose full
+   * listing is huge (Harel: ~70 MB of inline images) and whose category filter is ignored.
+   */
+  searches: z.array(z.string()).optional(),
 });
 
 export function parseAdamtotalPage(html: string, pageUrl: string): RawJob[] {
@@ -41,24 +46,27 @@ export function parseAdamtotalPage(html: string, pageUrl: string): RawJob[] {
 }
 
 export const adamtotalSiteAdapter: Adapter = async ({ source, http }) => {
-  const { baseUrl, token, params, maxPages } = adamtotalSiteOptionsSchema.parse(source.options);
+  const { baseUrl, token, params, maxPages, searches } = adamtotalSiteOptionsSchema.parse(source.options);
   const all: RawJob[] = [];
   const seen = new Set<string>();
-  for (let page = 1; page <= maxPages; page++) {
-    const url = new URL('/Home/Index', baseUrl);
-    url.searchParams.set('token', token);
-    for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
-    if (page > 1) url.searchParams.set('page', String(page));
-    const html = await http.text(url.toString());
-    const jobs = parseAdamtotalPage(html, url.toString()).filter((j) => {
-      const key = j.sourceJobId ?? j.title;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-    all.push(...jobs);
-    const hasNext = /PagedList-skipToNext(?![^"]*disabled)/.test(html) && !/class="[^"]*disabled[^"]*PagedList-skipToNext/.test(html);
-    if (!jobs.length || !hasNext) break;
+  for (const search of searches ?? [undefined]) {
+    for (let page = 1; page <= maxPages; page++) {
+      const url = new URL('/Home/Index', baseUrl);
+      url.searchParams.set('token', token);
+      for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
+      if (search) url.searchParams.set('search', search);
+      if (page > 1) url.searchParams.set('page', String(page));
+      const html = await http.text(url.toString());
+      const jobs = parseAdamtotalPage(html, url.toString()).filter((j) => {
+        const key = j.sourceJobId ?? j.title;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+      all.push(...jobs);
+      const hasNext = /PagedList-skipToNext(?![^"]*disabled)/.test(html) && !/class="[^"]*disabled[^"]*PagedList-skipToNext/.test(html);
+      if (!jobs.length || !hasNext) break;
+    }
   }
   return all;
 };

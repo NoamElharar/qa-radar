@@ -45,6 +45,8 @@ export const taxonomySchema = z.object({
     strong: termList,
     weak: termList,
     context: termList,
+    /** Description words that mark an ambiguous ("weak") title as non-software work. */
+    notSoftware: termList,
     exclude: termList,
   }),
   tags: z.array(

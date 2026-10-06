@@ -130,7 +130,7 @@ export const elalAdapter: Adapter = async ({ source, http }) => {
   }));
 };
 
-// ── Clalit: RedMatch ATS position search ───────────────────────────────────────────
+// ── RedMatch / TopMatch ATS position search (Clalit, Meitav) ───────────────────────
 interface RedMatchPosition {
   compPositionID: number | string;
   jobTitleText?: string;
@@ -145,7 +145,13 @@ interface RedMatchPosition {
 
 export const redmatchAdapter: Adapter = async ({ source, http }) => {
   const options = z
-    .object({ searchUrl: z.string().url(), countryId: z.number(), jobsPage: z.string().url() })
+    .object({
+      searchUrl: z.string().url(),
+      countryId: z.number(),
+      jobsPage: z.string().url(),
+      /** Group name shown before the subsidiary ("כללית · מחוז דן"); without it the source name is used. */
+      companyPrefix: z.string().optional(),
+    })
     .parse(source.options);
   const body = JSON.stringify({ KeyWords: '', CategoryId: ['0'], countryId: options.countryId, cityId: [] });
   const data = await http.json<{ responseStatus: number; positions?: RedMatchPosition[] }>(options.searchUrl, {
@@ -160,7 +166,10 @@ export const redmatchAdapter: Adapter = async ({ source, http }) => {
     sourceJobId: String(p.compPositionID),
     url: `${options.jobsPage}#pid-${p.compPositionID}`,
     title: (p.jobTitleText ?? p.extJobTitleText ?? '').trim(),
-    company: p.affiliateDisplayName ? `כללית · ${p.affiliateDisplayName}` : undefined,
+    company:
+      options.companyPrefix && p.affiliateDisplayName
+        ? `${options.companyPrefix} · ${p.affiliateDisplayName}`
+        : undefined,
     location: p.displayLocation,
     description: [p.fieldDesc, p.shortDescription, p.description].filter(Boolean).join('\n'),
     postedAt: p.activationDate,

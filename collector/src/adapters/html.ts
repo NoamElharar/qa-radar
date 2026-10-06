@@ -43,6 +43,11 @@ export const htmlOptionsSchema = z
     urlTemplate: z.string().optional(),
     /** Drop items whose title matches this regex (e.g. a privacy-policy section). */
     skipTitle: z.string().optional(),
+    /**
+     * Keep only items whose location matches this regex — for global careers sites that list every
+     * office on one page (Mobileye: Jerusalem… but also Shanghai, Munich). Items without a location stay.
+     */
+    keepLocation: z.string().optional(),
     /** Query-string pagination: ?{param}=start, start+1, … until a page adds no new jobs. */
     pagination: z
       .object({ param: z.string(), start: z.number().default(1), max: z.number().default(10) })
@@ -104,10 +109,13 @@ export function parseHtmlJobs(html: string, pageUrl: string, options: HtmlOption
 
   const jobs: RawJob[] = [];
   const skip = options.skipTitle ? new RegExp(options.skipTitle) : undefined;
+  const keepLocation = options.keepLocation ? new RegExp(options.keepLocation, 'i') : undefined;
   $(options.item!).each((_, el) => {
     const item = $(el);
     const title = pick($, item, options.title);
     if (!title || skip?.test(title)) return;
+    const location = pick($, item, options.location);
+    if (keepLocation && location && !keepLocation.test(location)) return;
     const rawLink = pick($, item, options.link);
     let url = rawLink ? absoluteUrl(rawLink, pageUrl) : undefined;
     const id = pick($, item, options.id, { link: url ?? rawLink });
@@ -118,7 +126,7 @@ export function parseHtmlJobs(html: string, pageUrl: string, options: HtmlOption
       sourceJobId: id,
       url,
       title,
-      location: pick($, item, options.location),
+      location,
       endClient: pick($, item, options.endClient),
       description: pick($, item, options.description, { all: true }),
       postedAt: pick($, item, options.postedAt),

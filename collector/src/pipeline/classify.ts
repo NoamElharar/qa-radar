@@ -92,6 +92,7 @@ export function createClassifier(config: AppConfig): Classifier {
     strong: compileTerms(taxonomy.qa.strong),
     weak: compileTerms(taxonomy.qa.weak),
     context: compileTerms(taxonomy.qa.context),
+    notSoftware: compileTerms(taxonomy.qa.notSoftware),
     exclude: compileTerms(taxonomy.qa.exclude),
   };
   const tags = taxonomy.tags.map((t) => ({ ...t, matcher: compileTerms(t.terms) }));
@@ -125,7 +126,10 @@ export function createClassifier(config: AppConfig): Classifier {
     const weak = qa.weak.firstMatch(t);
     if (!weak) return { qa: false, reason: 'no-title-signal' };
     if (categoryQa) return { qa: true, reason: `weak+category:${weak}` };
-    const context = qa.context.firstMatch(`${t} ${normalizeText(description ?? '')}`);
+    const d = normalizeText(description ?? '');
+    const hardware = qa.notSoftware.firstMatch(d);
+    if (hardware) return { qa: false, reason: `weak-not-software:${weak}/${hardware}` };
+    const context = qa.context.firstMatch(`${t} ${d}`);
     if (context) return { qa: true, reason: `weak+context:${weak}/${context}` };
     return { qa: false, reason: `weak-no-context:${weak}` };
   }

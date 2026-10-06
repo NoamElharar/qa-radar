@@ -2,7 +2,8 @@ import { z } from 'zod';
 import type { Adapter, RawJob } from './types.ts';
 
 /**
- * Jobs embedded as JSON inside an HTML page: Next.js `__NEXT_DATA__` or a `var jobs = [...]` script.
+ * Jobs as JSON: embedded in an HTML page (Next.js `__NEXT_DATA__`, a `var jobs = [...]` script) or
+ * served directly by the site's own content API (`api: true`).
  * `fields` maps RawJob properties to paths in each item. Paths support dots and `[]` to flatten arrays
  * ("uWillDo[].description"). A list of paths is joined with new lines.
  */
@@ -13,7 +14,14 @@ export const embeddedJsonOptionsSchema = z
     url: z.string().url(),
     nextData: z.boolean().default(false),
     pattern: z.string().optional(),
+    /** The URL answers with JSON (a CMS content API) rather than an HTML page. */
+    api: z.boolean().default(false),
     path: z.string().optional(),
+    /**
+     * Find the job list by key name anywhere in the document (first array under that key). For CMS
+     * pages whose block order changes ("body.columns[0].entries[1].jobsBank").
+     */
+    findKey: z.string().optional(),
     fields: z.object({
       id: path.optional(),
       title: path,
@@ -22,11 +30,35 @@ export const embeddedJsonOptionsSchema = z
       description: path.optional(),
       postedAt: path.optional(),
       company: path.optional(),
+      /** Country code or name; jobs outside Israel are dropped during normalization. */
+      country: path.optional(),
     }),
+    /** Job URL from the item: "{id}" is the extracted id, any other "{path}" reads that item field. */
     urlTemplate: z.string().optional(),
   })
-  .refine((o) => o.nextData || o.pattern, { message: 'set `nextData: true` or a `pattern`' });
-type Options = z.infer<typeof embeddedJsonOptionsSchema>;
+  .refine((o) => o.nextData || o.pattern || o.api, {
+    message: 'set `nextData: true`, `api: true` or a `pattern`',
+  });
+type Options = z.input<typeof embeddedJsonOptionsSchema>;
+
+/** Depth-first search for the first array stored under `key`. */
+export function findArray(value: unknown, key: string): unknown[] | undefined {
+  if (value === null || typeof value !== 'object') return undefined;
+  if (Array.isArray(value)) {
+    for (const child of value) {
+      const found = findArray(child, key);
+      if (found) return found;
+    }
+    return undefined;
+  }
+  const record = value as Record<string, unknown>;
+  if (Array.isArray(record[key])) return record[key];
+  for (const child of Object.values(record)) {
+    const found = findArray(child, key);
+    if (found) return found;
+  }
+  return undefined;
+}
 
 export function getPath(value: unknown, dotted: string): unknown[] {
   let current: unknown[] = [value];
@@ -53,17 +85,37 @@ function text(item: unknown, spec: string | string[] | undefined): string | unde
   return values.length ? values.join('\n') : undefined;
 }
 
-export function parseEmbeddedJson(html: string, options: Options): RawJob[] {
+function fillTemplate(template: string, item: unknown, id: string | undefined): string | undefined {
+  let missing = false;
+  const url = template.replace(/\{([\w.]+)\}/g, (_, key: string) => {
+    const value = key === 'id' ? id : text(item, key);
+    if (!value) missing = true;
+    return encodeURIComponent(value ?? '');
+  });
+  return missing ? undefined : url;
+}
+
+export function parseEmbeddedJson(body: string, options: Options): RawJob[] {
   let jsonText: string | undefined;
-  if (options.nextData) {
-    jsonText = /<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/.exec(html)?.[1];
+  if (options.api) {
+    jsonText = body;
+  } else if (options.nextData) {
+    jsonText = /<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/.exec(body)?.[1];
   } else if (options.pattern) {
-    jsonText = new RegExp(options.pattern).exec(html)?.[1];
+    jsonText = new RegExp(options.pattern).exec(body)?.[1];
   }
   if (!jsonText) throw new Error('embedded JSON not found in page (layout changed?)');
   const data: unknown = JSON.parse(jsonText);
-  const items = options.path ? getPath(data, options.path)[0] : data;
-  if (!Array.isArray(items)) throw new Error(`embedded JSON: "${options.path ?? '(root)'}" is not an array`);
+  const items = options.findKey
+    ? findArray(data, options.findKey)
+    : options.path
+      ? getPath(data, options.path)[0]
+      : data;
+  if (!Array.isArray(items)) {
+    throw new Error(
+      `embedded JSON: "${options.findKey ?? options.path ?? '(root)'}" is not an array`,
+    );
+  }
 
   return items.flatMap((item): RawJob[] => {
     const title = text(item, options.fields.title);
@@ -71,7 +123,7 @@ export function parseEmbeddedJson(html: string, options: Options): RawJob[] {
     const id = text(item, options.fields.id);
     const url =
       text(item, options.fields.url) ??
-      (options.urlTemplate && id ? options.urlTemplate.replace('{id}', encodeURIComponent(id)) : undefined);
+      (options.urlTemplate ? fillTemplate(options.urlTemplate, item, id) : undefined);
     return [
       {
         sourceJobId: id,
@@ -81,6 +133,7 @@ export function parseEmbeddedJson(html: string, options: Options): RawJob[] {
         description: text(item, options.fields.description),
         postedAt: text(item, options.fields.postedAt),
         company: text(item, options.fields.company),
+        country: text(item, options.fields.country),
       },
     ];
   });

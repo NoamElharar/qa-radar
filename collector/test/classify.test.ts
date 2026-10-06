@@ -36,6 +36,21 @@ describe('QA relevance — accepted', () => {
   it('…unless the source page is already a QA category', () => {
     expect(classifier.decideQa('מפתח/ת אוטומציה', 'תכנות בקרי PLC', true).qa).toBe(true);
   });
+
+  it('chip-design verification is not software testing, even when the text says "software"', () => {
+    const chip = 'Define verification environments using UVM methodology. Work with SW developers.';
+    expect(classifier.decideQa('Senior Verification Engineer', chip, false)).toMatchObject({
+      qa: false,
+      reason: 'weak-not-software:verification/UVM',
+    });
+    expect(classifier.decideQa('Experienced SoC Verification Engineer', 'software', false).qa).toBe(
+      false,
+    );
+    expect(
+      classifier.decideQa('System Validation Engineer', 'Python test content for software', false)
+        .qa,
+    ).toBe(true);
+  });
 });
 
 describe('QA relevance — rejected look-alikes (real false positives)', () => {
