@@ -270,6 +270,23 @@ sources:
       location: '.job-loc'
       description: '.job-excerpt'
 
+  - id: bynet
+    name: בינת
+    type: direct
+    tier: B
+    adapter: embedded-json
+    homepage: https://www.bynet.co.il/career/open-positions/
+    options:
+      url: https://www.bynet.co.il/career/open-positions/
+      pattern: 'id="vacancies-data">(\[[\s\S]*?\])</script>'
+      urlTemplate: 'https://www.bynet.co.il/career/open-positions/#job-{id}'
+      fields:
+        id: order_id
+        title: description
+        location: [living_area1, name_snif]
+        description: [notes_text, perot_tafked, profession_name]
+        postedAt: update_date
+
   - id: malamteam
     name: Malam Team
     type: agency
