@@ -32,7 +32,7 @@ export const htmlOptionsSchema = z
   .object({
     url: z.string().url(),
     item: z.string().optional(),
-    title: z.string().optional(),
+    title: extractorSchema.optional(),
     link: extractorSchema.optional(),
     id: extractorSchema.optional(),
     location: extractorSchema.optional(),
@@ -106,7 +106,7 @@ export function parseHtmlJobs(html: string, pageUrl: string, options: HtmlOption
   const skip = options.skipTitle ? new RegExp(options.skipTitle) : undefined;
   $(options.item!).each((_, el) => {
     const item = $(el);
-    const title = cleanText(item.find(options.title!).first().text());
+    const title = pick($, item, options.title);
     if (!title || skip?.test(title)) return;
     const rawLink = pick($, item, options.link);
     let url = rawLink ? absoluteUrl(rawLink, pageUrl) : undefined;

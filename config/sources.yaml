@@ -166,12 +166,17 @@ sources:
   - id: logica
     name: Logica-IT
     type: agency
-    tier: D
-    adapter: link-out
-    homepage: https://www.logica-it.com/
-    note: האתר לא זמין (לולאת הפניות 308); המשרות שלהם מתפרסמות בדרושים
-    quickLinks:
-      - { label: 'המשרות שלהם בדרושים', url: 'https://www.drushim.co.il/דרושים-311679-logica-it/' }
+    tier: B
+    adapter: html
+    homepage: https://logica-it.com/jobs/
+    options:
+      url: https://logica-it.com/jobs/
+      item: 'div.item.mix'
+      title: { selector: 'a', remove: '.metas' }
+      link: { selector: 'a', attr: href }
+      id: { from: link, regex: '/jobs/(\d+)' }
+      location: '.metas .meta:last-child'
+      description: '.metas'
 
   - id: compie
     name: Compie
