@@ -254,6 +254,22 @@ sources:
       ajaxUrl: https://ozsoftware.com/wp-admin/admin-ajax.php
       pageId: 3090
 
+  - id: mertens
+    name: Mertens (Malam Team)
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://mertens.malam.com/
+    categoryQa: true
+    options:
+      url: 'https://mertens.malam.com/%d7%a8%d7%a9%d7%99%d7%9e%d7%aa-%d7%9e%d7%a9%d7%a8%d7%95%d7%aa-%d7%a8%d7%92%d7%99%d7%9c/?prof=2&loc=&t='
+      item: 'div.job-item-container'
+      title: 'h2.job-name'
+      link: { selector: 'div.job-actions a.btn', attr: href }
+      id: { selector: '.job-code', regex: '(\d+)' }
+      location: '.job-loc'
+      description: '.job-excerpt'
+
   - id: malamteam
     name: Malam Team
     type: agency
