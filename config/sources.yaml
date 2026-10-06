@@ -343,6 +343,36 @@ sources:
       ajaxUrl: https://www.abra-it.com/wp-admin/admin-ajax.php
       category: Automation & QA
 
+  - id: nisha
+    name: נישה
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://www.nisha.co.il/job-high-tech-qa/
+    categoryQa: true
+    options:
+      url: https://www.nisha.co.il/job-high-tech-qa/
+      item: 'div.item-job'
+      title: 'h3.job-title'
+      link: { selector: 'h3.job-title a', attr: href }
+      id: { from: link, regex: '/job/(\d+)' }
+      description: '.job-description'
+      postedAt: '.job-content > .job-date'
+      allowEmpty: true # a small QA category that can legitimately be empty
+
+  - id: dialog
+    name: דיאלוג
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://www.dialog.co.il/high-tech/jobs/qa
+    note: תקנון האתר אוסר העתקה והפצה של תוכן האתר ללא אישור
+    quickLinks:
+      - {
+          label: 'משרות QA (שכר 10–50 אלף)',
+          url: 'https://www.dialog.co.il/high-tech/jobs/qa?fieldId=24407&professions=23574&regions=&skills=&salary=10000,50000&industry=&companySize=0&nearTrain=false',
+        }
+
   # ─────────────────────────── Banks, finance & payments ───────────────────────────
   - id: onezero
     name: ONE ZERO
@@ -429,6 +459,69 @@ sources:
       token: 1EB6B34D-8783-4AD3-8SS80-7FA0CFA5DFC8
       params: { prof: מחשוב ומערכות מידע }
 
+  - id: meitav
+    name: מיטב
+    type: direct
+    tier: A
+    adapter: redmatch
+    homepage: https://careers.topmatch.co.il/Meitav/
+    everyHours: 3
+    options:
+      searchUrl: https://careers.topmatch.co.il/CandidateAPI/api//position/Search/05C69BAD-26F0-48EE-A059-4961B79987F1
+      countryId: 2
+      jobsPage: https://careers.topmatch.co.il/Meitav/
+
+  - id: xnes
+    name: הפניקס בית השקעות
+    type: direct
+    tier: A
+    adapter: embedded-json
+    homepage: https://www.xnes.co.il/jobs/
+    everyHours: 3
+    options:
+      # The Nuxt page's own content API — the same JSON the page renders its job list from.
+      url: https://www.xnes.co.il/api/v1/page?route=/jobs/
+      api: true
+      findKey: jobsBank
+      urlTemplate: 'https://www.xnes.co.il/jobs/{name}/'
+      fields:
+        id: id
+        title: title
+        description: [subTitle, jobCategory, 'jobDescription[]', 'jobRequirements[]']
+
+  # ─────────────────────────── Insurance ───────────────────────────
+  - id: harel
+    name: הראל
+    type: direct
+    tier: B
+    adapter: adamtotal-site
+    homepage: https://www.harel-group.co.il/careers
+    everyHours: 6 # the full listing is ~70 MB (inline images), so only the site's own keyword search is used
+    options:
+      baseUrl: https://career.adamtotal.co.il
+      token: 6675d401-0dee-428a-a776-5d41885d16b0-harel
+      searches: [QA, בודק, בדיקות, אוטומציה]
+
+  - id: migdal
+    name: מגדל
+    type: direct
+    tier: A
+    adapter: embedded-json
+    homepage: https://my.migdal.co.il/about/jobs
+    everyHours: 3
+    options:
+      # The jobs page loads this list from the site's content API; robots.txt allows /data/api/.
+      url: https://my.migdal.co.il/data/api/ContentData/FrontContentData/?ListType=Jobs&Source=content
+      api: true
+      path: Data
+      urlTemplate: 'https://my.migdal.co.il/about/jobs#job-{id}'
+      fields:
+        id: _id
+        title: jobTitle
+        location: jobLocation
+        description: ['jobArea[].areaTitle', jobScope, jobDescription, requirements]
+        postedAt: _updateDate
+
   # ─────────────────────────── Tech companies ───────────────────────────
   - id: wix
     name: Wix
@@ -447,6 +540,62 @@ sources:
     adapter: base44
     homepage: https://careers.base44.com/home
     options: { url: 'https://base44.app/api/apps/68f7942ed453646e397708fb/functions/getJobs' }
+
+  - id: mobileye
+    name: Mobileye
+    type: direct
+    tier: B
+    adapter: html
+    homepage: https://careers.mobileye.com/jobs
+    everyHours: 3 # one ~2 MB page with every office worldwide
+    options:
+      url: https://careers.mobileye.com/jobs
+      item: 'div.jobItem'
+      title: 'p.jobTitle'
+      link: { selector: 'a[href^="/jobs/"]', attr: href }
+      id: { from: link, regex: '/jobs/[^/]+/([0-9a-f-]{36})' }
+      location: '.tagsWrapper .tagItem'
+      keepLocation: 'Israel|Jerusalem|Ramat Gan|Petah Tikva|Petach Tikva|Haifa|Herzliya|Tel[- ]?Aviv|Ra.?anana|Netanya|Rehovot|Beer Sheva'
+      # Department + team + role text; the "About us" intro is skipped (it says "software" on every job).
+      description: 'p.department, .topTextWrapper, .listItem'
+
+  - id: sciplay
+    name: SciPlay
+    type: direct
+    tier: A
+    adapter: embedded-json
+    homepage: https://www.sciplay.com/careers
+    everyHours: 3
+    options:
+      url: https://www.sciplay.com/careers
+      nextData: true
+      path: props.pageProps.jobs
+      fields:
+        title: title
+        url: link
+        location: location
+        country: country.countryShort
+        description: [department, description]
+
+  - id: moonactive
+    name: Moon Active
+    type: direct
+    tier: A
+    adapter: embedded-json
+    homepage: https://www.moonactive.com/careers/?dept=rd
+    options:
+      # Ashby's public job-board API (the careers page still embeds an old, empty Comeet widget).
+      url: https://api.ashbyhq.com/posting-api/job-board/moonactive
+      api: true
+      path: jobs
+      fields:
+        id: id
+        title: title
+        url: jobUrl
+        location: location
+        country: address.postalAddress.addressCountry
+        description: [department, team, descriptionPlain]
+        postedAt: publishedAt
 
   # ─────────────────────────── Public sector, health, infrastructure & transport ───────────────────────────
   - id: elal
@@ -503,6 +652,7 @@ sources:
       searchUrl: https://jobs.clalitapps.co.il/CandidateAPI/api//position/Search/9E6C0368-A39E-4D83-803E-CF2AF0BA28DD
       countryId: 2
       jobsPage: https://jobs.clalitapps.co.il/clalit/index.html?ci=0
+      companyPrefix: כללית
 
   - id: maccabi
     name: מכבי
