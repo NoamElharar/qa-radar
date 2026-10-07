@@ -40,7 +40,7 @@ flowchart LR
 
 ## Sources
 
-29 sources are collected automatically and 14 are link-out only. The full audit — platform, access method, robots/ToS notes and feasibility for every source — is in [`docs/PHASE-0-SOURCE-AUDIT.md`](docs/PHASE-0-SOURCE-AUDIT.md).
+36 sources are collected automatically and 23 are link-out only (one-tap searches in the "check manually" panel). The original audit — platform, access method, robots/ToS notes and feasibility for every source — is in [`docs/PHASE-0-SOURCE-AUDIT.md`](docs/PHASE-0-SOURCE-AUDIT.md).
 
 ### Politeness & ethics
 
@@ -65,9 +65,9 @@ Useful commands:
 | Command | What it does |
 |---|---|
 | `npm run collect` | Collect respecting the Israel-time schedule and each source's `everyHours` |
-| `npm run collect -- --only sqlink,ness` | Collect specific sources |
+| `npm run collect -- --only gotfriends,ness` | Collect specific sources |
 | `npm run collect -- --dry-run` | Run without writing data files |
-| `npm run try-source -- sqlink --all` | Run one source and print every kept/rejected title with the reason |
+| `npm run try-source -- gotfriends --all` | Run one source and print every kept/rejected title with the reason |
 | `npm test` | Unit tests (Vitest) |
 | `npm run check` | Lint + type-check + tests |
 

@@ -151,17 +151,12 @@ sources:
   - id: sqlink
     name: SQLink
     type: agency
-    tier: B
-    adapter: html
+    tier: D
+    adapter: link-out
     homepage: https://www.sqlink.com/career/db/qa/
-    categoryQa: true
-    options:
-      url: https://www.sqlink.com/career/db/qa/
-      item: 'div.boxInput'
-      title: 'h3.positionTitle'
-      link: { selector: 'a', attr: href }
-      id: { selector: ':self', attr: id }
-      description: '.text, .jobText'
+    note: 'מאז 2026-10 מוגן ע"י אתגר בוטים של Cloudflare (גם מרשת ביתית) — לא עוקפים'
+    quickLinks:
+      - { label: 'משרות QA', url: 'https://www.sqlink.com/career/db/qa/' }
 
   - id: logica
     name: Logica-IT
@@ -355,14 +350,12 @@ sources:
   - id: abra
     name: Abra
     type: agency
-    tier: B
-    adapter: abra
+    tier: D
+    adapter: link-out
     homepage: https://www.abra-it.com/career/?category=Automation+%26+QA#jobs
-    categoryQa: true
-    options:
-      url: https://www.abra-it.com/career/?category=Automation+%26+QA
-      ajaxUrl: https://www.abra-it.com/wp-admin/admin-ajax.php
-      category: Automation & QA
+    note: תקנון האתר אוסר שימוש ברובוטים ובזחלנים לאחזור מידע ועקיפת הגבלות גישה
+    quickLinks:
+      - { label: 'Automation & QA', url: 'https://www.abra-it.com/career/?category=Automation+%26+QA#jobs' }
 
   - id: nisha
     name: נישה
@@ -438,19 +431,12 @@ sources:
   - id: mataf
     name: 'מת"ף (הבינלאומי)'
     type: direct
-    tier: B
-    adapter: html
+    tier: D
+    adapter: link-out
     homepage: https://www.fibi.co.il/private/general/about/jobs/jobsmataf/
-    everyHours: 3
-    options:
-      url: https://www.fibi.co.il/private/general/about/jobs/jobsmataf/
-      item: 'div.article-sections > section'
-      title: 'h2'
-      id: { selector: ':self', attr: id }
-      urlTemplate: '{pageUrl}#{id}'
-      location: { selector: ':self', regex: 'מיקום המשרה\s*:\s*([^,.\n]+)' }
-      description: ':self'
-      skipTitle: 'מדיניות'
+    note: תנאי השימוש של הבנק אוסרים כלי סריקה ואיסוף אוטומטיים (Crawlers)
+    quickLinks:
+      - { label: 'משרות מת"ף', url: 'https://www.fibi.co.il/private/general/about/jobs/jobsmataf/' }
 
   - id: shva
     name: 'שב"א'
@@ -495,20 +481,12 @@ sources:
   - id: xnes
     name: הפניקס בית השקעות
     type: direct
-    tier: A
-    adapter: embedded-json
+    tier: D
+    adapter: link-out
     homepage: https://www.xnes.co.il/jobs/
-    everyHours: 3
-    options:
-      # The Nuxt page's own content API — the same JSON the page renders its job list from.
-      url: https://www.xnes.co.il/api/v1/page?route=/jobs/
-      api: true
-      findKey: jobsBank
-      urlTemplate: 'https://www.xnes.co.il/jobs/{name}/'
-      fields:
-        id: id
-        title: title
-        description: [subTitle, jobCategory, 'jobDescription[]', 'jobRequirements[]']
+    note: תנאי השימוש (סעיף 1.3) אוסרים Crawlers ו-Robots לסריקה או אחזור אוטומטי
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://www.xnes.co.il/jobs/' }
 
   # ─────────────────────────── Insurance ───────────────────────────
   - id: harel
@@ -622,11 +600,12 @@ sources:
   - id: elal
     name: אל על
     type: direct
-    tier: A
-    adapter: elal
+    tier: D
+    adapter: link-out
     homepage: https://www.elal.com/heb/career/all-jobs
-    everyHours: 6
-    options: { url: 'https://www.elal.com/api/contentPage/path/x00xhebx00xcareerx00xall-jobs', jobsPage: 'https://www.elal.com/heb/career/all-jobs' }
+    note: תנאי השימוש מתירים העתקה לשימוש אישי בלבד ואוסרים פרסום והפצה של תוכן האתר
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://www.elal.com/heb/career/all-jobs' }
 
   - id: railways
     name: רכבת ישראל

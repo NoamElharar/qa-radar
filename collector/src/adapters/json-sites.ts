@@ -102,34 +102,6 @@ export const base44Adapter: Adapter = async ({ source, http }) => {
   });
 };
 
-// ── El Al: Umbraco content API (job "banners" grouped by category) ─────────────────
-interface ElalBanner {
-  title?: string;
-  link?: { url?: string };
-}
-
-export function collectElalBanners(node: unknown, out: ElalBanner[] = []): ElalBanner[] {
-  if (Array.isArray(node)) node.forEach((n) => collectElalBanners(n, out));
-  else if (node && typeof node === 'object') {
-    const obj = node as Record<string, unknown>;
-    const link = obj.link as ElalBanner['link'];
-    if (typeof obj.title === 'string' && link?.url && /adamtotal|career|job/i.test(link.url)) {
-      out.push({ title: obj.title, link });
-    }
-    Object.values(obj).forEach((v) => collectElalBanners(v, out));
-  }
-  return out;
-}
-
-export const elalAdapter: Adapter = async ({ source, http }) => {
-  const { url } = z.object({ url: z.string().url(), jobsPage: z.string().url() }).parse(source.options);
-  const data = await http.json<unknown>(url);
-  return collectElalBanners(data).map((b) => ({
-    url: b.link!.url!,
-    title: b.title!.trim(),
-  }));
-};
-
 // ── RedMatch / TopMatch ATS position search (Clalit, Meitav) ───────────────────────
 interface RedMatchPosition {
   compPositionID: number | string;

@@ -1,9 +1,8 @@
-import { abraAdapter } from './abra.ts';
 import { adamtotalSiteAdapter } from './adamtotal.ts';
 import { comeetAdapter } from './comeet.ts';
 import { embeddedJsonAdapter } from './embedded-json.ts';
 import { htmlAdapter } from './html.ts';
-import { base44Adapter, elalAdapter, maxAdapter, nessAdapter, redmatchAdapter } from './json-sites.ts';
+import { base44Adapter, maxAdapter, nessAdapter, redmatchAdapter } from './json-sites.ts';
 import { rssAdapter } from './rss.ts';
 import type { Adapter } from './types.ts';
 import { wpmlAjaxAdapter } from './wpml-ajax.ts';
@@ -17,11 +16,9 @@ export const ADAPTERS: Record<string, Adapter> = {
   'wp-rest': wpRestAdapter,
   comeet: comeetAdapter,
   'adamtotal-site': adamtotalSiteAdapter,
-  abra: abraAdapter,
   ness: nessAdapter,
   max: maxAdapter,
   base44: base44Adapter,
-  elal: elalAdapter,
   redmatch: redmatchAdapter,
   'wpml-ajax': wpmlAjaxAdapter,
 };

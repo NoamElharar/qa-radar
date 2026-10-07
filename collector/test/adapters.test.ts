@@ -1,12 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { parseAbraItems } from '../src/adapters/abra.ts';
 import { adamtotalSiteAdapter, parseAdamtotalPage } from '../src/adapters/adamtotal.ts';
 import { mapComeet } from '../src/adapters/comeet.ts';
 import { getPath, parseEmbeddedJson } from '../src/adapters/embedded-json.ts';
 import { htmlAdapter, htmlOptionsSchema, parseHtmlJobs } from '../src/adapters/html.ts';
 import type { SourceConfig } from '../src/config.ts';
 import type { PoliteClient } from '../src/http.ts';
-import { collectElalBanners, mapMax, mapNess } from '../src/adapters/json-sites.ts';
+import { mapMax, mapNess } from '../src/adapters/json-sites.ts';
 import { parseRss } from '../src/adapters/rss.ts';
 import { parseOzCards, wpmlAjaxAdapter } from '../src/adapters/wpml-ajax.ts';
 import { mapWpPosts } from '../src/adapters/wp-rest.ts';
@@ -374,24 +373,6 @@ describe('platform mappers', () => {
     });
   });
 
-  it('El Al banners are collected from nested categories', () => {
-    const data = {
-      children: [
-        {
-          data: {
-            banners: [{ title: 'נציג/ת', link: { url: 'https://campaign.adamtotal.co.il?d=1' } }],
-          },
-        },
-        {
-          data: {
-            banners: [{ title: 'Tech', link: { url: 'https://campaign.adamtotal.co.il?d=2' } }],
-          },
-        },
-      ],
-    };
-    expect(collectElalBanners(data).map((b) => b.title)).toEqual(['נציג/ת', 'Tech']);
-  });
-
   it('adamtotal job cards', () => {
     const html = `<article class="job-card" data-job-id="198801" data-job-title="QA Engineer &amp; Production Support">
       <div class="job-meta"><span>מס' משרה: 198801</span><span>גוש דן | </span></div><p class="job-snippet">בודק/ת תוכנה</p>
@@ -437,15 +418,6 @@ describe('platform mappers', () => {
     expect(jobs.map((j) => j.sourceJobId)).toEqual(['1', '2']);
   });
 
-  it('Abra career items', () => {
-    const html = `<div class="career__our-careers-item"><div class="career__our-careers-item-body"><p class="subtitle">Automation &amp; QA</p>
-      <a href="https://www.abra-it.com/career/rd/embedded-qa-engineer/" class="title">Embedded QA Engineer</a>
-      <ul class="tags"><li><span>Haifa</span></li><li><span>On-site, Full-time</span></li></ul></div></div>`;
-    expect(parseAbraItems(html)[0]).toMatchObject({
-      title: 'Embedded QA Engineer',
-      location: 'Haifa',
-    });
-  });
 });
 
 describe('extractEndClient', () => {
