@@ -3,7 +3,14 @@ import { parseArgs } from 'node:util';
 import { loadConfig, REPO_ROOT } from './config.ts';
 import { collect } from './pipeline/run.ts';
 import { shouldRunAt } from './schedule.ts';
-import { appendArchive, dataPaths, readState, writeState } from './store.ts';
+import {
+  appendArchive,
+  dataPaths,
+  healthChanged,
+  readState,
+  writeHealth,
+  writeState,
+} from './store.ts';
 
 /**
  * Collector entry point.
@@ -42,8 +49,14 @@ async function main(): Promise<void> {
   const result = await collect({ config, previous, now, force: values.force, only, log });
 
   // Two timers (GitHub's schedule + the external backup) may fire in the same hour. When no source was
-  // due, leave the data files untouched so the run is a true no-op (no commit, no redeploy).
+  // due, leave the data files untouched so the run is a true no-op (no commit, no redeploy) — unless
+  // sources.yaml changed (a new link-out source, edited quick links): then only the health file is updated.
   if (!result.results.length) {
+    if (healthChanged(previous.health, result.health) && !values['dry-run']) {
+      writeHealth(paths, result.health);
+      log(`no source is due yet — the source registry changed, wrote ${paths.health}`);
+      return;
+    }
     log('no source is due yet (see everyHours) — data files left unchanged');
     return;
   }

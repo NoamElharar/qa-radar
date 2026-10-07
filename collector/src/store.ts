@@ -40,6 +40,19 @@ export function writeState(paths: DataPaths, jobs: JobsFile, health: HealthFile)
   writeJson(paths.health, health);
 }
 
+export function writeHealth(paths: DataPaths, health: HealthFile): void {
+  mkdirSync(paths.dir, { recursive: true });
+  writeJson(paths.health, health);
+}
+
+/**
+ * True when the per-source entries differ, ignoring `generatedAt`. A run with no due source still
+ * publishes registry edits (a new link-out source, changed quick links) instead of waiting hours.
+ */
+export function healthChanged(previous: HealthFile, next: HealthFile): boolean {
+  return JSON.stringify(previous.sources) !== JSON.stringify(next.sources);
+}
+
 /** Append archived jobs to data/archive/YYYY-MM.json (by month of closing). */
 export function appendArchive(paths: DataPaths, archived: Job[]): void {
   if (!archived.length) return;
