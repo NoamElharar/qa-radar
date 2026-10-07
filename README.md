@@ -70,6 +70,8 @@ Useful commands:
 | `npm run try-source -- gotfriends --all` | Run one source and print every kept/rejected title with the reason |
 | `npm test` | Unit tests (Vitest) |
 | `npm run check` | Lint + type-check + tests |
+| `npm run test:e2e` | End-to-end tests of the built dashboard on an iPhone 15 Pro (WebKit) and desktop Chrome, with generated fixture data (first time: `npx playwright install webkit chromium`) |
+| `npm run test:e2e:iphone` | The same, iPhone only |
 
 ## Adding a company
 
@@ -136,7 +138,7 @@ docs/          source audit and architecture notes
 
 ## Roadmap
 
-- **Phase 2:** cross-source dedup ("פורסם גם ב…"), refined match scoring, Telegram alerts with quiet hours, headless adapter for JS-only pages (Wix), adapter tests on recorded real pages, Playwright E2E tests for the dashboard.
+- **Phase 2:** cross-source dedup ("פורסם גם ב…"), refined match scoring, Telegram alerts with quiet hours, headless adapter for JS-only pages (Wix), adapter tests on recorded real pages. (Playwright E2E tests on an iPhone profile: done.)
 - **Phase 3:** statistics (new jobs per day / source, top hiring companies) and job-alert e-mail ingestion (e.g. Drushim alerts).
 
 ## License

@@ -5,7 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
 
-const DATA_DIR = resolve(__dirname, '../data');
+// End-to-end tests point this at generated fixtures (see e2e/global-setup.ts).
+const DATA_DIR = process.env.QA_RADAR_DATA_DIR ?? resolve(__dirname, '../data');
 
 /**
  * In dev/preview, serve the collector's local output (../data/*.json) at /data/.

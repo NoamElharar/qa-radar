@@ -1,6 +1,11 @@
 node_modules/
 dist/
 coverage/
+
+# Playwright end-to-end runs
+/e2e/.data/
+/playwright-report/
+/test-results/
 *.log
 .DS_Store
 Thumbs.db

@@ -4,7 +4,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['**/dist/**', '**/node_modules/**', 'data/**', 'coverage/**', '.scratch/**', 'docs/**'] },
+  { ignores: ['**/dist/**', '**/node_modules/**', 'data/**', 'coverage/**', '.scratch/**', 'docs/**', 'playwright-report/**', 'test-results/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -22,5 +22,10 @@ export default tseslint.config(
   {
     files: ['collector/**/*.ts', 'shared/**/*.ts', '*.config.{js,ts}', 'web/vite.config.ts'],
     languageOptions: { globals: globals.node },
+  },
+  {
+    // Playwright specs run in Node but evaluate callbacks in the page.
+    files: ['e2e/**/*.ts'],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
   },
 );
