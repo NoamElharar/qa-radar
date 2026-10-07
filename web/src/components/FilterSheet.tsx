@@ -37,7 +37,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       type="button"
       aria-pressed={active}
       onClick={onClick}
-      className={`rounded-full border px-3 py-1.5 text-sm transition ${
+      className={`min-h-10 rounded-full border px-3 text-sm transition ${
         active
           ? 'border-brand-600 bg-brand-600 text-white'
           : 'border-slate-300 bg-white text-slate-700 hover:border-brand-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
@@ -83,7 +83,7 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
     >
       <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-100 bg-white px-5 py-3 dark:border-slate-800 dark:bg-slate-900">
         <h2 className="text-lg font-bold">סינון</h2>
-        <button type="button" onClick={onClose} className="rounded-full p-2 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="סגור">
+        <button type="button" onClick={onClose} className="grid size-11 place-items-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="סגור">
           <CloseIcon />
         </button>
       </div>
@@ -186,7 +186,7 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
             step={10}
             value={f.minScore}
             onChange={(e) => set({ minScore: Number(e.target.value) })}
-            className="w-full accent-brand-600"
+            className="h-11 w-full accent-brand-600"
             aria-label="ציון התאמה מינימלי"
           />
         </Section>
@@ -204,10 +204,10 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
       </div>
 
       <div className="fixed inset-x-0 bottom-0 flex gap-3 border-t border-slate-100 bg-white p-4 md:absolute dark:border-slate-800 dark:bg-slate-900">
-        <button type="button" onClick={onReset} className="rounded-xl border border-slate-300 px-4 py-2.5 text-sm dark:border-slate-700">
+        <button type="button" onClick={onReset} className="min-h-11 rounded-xl border border-slate-300 px-4 text-sm dark:border-slate-700">
           איפוס
         </button>
-        <button type="button" onClick={onClose} className="flex-1 rounded-xl bg-brand-700 px-4 py-2.5 text-sm font-semibold text-white">
+        <button type="button" onClick={onClose} className="min-h-11 flex-1 rounded-xl bg-brand-700 px-4 text-sm font-semibold text-white">
           הצג {resultCount} משרות
         </button>
       </div>

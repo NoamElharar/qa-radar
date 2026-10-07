@@ -37,7 +37,7 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
           href={COLLECT_WORKFLOW_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-brand-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-brand-800"
+          className="mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-brand-700 px-3 text-xs font-semibold text-white hover:bg-brand-800"
         >
           הרצת איסוף ב-GitHub <ExternalIcon />
         </a>
@@ -77,7 +77,7 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
               {s.status === 'link-out' && s.quickLinks?.length ? (
                 <div className="mt-2 flex flex-wrap gap-2 ps-4.5">
                   {s.quickLinks.map((l) => (
-                    <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-brand-700 hover:underline dark:text-brand-100">
+                    <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-9 items-center gap-1 text-xs text-brand-700 hover:underline dark:text-brand-100">
                       {l.label} <ExternalIcon />
                     </a>
                   ))}

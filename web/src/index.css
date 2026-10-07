@@ -53,6 +53,18 @@ body {
   @apply min-h-dvh font-sans text-slate-900 antialiased dark:text-slate-100;
 }
 
+/*
+ * iOS Safari zooms into any focused field whose text is smaller than 16px (and stays zoomed).
+ * Unlayered, so it wins over the Tailwind `text-sm` utilities on touch screens and phones.
+ */
+@media (pointer: coarse), (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
 /* Mixed Hebrew/English job titles: isolate bidi runs, keep the RTL block alignment. */
 bdi {
   unicode-bidi: isolate;

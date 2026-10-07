@@ -169,14 +169,14 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => onOpen(job)}
-          className="inline-flex items-center gap-1.5 rounded-xl bg-brand-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-800 active:scale-[.98]"
+          className="inline-flex min-h-11 items-center gap-1.5 rounded-xl bg-brand-700 px-4 text-sm font-semibold text-white shadow-sm hover:bg-brand-800 active:scale-[.98]"
         >
           הגש מועמדות <ExternalIcon />
         </a>
         <button
           type="button"
           onClick={() => onStatus(job, saved ? undefined : 'saved')}
-          className={`rounded-xl border px-2.5 py-2 text-lg ${saved ? 'border-amber-300 bg-amber-50 text-amber-500 dark:border-amber-700 dark:bg-amber-950' : 'border-slate-200 text-slate-400 dark:border-slate-700'}`}
+          className={`inline-flex size-11 items-center justify-center rounded-xl border text-lg ${saved ? 'border-amber-300 bg-amber-50 text-amber-500 dark:border-amber-700 dark:bg-amber-950' : 'border-slate-200 text-slate-400 dark:border-slate-700'}`}
           aria-pressed={saved}
           aria-label={saved ? 'הסר משמורים' : 'שמור משרה'}
         >
@@ -185,7 +185,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="rounded-xl px-2.5 py-2 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          className="inline-flex min-h-11 items-center rounded-xl px-2.5 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
           aria-expanded={expanded}
         >
           {expanded ? 'פחות' : 'פרטים'}
@@ -194,7 +194,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
           <button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
-            className="inline-flex items-center gap-1 rounded-xl border border-slate-200 px-2.5 py-2 text-sm dark:border-slate-700"
+            className="inline-flex min-h-11 items-center gap-1 rounded-xl border border-slate-200 px-2.5 text-sm dark:border-slate-700"
             aria-haspopup="menu"
             aria-expanded={menuOpen}
             aria-label={`סטטוס: ${status ? STATUS_LABELS[status.status] : STATUS_LABELS.new} — שינוי`}
@@ -216,7 +216,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
                     onStatus(job, s);
                     setMenuOpen(false);
                   }}
-                  className="flex w-full items-center justify-between px-3 py-2 text-start text-sm hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="flex w-full items-center justify-between px-3 py-3 text-start text-sm hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   {STATUS_LABELS[s]}
                   {status?.status === s && <CheckIcon className="text-brand-600" />}
@@ -230,7 +230,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
                     onStatus(job, undefined);
                     setMenuOpen(false);
                   }}
-                  className="w-full px-3 py-2 text-start text-sm text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="w-full px-3 py-3 text-start text-sm text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   נקה סטטוס
                 </button>
@@ -245,7 +245,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
                     }
                     setMenuOpen(false);
                   }}
-                  className="w-full border-t border-slate-100 px-3 py-2 text-start text-sm text-rose-700 hover:bg-rose-50 dark:border-slate-800 dark:text-rose-400 dark:hover:bg-rose-950"
+                  className="w-full border-t border-slate-100 px-3 py-3 text-start text-sm text-rose-700 hover:bg-rose-50 dark:border-slate-800 dark:text-rose-400 dark:hover:bg-rose-950"
                 >
                   הסתר חברה: <bdi>{companyName}</bdi>
                 </button>

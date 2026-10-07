@@ -56,7 +56,7 @@ export function MineSummary({
         type="button"
         aria-pressed={active}
         onClick={() => onToggleStatus(s)}
-        className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition ${
+        className={`inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border px-3 text-sm transition ${
           active
             ? 'border-slate-800 bg-slate-800 text-white dark:border-slate-200 dark:bg-slate-200 dark:text-slate-900'
             : 'border-slate-200 bg-white text-slate-700 hover:border-slate-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
@@ -121,7 +121,7 @@ export function MineSummary({
           type="button"
           aria-pressed={!selected.length}
           onClick={onClearStatuses}
-          className={`shrink-0 rounded-full border px-3 py-1.5 text-sm ${
+          className={`min-h-9 shrink-0 rounded-full border px-3 text-sm ${
             !selected.length
               ? 'border-brand-700 bg-brand-700 text-white'
               : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'

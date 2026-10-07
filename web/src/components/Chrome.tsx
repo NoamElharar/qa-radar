@@ -32,7 +32,7 @@ export function Header({ updatedAt, now, theme, onTheme, refreshing, onRefresh }
             type="button"
             onClick={onRefresh}
             disabled={refreshing}
-            className="rounded-full p-2.5 text-lg text-slate-600 hover:bg-slate-100 disabled:opacity-60 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="grid size-11 place-items-center rounded-full text-lg text-slate-600 hover:bg-slate-100 disabled:opacity-60 dark:text-slate-300 dark:hover:bg-slate-800"
             aria-label="רענון — טעינת הנתונים האחרונים"
             title="רענון — טעינת הנתונים האחרונים"
           >
@@ -41,7 +41,7 @@ export function Header({ updatedAt, now, theme, onTheme, refreshing, onRefresh }
           <button
             type="button"
             onClick={() => onTheme(THEME_NEXT[theme])}
-            className="rounded-full p-2.5 text-lg text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="grid size-11 place-items-center rounded-full text-lg text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
             aria-label={THEME_LABEL[theme]}
             title={THEME_LABEL[theme]}
           >

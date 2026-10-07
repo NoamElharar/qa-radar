@@ -194,7 +194,7 @@ export function MineView({
                     type="button"
                     aria-pressed={active}
                     onClick={() => set({ flags: toggleIn(filters.flags, flag) })}
-                    className={`shrink-0 rounded-full border px-3 py-1 text-xs ${
+                    className={`min-h-9 shrink-0 rounded-full border px-3 text-xs ${
                       active
                         ? 'border-brand-600 bg-brand-600 text-white'
                         : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
@@ -208,7 +208,7 @@ export function MineView({
                 value={filters.applied}
                 onChange={(e) => set({ applied: e.target.value as AppliedWindow })}
                 aria-label="תאריך הגשה"
-                className={`shrink-0 rounded-full border px-2 py-1 text-xs ${
+                className={`min-h-9 shrink-0 rounded-full border px-2 text-xs ${
                   filters.applied !== 'any'
                     ? 'border-brand-600 bg-brand-600 text-white'
                     : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
@@ -224,7 +224,7 @@ export function MineView({
                 <button
                   type="button"
                   onClick={() => setFilters({ ...DEFAULT_MINE_FILTERS, sort: filters.sort })}
-                  className="shrink-0 px-2 py-1 text-xs text-brand-700 underline dark:text-brand-500"
+                  className="min-h-9 shrink-0 px-2 text-xs text-brand-700 underline dark:text-brand-500"
                 >
                   נקה סינון ({activeCount})
                 </button>
@@ -333,7 +333,7 @@ export function MineView({
                   key={name}
                   type="button"
                   onClick={() => onUnhide(name)}
-                  className="rounded-full bg-slate-100 px-3 py-1 text-sm dark:bg-slate-800"
+                  className="min-h-9 rounded-full bg-slate-100 px-3 text-sm dark:bg-slate-800"
                   aria-label={`הצג שוב את ${name}`}
                 >
                   <bdi>{name}</bdi> ✕
@@ -355,11 +355,11 @@ export function MineView({
                 value={newHidden}
                 onChange={(e) => setNewHidden(e.target.value)}
                 placeholder="שם חברה להסתרה"
-                className="flex-1 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm dark:border-slate-700 dark:bg-slate-900"
+                className="min-h-11 flex-1 rounded-lg border border-slate-300 bg-white px-3 text-sm dark:border-slate-700 dark:bg-slate-900"
               />
               <button
                 type="submit"
-                className="rounded-lg bg-slate-800 px-3 py-1.5 text-sm text-white dark:bg-slate-200 dark:text-slate-900"
+                className="min-h-11 rounded-lg bg-slate-800 px-3 text-sm text-white dark:bg-slate-200 dark:text-slate-900"
               >
                 הוסף
               </button>
@@ -375,14 +375,14 @@ export function MineView({
               <button
                 type="button"
                 onClick={onExport}
-                className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm dark:border-slate-700"
+                className="min-h-11 rounded-lg border border-slate-300 px-3 text-sm dark:border-slate-700"
               >
                 ייצוא JSON
               </button>
               <button
                 type="button"
                 onClick={() => fileRef.current?.click()}
-                className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm dark:border-slate-700"
+                className="min-h-11 rounded-lg border border-slate-300 px-3 text-sm dark:border-slate-700"
               >
                 ייבוא JSON
               </button>

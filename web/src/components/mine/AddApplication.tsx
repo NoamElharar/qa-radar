@@ -52,7 +52,7 @@ export function AddApplication({ onAdd }: { onAdd: (id: string, entry: StatusEnt
             setOpen(true);
             setSavedTitle(undefined);
           }}
-          className="inline-flex items-center gap-1.5 rounded-xl border border-dashed border-brand-600 px-3 py-2 text-sm font-medium text-brand-700 hover:bg-brand-50 dark:border-brand-500 dark:text-brand-500 dark:hover:bg-brand-900/40"
+          className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-dashed border-brand-600 px-3 text-sm font-medium text-brand-700 hover:bg-brand-50 dark:border-brand-500 dark:text-brand-500 dark:hover:bg-brand-900/40"
         >
           ➕ הוספת מועמדות ידנית
         </button>
@@ -175,7 +175,7 @@ export function AddApplication({ onAdd }: { onAdd: (id: string, entry: StatusEnt
       <div className="flex gap-2">
         <button
           type="submit"
-          className="flex-1 rounded-xl bg-brand-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-800"
+          className="min-h-11 flex-1 rounded-xl bg-brand-700 px-4 text-sm font-semibold text-white hover:bg-brand-800"
         >
           שמור מועמדות
         </button>
@@ -185,7 +185,7 @@ export function AddApplication({ onAdd }: { onAdd: (id: string, entry: StatusEnt
             setOpen(false);
             setError(undefined);
           }}
-          className="rounded-xl border border-slate-300 px-4 py-2.5 text-sm dark:border-slate-700"
+          className="min-h-11 rounded-xl border border-slate-300 px-4 text-sm dark:border-slate-700"
         >
           {savedTitle ? 'סיום' : 'ביטול'}
         </button>

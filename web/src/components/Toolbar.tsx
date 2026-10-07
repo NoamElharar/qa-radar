@@ -29,14 +29,14 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
             type="search"
             value={f.q}
             onChange={(e) => onChange({ ...f, q: e.target.value })}
-            placeholder="חיפוש: API, מובייל, SQLink…"
+            placeholder="חיפוש: API, מובייל, NESS…"
             className="w-full rounded-xl border border-slate-200 bg-white py-2.5 ps-9 pe-3 text-sm shadow-sm placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-900"
           />
         </label>
         <button
           type="button"
           onClick={onOpenFilters}
-          className="relative inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-medium shadow-sm dark:border-slate-700 dark:bg-slate-900"
+          className="relative inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-medium shadow-sm dark:border-slate-700 dark:bg-slate-900"
         >
           <FilterIcon /> סינון
           {count > 0 && (
@@ -48,7 +48,7 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
         <button
           type="button"
           onClick={() => onChange({ ...f, sort: f.sort === 'new' ? 'score' : 'new' })}
-          className="shrink-0 rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-white dark:bg-slate-200 dark:text-slate-900"
+          className="inline-flex min-h-9 shrink-0 items-center rounded-full bg-slate-800 px-3 text-xs font-medium text-white dark:bg-slate-200 dark:text-slate-900"
           aria-label="שינוי מיון"
         >
           מיון: {f.sort === 'new' ? 'חדש ביותר' : 'התאמה הכי טובה'} ⇅
@@ -58,7 +58,7 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
             key={c.key}
             type="button"
             onClick={c.clear}
-            className="shrink-0 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs text-brand-800 dark:border-brand-800 dark:bg-brand-900/50 dark:text-brand-100"
+            className="inline-flex min-h-9 shrink-0 items-center rounded-full border border-brand-200 bg-brand-50 px-3 text-xs text-brand-800 dark:border-brand-800 dark:bg-brand-900/50 dark:text-brand-100"
             aria-label={`הסר סינון ${c.label}`}
           >
             {c.label} ✕

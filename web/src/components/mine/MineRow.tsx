@@ -107,7 +107,7 @@ export const MineRow = memo(function MineRow({
           aria-pressed={pinned}
           aria-label={pinned ? 'בטל נעיצה' : 'נעץ למעלה'}
           title={pinned ? 'בטל נעיצה' : 'נעץ למעלה'}
-          className={`mt-0.5 shrink-0 rounded-lg p-1.5 text-base ${
+          className={`grid size-10 shrink-0 place-items-center rounded-lg text-base ${
             pinned
               ? 'text-brand-700 dark:text-brand-500'
               : 'text-slate-300 hover:text-slate-500 dark:text-slate-600 dark:hover:text-slate-400'
@@ -172,7 +172,7 @@ export const MineRow = memo(function MineRow({
                         : entry.appliedAt,
                   })
                 }
-                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs ${
+                className={`inline-flex min-h-9 items-center gap-1.5 rounded-full border px-2.5 text-xs ${
                   entry.status === s
                     ? 'border-slate-800 bg-slate-800 text-white dark:border-slate-200 dark:bg-slate-200 dark:text-slate-900'
                     : 'border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900'
