@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-07T13:00:36.814Z",
+  "generatedAt": "2026-10-07T13:24:03.755Z",
   "sources": [
     {
       "id": "linkedin",
@@ -579,6 +579,24 @@
         }
       ],
       "note": "תקנון IdorNext אוסר העתקה ופרסום של תוכן האתר; עידור מחשבים מפרסמת משרות רק ב-Jobnet, שתקנונו אוסר סריקה",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "one1",
+      "name": "ONE (וואן טכנולוגיות)",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://www.one1.co.il/careers/",
+      "quickLinks": [
+        {
+          "label": "משרות (סינון \"בדיקות ואוטומציה\")",
+          "url": "https://www.one1.co.il/careers/#career-section"
+        }
+      ],
+      "note": "תקנון האתר אוסר כלי סריקה ואיסוף אוטומטיים והעתקה של התכנים",
       "status": "link-out",
       "consecutiveFailures": 0,
       "baselineDone": false,
