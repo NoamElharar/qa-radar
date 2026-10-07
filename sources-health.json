@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-07T06:00:31.720Z",
+  "generatedAt": "2026-10-07T06:26:37.091Z",
   "sources": [
     {
       "id": "linkedin",
@@ -556,6 +556,28 @@
         }
       ],
       "note": "מוגן ע\"י אתגר בוטים של Cloudflare — לא עוקפים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "idor",
+      "name": "עידור (IDOR GROUP)",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://idornext.co.il/jobs/",
+      "quickLinks": [
+        {
+          "label": "משרות IdorNext",
+          "url": "https://idornext.co.il/jobs/"
+        },
+        {
+          "label": "עידור מחשבים ב-Jobnet",
+          "url": "https://www.jobnet.co.il/Company?companyID=23123"
+        }
+      ],
+      "note": "תקנון IdorNext אוסר העתקה ופרסום של תוכן האתר; עידור מחשבים מפרסמת משרות רק ב-Jobnet, שתקנונו אוסר סריקה",
       "status": "link-out",
       "consecutiveFailures": 0,
       "baselineDone": false,
