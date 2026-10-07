@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-07T15:00:35.684Z",
+  "generatedAt": "2026-10-07T15:06:34.266Z",
   "sources": [
     {
       "id": "linkedin",
@@ -261,9 +261,16 @@
       "id": "sqlink",
       "name": "SQLink",
       "type": "agency",
-      "tier": "B",
+      "tier": "D",
       "homepage": "https://www.sqlink.com/career/db/qa/",
-      "status": "error",
+      "quickLinks": [
+        {
+          "label": "משרות QA",
+          "url": "https://www.sqlink.com/career/db/qa/"
+        }
+      ],
+      "note": "מאז 2026-10 מוגן ע\"י אתגר בוטים של Cloudflare (גם מרשת ביתית) — לא עוקפים",
+      "status": "link-out",
       "consecutiveFailures": 57,
       "baselineDone": false,
       "recentCounts": [],
@@ -659,9 +666,16 @@
       "id": "abra",
       "name": "Abra",
       "type": "agency",
-      "tier": "B",
+      "tier": "D",
       "homepage": "https://www.abra-it.com/career/?category=Automation+%26+QA#jobs",
-      "status": "error",
+      "quickLinks": [
+        {
+          "label": "Automation & QA",
+          "url": "https://www.abra-it.com/career/?category=Automation+%26+QA#jobs"
+        }
+      ],
+      "note": "תקנון האתר אוסר שימוש ברובוטים ובזחלנים לאחזור מידע ועקיפת הגבלות גישה",
+      "status": "link-out",
       "consecutiveFailures": 57,
       "baselineDone": false,
       "recentCounts": [],
@@ -819,9 +833,16 @@
       "id": "mataf",
       "name": "מת\"ף (הבינלאומי)",
       "type": "direct",
-      "tier": "B",
+      "tier": "D",
       "homepage": "https://www.fibi.co.il/private/general/about/jobs/jobsmataf/",
-      "status": "error",
+      "quickLinks": [
+        {
+          "label": "משרות מת\"ף",
+          "url": "https://www.fibi.co.il/private/general/about/jobs/jobsmataf/"
+        }
+      ],
+      "note": "תנאי השימוש של הבנק אוסרים כלי סריקה ואיסוף אוטומטיים (Crawlers)",
+      "status": "link-out",
       "consecutiveFailures": 25,
       "baselineDone": true,
       "recentCounts": [
@@ -946,9 +967,16 @@
       "id": "xnes",
       "name": "הפניקס בית השקעות",
       "type": "direct",
-      "tier": "A",
+      "tier": "D",
       "homepage": "https://www.xnes.co.il/jobs/",
-      "status": "error",
+      "quickLinks": [
+        {
+          "label": "כל המשרות",
+          "url": "https://www.xnes.co.il/jobs/"
+        }
+      ],
+      "note": "תנאי השימוש (סעיף 1.3) אוסרים Crawlers ו-Robots לסריקה או אחזור אוטומטי",
+      "status": "link-out",
       "consecutiveFailures": 10,
       "baselineDone": false,
       "recentCounts": [],
@@ -1137,9 +1165,16 @@
       "id": "elal",
       "name": "אל על",
       "type": "direct",
-      "tier": "A",
+      "tier": "D",
       "homepage": "https://www.elal.com/heb/career/all-jobs",
-      "status": "error",
+      "quickLinks": [
+        {
+          "label": "כל המשרות",
+          "url": "https://www.elal.com/heb/career/all-jobs"
+        }
+      ],
+      "note": "תנאי השימוש מתירים העתקה לשימוש אישי בלבד ואוסרים פרסום והפצה של תוכן האתר",
+      "status": "link-out",
       "consecutiveFailures": 14,
       "baselineDone": false,
       "recentCounts": [],
