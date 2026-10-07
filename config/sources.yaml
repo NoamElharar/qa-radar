@@ -302,6 +302,17 @@ sources:
     quickLinks:
       - { label: 'לובי קריירה', url: 'https://www.malamteam.com/לובי-קריירה/' }
 
+  - id: idor
+    name: עידור (IDOR GROUP)
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://idornext.co.il/jobs/
+    note: 'תקנון IdorNext אוסר העתקה ופרסום של תוכן האתר; עידור מחשבים מפרסמת משרות רק ב-Jobnet, שתקנונו אוסר סריקה'
+    quickLinks:
+      - { label: 'משרות IdorNext', url: 'https://idornext.co.il/jobs/' }
+      - { label: 'עידור מחשבים ב-Jobnet', url: 'https://www.jobnet.co.il/Company?companyID=23123' }
+
   - id: inmanage
     name: InManage
     type: agency
