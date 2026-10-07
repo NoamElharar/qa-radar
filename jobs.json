@@ -1,7 +1,77 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-07T11:00:39.242Z",
+  "generatedAt": "2026-10-07T12:00:34.879Z",
   "jobs": [
+    {
+      "id": "mobileye:b1883e14-5a78-4cd4-af6d-f22790187366",
+      "sourceId": "mobileye",
+      "sourceJobId": "b1883e14-5a78-4cd4-af6d-f22790187366",
+      "url": "https://careers.mobileye.com/jobs/junior-validation-integration-engineer/b1883e14-5a78-4cd4-af6d-f22790187366",
+      "title": "Junior Validation & Integration Engineer",
+      "company": "Mobileye",
+      "locationText": "Jerusalem",
+      "snippet": "Integration Engineering About the team:The Product Validation department is looking for a Validation Engineer. Our department is responsible for delivering high-quality ADAS (Advanced Driver Assistance Systems) products. We are the first line of support for Mobileye’s customers around the globe, and as our Validation Engineer, you will interact with most of Mobileye’s departments to achieve Mobileye’s goals. What will your job look like:Perform system-level validation of embedded systems, covering both hardware and software, with a strong focus on functional testingDesign and maintain test…",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אמבדד/חומרה"
+      ],
+      "seniority": "junior",
+      "yearsRequired": 1,
+      "city": "ירושלים",
+      "regions": [
+        "jerusalem"
+      ],
+      "distanceKm": 38,
+      "score": 82,
+      "matched": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "Jira / Xray",
+        "Backend / Batch"
+      ],
+      "missing": [
+        "Linux"
+      ],
+      "firstSeenAt": "2026-10-07T12:00:34.879Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "mobileye:eb3dfa0f-563f-4734-824f-39c3ae88685e",
+      "sourceId": "mobileye",
+      "sourceJobId": "eb3dfa0f-563f-4734-824f-39c3ae88685e",
+      "url": "https://careers.mobileye.com/jobs/mechanical-test-engineer/eb3dfa0f-563f-4734-824f-39c3ae88685e",
+      "title": "Mechanical Test Engineer",
+      "company": "Mobileye",
+      "locationText": "Haifa",
+      "snippet": "Hardware About the team:We are looking for an experienced Environmental Test Engineer to join our team in MATAM, Haifa. The role involves hands-on operation of environmental test equipment, executing environmental qualification tests, analyzing results, and supporting product reliability and validation activities. What will your job look like?Conduct mechanical tests including tensile, compression, drop, and impact testingPerform environmental tests such as temperature, humidity, and thermal shock.Operate and maintain laboratory test equipment and monitoring systems.Prepare test setups,…",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "אמבדד/חומרה"
+      ],
+      "seniority": "senior",
+      "yearsRequired": 5,
+      "city": "חיפה",
+      "regions": [
+        "north"
+      ],
+      "distanceKm": 105,
+      "score": 31,
+      "matched": [
+        "STP/STD/STR"
+      ],
+      "missing": [
+        "5+ שנות ניסיון"
+      ],
+      "firstSeenAt": "2026-10-07T12:00:34.879Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
     {
       "id": "ness:43444",
       "sourceId": "ness",
@@ -24,7 +94,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-07T08:48:31.313Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -47,7 +117,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-07T08:00:34.708Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -82,7 +152,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -122,7 +192,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -160,7 +230,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -202,7 +272,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -241,7 +311,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -278,7 +348,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -315,7 +385,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -348,7 +418,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -379,7 +449,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -415,7 +485,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -452,7 +522,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -485,7 +555,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -526,7 +596,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -561,7 +631,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -590,7 +660,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -628,7 +698,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -666,7 +736,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -704,7 +774,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -737,7 +807,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -762,7 +832,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -795,7 +865,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-07T03:00:32.374Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -853,7 +923,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T13:00:41.202Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -878,7 +948,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T06:00:31.720Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -904,7 +974,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T06:00:31.720Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -942,7 +1012,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -979,7 +1049,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1021,7 +1091,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1060,7 +1130,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1097,7 +1167,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1132,7 +1202,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1169,7 +1239,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1206,7 +1276,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1242,7 +1312,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1279,7 +1349,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1317,7 +1387,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1356,7 +1426,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1393,7 +1463,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1424,7 +1494,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1457,7 +1527,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1480,7 +1550,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1503,7 +1573,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1529,7 +1599,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1556,7 +1626,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1579,7 +1649,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1602,7 +1672,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1628,7 +1698,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1653,7 +1723,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1706,7 +1776,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-06T08:34:33.803Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -1737,7 +1807,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T08:34:33.803Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -3141,7 +3211,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -3169,7 +3239,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -3197,7 +3267,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -3225,7 +3295,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -3252,7 +3322,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -3280,7 +3350,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -3305,7 +3375,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:00:32.310Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4320,7 +4390,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4354,7 +4424,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4391,7 +4461,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4428,7 +4498,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4460,7 +4530,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4494,7 +4564,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4527,7 +4597,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4561,7 +4631,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4595,7 +4665,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4634,7 +4704,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4671,7 +4741,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4705,7 +4775,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4747,7 +4817,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4780,7 +4850,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4820,7 +4890,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4863,7 +4933,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4897,7 +4967,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4939,7 +5009,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4978,7 +5048,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5012,7 +5082,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5050,7 +5120,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5087,7 +5157,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5121,7 +5191,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5157,7 +5227,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5188,7 +5258,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5224,7 +5294,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5260,7 +5330,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5294,7 +5364,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5331,7 +5401,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5363,7 +5433,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5401,7 +5471,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5441,7 +5511,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5476,7 +5546,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5510,7 +5580,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5544,7 +5614,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5580,7 +5650,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5618,7 +5688,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5655,7 +5725,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5691,7 +5761,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5730,7 +5800,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5770,7 +5840,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5807,7 +5877,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5840,7 +5910,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5874,7 +5944,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5910,7 +5980,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5947,7 +6017,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5982,7 +6052,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6012,7 +6082,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6051,7 +6121,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6090,7 +6160,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6123,7 +6193,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6158,7 +6228,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6193,7 +6263,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6232,7 +6302,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6269,7 +6339,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6311,7 +6381,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6350,7 +6420,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6384,7 +6454,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6420,7 +6490,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6454,7 +6524,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6491,7 +6561,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6517,7 +6587,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6555,7 +6625,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6588,7 +6658,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6627,7 +6697,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6662,7 +6732,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6699,7 +6769,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6737,7 +6807,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6779,7 +6849,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6819,7 +6889,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6855,7 +6925,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6891,7 +6961,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6928,7 +6998,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6958,7 +7028,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -6994,7 +7064,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7029,7 +7099,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7068,7 +7138,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7104,7 +7174,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7135,7 +7205,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7170,7 +7240,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7210,7 +7280,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7250,7 +7320,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7285,7 +7355,7 @@
         "10+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7322,7 +7392,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7359,7 +7429,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7392,7 +7462,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7427,7 +7497,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7468,7 +7538,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7506,7 +7576,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7547,7 +7617,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7582,7 +7652,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7615,7 +7685,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7654,7 +7724,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7691,7 +7761,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7728,7 +7798,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7766,7 +7836,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7804,7 +7874,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7839,7 +7909,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7874,7 +7944,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7910,7 +7980,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7950,7 +8020,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -7986,7 +8056,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8025,7 +8095,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8062,7 +8132,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8099,7 +8169,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8135,7 +8205,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8171,7 +8241,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8205,7 +8275,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8244,7 +8314,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8280,7 +8350,7 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8314,7 +8384,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8350,7 +8420,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8390,7 +8460,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8426,7 +8496,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8460,7 +8530,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8494,7 +8564,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8530,7 +8600,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8567,7 +8637,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8603,7 +8673,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8642,7 +8712,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8679,7 +8749,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8716,7 +8786,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8749,7 +8819,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8788,7 +8858,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8820,7 +8890,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8860,7 +8930,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8899,7 +8969,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8932,7 +9002,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8969,7 +9039,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9007,7 +9077,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9047,7 +9117,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9084,7 +9154,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9120,7 +9190,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9155,7 +9225,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9190,7 +9260,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9230,7 +9300,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9272,7 +9342,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9304,7 +9374,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9339,7 +9409,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9374,7 +9444,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9413,7 +9483,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9450,7 +9520,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9489,7 +9559,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9526,7 +9596,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9559,7 +9629,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9593,7 +9663,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9627,7 +9697,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9666,7 +9736,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9705,7 +9775,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9744,7 +9814,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9784,7 +9854,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9821,7 +9891,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9860,7 +9930,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9896,7 +9966,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9928,7 +9998,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9964,7 +10034,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10000,7 +10070,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10039,7 +10109,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10074,7 +10144,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10114,7 +10184,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10147,7 +10217,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10184,7 +10254,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10224,7 +10294,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10262,7 +10332,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10300,7 +10370,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10338,7 +10408,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10376,7 +10446,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10411,7 +10481,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10448,7 +10518,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10484,7 +10554,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10520,7 +10590,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10556,7 +10626,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10589,7 +10659,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10626,7 +10696,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10664,7 +10734,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10699,7 +10769,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10735,7 +10805,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10774,7 +10844,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10808,7 +10878,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10840,7 +10910,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10881,7 +10951,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10920,7 +10990,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10955,7 +11025,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -10997,7 +11067,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11035,7 +11105,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11070,7 +11140,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11104,7 +11174,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11141,7 +11211,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11177,7 +11247,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11209,7 +11279,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11244,7 +11314,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11284,7 +11354,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11317,7 +11387,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11349,7 +11419,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11386,7 +11456,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11420,7 +11490,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T11:54:01.895Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -11445,7 +11515,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T06:00:31.720Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -11472,7 +11542,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -11506,7 +11576,7 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -11544,7 +11614,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -11572,7 +11642,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -11603,7 +11673,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -11629,7 +11699,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12521,7 +12591,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12577,7 +12647,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12666,7 +12736,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12699,7 +12769,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12738,7 +12808,7 @@
         "Kubernetes / Docker"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12771,7 +12841,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12807,7 +12877,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12843,7 +12913,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12878,7 +12948,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12915,7 +12985,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12950,7 +13020,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -12989,7 +13059,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13026,7 +13096,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13059,7 +13129,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13098,7 +13168,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13134,7 +13204,7 @@
         "10+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13165,7 +13235,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13202,7 +13272,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13236,7 +13306,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13271,7 +13341,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13306,7 +13376,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13337,7 +13407,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13369,7 +13439,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13407,7 +13477,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13441,7 +13511,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13480,7 +13550,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13519,7 +13589,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13560,7 +13630,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13600,7 +13670,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13640,7 +13710,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13681,7 +13751,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13713,7 +13783,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13753,7 +13823,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13797,7 +13867,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13836,7 +13906,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13877,7 +13947,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13911,7 +13981,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13943,7 +14013,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -13983,7 +14053,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14019,7 +14089,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14055,7 +14125,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14093,7 +14163,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14135,7 +14205,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14177,7 +14247,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14219,7 +14289,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14256,7 +14326,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14293,7 +14363,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14327,7 +14397,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14365,7 +14435,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14402,7 +14472,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14438,7 +14508,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14475,7 +14545,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14515,7 +14585,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14550,7 +14620,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14591,7 +14661,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14626,7 +14696,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14665,7 +14735,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14709,7 +14779,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14743,7 +14813,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14781,7 +14851,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14817,7 +14887,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14852,7 +14922,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14887,7 +14957,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14931,7 +15001,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -14964,7 +15034,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15004,7 +15074,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15035,7 +15105,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15072,7 +15142,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15111,7 +15181,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15153,7 +15223,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15186,7 +15256,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15224,7 +15294,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15259,7 +15329,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15294,7 +15364,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15330,7 +15400,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15370,7 +15440,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15413,7 +15483,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15449,7 +15519,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15483,7 +15553,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15524,7 +15594,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15564,7 +15634,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15598,7 +15668,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15640,7 +15710,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15676,7 +15746,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15711,7 +15781,7 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15745,7 +15815,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15778,7 +15848,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15817,7 +15887,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15856,7 +15926,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15888,7 +15958,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15928,7 +15998,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -15968,7 +16038,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16010,7 +16080,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16046,7 +16116,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16082,7 +16152,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16122,7 +16192,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16163,7 +16233,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16199,7 +16269,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16233,7 +16303,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16272,7 +16342,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16309,7 +16379,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16350,7 +16420,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16385,7 +16455,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16425,7 +16495,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16467,7 +16537,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16505,7 +16575,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16541,7 +16611,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16580,7 +16650,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16612,7 +16682,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16679,7 +16749,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16716,7 +16786,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16750,7 +16820,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16786,7 +16856,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16825,7 +16895,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16865,7 +16935,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16905,7 +16975,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16945,7 +17015,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16981,7 +17051,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17021,7 +17091,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17057,7 +17127,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17096,7 +17166,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17137,7 +17207,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17177,7 +17247,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17213,7 +17283,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17246,7 +17316,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17281,7 +17351,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17315,7 +17385,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17355,7 +17425,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17398,7 +17468,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17433,7 +17503,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17474,7 +17544,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17513,7 +17583,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17549,7 +17619,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17585,7 +17655,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17624,7 +17694,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17661,7 +17731,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17701,7 +17771,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17735,7 +17805,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17772,7 +17842,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17812,7 +17882,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17850,7 +17920,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17887,7 +17957,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17925,7 +17995,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17961,7 +18031,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17994,7 +18064,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18031,7 +18101,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18067,7 +18137,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18108,7 +18178,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18143,7 +18213,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18175,7 +18245,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18209,7 +18279,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18243,7 +18313,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18282,7 +18352,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18324,7 +18394,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18362,7 +18432,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18395,7 +18465,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18432,7 +18502,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18466,7 +18536,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18501,7 +18571,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18535,7 +18605,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18572,7 +18642,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18611,7 +18681,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18644,7 +18714,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18678,7 +18748,7 @@
         "8+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18712,7 +18782,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18753,7 +18823,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18792,7 +18862,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18832,7 +18902,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18871,7 +18941,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18906,7 +18976,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18943,7 +19013,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -18979,7 +19049,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19016,7 +19086,7 @@
         "Kubernetes / Docker"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19056,7 +19126,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19099,7 +19169,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19137,7 +19207,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19175,7 +19245,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19217,7 +19287,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19251,7 +19321,7 @@
         "Kubernetes / Docker"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19291,7 +19361,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19334,7 +19404,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19375,7 +19445,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19452,7 +19522,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19488,7 +19558,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19522,7 +19592,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19560,7 +19630,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19595,7 +19665,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19636,7 +19706,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19676,7 +19746,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19709,7 +19779,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19748,7 +19818,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19786,7 +19856,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19823,7 +19893,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19862,7 +19932,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19901,7 +19971,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19937,7 +20007,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -19974,7 +20044,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20015,7 +20085,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20055,7 +20125,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20096,7 +20166,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20134,7 +20204,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20170,7 +20240,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20216,7 +20286,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20256,7 +20326,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20291,7 +20361,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20329,7 +20399,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20364,7 +20434,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20403,7 +20473,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20440,7 +20510,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20477,7 +20547,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20513,7 +20583,7 @@
         "10+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20549,7 +20619,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20589,7 +20659,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20627,7 +20697,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20663,7 +20733,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20703,7 +20773,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20741,7 +20811,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20780,7 +20850,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20820,7 +20890,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20853,7 +20923,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20891,7 +20961,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20927,7 +20997,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -20961,7 +21031,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21004,7 +21074,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21040,7 +21110,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21077,7 +21147,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21123,7 +21193,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21165,7 +21235,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21206,7 +21276,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21244,7 +21314,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21278,7 +21348,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21318,7 +21388,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21351,7 +21421,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21392,7 +21462,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21432,7 +21502,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21470,7 +21540,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21506,7 +21576,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21541,7 +21611,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21582,7 +21652,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21619,7 +21689,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21660,7 +21730,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21702,7 +21772,7 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21739,7 +21809,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21781,7 +21851,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21820,7 +21890,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21852,7 +21922,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21888,7 +21958,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21926,7 +21996,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -21961,7 +22031,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22000,7 +22070,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22034,7 +22104,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22069,7 +22139,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22101,7 +22171,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22140,7 +22210,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22178,7 +22248,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22218,7 +22288,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22258,7 +22328,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22306,7 +22376,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22343,7 +22413,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22380,7 +22450,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22419,7 +22489,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22454,7 +22524,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22497,7 +22567,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22537,7 +22607,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22577,7 +22647,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22613,7 +22683,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22654,7 +22724,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22696,7 +22766,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22732,7 +22802,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22772,7 +22842,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22813,7 +22883,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22849,7 +22919,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22890,7 +22960,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22917,7 +22987,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22953,7 +23023,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -22992,7 +23062,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23029,7 +23099,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23071,7 +23141,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23112,7 +23182,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23151,7 +23221,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23185,7 +23255,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23223,7 +23293,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23265,7 +23335,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23301,7 +23371,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23342,7 +23412,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23374,7 +23444,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23407,7 +23477,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23445,7 +23515,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23482,7 +23552,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23519,7 +23589,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23551,7 +23621,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23592,7 +23662,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23633,7 +23703,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23675,7 +23745,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23712,7 +23782,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23752,7 +23822,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23789,7 +23859,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23823,7 +23893,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23863,7 +23933,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23898,7 +23968,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23933,7 +24003,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -23971,7 +24041,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24009,7 +24079,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24051,7 +24121,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24084,7 +24154,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24119,7 +24189,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24161,7 +24231,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24204,7 +24274,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24243,7 +24313,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24279,7 +24349,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24316,7 +24386,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24355,7 +24425,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24393,7 +24463,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24434,7 +24504,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24471,7 +24541,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24510,7 +24580,7 @@
         "8+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24547,7 +24617,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24585,7 +24655,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24623,7 +24693,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24659,7 +24729,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24693,7 +24763,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24731,7 +24801,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24768,7 +24838,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24805,7 +24875,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24843,7 +24913,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24883,7 +24953,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24921,7 +24991,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24959,7 +25029,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -24994,7 +25064,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25031,7 +25101,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25063,7 +25133,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25102,7 +25172,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25141,7 +25211,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25179,7 +25249,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25214,7 +25284,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25255,7 +25325,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25297,7 +25367,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25337,7 +25407,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25375,7 +25445,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25421,7 +25491,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25461,7 +25531,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25498,7 +25568,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25537,7 +25607,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25572,7 +25642,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25610,7 +25680,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25650,7 +25720,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25691,7 +25761,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25728,7 +25798,7 @@
         "10+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25764,7 +25834,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25800,7 +25870,7 @@
         "10+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25836,7 +25906,7 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25877,7 +25947,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25911,7 +25981,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25944,7 +26014,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -25982,7 +26052,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26024,7 +26094,7 @@
         "8+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26059,7 +26129,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26098,7 +26168,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26135,7 +26205,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26177,7 +26247,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26210,7 +26280,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26250,7 +26320,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26288,7 +26358,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26324,7 +26394,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26364,7 +26434,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26402,7 +26472,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26442,7 +26512,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26479,7 +26549,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26522,7 +26592,7 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26558,7 +26628,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26597,7 +26667,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26632,7 +26702,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26671,7 +26741,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26703,7 +26773,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26736,7 +26806,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26768,7 +26838,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26793,7 +26863,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26818,7 +26888,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26839,7 +26909,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26862,7 +26932,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26889,7 +26959,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26913,7 +26983,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26943,7 +27013,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -26975,7 +27045,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27007,7 +27077,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27038,7 +27108,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27067,7 +27137,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27098,7 +27168,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27135,7 +27205,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27165,7 +27235,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27205,7 +27275,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27243,7 +27313,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27277,7 +27347,7 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27302,7 +27372,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27331,7 +27401,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27364,7 +27434,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27397,7 +27467,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27427,7 +27497,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27466,7 +27536,7 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27499,7 +27569,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27536,7 +27606,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27574,7 +27644,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27610,7 +27680,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27647,7 +27717,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27711,7 +27781,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27750,7 +27820,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27780,7 +27850,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27811,7 +27881,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27840,7 +27910,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27893,7 +27963,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27921,7 +27991,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27953,7 +28023,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -27991,7 +28061,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28022,7 +28092,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28047,7 +28117,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28084,7 +28154,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28113,7 +28183,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28146,7 +28216,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T08:48:31.313Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28176,7 +28246,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28209,7 +28279,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28240,7 +28310,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28275,7 +28345,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28304,7 +28374,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28333,7 +28403,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28362,7 +28432,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28390,7 +28460,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28424,7 +28494,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28456,7 +28526,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -28487,7 +28557,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-07T11:00:39.242Z",
+      "lastSeenAt": "2026-10-07T12:00:34.879Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
