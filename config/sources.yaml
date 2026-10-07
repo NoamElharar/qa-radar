@@ -313,6 +313,16 @@ sources:
       - { label: 'משרות IdorNext', url: 'https://idornext.co.il/jobs/' }
       - { label: 'עידור מחשבים ב-Jobnet', url: 'https://www.jobnet.co.il/Company?companyID=23123' }
 
+  - id: one1
+    name: ONE (וואן טכנולוגיות)
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://www.one1.co.il/careers/
+    note: תקנון האתר אוסר כלי סריקה ואיסוף אוטומטיים והעתקה של התכנים
+    quickLinks:
+      - { label: 'משרות (סינון "בדיקות ואוטומציה")', url: 'https://www.one1.co.il/careers/#career-section' }
+
   - id: inmanage
     name: InManage
     type: agency
