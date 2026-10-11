@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-11T17:41:11.337Z",
+  "generatedAt": "2026-10-11T17:47:35.539Z",
   "sources": [
     {
       "id": "linkedin",
@@ -1283,6 +1283,48 @@
       "fetched": 35,
       "kept": 0,
       "durationMs": 5037
+    },
+    {
+      "id": "playperfect",
+      "name": "Play Perfect",
+      "type": "direct",
+      "tier": "A",
+      "homepage": "https://play-perfect.com/careers/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        9
+      ],
+      "lastRunAt": "2026-10-11T17:47:35.539Z",
+      "lastSuccessAt": "2026-10-11T17:47:35.539Z",
+      "fetched": 9,
+      "kept": 0,
+      "durationMs": 2928
+    },
+    {
+      "id": "superplay",
+      "name": "SuperPlay",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://www.superplay.co/careers/",
+      "quickLinks": [
+        {
+          "label": "כל המשרות",
+          "url": "https://www.superplay.co/careers/"
+        }
+      ],
+      "note": "התנאים (סעיף ix) אוסרים העתקה והצגה פומבית של תכני האתר; איסוף מותר לפי robots.txt (סעיף xiii) — הרדאר רק סופר משרות QA",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-10-11T17:47:35.539Z",
+      "lastSuccessAt": "2026-10-11T17:47:35.539Z",
+      "fetched": 12,
+      "kept": 0,
+      "durationMs": 5544,
+      "watch": []
     },
     {
       "id": "elal",
