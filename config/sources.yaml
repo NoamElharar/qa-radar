@@ -354,6 +354,26 @@ sources:
           location: location
           description: [description, 'responsibilities[]', 'requirements[]', field, sub_field]
 
+  - id: nogamy
+    name: נוגמי
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://www.nogamy.co.il/הצטרפו-אלינו/
+    everyHours: 3
+    note: מדיניות האתר (סעיף 19) אוסרת העתקה ופרסום של התכנים — הרדאר רק סופר משרות QA ולא שומר את תוכנן
+    quickLinks:
+      - { label: 'משרות באתר נוגמי', url: 'https://www.nogamy.co.il/הצטרפו-אלינו/#jobs_accordion' }
+      - { label: 'נוגמי בדרושים', url: 'https://www.drushim.co.il/דרושים-464325-נוגמי/' } # Drushim's terms ban automated collection
+    watch: # count only — every job (title, number, description) is in the page's accordion
+      adapter: html
+      options:
+        url: 'https://www.nogamy.co.il/%d7%94%d7%a6%d7%98%d7%a8%d7%a4%d7%95-%d7%90%d7%9c%d7%99%d7%a0%d7%95/'
+        item: '#jobs_accordion .collapse-toggler'
+        title: 'h3'
+        id: { selector: 'a[data-jobid]', attr: data-jobid }
+        description: '.text > div, .collapse'
+
   - id: inmanage
     name: InManage
     type: agency
