@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-11T08:00:36.237Z",
+  "generatedAt": "2026-10-11T08:03:37.038Z",
   "sources": [
     {
       "id": "linkedin",
@@ -603,6 +603,46 @@
         }
       ],
       "note": "תקנון האתר אוסר כלי סריקה ואיסוף אוטומטיים והעתקה של התכנים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "shavit",
+      "name": "שביט סופטוור",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://shavit-soft.co.il/jobs/",
+      "quickLinks": [
+        {
+          "label": "כל המשרות",
+          "url": "https://shavit-soft.co.il/jobs/"
+        }
+      ],
+      "note": "תקנון האתר אוסר העתקה, הפצה ופרסום של תכני האתר ללא אישור בכתב (יש לו הזנת WordPress ציבורית, שלא נעשה בה שימוש)",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "ingima",
+      "name": "אינגימה",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://ingima.co.il/Jobs",
+      "quickLinks": [
+        {
+          "label": "משרות QA",
+          "url": "https://ingima.co.il/Jobs?search=QA"
+        },
+        {
+          "label": "משרות בשפלה",
+          "url": "https://ingima.co.il/Jobs?location=%D7%A9%D7%A4%D7%9C%D7%94"
+        }
+      ],
+      "note": "תנאי השימוש (סעיף 4) אוסרים העתקה והפצה של תכני האתר ללא אישור בכתב (המשרות נטענות מ-API ציבורי של Base44, שלא נעשה בו שימוש)",
       "status": "link-out",
       "consecutiveFailures": 0,
       "baselineDone": false,
