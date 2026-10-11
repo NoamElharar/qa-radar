@@ -318,6 +318,27 @@ sources:
     quickLinks:
       - { label: 'משרות (סינון "בדיקות ואוטומציה")', url: 'https://www.one1.co.il/careers/#career-section' }
 
+  - id: shavit
+    name: שביט סופטוור
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://shavit-soft.co.il/jobs/
+    note: תקנון האתר אוסר העתקה, הפצה ופרסום של תכני האתר ללא אישור בכתב (יש לו הזנת WordPress ציבורית, שלא נעשה בה שימוש)
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://shavit-soft.co.il/jobs/' }
+
+  - id: ingima
+    name: אינגימה
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://ingima.co.il/Jobs
+    note: תנאי השימוש (סעיף 4) אוסרים העתקה והפצה של תכני האתר ללא אישור בכתב (המשרות נטענות מ-API ציבורי של Base44, שלא נעשה בו שימוש)
+    quickLinks:
+      - { label: 'משרות QA', url: 'https://ingima.co.il/Jobs?search=QA' }
+      - { label: 'משרות בשפלה', url: 'https://ingima.co.il/Jobs?location=%D7%A9%D7%A4%D7%9C%D7%94' }
+
   - id: inmanage
     name: InManage
     type: agency
