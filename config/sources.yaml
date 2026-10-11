@@ -652,6 +652,28 @@ sources:
         description: [department, team, descriptionPlain]
         postedAt: publishedAt
 
+  - id: playperfect
+    name: Play Perfect
+    type: direct
+    tier: A
+    adapter: comeet
+    homepage: https://play-perfect.com/careers/
+    options: { uid: '69.001', token: 96141A70384609611C23258496112C2, hostedSlug: play_perfect }
+
+  - id: superplay
+    name: SuperPlay
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://www.superplay.co/careers/
+    everyHours: 3
+    note: התנאים (סעיף ix) אוסרים העתקה והצגה פומבית של תכני האתר; איסוף מותר לפי robots.txt (סעיף xiii) — הרדאר רק סופר משרות QA
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://www.superplay.co/careers/' }
+    watch: # count only, through the company's public Comeet API
+      adapter: comeet
+      options: { uid: '28.003', token: 82330D228AF208C208C493B30D2208C38F538F5, hostedSlug: superplay }
+
   # ─────────────────────────── Public sector, health, infrastructure & transport ───────────────────────────
   - id: elal
     name: אל על
