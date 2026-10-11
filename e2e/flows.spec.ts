@@ -103,6 +103,21 @@ test('a failing source is flagged, and link-out sources offer one-tap searches',
   );
 });
 
+test('a watch-mode source shows its QA count and what is new until "בדקתי"', async ({ page }) => {
+  await page.goto('./');
+  const item = page.getByRole('listitem').filter({ hasText: 'סוכנות במעקב' });
+  await expect(item.getByText('3 משרות QA כרגע · התאמה עד 84')).toBeVisible();
+  await expect(item.getByText('2 חדשות מאז שבדקת')).toBeVisible();
+  await expect(page.getByText('2 משרות חדשות')).toBeVisible();
+
+  await item.getByRole('button', { name: /בדקתי/ }).click();
+  await expect(item.getByText('2 חדשות מאז שבדקת')).toHaveCount(0);
+  await expect(item.getByText('3 משרות QA כרגע · התאמה עד 84')).toBeVisible();
+
+  await page.reload();
+  await expect(page.getByRole('listitem').filter({ hasText: 'סוכנות במעקב' }).getByText(/חדשות מאז שבדקת/)).toHaveCount(0);
+});
+
 test('the theme button cycles light → dark → device setting', async ({ page }) => {
   await page.goto('./');
   const button = page.getByRole('button', { name: /ערכת נושא/ });

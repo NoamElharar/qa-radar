@@ -24,6 +24,13 @@ export const sourceSchema = z.object({
   note: z.string().optional(),
   quickLinks: z.array(quickLink).optional(),
   options: z.record(z.unknown()).default({}),
+  /**
+   * Watch mode for link-out sources whose terms allow reading but forbid republishing content: this
+   * adapter runs only to count QA-relevant jobs. Nothing but hashed job ids and dates is stored.
+   */
+  watch: z
+    .object({ adapter: z.string(), options: z.record(z.unknown()).default({}) })
+    .optional(),
 });
 export type SourceConfig = z.infer<typeof sourceSchema>;
 
@@ -34,6 +41,9 @@ const sourcesFileSchema = z.object({ sources: z.array(sourceSchema) }).superRefi
     seen.add(s.id);
     if (s.tier === 'D' && s.adapter !== 'link-out') {
       ctx.addIssue({ code: 'custom', message: `${s.id}: tier D sources must use adapter "link-out"` });
+    }
+    if (s.watch && s.adapter !== 'link-out') {
+      ctx.addIssue({ code: 'custom', message: `${s.id}: only link-out sources can use watch mode` });
     }
   }
 });

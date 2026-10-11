@@ -48,6 +48,7 @@ flowchart LR
 - Requests to the same host are serialized with **≥ 2 s** between them (or the site's `Crawl-delay`); heavy or low-yield sources run every few hours (`everyHours`).
 - Honest User-Agent: `QA-Radar/1.0 (+https://github.com/NoamElharar/qa-radar; personal non-commercial job search)`.
 - **No evasion**: sites behind bot challenges, logins or terms that forbid automation are link-out only. No stealth browsers, CAPTCHA solving or proxy rotation.
+- **Watch mode** for link-out sources whose terms allow reading but forbid copying or republishing content: the collector only *counts* their QA jobs and stores hashed ids, first-seen dates and our own match score — never titles or text. The "check manually" panel shows "3 משרות QA · 1 חדשה מאז שבדקת" on the source's button.
 - Recruiter names/emails that some payloads include are dropped; only a short description excerpt is stored.
 
 ## Run it locally

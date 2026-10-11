@@ -88,6 +88,22 @@ export interface SourceHealth {
   /** `fetched` counts of recent successful runs — used to detect suspicious drops. */
   recentCounts: number[];
   durationMs?: number;
+  /** Link-out sources in watch mode: the QA-relevant jobs seen on the last successful check. */
+  watch?: WatchedJob[];
+}
+
+/**
+ * One QA-relevant job at a watch-mode source. Deliberately content-free: a hash of the job's id,
+ * when we first saw it and our match score — never its title or text, which the source's terms
+ * don't let us republish.
+ */
+export interface WatchedJob {
+  key: string;
+  firstSeenAt: string;
+  /** Our own match score for it (derived, not source content). */
+  score?: number;
+  /** Seen on the source's first check (silent baseline, never counted as new). */
+  baseline?: boolean;
 }
 
 export interface HealthFile {

@@ -6,6 +6,7 @@ import { isSourceDue } from '../schedule.ts';
 import { createClassifier, type Classifier } from './classify.ts';
 import { normalizeJobs } from './normalize.ts';
 import { mergeRun, type SourceRunResult } from './state.ts';
+import { summarizeWatch } from './watch.ts';
 
 const SOURCE_TIMEOUT_MS = 5 * 60 * 1000;
 
@@ -78,19 +79,44 @@ export async function collect(options: CollectOptions): Promise<CollectResult> {
       (!options.only || options.only.includes(s.id)) &&
       (options.force || options.only || isSourceDue(s, previousHealth.get(s.id), now)),
   );
-  log(`running ${runnable.length} source(s): ${runnable.map((s) => s.id).join(', ') || '—'}`);
-
-  const results = await Promise.all(
-    runnable.map(async (source) => {
-      const result = await runSource(source, http, classifier, now, log);
-      log(
-        result.ok
-          ? `[${source.id}] ok — ${result.fetched} fetched, ${result.jobs.length} QA (${result.durationMs}ms)`
-          : `[${source.id}] FAILED — ${result.error}`,
-      );
-      return result;
-    }),
+  // Watch mode: link-out sources we may read but not republish. Counted only — never stored as jobs.
+  const watchable = config.sources.filter(
+    (s) =>
+      s.enabled &&
+      s.adapter === 'link-out' &&
+      s.watch &&
+      (!options.only || options.only.includes(s.id)) &&
+      (options.force || options.only || isSourceDue(s, previousHealth.get(s.id), now)),
   );
+  log(`running ${runnable.length} source(s): ${runnable.map((s) => s.id).join(', ') || '—'}`);
+  if (watchable.length) log(`watching ${watchable.length} link-out source(s): ${watchable.map((s) => s.id).join(', ')}`);
+
+  const [results, watchResults] = await Promise.all([
+    Promise.all(
+      runnable.map(async (source) => {
+        const result = await runSource(source, http, classifier, now, log);
+        log(
+          result.ok
+            ? `[${source.id}] ok — ${result.fetched} fetched, ${result.jobs.length} QA (${result.durationMs}ms)`
+            : `[${source.id}] FAILED — ${result.error}`,
+        );
+        return result;
+      }),
+    ),
+    Promise.all(
+      watchable.map(async (source) => {
+        const { adapter, options: watchOptions } = source.watch!;
+        const result = await runSource({ ...source, adapter, options: watchOptions }, http, classifier, now, log);
+        log(
+          result.ok
+            ? `[${source.id}] watch ok — ${result.fetched} fetched, ${result.jobs.length} QA counted, no content stored`
+            : `[${source.id}] watch FAILED — ${result.error}`,
+        );
+        return result;
+      }),
+    ),
+  ]);
+  const watched = new Map(watchResults.map((r) => [r.sourceId, r]));
 
   const merged = mergeRun({ previousJobs: previous.jobs.jobs, previousHealth, results, now });
   const nowIso = now.toISOString();
@@ -118,7 +144,24 @@ export async function collect(options: CollectOptions): Promise<CollectResult> {
       durationMs: prev?.durationMs,
     };
     if (!s.enabled) return { ...base, status: 'disabled' };
-    if (s.adapter === 'link-out') return { ...base, status: 'link-out' };
+    if (s.adapter === 'link-out') {
+      const linkOut: SourceHealth = { ...base, status: 'link-out', watch: s.watch ? prev?.watch : undefined };
+      const run = watched.get(s.id);
+      if (!run) return linkOut;
+      return run.ok
+        ? {
+            ...linkOut,
+            lastRunAt: nowIso,
+            lastSuccessAt: nowIso,
+            fetched: run.fetched,
+            kept: run.jobs.length,
+            error: undefined,
+            consecutiveFailures: 0,
+            durationMs: run.durationMs,
+            watch: summarizeWatch(prev?.watch, run.jobs, nowIso),
+          }
+        : { ...linkOut, lastRunAt: nowIso, error: run.error, consecutiveFailures: linkOut.consecutiveFailures + 1, durationMs: run.durationMs };
+    }
     return update ? { ...base, ...update } : base;
   });
 
@@ -126,6 +169,7 @@ export async function collect(options: CollectOptions): Promise<CollectResult> {
     jobs: { version: 1, generatedAt: nowIso, jobs: merged.jobs },
     health: { version: 1, generatedAt: nowIso, sources },
     archived: merged.archived,
-    results,
+    // Watch runs count as runs (logging, no-op detection) but carry no jobs.
+    results: [...results, ...watchResults.map((r) => ({ ...r, jobs: [] }))],
   };
 }

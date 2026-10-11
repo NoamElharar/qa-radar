@@ -98,6 +98,20 @@ export function buildFixtures(now = Date.now()): { jobs: JobsFile; health: Healt
       note: 'תנאי השימוש אוסרים איסוף אוטומטי',
       quickLinks: [{ label: 'משרות QA', url: 'https://board.example.test/qa' }],
     }),
+    source({
+      id: 'watched',
+      name: 'סוכנות במעקב',
+      type: 'agency',
+      tier: 'D',
+      status: 'link-out',
+      note: 'התקנון אוסר העתקה — הרדאר רק סופר משרות QA',
+      quickLinks: [{ label: 'חיפוש QA בסוכנות', url: 'https://watched.example.test/jobs?search=QA' }],
+      watch: [
+        { key: 'a1', firstSeenAt: iso(30 * 24 * HOUR), baseline: true, score: 70 },
+        { key: 'b2', firstSeenAt: iso(2 * HOUR), score: 84 },
+        { key: 'c3', firstSeenAt: iso(26 * HOUR), score: 60 },
+      ],
+    }),
   ];
 
   return {

@@ -59,7 +59,11 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
               </div>
               <div className="mt-1 ps-4.5 text-xs text-slate-500">
                 {s.status === 'link-out' || s.status === 'disabled' ? (
-                  <span>{s.note}</span>
+                  <span>
+                    {s.note}
+                    {s.watch && s.lastSuccessAt && ` · נספרו ${s.watch.length} משרות QA ${relativeTime(s.lastSuccessAt, now)}`}
+                    {s.watch && s.error && ' · ⚠ הספירה האחרונה נכשלה'}
+                  </span>
                 ) : (
                   <>
                     {s.lastSuccessAt ? `הצלחה אחרונה ${relativeTime(s.lastSuccessAt, now)}` : 'עוד לא הצליח'}

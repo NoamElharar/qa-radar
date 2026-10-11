@@ -23,13 +23,17 @@ async function main(): Promise<void> {
     process.exitCode = 1;
     return;
   }
-  if (source.adapter === 'link-out') {
+  if (source.adapter === 'link-out' && !source.watch) {
     console.log(`${source.id} is link-out only — nothing to collect.`);
     return;
   }
+  if (source.watch) {
+    console.log(`${source.id} is in watch mode: the collector stores only a count of these QA jobs, never their content.`);
+  }
+  const runnable = source.watch ? { ...source, adapter: source.watch.adapter, options: source.watch.options } : source;
   const log = (m: string) => console.log(`  · ${m}`);
   const http = new PoliteClient({ log });
-  const result = await runSource(source, http, createClassifier(config), new Date(), log);
+  const result = await runSource(runnable, http, createClassifier(config), new Date(), log);
   if (!result.ok) {
     console.log(`✗ ${source.id} failed: ${result.error}`);
     process.exitCode = 1;
