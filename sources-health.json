@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-11T10:00:31.058Z",
+  "generatedAt": "2026-10-11T10:03:27.454Z",
   "sources": [
     {
       "id": "linkedin",
@@ -621,11 +621,17 @@
           "url": "https://shavit-soft.co.il/jobs/"
         }
       ],
-      "note": "תקנון האתר אוסר העתקה, הפצה ופרסום של תכני האתר ללא אישור בכתב (יש לו הזנת WordPress ציבורית, שלא נעשה בה שימוש)",
+      "note": "התקנון אוסר העתקה ופרסום של תכני האתר — הרדאר רק סופר משרות QA ולא שומר את תוכנן",
       "status": "link-out",
       "consecutiveFailures": 0,
       "baselineDone": false,
-      "recentCounts": []
+      "recentCounts": [],
+      "lastRunAt": "2026-10-11T10:03:27.454Z",
+      "lastSuccessAt": "2026-10-11T10:03:27.454Z",
+      "fetched": 20,
+      "kept": 0,
+      "durationMs": 6941,
+      "watch": []
     },
     {
       "id": "ingima",
@@ -643,11 +649,36 @@
           "url": "https://ingima.co.il/Jobs?location=%D7%A9%D7%A4%D7%9C%D7%94"
         }
       ],
-      "note": "תנאי השימוש (סעיף 4) אוסרים העתקה והפצה של תכני האתר ללא אישור בכתב (המשרות נטענות מ-API ציבורי של Base44, שלא נעשה בו שימוש)",
+      "note": "תנאי השימוש (סעיף 4) אוסרים העתקה והפצה של התכנים — הרדאר רק סופר משרות QA ולא שומר את תוכנן",
       "status": "link-out",
       "consecutiveFailures": 0,
       "baselineDone": false,
-      "recentCounts": []
+      "recentCounts": [],
+      "lastRunAt": "2026-10-11T10:03:27.454Z",
+      "lastSuccessAt": "2026-10-11T10:03:27.454Z",
+      "fetched": 57,
+      "kept": 3,
+      "durationMs": 2949,
+      "watch": [
+        {
+          "key": "a8e89e10c9d3",
+          "firstSeenAt": "2026-10-11T10:03:27.454Z",
+          "score": 80,
+          "baseline": true
+        },
+        {
+          "key": "fc2b055a0360",
+          "firstSeenAt": "2026-10-11T10:03:27.454Z",
+          "score": 84,
+          "baseline": true
+        },
+        {
+          "key": "516d2d0729ce",
+          "firstSeenAt": "2026-10-11T10:03:27.454Z",
+          "score": 84,
+          "baseline": true
+        }
+      ]
     },
     {
       "id": "inmanage",
