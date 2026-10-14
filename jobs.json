@@ -1,7 +1,575 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-14T00:00:38.807Z",
+  "generatedAt": "2026-10-14T03:00:33.326Z",
   "jobs": [
+    {
+      "id": "comblack:443489",
+      "sourceId": "comblack",
+      "sourceJobId": "443489",
+      "url": "https://comblack.co.il/careers/position-25288/",
+      "title": "QA- SAP",
+      "agency": "Comblack",
+      "snippet": "חברת Comblack מגייסת בודק/ת תוכנה (QA) למערכות SAP לארגון יציב וגדול בירושלים! התפקיד כולל ביצוע בדיקות תוכנה מורכבות מקצה לקצה במערכות SAP, תכנון וכתיבת תסריטי בדיקות (STD) על בסיס מסמכי אפיון, בדיקת ממשקים ותהליכים חוצי מודולים, ביצוע רגרסיה ועבודה שוטפת מול מערכות SOLMAN, BW ו-TFS. מה אנחנו מחפשים? ✔️ ניסיון של 4 שנים ומעלה, עם ניסיון מוכח בביצוע בדיקות תוכנה וכתיבת תסריטי בדיקה למערכות SAP. ✔️ תעודת הכשרה בתחום הבדיקות וניסיון בתכנון וכתיבת מסמכי STD ותסריטי E2E. ✔️ ניסיון מוכח של שנתיים לפחות בעבודה עם מערכת SOLMAN ושנתיים לפחות בעבודה עם TFS. ✔️ ניסיון בבדיקות במערכת BW, בדיקת ממשקים…",
+      "postedAt": "2026-10-12T14:17:45.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 4,
+      "city": "ירושלים",
+      "regions": [
+        "jerusalem"
+      ],
+      "distanceKm": 38,
+      "score": 66,
+      "matched": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR"
+      ],
+      "missing": [
+        "Salesforce / SAP"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443503",
+      "sourceId": "comblack",
+      "sourceJobId": "443503",
+      "url": "https://comblack.co.il/careers/position-25249/",
+      "title": "QA",
+      "agency": "Comblack",
+      "snippet": "חברת Comblack מגייסת בודק/ת תוכנה (QA) לארגון יציב וגדול בירושלים! התפקיד כולל ביצוע בדיקות ידניות מקצה לקצה למערכות Web ומובייל, כתיבת מסמכי בדיקות (STP, STD, STR), עבודה שוטפת מול Azure DevOps, והשתלבות בצוות מטריציוני המנהל מספר פרויקטים במקביל במתודולוגיות Agile ו-Waterfall. מה אנחנו מחפשים? ✔️ ניסיון של 4 שנים ומעלה בעולמות التוֹכְנָה/מחשוב, עם ניסיון מוכח בבדיקות תוכנה ידניות ומערכות Web. ✔️ ניסיון מוכח בכתיבה והרצה של מסמכי בדיקות (STP, STD, STR). ✔️ ניסיון בעבודה במתודולוגיות Agile ו-Waterfall. ✔️ יכולת ניהול עצמי גבוהה, עבודה על מספר פרויקטים במקביל, סדר ויסודיות. ✔️ יתרון משמעותי…",
+      "postedAt": "2026-10-12T14:11:28.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "מובייל",
+        "דאטה/DB",
+        "ענן/DevOps"
+      ],
+      "seniority": "senior",
+      "yearsRequired": 6,
+      "city": "ירושלים",
+      "regions": [
+        "jerusalem"
+      ],
+      "distanceKm": 38,
+      "score": 49,
+      "matched": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "SQL",
+        "Mobile (iOS/Android)",
+        "Agile"
+      ],
+      "missing": [
+        "CI/CD",
+        "6+ שנות ניסיון"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443532",
+      "sourceId": "comblack",
+      "sourceJobId": "443532",
+      "url": "https://comblack.co.il/careers/position-25144/",
+      "title": "מפתח/ת אוטומציה",
+      "agency": "Comblack",
+      "snippet": "חברת COMBLACK מגייסת מפתח/ת אוטומציה לארגון גדול ויציב בירושלים! התפקיד כולל פיתוח ותחזוקת תשתיות אוטומציה מקצה לקצה למערכות Web מורכבות, כתיבת קוד באמצעות C#, .NET Core, עבודה עם API, בסיסי נתונים ותהליכי CI/CD בסביבת Agile/DevOps. מה אנחנו מחפשים? ✔ 4+ שנות ניסיון בפיתוח תוכנה באמצעות C#, .NET Core במהלך 6 השנים האחרונות, 3+ שנות ניסיון בפיתוח ותחזוקת תשתיות אוטומציה מקצה לקצה במהלך 5 השנים האחרונות ✔ 2+ שנות ניסיון באוטומציית Web/UI באמצעות Playwright / Selenium במהלך 4 השנים האחרונות ✔ 2+ שנות ניסיון בבדיקות API מסוג REST/SOAP, 2+ שנות ניסיון בעבודה מול SQL Server במהלך 4 השנים האחרונות ✔…",
+      "postedAt": "2026-10-13T08:57:14.000Z",
+      "tags": [
+        "אוטומציה",
+        "API/Backend",
+        "דאטה/DB",
+        "ענן/DevOps"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 4,
+      "city": "ירושלים",
+      "regions": [
+        "jerusalem"
+      ],
+      "distanceKm": 38,
+      "score": 60,
+      "matched": [
+        "API testing",
+        "SOAP",
+        "SQL",
+        "Selenium (בסיסי)",
+        "Agile"
+      ],
+      "missing": [
+        "C#",
+        "TypeScript",
+        "Playwright",
+        "CI/CD"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443550",
+      "sourceId": "comblack",
+      "sourceJobId": "443550",
+      "url": "https://comblack.co.il/careers/position-25072/",
+      "title": "QA",
+      "agency": "Comblack",
+      "snippet": "חברת Comblack מגייסת בודק/ת תוכנה (QA Manual & Automation) לארגון יציב וגדול בירושלים! התפקיד כולל ביצוע בדיקות תוכנה ידניות למערכות יישומי מידע ותשתיות ארגוניות מורכבות, כתיבה והרצה של בדיקות ממשקים (Web Services), תהליכי אצווה, ועבודה מול בסיסי נתונים בסביבה טכנולוגית מתקדמת. מה אנחנו מחפשים? ✔️ הכשרה מקצועית בתחום בדיקות התוכנה של לפחות שנה (ידני ואוטומציה). ✔️ ידע וניסיון בכתיבת שאילתות SQL מורכבות (כולל Join בין מספר טבלאות). ✔️ ניסיון מעשי בבדיקות מערכות WEB, ממשקים ו-Web Services. ✔️ הכשרה / ניסיון בבדיקות אוטומציה ב-Selenium או Playwright (בשפות C# או Java). ✔️ יתרון משמעותי לבעלי/ות…",
+      "postedAt": "2026-09-22T08:31:48.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "API/Backend",
+        "דאטה/DB"
+      ],
+      "seniority": "unknown",
+      "city": "ירושלים",
+      "regions": [
+        "jerusalem"
+      ],
+      "distanceKm": 38,
+      "score": 68,
+      "matched": [
+        "Manual / E2E",
+        "SQL",
+        "Backend / Batch",
+        "Selenium (בסיסי)",
+        "Java (בסיסי)"
+      ],
+      "missing": [
+        "C#",
+        "Playwright"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443596",
+      "sourceId": "comblack",
+      "sourceJobId": "443596",
+      "url": "https://comblack.co.il/careers/position-24553/",
+      "title": "QA",
+      "agency": "Comblack",
+      "snippet": "חברת Comblack מגייסת בודק/ת תוכנה (Manual & Automation) לארגון יציב וגדול בירושלים! התפקיד כולל הובלת תהליכי בדיקות מורכבים מקצה לקצה לאפליקציות ולמערכות הארגון. מה אנחנו מחפשים? ✔️ ניסיון מעל 4 שנים בבבדיקות תוכנה. ✔️ ניסיון מוכח בבדיקות מערכות WEB ואפליקציות מובייל בעיקר. ✔️ יכולת אנליטית גבוהה לאיתור ושחזור תקלות, ועבודה מול צוותי הפיתוח, ניתוח, עיצוב. ✔️ ניסיון בעבודה מול בסיסי נתונים. ✔️ בדיקת ממשקים קצה לקצה, כולל הפעלת הממשקים בצורה ידנית באמצעות כלים שונים. ✔️ הקמה וניהול בדיקות אוטומציה מעוניינים/ות? שלחו קורות חיים!!",
+      "postedAt": "2026-09-02T08:05:12.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "מובייל"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 4,
+      "city": "ירושלים",
+      "regions": [
+        "jerusalem"
+      ],
+      "distanceKm": 38,
+      "score": 66,
+      "matched": [
+        "Manual / E2E",
+        "Mobile (iOS/Android)"
+      ],
+      "missing": [],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443600",
+      "sourceId": "comblack",
+      "sourceJobId": "443600",
+      "url": "https://comblack.co.il/careers/position-24503/",
+      "title": "QA",
+      "agency": "Comblack",
+      "snippet": "חברת Comblack מגייסת בודק/ת תוכנה לארגון יציב וגדול בירושלים! התפקיד כולל ביצוע בדיקות תוכנה מורכבות בפרויקטי טרנספורמציה דיגיטלית, תחקור נתונים ואנליזת דאטה מורכב, הדרכת בודקים זוטרים, שילוב כלי AI בתהליכי הבדיקה, ועבודה שוטפת מול צוותי פיתוח ומנהלי מוצר. מה אנחנו מחפשים? ✔️ ניסיון של שנתיים ומעלה בבדיקות תוכנה (עדיפות לניסיון מוכח בתחום הבדיקות). ✔️ ניסיון מוכח בעבודה מול מסדי נתונים (SQL, PostgreSQL) וכתיבת שאילתות מורכבות. ✔️ היכרות מעשית / ניסיון בעבודה עם כלי AI מתקדמים וסביבות אוטומציה/כלי בדיקות מובילים. ✔️ יתרון משמעותי לידע/היכרות בעולם נדל\"ן, מקרקעין, קריאת נסחי טאבו, מידע מרחבי…",
+      "postedAt": "2026-09-15T11:59:52.000Z",
+      "tags": [
+        "אוטומציה",
+        "דאטה/DB"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 2,
+      "city": "ירושלים",
+      "regions": [
+        "jerusalem"
+      ],
+      "distanceKm": 38,
+      "score": 72,
+      "matched": [
+        "SQL"
+      ],
+      "missing": [],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443606",
+      "sourceId": "comblack",
+      "sourceJobId": "443606",
+      "url": "https://comblack.co.il/careers/position-24450/",
+      "title": "Manual & Automation QA",
+      "agency": "Comblack",
+      "snippet": "חברת Comblack מגייסת בודק/ת תוכנה (Manual & Automation) לארגון יציב וגדול בשפלה! התפקיד כולל הובלת מערך הבדיקות מקצה לקצה (End-to-End) בסביבה מאתגרת ומאובטחת, שילוב של כ-80% בדיקות ידניות מורכבות וכ-20% אוטומציה, ניהול בדיקות מסירה וקבלה, הדרכת בודקים זוטרים ועבודה צמודה מול מפתחים ומנהלי מוצר. מה אנחנו מחפשים? ✔️ ניסיון של שנתיים ומעלה בבדיקות תוכנה למערכות גדולות ומורכבות. ✔️ ניסיון מוכח בכתיבת מסמכי בדיקות מקיפים (STP / STD) ותרחישים מורכבים מאפס. ✔️ ניסיון מעשי בבדיקות ידניות לצד פיתוח ותחזוקת תסריטי אוטומציה. ✔️ שליטה בעבודה מול בסיסי נתונים ותחקור שאילתות SQL. ✔️ ניסיון בבדיקת ממשקים…",
+      "postedAt": "2026-08-20T14:52:46.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "דאטה/DB",
+        "ענן/DevOps"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 2,
+      "regions": [
+        "shfela"
+      ],
+      "score": 84,
+      "matched": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "SQL",
+        "Jira / Xray"
+      ],
+      "missing": [
+        "CI/CD"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443607",
+      "sourceId": "comblack",
+      "sourceJobId": "443607",
+      "url": "https://comblack.co.il/careers/position-24438/",
+      "title": "Salesforce & Integration QA",
+      "agency": "Comblack",
+      "snippet": "חברת Comblack מגייסת בודק/ת תוכנה ו-QA (Salesforce & Integration) לארגון יציב וגדול בירושלים! התפקיד כולל ביצוע בדיקות קבלה למערכת מורכבת המפותחת על פלטפורמת Salesforce (פנימית ופורטל משתמשים), ביצוע בדיקות מקצה לקצה לתהליכי אינטגרציה, הסבות ומודלי BI, כתיבת מסמכי בדיקות מלאים (STD, STR) והנחיית בודקים זוטרים. מה אנחנו מחפשים? ✔️ ניסיון של שנתיים ומעלה בבדיקות תוכנה למערכות מורכבות ותהליכים עסקיים מורכבים. ✔️ היכרות מעשית עם סביבת Salesforce ובדיקות ממשקי משתמש (UI). ✔️ ניסיון בבדיקת תהליכי אינטגרציה, הסבות נתונים ומודלי BI. ✔️ ניסיון בכתיבת תסריטי בדיקה, מסמכי STD/STR ועבודה מול Jira / TFS.…",
+      "postedAt": "2026-10-06T07:17:39.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "דאטה/DB"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 2,
+      "city": "ירושלים",
+      "regions": [
+        "jerusalem"
+      ],
+      "distanceKm": 38,
+      "score": 90,
+      "matched": [
+        "STP/STD/STR",
+        "SQL",
+        "MongoDB",
+        "Jira / Xray",
+        "Backend / Batch"
+      ],
+      "missing": [
+        "Salesforce / SAP"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443640",
+      "sourceId": "comblack",
+      "sourceJobId": "443640",
+      "url": "https://comblack.co.il/careers/position-24127/",
+      "title": "ראש צוות בדיקות אוטומציה",
+      "agency": "Comblack",
+      "snippet": "חברת COMBLACK מגייסת QA Automation Lead (AI) לארגון פיננסי מוביל במרכז! הזדמנות להוביל את תחום האוטומציה והחדשנות, לנהל צוות מקצועי, להקים פתרונות AI מאפס ולהוביל פרויקטים משמעותיים בסביבה טכנולוגית מתקדמת. מה אנחנו מחפשים? ✔ לפחות 3 שנות ניסיון בפיתוח (עדיפות ל-Java) ובאוטומציה ✔ ניסיון מעשי בהטמעת פתרונות AI בתהליכי אוטומציה ובהובלת חדשנות בתחום ✔ ניסיון בבדיקות UI (יתרון ל-Playwright), Mobile עם Appium ו-REST API ✔ ניסיון בעבודה עם CI/CD, Git, Microservices ובדיקות עומסים באמצעות JMeter ✔ ניסיון בהובלת צוותים ופרויקטים בעולם האוטומציה והבדיקות 📩 מעוניינים? שלחו לנו קורות חיים והצטרפו…",
+      "postedAt": "2026-07-14T12:43:27.000Z",
+      "tags": [
+        "אוטומציה",
+        "API/Backend",
+        "מובייל",
+        "ביצועים ועומסים",
+        "ענן/DevOps",
+        "פינטק/בנקאות/ביטוח",
+        "ראש צוות/QA Lead"
+      ],
+      "seniority": "management",
+      "yearsRequired": 3,
+      "regions": [
+        "center"
+      ],
+      "score": 57,
+      "matched": [
+        "API testing",
+        "JMeter / עומסים",
+        "Mobile (iOS/Android)",
+        "Java (בסיסי)"
+      ],
+      "missing": [
+        "Playwright",
+        "Appium",
+        "CI/CD"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443676",
+      "sourceId": "comblack",
+      "sourceJobId": "443676",
+      "url": "https://comblack.co.il/careers/position-23231/",
+      "title": "ראש.ת צוות QA- לתחום הדיגיטל",
+      "agency": "Comblack",
+      "snippet": "חברת COMBLACK מגייסת ראש צוות QA דיגיטל לארגון פיננסי מוביל! 🚀 ✔ ניהול צוות בדיקות ✔ עבודה על מערכות Web & Mobile ✔ עבודה מול פיתוח, DevOps וגורמים עסקיים ✔ סביבת עבודה דינמית ומרובת ממשקים דרישות: ✔ ניסיון בניהול צוות QA ✔ ניסיון בבדיקות Web ומובייל ✔ ניסיון בעבודה מול פיתוח ו-DevOps יתרון: ניסיון פיננסי / Jira / Xray / AI שלחו קורות חיים 📩",
+      "postedAt": "2026-09-27T06:57:27.000Z",
+      "tags": [
+        "מובייל",
+        "ענן/DevOps",
+        "פינטק/בנקאות/ביטוח",
+        "ראש צוות/QA Lead"
+      ],
+      "seniority": "management",
+      "regions": [],
+      "score": 57,
+      "matched": [
+        "Jira / Xray",
+        "Mobile (iOS/Android)"
+      ],
+      "missing": [],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443696",
+      "sourceId": "comblack",
+      "sourceJobId": "443696",
+      "url": "https://comblack.co.il/careers/position-22267/",
+      "title": "Automation Developer – 22267",
+      "agency": "Comblack",
+      "snippet": "דרוש/ה מפתח/ת אוטומציה לבדיקות לתעשייה ביטחונית מובילה באזור הדרום! הזדמנות להשתלב בתפקיד משמעותי בפיתוח אוטומציה לבדיקות מערכות תוכנה מורכבות ובעלות השפעה לאומית. התפקיד כולל: פיתוח אוטומציה מקצה לקצה, ניתוח דרישות, תכנון תשתיות בדיקה, פיתוח סימולציות, כתיבת מפרטי בדיקות, הרצות, ניהול תקלות ועבודה בסביבת Agile ו־CI/CD. דרישות: ▪ תואר רלוונטי / הסבה לאוטומציה ▪ ניסיון בבדיקות מערכות מורכבות ▪ ניסיון ב־Python / C# / Java ▪ היכרות עם REST API ופרוטוקולי תקשורת ▪ ניסיון עם STP / STD / STR, Azure DevOps / JIRA ▪ אנגלית טובה",
+      "postedAt": "2026-09-22T10:12:24.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "API/Backend",
+        "ענן/DevOps"
+      ],
+      "seniority": "unknown",
+      "regions": [
+        "south"
+      ],
+      "score": 62,
+      "matched": [
+        "STP/STD/STR",
+        "API testing",
+        "Jira / Xray",
+        "Java (בסיסי)",
+        "Agile"
+      ],
+      "missing": [
+        "Python",
+        "C#",
+        "CI/CD"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443697",
+      "sourceId": "comblack",
+      "sourceJobId": "443697",
+      "url": "https://comblack.co.il/careers/position-22266/",
+      "title": "מהנדס/ת אוטומציה",
+      "agency": "Comblack",
+      "snippet": "דרוש/ה מהנדס/ת אוטומציה לבדיקות לתעשייה ביטחונית מובילה לאזור הצפון! הזדמנות להשתלב בתפקיד משמעותי בפיתוח אוטומציה לבדיקות מערכות תוכנה מורכבות ובעלות השפעה לאומית. התפקיד כולל: פיתוח אוטומציה מקצה לקצה, ניתוח דרישות, תכנון תשתיות בדיקה, פיתוח סימולציות, כתיבת מפרטי בדיקות, הרצות, ניהול תקלות ועבודה בסביבת Agile ו־CI/CD. דרישות: ▪ תואר רלוונטי / הסבה לאוטומציה ▪ ניסיון בבדיקות מערכות מורכבות ▪ ניסיון ב־Python / C# / Java ▪ היכרות עם REST API ופרוטוקולי תקשורת ▪ ניסיון עם STP / STD / STR, Azure DevOps / JIRA ▪ אנגלית טובה יתרון: ⭐ ניסיון בסימולטורים, תשתיות בדיקה, Microservices, CI/CD, בדיקות…",
+      "postedAt": "2026-08-10T14:05:59.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "API/Backend",
+        "ענן/DevOps"
+      ],
+      "seniority": "unknown",
+      "regions": [
+        "north"
+      ],
+      "score": 62,
+      "matched": [
+        "STP/STD/STR",
+        "API testing",
+        "Jira / Xray",
+        "Java (בסיסי)",
+        "Agile"
+      ],
+      "missing": [
+        "Python",
+        "C#",
+        "CI/CD"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443699",
+      "sourceId": "comblack",
+      "sourceJobId": "443699",
+      "url": "https://comblack.co.il/careers/position-22249/",
+      "title": "מהנדס/ת אוטומציה",
+      "agency": "Comblack",
+      "snippet": "דרוש/ה מהנדס/ת אוטומציה לבדיקות לתעשייה ביטחונית מובילה לאזור הצפון! הזדמנות להשתלב בתפקיד משמעותי בפיתוח אוטומציה לבדיקות מערכות תוכנה מורכבות ובעלות השפעה לאומית. התפקיד כולל: פיתוח אוטומציה מקצה לקצה, ניתוח דרישות, תכנון תשתיות בדיקה, פיתוח סימולציות, כתיבת מפרטי בדיקות, הרצות, ניהול תקלות ועבודה בסביבת Agile ו־CI/CD. דרישות: ▪ תואר רלוונטי / הסבה לאוטומציה ▪ ניסיון בבדיקות מערכות מורכבות ▪ ניסיון ב־Python / C# / Java ▪ היכרות עם REST API ופרוטוקולי תקשורת ▪ ניסיון עם STP / STD / STR, Azure DevOps / JIRA ▪ אנגלית טובה יתרון: ⭐ ניסיון בסימולטורים, תשתיות בדיקה, Microservices, CI/CD, בדיקות…",
+      "postedAt": "2026-09-22T10:09:35.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "API/Backend",
+        "ענן/DevOps"
+      ],
+      "seniority": "unknown",
+      "regions": [
+        "north"
+      ],
+      "score": 62,
+      "matched": [
+        "STP/STD/STR",
+        "API testing",
+        "Jira / Xray",
+        "Java (בסיסי)",
+        "Agile"
+      ],
+      "missing": [
+        "Python",
+        "C#",
+        "CI/CD"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443703",
+      "sourceId": "comblack",
+      "sourceJobId": "443703",
+      "url": "https://comblack.co.il/careers/position-21822/",
+      "title": "Automation Developer",
+      "agency": "Comblack",
+      "snippet": "לארגון ביטחוני האחראי על ביטחון המדינה, דרושים Automation Developers, אנשי חומרה uאינטגרציה! במסגרת התפקיד: – עבודה על מערכות מתקדמות ומסווגות מולטי דיסציפלינריות בסביבות מורכבות – ניתוח דרישות מערכתיות, כתיבת מפרטי בדיקות ותוכניות עבודה – פיתוח, מימוש והרצת בדיקות ידניות ואוטומטיות – עבודה עם ממשקים, פרוטוקולי תקשורת, תשתיות, חומרה ותוכנה דרישות: (אין צורך לעמוד בכולן אך לפחות בכמה) – השכלה רלוונטית בתחומי תוכנה/ אלקטרוניקה/ הנדסה/ מערכות מידע/ בוגרי קורסי בדיקות והסבות – ניסיון בבדיקות מערכות מורכבות או רב תחומיות – 3+ שנות ניסיון באינטגרציה מערכתית או ניסויים במערכות מורכבות. – ידע…",
+      "postedAt": "2026-09-22T10:11:54.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "אמבדד/חומרה"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 3,
+      "regions": [],
+      "score": 60,
+      "matched": [
+        "Manual / E2E",
+        "Backend / Batch"
+      ],
+      "missing": [
+        "Python",
+        "C#",
+        "Linux"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443704",
+      "sourceId": "comblack",
+      "sourceJobId": "443704",
+      "url": "https://comblack.co.il/careers/position-21821/",
+      "title": "מהנדס בדיקות חומרה",
+      "agency": "Comblack",
+      "snippet": "חברת COMBLACK מגייסת מהנדס.ת בדיקות חומרה לארגון מוביל בצפון! תכנון וביצוע בדיקות חומרה למכלולים ופריטים בפרויקטים מורכבים, איתור תקלות חומרה בשלבי פיתוח ותכן, כתיבת מפרטי בדיקות ומסמכי תוצאות, הכנת תוכניות עבודה לבדיקות, תכנון אמצעי בדיקה נדרשים וניהול תקלות חומרה. מה אנחנו מחפשים? • הנדסאי.ת או מהנדס.ת חשמל ואלקטרוניקה, תוכנה או תחום טכנולוגי רלוונטי. • ניסיון בעבודה עם ציוד בדיקה כגון Scope, Logic Analyzer, Spectrum, Signal Generator. • ניסיון בכתיבת מסמכי בדיקות ודוחות. • יכולת קריאה והבנה של סכמות חשמליות. • ניסיון בתכן חשמלי של מעגלים אנלוגיים, דיגיטליים או RF – יתרון. • אנגלית טובה…",
+      "postedAt": "2026-09-22T10:11:30.000Z",
+      "tags": [
+        "אמבדד/חומרה"
+      ],
+      "seniority": "unknown",
+      "regions": [
+        "north"
+      ],
+      "score": 50,
+      "matched": [],
+      "missing": [],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
+    {
+      "id": "comblack:443705",
+      "sourceId": "comblack",
+      "sourceJobId": "443705",
+      "url": "https://comblack.co.il/careers/position-21820/",
+      "title": "מפתח/ת אוטומציה C#",
+      "agency": "Comblack",
+      "snippet": "חברת COMBLACK מגייסת מפתח/ת אוטומציה C# לארגון טכנולוגי מוביל במרכז! תפקיד מאתגר הכולל פיתוח תשתיות אוטומציה למערכות חומרה מתקדמות, עבודה עם מערכות ATE וסימולטורים, בדיקות חומרה–תוכנה ו־Debugging עמוק של מערכות משולבות, בסביבה טכנולוגית מורכבת ובעלת עומק הנדסי. מה אנחנו מחפשים? ✔ לפחות 4–5 שנות ניסיון בפיתוח אוטומציה ב־C# ✔ ניסיון בעבודה עם מערכות ATE ✔ ניסיון בפיתוח סימולטורים לחומרה ולרכיבי מערכת ✔ ניסיון בבדיקות אינטגרציה חומרה–תוכנה ✔ יכולת Debugging גבוהה של מערכות מורכבות ✔ ניסיון בכתיבת מסמכי בדיקות (STD / STP / STR) מעוניינים? שלחו לנו קורות חיים!!",
+      "postedAt": "2026-09-22T10:11:02.000Z",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "אמבדד/חומרה"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 4,
+      "regions": [
+        "center"
+      ],
+      "score": 60,
+      "matched": [
+        "STP/STD/STR",
+        "Backend / Batch"
+      ],
+      "missing": [
+        "C#"
+      ],
+      "firstSeenAt": "2026-10-14T03:00:33.326Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": false
+    },
     {
       "id": "yael:25795",
       "sourceId": "yael",
@@ -24,7 +592,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-13T21:00:40.715Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -54,7 +622,7 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-13T21:00:40.715Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -77,7 +645,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-13T15:00:41.869Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -112,7 +680,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-13T09:00:41.833Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -137,7 +705,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-13T06:00:32.351Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -173,7 +741,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -213,7 +781,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -255,7 +823,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -294,7 +862,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -327,7 +895,7 @@
       "missing": [],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -358,7 +926,7 @@
       "missing": [],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -394,7 +962,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -431,7 +999,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -472,7 +1040,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -501,7 +1069,7 @@
       "missing": [],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -539,7 +1107,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -577,7 +1145,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -615,7 +1183,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -648,7 +1216,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -673,7 +1241,7 @@
       "missing": [],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -706,7 +1274,7 @@
       ],
       "firstSeenAt": "2026-10-13T03:00:34.322Z",
       "lastSeenAt": "2026-10-14T00:00:38.807Z",
-      "missingStreak": 0,
+      "missingStreak": 1,
       "state": "active",
       "baseline": false
     },
@@ -732,7 +1300,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-12T12:00:38.865Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -763,7 +1331,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-12T08:00:37.177Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -1457,7 +2025,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-12T00:00:32.845Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -1484,7 +2052,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-11T11:00:33.381Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -3857,7 +4425,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-08T21:00:42.629Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -3885,7 +4453,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-08T07:00:34.623Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -3934,7 +4502,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-08T07:00:34.623Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4730,7 +5298,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-07T18:00:29.690Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4801,7 +5369,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-07T12:00:34.879Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -4830,7 +5398,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-07T08:48:31.313Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5654,7 +6222,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-07T00:00:30.227Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5681,7 +6249,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T13:00:41.202Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -5770,7 +6338,7 @@
         "7+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -5807,7 +6375,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -5849,7 +6417,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -5888,7 +6456,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -5925,7 +6493,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -5960,7 +6528,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -5997,7 +6565,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6034,7 +6602,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
@@ -6071,7 +6639,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6108,7 +6676,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6146,7 +6714,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6185,7 +6753,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6222,7 +6790,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6253,7 +6821,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6286,7 +6854,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6309,7 +6877,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6359,7 +6927,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6386,7 +6954,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6409,7 +6977,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6432,7 +7000,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6484,7 +7052,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T09:44:46.141Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6537,7 +7105,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-06T08:34:33.803Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6568,7 +7136,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T08:34:33.803Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6591,7 +7159,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6616,7 +7184,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6641,7 +7209,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6668,7 +7236,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6695,7 +7263,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6718,7 +7286,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6771,7 +7339,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6798,7 +7366,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6827,7 +7395,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6850,7 +7418,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6936,7 +7504,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -6987,7 +7555,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -7040,7 +7608,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -7063,7 +7631,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -7974,7 +8542,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -8002,7 +8570,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -8030,7 +8598,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -8058,7 +8626,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -8085,7 +8653,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -8113,7 +8681,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -8138,7 +8706,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:00:32.310Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -8164,7 +8732,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-05T09:00:32.334Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -9116,7 +9684,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-05T00:00:32.841Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false
@@ -16307,7 +16875,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16341,7 +16909,7 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16379,7 +16947,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16407,7 +16975,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16438,7 +17006,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -16464,7 +17032,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17356,7 +17924,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -17412,7 +17980,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31629,7 +32197,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31654,7 +32222,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31675,7 +32243,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31698,7 +32266,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31725,7 +32293,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31749,7 +32317,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31779,7 +32347,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31811,7 +32379,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31843,7 +32411,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31874,7 +32442,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31935,7 +32503,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -31972,7 +32540,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32002,7 +32570,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32042,7 +32610,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32080,7 +32648,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32114,7 +32682,7 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32139,7 +32707,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32168,7 +32736,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32201,7 +32769,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32234,7 +32802,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32264,7 +32832,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32303,7 +32871,7 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32336,7 +32904,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32373,7 +32941,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32411,7 +32979,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32447,7 +33015,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32484,7 +33052,7 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32548,7 +33116,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32587,7 +33155,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32617,7 +33185,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32648,7 +33216,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32677,7 +33245,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32730,7 +33298,7 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32758,7 +33326,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32790,7 +33358,7 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32828,7 +33396,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32859,7 +33427,7 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32922,7 +33490,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -32951,7 +33519,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33015,7 +33583,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33048,7 +33616,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33079,7 +33647,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33114,7 +33682,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33143,7 +33711,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33172,7 +33740,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33201,7 +33769,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33229,7 +33797,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33263,7 +33831,7 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33295,7 +33863,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33326,7 +33894,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33366,7 +33934,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33399,7 +33967,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33436,7 +34004,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33461,7 +34029,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33490,7 +34058,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33519,7 +34087,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33573,7 +34141,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33610,7 +34178,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33648,7 +34216,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33686,7 +34254,7 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33713,7 +34281,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33777,7 +34345,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33809,7 +34377,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33846,7 +34414,7 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33879,7 +34447,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33963,7 +34531,7 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -33993,7 +34561,7 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34262,7 +34830,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34285,7 +34853,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34315,7 +34883,7 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34341,7 +34909,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34367,7 +34935,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34394,7 +34962,7 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34420,7 +34988,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34446,7 +35014,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34472,7 +35040,7 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
@@ -34502,7 +35070,7 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-10-14T00:00:38.807Z",
+      "lastSeenAt": "2026-10-14T03:00:33.326Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true
