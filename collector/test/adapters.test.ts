@@ -3,13 +3,14 @@ import { adamtotalSiteAdapter, parseAdamtotalPage } from '../src/adapters/adamto
 import { mapComeet } from '../src/adapters/comeet.ts';
 import { getPath, parseEmbeddedJson } from '../src/adapters/embedded-json.ts';
 import { htmlAdapter, htmlOptionsSchema, parseHtmlJobs } from '../src/adapters/html.ts';
-import type { SourceConfig } from '../src/config.ts';
+import { loadConfig, type SourceConfig } from '../src/config.ts';
 import type { PoliteClient } from '../src/http.ts';
 import { mapMax, mapNess } from '../src/adapters/json-sites.ts';
 import { parseRss } from '../src/adapters/rss.ts';
 import { parseOzCards, wpmlAjaxAdapter } from '../src/adapters/wpml-ajax.ts';
 import { mapWpPosts } from '../src/adapters/wp-rest.ts';
-import { extractEndClient } from '../src/pipeline/normalize.ts';
+import { createClassifier } from '../src/pipeline/classify.ts';
+import { extractEndClient, normalizeJobs } from '../src/pipeline/normalize.ts';
 
 // TEST FIXTURES: small synthetic snippets that mirror each site's real markup (structure copied,
 // content invented). No real personal data. Real-page fixtures are planned for Phase 2.
@@ -117,6 +118,34 @@ describe('html adapter (selector-driven)', () => {
       'Jerusalem',
       'Petah Tikva',
     ]);
+  });
+
+  it('marks jobs filed under a QA category on all-professions pages (Horizontech)', () => {
+    const job = (category: string, title: string, id: string) =>
+      `<div class="job-container"><div class="job-category">${category}</div><div class="job-ID">${id}</div>
+        <div class="job-title">${title}</div><div class="job-link"><a href="/job/?c=${id}">more</a></div></div>`;
+    const html = [
+      job('בדיקות ואוטומציה', 'Senior Automation & Full-Stack Engineer', '1'),
+      job('מערכות מידע', 'איש/ת סיסטם ואוטומציה', '2'),
+    ].join('');
+    const options = htmlOptionsSchema.parse({
+      url: 'https://horizon.test/careers/',
+      item: 'div.job-container',
+      title: '.job-title',
+      link: { selector: '.job-link a', attr: 'href' },
+      id: '.job-ID',
+      qaCategory: { selector: '.job-category', match: 'בדיקות' },
+    });
+    const jobs = parseHtmlJobs(html, options.url, options);
+    expect(jobs.map((j) => [j.sourceJobId, j.categoryQa])).toEqual([
+      ['1', true],
+      ['2', undefined],
+    ]);
+
+    // The per-job category lets an ambiguous title through, but only in that category.
+    const source = { id: 'horizon', name: 'Horizon', type: 'agency', categoryQa: false, homepage: options.url } as SourceConfig;
+    const kept = normalizeJobs(jobs, source, createClassifier(loadConfig()), new Date()).kept;
+    expect(kept.map((j) => j.title)).toEqual(['Senior Automation & Full-Stack Engineer']);
   });
 
   it('splits an article into jobs by heading (Reshet 13)', () => {

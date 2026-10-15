@@ -54,7 +54,7 @@ export function normalizeJobs(
       continue;
     }
     const description = r.description ? htmlToText(r.description) : undefined;
-    const decision = classifier.decideQa(title, description, source.categoryQa);
+    const decision = classifier.decideQa(title, description, source.categoryQa || Boolean(r.categoryQa));
     decisions.push({ title, decision });
     if (!decision.qa) continue;
 

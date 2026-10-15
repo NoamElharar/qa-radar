@@ -374,6 +374,23 @@ sources:
         id: { selector: 'a[data-jobid]', attr: data-jobid }
         description: '.text > div, .collapse'
 
+  - id: horizontech
+    name: Horizontech (peax talent)
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://horizontech.co.il/שירותים/קריירה/
+    options:
+      # All ~260 jobs are in the page (the category filter is client-side); details are on ?c=<job number>.
+      # The listing has no description, so the category decides ambiguous titles: "בדיקות ואוטומציה" counts
+      # as a QA category; elsewhere only clear QA titles are kept.
+      url: 'https://horizontech.co.il/%d7%a9%d7%99%d7%a8%d7%95%d7%aa%d7%99%d7%9d/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94/'
+      item: 'div.job-container'
+      title: '.job-title'
+      link: { selector: '.job-link a', attr: href }
+      id: '.job-ID'
+      qaCategory: { selector: '.job-category', match: 'בדיקות' }
+
   - id: inmanage
     name: InManage
     type: agency

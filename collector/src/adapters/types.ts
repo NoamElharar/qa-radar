@@ -19,6 +19,11 @@ export interface RawJob {
   postedAt?: string;
   /** ISO-3166 alpha-2 when the source reports it. Jobs outside Israel are dropped. */
   country?: string;
+  /**
+   * The source files this job under a testing/QA category, so ambiguous titles are accepted (the
+   * per-job form of sources.yaml `categoryQa`, for pages that mix all professions).
+   */
+  categoryQa?: boolean;
 }
 
 export interface AdapterContext {

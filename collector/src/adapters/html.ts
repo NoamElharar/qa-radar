@@ -48,6 +48,11 @@ export const htmlOptionsSchema = z
      * office on one page (Mobileye: Jerusalem… but also Shanghai, Munich). Items without a location stay.
      */
     keepLocation: z.string().optional(),
+    /**
+     * Per-job QA category on pages that list every profession: a job whose category text (`selector`)
+     * matches `match` counts as filed under testing/QA, like sources.yaml `categoryQa`.
+     */
+    qaCategory: z.object({ selector: z.string(), match: z.string() }).optional(),
     /** Query-string pagination: ?{param}=start, start+1, … until a page adds no new jobs. */
     pagination: z
       .object({ param: z.string(), start: z.number().default(1), max: z.number().default(10) })
@@ -110,6 +115,7 @@ export function parseHtmlJobs(html: string, pageUrl: string, options: HtmlOption
   const jobs: RawJob[] = [];
   const skip = options.skipTitle ? new RegExp(options.skipTitle) : undefined;
   const keepLocation = options.keepLocation ? new RegExp(options.keepLocation, 'i') : undefined;
+  const qaCategory = options.qaCategory ? new RegExp(options.qaCategory.match, 'i') : undefined;
   $(options.item!).each((_, el) => {
     const item = $(el);
     const title = pick($, item, options.title);
@@ -130,6 +136,9 @@ export function parseHtmlJobs(html: string, pageUrl: string, options: HtmlOption
       endClient: pick($, item, options.endClient),
       description: pick($, item, options.description, { all: true }),
       postedAt: pick($, item, options.postedAt),
+      ...(qaCategory && qaCategory.test(pick($, item, options.qaCategory!.selector) ?? '')
+        ? { categoryQa: true }
+        : {}),
     });
   });
   return jobs;
