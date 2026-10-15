@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-15T19:18:20.530Z",
+  "generatedAt": "2026-10-15T19:23:51.235Z",
   "sources": [
     {
       "id": "linkedin",
@@ -743,6 +743,24 @@
       "fetched": 258,
       "kept": 20,
       "durationMs": 3415
+    },
+    {
+      "id": "ucl",
+      "name": "UCL Group",
+      "type": "agency",
+      "tier": "A",
+      "homepage": "https://ucl-group.co.il/career/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        54
+      ],
+      "lastRunAt": "2026-10-15T19:23:51.235Z",
+      "lastSuccessAt": "2026-10-15T19:23:51.235Z",
+      "fetched": 54,
+      "kept": 4,
+      "durationMs": 3732
     },
     {
       "id": "inmanage",
