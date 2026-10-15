@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-15T18:00:39.967Z",
+  "generatedAt": "2026-10-15T19:18:20.530Z",
   "sources": [
     {
       "id": "linkedin",
@@ -725,6 +725,24 @@
           "baseline": true
         }
       ]
+    },
+    {
+      "id": "horizontech",
+      "name": "Horizontech (peax talent)",
+      "type": "agency",
+      "tier": "B",
+      "homepage": "https://horizontech.co.il/שירותים/קריירה/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        258
+      ],
+      "lastRunAt": "2026-10-15T19:18:20.530Z",
+      "lastSuccessAt": "2026-10-15T19:18:20.530Z",
+      "fetched": 258,
+      "kept": 20,
+      "durationMs": 3415
     },
     {
       "id": "inmanage",
