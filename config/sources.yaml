@@ -391,6 +391,14 @@ sources:
       id: '.job-ID'
       qaCategory: { selector: '.job-category', match: 'בדיקות' }
 
+  - id: ucl
+    name: UCL Group
+    type: agency
+    tier: A
+    adapter: wp-rest
+    homepage: https://ucl-group.co.il/career/
+    options: { baseUrl: 'https://ucl-group.co.il', postType: jobs }
+
   - id: inmanage
     name: InManage
     type: agency
