@@ -2,8 +2,13 @@ import { memo } from 'react';
 import { textDir } from '../../lib/bidi.ts';
 import { daysWaiting, isStale, type MineItem } from '../../lib/mine.ts';
 import {
+  INTERVIEW_FORMAT_LABELS,
+  INTERVIEW_FORMATS,
+  interviewFormatOf,
+  STATUS_DESCRIPTIONS,
   STATUS_LABELS,
   STATUS_ORDER,
+  type InterviewFormat,
   type JobStatus,
   type StatusEntry,
 } from '../../lib/storage.ts';
@@ -97,6 +102,7 @@ export const MineRow = memo(function MineRow({
   const { id, entry, title, company, url, gone } = item;
   const stale = isStale(entry, now);
   const pinned = Boolean(entry.pinned);
+  const format = interviewFormatOf(entry);
 
   return (
     <li className={expanded ? 'bg-slate-50/80 dark:bg-slate-800/40' : ''}>
@@ -141,6 +147,11 @@ export const MineRow = memo(function MineRow({
             ) : (
               entry.channel && <span>דרך {entry.channel}</span>
             )}
+            {format !== 'unknown' && (
+              <span className="rounded-md bg-teal-50 px-1.5 py-px font-medium text-teal-800 dark:bg-teal-950 dark:text-teal-200">
+                ראיון: {INTERVIEW_FORMAT_LABELS[format]}
+              </span>
+            )}
             {gone && <span className="text-slate-400">· המשרה הוסרה מהמקור</span>}
             {entry.note && <span title={entry.note}>📝 הערה</span>}
           </span>
@@ -163,6 +174,7 @@ export const MineRow = memo(function MineRow({
                 type="button"
                 role="radio"
                 aria-checked={entry.status === s}
+                title={STATUS_DESCRIPTIONS[s]}
                 onClick={() =>
                   onUpdate(id, {
                     status: s,
@@ -186,7 +198,7 @@ export const MineRow = memo(function MineRow({
 
           {entry.manual && <ManualDetails id={id} entry={entry} onUpdate={onUpdate} />}
 
-          <div className="grid gap-3 sm:grid-cols-[12rem_12rem_1fr]">
+          <div className="grid gap-3 sm:grid-cols-[11rem_10rem_9rem_1fr]">
             <label className="text-sm">
               <span className="mb-1 block text-xs text-slate-500">איפה הגשתי</span>
               <input
@@ -214,6 +226,23 @@ export const MineRow = memo(function MineRow({
                 }
                 className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
               />
+            </label>
+            <label className="text-sm">
+              <span className="mb-1 block text-xs text-slate-500">פורמט ראיון</span>
+              <select
+                value={format}
+                onChange={(e) => {
+                  const next = e.target.value as InterviewFormat;
+                  onUpdate(id, { interviewFormat: next === 'unknown' ? undefined : next });
+                }}
+                className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
+              >
+                {INTERVIEW_FORMATS.map((f) => (
+                  <option key={f} value={f}>
+                    {INTERVIEW_FORMAT_LABELS[f]}
+                  </option>
+                ))}
+              </select>
             </label>
             <label className="text-sm">
               <span className="mb-1 block text-xs text-slate-500">הערות</span>

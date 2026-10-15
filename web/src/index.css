@@ -19,10 +19,15 @@
  * Validated with the dataviz palette checker on the card surfaces (#ffffff light, #0f172a dark):
  * every adjacent pair clears the normal-vision floor; light mode needs labels beside each dot
  * (yellow/magenta < 3:1, red↔green CVD 7.2), so a status is never shown by color alone.
+ * recruiter_call (aqua) and home_assignment (violet) were validated in pipeline order
+ * (saved → applied → recruiter_call → home_assignment → interview → offer) in both modes; the dark
+ * violet is #7c3aed because the palette's #9085e9 is indistinguishable from the blue under protan.
  */
 :root {
   --st-saved: #eda100;
   --st-applied: #2a78d6;
+  --st-recruiter_call: #1baf7a;
+  --st-home_assignment: #4a3aa7;
   --st-interview: #e87ba4;
   --st-offer: #008300;
   --st-rejected: #e34948;
@@ -32,6 +37,8 @@
 html[data-theme='dark'] {
   --st-saved: #c98500;
   --st-applied: #3987e5;
+  --st-recruiter_call: #199e70;
+  --st-home_assignment: #7c3aed;
   --st-interview: #d55181;
   --st-offer: #008300;
   --st-rejected: #e66767;

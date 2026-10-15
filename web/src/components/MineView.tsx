@@ -20,6 +20,8 @@ import {
   type MineSort,
 } from '../lib/mine.ts';
 import {
+  INTERVIEW_FORMAT_LABELS,
+  INTERVIEW_FORMATS,
   STATUS_LABELS,
   type JobStatus,
   type PersonalData,
@@ -229,6 +231,34 @@ export function MineView({
                   נקה סינון ({activeCount})
                 </button>
               )}
+            </div>
+            <div
+              className="no-scrollbar -mx-4 flex items-center gap-1.5 overflow-x-auto px-4"
+              role="group"
+              aria-label="סינון לפי פורמט ראיון"
+            >
+              <span className="shrink-0 text-xs text-slate-500">פורמט ראיון:</span>
+              {INTERVIEW_FORMATS.map((format) => {
+                const active = filters.formats.includes(format);
+                return (
+                  <button
+                    key={format}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => set({ formats: toggleIn(filters.formats, format) })}
+                    className={`inline-flex min-h-9 shrink-0 items-center gap-1 rounded-full border px-3 text-xs ${
+                      active
+                        ? 'border-brand-600 bg-brand-600 text-white'
+                        : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
+                    }`}
+                  >
+                    {INTERVIEW_FORMAT_LABELS[format]}
+                    <span className={`tabular-nums ${active ? '' : 'text-slate-500'}`}>
+                      {stats.byFormat[format]}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
             <p className="text-xs text-slate-500" aria-live="polite">
               {visible.length === items.length

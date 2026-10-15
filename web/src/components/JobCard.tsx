@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { BADGE_LABELS, badgeFor, REGION_LABELS, SENIORITY_LABELS, type Badge, type Job } from '@qa-radar/shared';
-import { STATUS_LABELS, STATUS_ORDER, type JobStatus, type StatusEntry } from '../lib/storage.ts';
+import {
+  INTERVIEW_FORMAT_LABELS,
+  interviewFormatOf,
+  STATUS_DESCRIPTIONS,
+  STATUS_LABELS,
+  STATUS_ORDER,
+  type JobStatus,
+  type StatusEntry,
+} from '../lib/storage.ts';
 import { textDir } from '../lib/bidi.ts';
 import { formatDate, relativeTime } from '../lib/time.ts';
 import { CheckIcon, DotsIcon, ExternalIcon, PinIcon, StarIcon } from './icons.tsx';
@@ -54,6 +62,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
   }, [menuOpen]);
 
   const regionChips = job.regions.map((r) => REGION_LABELS[r]);
+  const format = status ? interviewFormatOf(status) : 'unknown';
 
   return (
     <article
@@ -114,9 +123,14 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
         {job.postedAt && <span>פורסמה {formatDate(job.postedAt)}</span>}
       </div>
 
-      {/* Row 4: tags + seniority */}
-      {(job.tags.length > 0 || job.seniority !== 'unknown') && (
+      {/* Row 4: my interview format (when set) + tags + seniority */}
+      {(job.tags.length > 0 || job.seniority !== 'unknown' || format !== 'unknown') && (
         <div className="mt-2 flex flex-wrap gap-1.5">
+          {format !== 'unknown' && (
+            <span className="rounded-md bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-800 dark:bg-teal-950 dark:text-teal-200">
+              ראיון: {INTERVIEW_FORMAT_LABELS[format]}
+            </span>
+          )}
           {job.seniority !== 'unknown' && (
             <span className="rounded-md bg-indigo-50 px-2 py-0.5 text-xs text-indigo-800 dark:bg-indigo-950 dark:text-indigo-200">
               {SENIORITY_LABELS[job.seniority]}
@@ -211,6 +225,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
                   key={s}
                   role="menuitemradio"
                   aria-checked={status?.status === s}
+                  title={STATUS_DESCRIPTIONS[s]}
                   type="button"
                   onClick={() => {
                     onStatus(job, s);

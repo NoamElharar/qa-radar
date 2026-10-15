@@ -1,9 +1,25 @@
 import { useId, useState, type FormEvent } from 'react';
 import { CHANNEL_SUGGESTIONS, createManualEntry, type ManualInput } from '../../lib/mine.ts';
-import { STATUS_LABELS, type JobStatus, type StatusEntry } from '../../lib/storage.ts';
+import {
+  INTERVIEW_FORMAT_LABELS,
+  INTERVIEW_FORMATS,
+  STATUS_DESCRIPTIONS,
+  STATUS_LABELS,
+  type InterviewFormat,
+  type JobStatus,
+  type StatusEntry,
+} from '../../lib/storage.ts';
 import { israelDayKey } from '../../lib/time.ts';
 
-const STATUS_CHOICES: JobStatus[] = ['applied', 'saved', 'interview', 'offer', 'rejected'];
+const STATUS_CHOICES: JobStatus[] = [
+  'applied',
+  'saved',
+  'recruiter_call',
+  'home_assignment',
+  'interview',
+  'offer',
+  'rejected',
+];
 
 const emptyForm = (): ManualInput => ({
   title: '',
@@ -13,6 +29,7 @@ const emptyForm = (): ManualInput => ({
   status: 'applied',
   appliedDate: israelDayKey(new Date()),
   note: '',
+  interviewFormat: 'unknown',
 });
 
 const inputClass =
@@ -138,7 +155,7 @@ export function AddApplication({ onAdd }: { onAdd: (id: string, entry: StatusEnt
             className={inputClass}
           >
             {STATUS_CHOICES.map((s) => (
-              <option key={s} value={s}>
+              <option key={s} value={s} title={STATUS_DESCRIPTIONS[s]}>
                 {STATUS_LABELS[s]}
               </option>
             ))}
@@ -154,6 +171,21 @@ export function AddApplication({ onAdd }: { onAdd: (id: string, entry: StatusEnt
           />
         </label>
       </div>
+
+      <label className="block text-sm">
+        <span className="mb-1 block text-xs text-slate-500">פורמט ראיון</span>
+        <select
+          value={form.interviewFormat ?? 'unknown'}
+          onChange={(e) => set({ interviewFormat: e.target.value as InterviewFormat })}
+          className={inputClass}
+        >
+          {INTERVIEW_FORMATS.map((f) => (
+            <option key={f} value={f}>
+              {INTERVIEW_FORMAT_LABELS[f]}
+            </option>
+          ))}
+        </select>
+      </label>
 
       <label className="block text-sm">
         <span className="mb-1 block text-xs text-slate-500">הערות</span>

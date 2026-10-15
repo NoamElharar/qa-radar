@@ -1,5 +1,12 @@
 import { matchesQuery, type Job } from '@qa-radar/shared';
-import type { JobStatus, StatusEntry } from './storage.ts';
+import {
+  INTERVIEW_FORMATS,
+  interviewFormatOf,
+  STATUS_ORDER,
+  type InterviewFormat,
+  type JobStatus,
+  type StatusEntry,
+} from './storage.ts';
 
 /**
  * Logic for "המועמדויות שלי" — kept framework-free so it can be unit-tested and stays fast with
@@ -17,6 +24,8 @@ export type AppliedWindow = 'any' | '7d' | '30d' | '90d';
 export interface MineFilters {
   q: string;
   statuses: JobStatus[];
+  /** Interview formats to show (none selected = all). */
+  formats: InterviewFormat[];
   flags: MineFlag[];
   applied: AppliedWindow;
   sort: MineSort;
@@ -25,6 +34,7 @@ export interface MineFilters {
 export const DEFAULT_MINE_FILTERS: MineFilters = {
   q: '',
   statuses: [],
+  formats: [],
   flags: [],
   applied: 'any',
   sort: 'updated',
@@ -51,12 +61,21 @@ const WINDOW_MS: Record<AppliedWindow, number> = {
 };
 
 /** Pipeline order: the funnel first, then the outcomes. */
-export const PIPELINE: JobStatus[] = ['saved', 'applied', 'interview', 'offer'];
+export const PIPELINE: JobStatus[] = [
+  'saved',
+  'applied',
+  'recruiter_call',
+  'home_assignment',
+  'interview',
+  'offer',
+];
 export const OUTCOMES: JobStatus[] = ['rejected', 'irrelevant', 'viewed'];
 /** Group order in the list: most actionable first. */
 export const GROUP_ORDER: JobStatus[] = [
   'offer',
   'interview',
+  'home_assignment',
+  'recruiter_call',
   'applied',
   'saved',
   'rejected',
@@ -70,7 +89,13 @@ export const COLLAPSED_BY_DEFAULT: ReadonlySet<JobStatus> = new Set([
   'viewed',
 ]);
 
-const APPLIED_STATUSES: ReadonlySet<JobStatus> = new Set(['applied', 'interview', 'offer']);
+const APPLIED_STATUSES: ReadonlySet<JobStatus> = new Set([
+  'applied',
+  'recruiter_call',
+  'home_assignment',
+  'interview',
+  'offer',
+]);
 
 export interface MineItem {
   id: string;
@@ -127,6 +152,7 @@ export function isStale(entry: StatusEntry, now: Date): boolean {
 export function applyMineFilters(items: MineItem[], f: MineFilters, now: Date): MineItem[] {
   const filtered = items.filter(({ entry, title, company }) => {
     if (f.statuses.length && !f.statuses.includes(entry.status)) return false;
+    if (f.formats.length && !f.formats.includes(interviewFormatOf(entry))) return false;
     if (f.flags.includes('pinned') && !entry.pinned) return false;
     if (f.flags.includes('stale') && !isStale(entry, now)) return false;
     if (f.flags.includes('notes') && !entry.note?.trim()) return false;
@@ -196,6 +222,7 @@ export interface WeekCount {
 
 export interface MineStats {
   byStatus: Record<JobStatus, number>;
+  byFormat: Record<InterviewFormat, number>;
   applications: number;
   /** Interview or offer — the share of applications that turned into a real conversation. */
   interviews: number;
@@ -208,21 +235,18 @@ export interface MineStats {
 }
 
 export function mineStats(items: MineItem[], now: Date, weeks = 8): MineStats {
-  const byStatus = {
-    viewed: 0,
-    saved: 0,
-    applied: 0,
-    interview: 0,
-    offer: 0,
-    rejected: 0,
-    irrelevant: 0,
-  } as Record<JobStatus, number>;
+  const byStatus = Object.fromEntries(STATUS_ORDER.map((s) => [s, 0])) as Record<JobStatus, number>;
+  const byFormat = Object.fromEntries(INTERVIEW_FORMATS.map((f) => [f, 0])) as Record<
+    InterviewFormat,
+    number
+  >;
   const perWeek = new Map<string, number>();
   let applications = 0;
   let interviews = 0;
   let stale = 0;
   for (const { entry } of items) {
     byStatus[entry.status] += 1;
+    byFormat[interviewFormatOf(entry)] += 1;
     if (isApplication(entry)) applications += 1;
     if (entry.status === 'interview' || entry.status === 'offer') interviews += 1;
     if (isStale(entry, now)) stale += 1;
@@ -241,6 +265,7 @@ export function mineStats(items: MineItem[], now: Date, weeks = 8): MineStats {
   }
   return {
     byStatus,
+    byFormat,
     applications,
     interviews,
     interviewRate: applications ? interviews / applications : 0,
@@ -253,15 +278,6 @@ export function mineStats(items: MineItem[], now: Date, weeks = 8): MineStats {
 
 // ── URL state (only while view=mine) ─────────────────────────────────────────────────
 
-const STATUS_VALUES: JobStatus[] = [
-  'viewed',
-  'saved',
-  'applied',
-  'interview',
-  'offer',
-  'rejected',
-  'irrelevant',
-];
 const FLAG_VALUES: MineFlag[] = ['pinned', 'stale', 'notes', 'manual'];
 const list = (v: string | null) => (v ? v.split(',').filter(Boolean) : []);
 
@@ -271,7 +287,10 @@ export function mineFiltersFromParams(p: URLSearchParams): MineFilters {
   return {
     q: p.get('mq') ?? '',
     statuses: list(p.get('ms')).filter((s): s is JobStatus =>
-      STATUS_VALUES.includes(s as JobStatus),
+      STATUS_ORDER.includes(s as JobStatus),
+    ),
+    formats: list(p.get('mi')).filter((f): f is InterviewFormat =>
+      INTERVIEW_FORMATS.includes(f as InterviewFormat),
     ),
     flags: list(p.get('mf')).filter((f): f is MineFlag => FLAG_VALUES.includes(f as MineFlag)),
     applied: applied && applied in APPLIED_WINDOW_LABELS ? applied : 'any',
@@ -282,9 +301,10 @@ export function mineFiltersFromParams(p: URLSearchParams): MineFilters {
 /** Writes the "שלי" filters into an existing query string (keeps view=mine and anything else). */
 export function writeMineParams(base: URLSearchParams, f: MineFilters): URLSearchParams {
   const p = new URLSearchParams(base);
-  for (const key of ['mq', 'ms', 'mf', 'mt', 'msort']) p.delete(key);
+  for (const key of ['mq', 'ms', 'mi', 'mf', 'mt', 'msort']) p.delete(key);
   if (f.q) p.set('mq', f.q);
   if (f.statuses.length) p.set('ms', f.statuses.join(','));
+  if (f.formats.length) p.set('mi', f.formats.join(','));
   if (f.flags.length) p.set('mf', f.flags.join(','));
   if (f.applied !== 'any') p.set('mt', f.applied);
   if (f.sort !== 'updated') p.set('msort', f.sort);
@@ -292,7 +312,13 @@ export function writeMineParams(base: URLSearchParams, f: MineFilters): URLSearc
 }
 
 export function activeMineFilterCount(f: MineFilters): number {
-  return f.statuses.length + f.flags.length + (f.applied !== 'any' ? 1 : 0) + (f.q ? 1 : 0);
+  return (
+    f.statuses.length +
+    f.formats.length +
+    f.flags.length +
+    (f.applied !== 'any' ? 1 : 0) +
+    (f.q ? 1 : 0)
+  );
 }
 
 // ── Manual applications ──────────────────────────────────────────────────────────────
@@ -320,6 +346,7 @@ export interface ManualInput {
   /** YYYY-MM-DD from the date input; empty = not applied yet. */
   appliedDate?: string;
   note?: string;
+  interviewFormat?: InterviewFormat;
 }
 
 function isWebLink(value: string): boolean {
@@ -353,6 +380,9 @@ export function createManualEntry(
       note: input.note?.trim() || undefined,
       manual: true,
       channel: input.channel?.trim() || undefined,
+      ...(input.interviewFormat && input.interviewFormat !== 'unknown'
+        ? { interviewFormat: input.interviewFormat }
+        : {}),
       snapshot: { title, company: input.company?.trim() || undefined, url: url ?? '' },
     },
   };

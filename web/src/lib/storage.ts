@@ -3,24 +3,81 @@
  * Every access is wrapped: private windows or blocked storage must not break the dashboard.
  */
 
-export type JobStatus = 'viewed' | 'saved' | 'applied' | 'interview' | 'offer' | 'rejected' | 'irrelevant';
+export type JobStatus =
+  | 'viewed'
+  | 'saved'
+  | 'applied'
+  | 'recruiter_call'
+  | 'home_assignment'
+  | 'interview'
+  | 'offer'
+  | 'rejected'
+  | 'irrelevant';
 
 export const STATUS_LABELS: Record<JobStatus | 'new', string> = {
   new: 'חדש',
   viewed: 'נצפה',
   saved: 'שמור',
   applied: 'הגשתי',
+  recruiter_call: 'שיחה ממגייסת',
+  home_assignment: 'עבודת בית',
   interview: 'ראיון',
   offer: 'הצעה',
   rejected: 'נדחה',
   irrelevant: 'לא רלוונטי',
 };
 
+/** What a status means — shown as a tooltip wherever a status is picked or listed. */
+export const STATUS_DESCRIPTIONS: Partial<Record<JobStatus, string>> = {
+  recruiter_call:
+    'שיחת סינון טלפונית קצרה עם מגייסת מחברת השמה, שבה שואלים על הרקע והניסיון שלי לפני שמעבירים את קורות החיים למעסיקים.',
+  home_assignment: 'החברה שלחה לי עבודת בית להכין לפני הראיון.',
+};
+
 /** Order used by the status menu and the "המועמדויות שלי" view. */
-export const STATUS_ORDER: JobStatus[] = ['saved', 'applied', 'interview', 'offer', 'rejected', 'irrelevant', 'viewed'];
+export const STATUS_ORDER: JobStatus[] = [
+  'saved',
+  'applied',
+  'recruiter_call',
+  'home_assignment',
+  'interview',
+  'offer',
+  'rejected',
+  'irrelevant',
+  'viewed',
+];
 
 /** Statuses hidden by "הסתר משרות שטיפלתי בהן". */
-export const HANDLED_STATUSES: ReadonlySet<JobStatus> = new Set(['applied', 'interview', 'offer', 'rejected', 'irrelevant']);
+export const HANDLED_STATUSES: ReadonlySet<JobStatus> = new Set([
+  'applied',
+  'recruiter_call',
+  'home_assignment',
+  'interview',
+  'offer',
+  'rejected',
+  'irrelevant',
+]);
+
+/** How an interview takes place. Entries saved before this field existed count as "לא ידוע". */
+export type InterviewFormat = 'zoom' | 'teams' | 'meet' | 'frontal' | 'unknown';
+
+export const INTERVIEW_FORMATS: InterviewFormat[] = ['zoom', 'teams', 'meet', 'frontal', 'unknown'];
+
+export const INTERVIEW_FORMAT_LABELS: Record<InterviewFormat, string> = {
+  zoom: 'Zoom',
+  teams: 'Teams',
+  meet: 'Google Meet',
+  frontal: 'פרונטלי',
+  unknown: 'לא ידוע',
+};
+
+const isInterviewFormat = (v: unknown): v is InterviewFormat =>
+  INTERVIEW_FORMATS.includes(v as InterviewFormat);
+
+/** The entry's interview format; missing or unrecognized values read as "לא ידוע". */
+export function interviewFormatOf(entry: Pick<StatusEntry, 'interviewFormat'>): InterviewFormat {
+  return isInterviewFormat(entry.interviewFormat) ? entry.interviewFormat : 'unknown';
+}
 
 export interface StatusEntry {
   status: JobStatus;
@@ -34,6 +91,8 @@ export interface StatusEntry {
   manual?: boolean;
   /** Where I applied, e.g. "LinkedIn", "AllJobs", "חבר מביא חבר". */
   channel?: string;
+  /** Optional; missing means "לא ידוע" (and is how entries from before this field read). */
+  interviewFormat?: InterviewFormat;
   /** Snapshot so the entry stays readable after the job leaves jobs.json. */
   snapshot?: { title: string; company?: string; url: string };
 }
@@ -125,7 +184,10 @@ export function importPersonal(current: PersonalData, json: string): PersonalDat
     throw new Error('זה לא קובץ גיבוי של רדאר משרות QA');
   }
   const statuses = { ...current.statuses };
-  for (const [id, entry] of Object.entries(incoming.statuses ?? {})) {
+  for (const [id, raw] of Object.entries(incoming.statuses ?? {})) {
+    // Older backups have no interviewFormat; a value this version doesn't know is dropped.
+    const { interviewFormat, ...rest } = raw;
+    const entry: StatusEntry = isInterviewFormat(interviewFormat) ? { ...rest, interviewFormat } : rest;
     const existing = statuses[id];
     if (!existing || entry.updatedAt > existing.updatedAt) statuses[id] = entry;
   }

@@ -201,6 +201,62 @@ describe('URL state for "שלי"', () => {
   });
 });
 
+describe('recruiter calls, home assignments and interview formats', () => {
+  const items = buildItems(
+    {
+      call: entry({ status: 'recruiter_call', updatedAt: daysAgo(3) }),
+      home: entry({ status: 'home_assignment', interviewFormat: 'teams', updatedAt: daysAgo(2) }),
+      zoom: entry({ status: 'interview', interviewFormat: 'zoom', updatedAt: daysAgo(1) }),
+      plain: entry({ status: 'applied' }),
+    },
+    new Map(),
+  );
+
+  it('count as applications and sit between "הגשתי" and "ראיון" in the list', () => {
+    const stats = mineStats(items, now);
+    expect(stats.byStatus.recruiter_call).toBe(1);
+    expect(stats.byStatus.home_assignment).toBe(1);
+    expect(stats.applications).toBe(4);
+    expect(groupItems(items).groups.map((g) => g.status)).toEqual([
+      'interview',
+      'home_assignment',
+      'recruiter_call',
+      'applied',
+    ]);
+  });
+
+  it('filter by status', () => {
+    expect(ids(applyMineFilters(items, f({ statuses: ['recruiter_call'] }), now))).toEqual(['call']);
+    expect(ids(applyMineFilters(items, f({ statuses: ['home_assignment'] }), now))).toEqual(['home']);
+  });
+
+  it('filter by interview format (several at once; "לא ידוע" = no format set)', () => {
+    expect(ids(applyMineFilters(items, f({ formats: ['zoom'] }), now))).toEqual(['zoom']);
+    expect(ids(applyMineFilters(items, f({ formats: ['zoom', 'teams'] }), now))).toEqual(['zoom', 'home']);
+    expect(ids(applyMineFilters(items, f({ formats: ['unknown'] }), now))).toEqual(['plain', 'call']);
+  });
+
+  it('count each interview format', () => {
+    expect(mineStats(items, now).byFormat).toEqual({ zoom: 1, teams: 1, meet: 0, frontal: 0, unknown: 2 });
+  });
+
+  it('keep the format filter in the URL', () => {
+    const filters = f({ statuses: ['recruiter_call', 'home_assignment'], formats: ['zoom', 'teams'] });
+    const params = writeMineParams(new URLSearchParams('view=mine'), filters);
+    expect(params.get('mi')).toBe('zoom,teams');
+    expect(mineFiltersFromParams(params)).toEqual(filters);
+    expect(mineFiltersFromParams(new URLSearchParams('mi=zoom,skype'))).toEqual(f({ formats: ['zoom'] }));
+  });
+
+  it('a manual application can carry a format ("לא ידוע" is not stored)', () => {
+    const base = { title: 'QA', status: 'interview' as const };
+    const zoom = createManualEntry({ ...base, interviewFormat: 'zoom' }, now);
+    const unknown = createManualEntry({ ...base, interviewFormat: 'unknown' }, now);
+    expect('entry' in zoom && zoom.entry.interviewFormat).toBe('zoom');
+    expect('entry' in unknown && 'interviewFormat' in unknown.entry).toBe(false);
+  });
+});
+
 describe('manual applications', () => {
   it('builds an entry from the form, defaulting the date for "הגשתי"', () => {
     const made = createManualEntry(

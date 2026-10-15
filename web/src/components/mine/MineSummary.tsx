@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { OUTCOMES, PIPELINE, STALE_DAYS, type MineStats } from '../../lib/mine.ts';
-import { STATUS_LABELS, type JobStatus } from '../../lib/storage.ts';
+import { STATUS_DESCRIPTIONS, STATUS_LABELS, type JobStatus } from '../../lib/storage.ts';
 import { StatusDot } from './StatusDot.tsx';
 import { WeeklyChart } from './WeeklyChart.tsx';
 
@@ -55,6 +55,7 @@ export function MineSummary({
         key={s}
         type="button"
         aria-pressed={active}
+        title={STATUS_DESCRIPTIONS[s]}
         onClick={() => onToggleStatus(s)}
         className={`inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border px-3 text-sm transition ${
           active
