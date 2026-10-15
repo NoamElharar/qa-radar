@@ -16,6 +16,9 @@ Thumbs.db
 # Private notes (personal profile details) — never commit.
 /docs/private/
 
+# Personal data exported from the app ("שלי" → ייצוא JSON) — applications, notes. Never commit.
+/personal/
+
 # Local scratch / editor tooling
 .scratch/
 .claude/
