@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { BADGE_LABELS, badgeFor, REGION_LABELS, SENIORITY_LABELS, type Badge, type Job } from '@qa-radar/shared';
 import {
   INTERVIEW_FORMAT_LABELS,
@@ -40,10 +40,53 @@ export interface JobCardProps {
   onHideCompany: (name: string) => void;
 }
 
+interface MenuPlacement {
+  up: boolean;
+  /** Only on screens too short for the whole menu: cap it and let it scroll. */
+  maxHeight?: number;
+}
+
+const MENU_GAP = 8 + 8; // the menu's offset from its button + breathing room
+
+/** Free space above/below the button, between the sticky header and the bottom bar. */
+function menuRoom(button: HTMLElement) {
+  const rect = button.getBoundingClientRect();
+  const top = document.querySelector('header')?.getBoundingClientRect().bottom ?? 0;
+  const bottom =
+    document.querySelector('nav[aria-label="תצוגות"]')?.getBoundingClientRect().top ?? window.innerHeight;
+  return { above: rect.top - top - MENU_GAP, below: bottom - rect.bottom - MENU_GAP, top: rect.top - top };
+}
+
+/**
+ * Place the status menu (`need` = its full height) so every choice is on screen: above the button if
+ * it fits, else below; if neither side has room, scroll the page just enough for it to fit below
+ * (the button stays in view). Only a screen shorter than the menu itself gets a scrolling menu.
+ */
+function placeMenu(button: HTMLElement, need: number): MenuPlacement {
+  let room = menuRoom(button);
+  if (need <= room.above) return { up: true };
+  if (need <= room.below) return { up: false };
+  window.scrollBy(0, Math.min(need - room.below, Math.max(0, room.top - 8)));
+  room = menuRoom(button);
+  if (need <= room.below) return { up: false };
+  return room.above > room.below
+    ? { up: true, maxHeight: Math.max(120, room.above) }
+    : { up: false, maxHeight: Math.max(120, room.below) };
+}
+
 export function JobCard({ job, sourceName, status, highlight, now, onStatus, onOpen, onHideCompany }: JobCardProps) {
   const [expanded, setExpanded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuPlace, setMenuPlace] = useState<MenuPlacement>({ up: true });
   const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuListRef = useRef<HTMLDivElement>(null);
+
+  // Measure the open menu before it paints and put it where all of it is visible.
+  useLayoutEffect(() => {
+    if (!menuOpen || !menuButtonRef.current || !menuListRef.current) return;
+    setMenuPlace(placeMenu(menuButtonRef.current, menuListRef.current.scrollHeight));
+  }, [menuOpen]);
   const badge = badgeFor(job, now);
   const saved = status?.status === 'saved';
   const companyName = job.company ?? job.agency;
@@ -207,6 +250,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
         <div className="relative ms-auto" ref={menuRef}>
           <button
             type="button"
+            ref={menuButtonRef}
             onClick={() => setMenuOpen((v) => !v)}
             className="inline-flex min-h-11 items-center gap-1 rounded-xl border border-slate-200 px-2.5 text-sm dark:border-slate-700"
             aria-haspopup="menu"
@@ -218,7 +262,11 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
           {menuOpen && (
             <div
               role="menu"
-              className="absolute end-0 bottom-full z-20 mb-2 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl dark:border-slate-700 dark:bg-slate-900"
+              ref={menuListRef}
+              style={menuPlace.maxHeight ? { maxHeight: menuPlace.maxHeight } : undefined}
+              className={`absolute end-0 z-20 w-48 overflow-y-auto overscroll-contain rounded-xl border border-slate-200 bg-white py-1 shadow-xl dark:border-slate-700 dark:bg-slate-900 ${
+                menuPlace.up ? 'bottom-full mb-2' : 'top-full mt-2'
+              }`}
             >
               {STATUS_ORDER.map((s) => (
                 <button

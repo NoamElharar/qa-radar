@@ -69,6 +69,43 @@ test('a long job title wraps instead of widening the card', async ({ page }) => 
   expect(box!.x + box!.width).toBeLessThanOrEqual(width);
 });
 
+test('the status menu of the top card is fully visible — never under the header or the bottom bar', async ({ page }) => {
+  for (const path of ['./', './?view=all']) {
+    await page.goto(path);
+    const first = page.getByRole('article').first();
+    await first.getByRole('button', { name: /^סטטוס/ }).click();
+    const menu = first.getByRole('menu');
+    await expect(menu).toBeVisible();
+
+    const box = (await menu.boundingBox())!;
+    const header = (await page.locator('header').boundingBox())!;
+    const nav = (await page.getByRole('navigation', { name: 'תצוגות' }).boundingBox())!;
+    expect(box.y, 'menu starts under the sticky header').toBeGreaterThanOrEqual(header.y + header.height);
+    expect(box.y + box.height, 'menu ends under the bottom bar').toBeLessThanOrEqual(nav.y);
+
+    // Every choice is on screen at once — nothing hidden inside a scrolled menu.
+    for (const item of await menu.getByRole('menuitemradio').all()) {
+      await expect(item).toBeInViewport({ ratio: 1 });
+    }
+    await page.keyboard.press('Escape');
+  }
+
+  // A card just above the bottom bar opens its menu upward, still clear of both bars.
+  await page.goto('./?view=all');
+  const card = page.getByRole('article').nth(1);
+  const toggle = card.getByRole('button', { name: /^סטטוס/ });
+  await toggle.evaluate((el) => {
+    const nav = document.querySelector('nav[aria-label="תצוגות"]')!.getBoundingClientRect();
+    window.scrollBy(0, el.getBoundingClientRect().bottom - (nav.top - 8));
+  });
+  await toggle.click();
+  const box = (await card.getByRole('menu').boundingBox())!;
+  const header = (await page.locator('header').boundingBox())!;
+  const nav = (await page.getByRole('navigation', { name: 'תצוגות' }).boundingBox())!;
+  expect(box.y).toBeGreaterThanOrEqual(header.y + header.height);
+  expect(box.y + box.height).toBeLessThanOrEqual(nav.y);
+});
+
 test('the filter sheet fits the phone and its main button stays reachable', async ({ page, isMobile }) => {
   await page.goto('./');
   await page.getByRole('button', { name: 'סינון', exact: true }).click();
