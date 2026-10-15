@@ -18,6 +18,8 @@ export interface CollectOptions {
   force?: boolean;
   /** Restrict the run to these source ids. */
   only?: string[];
+  /** Run only sources that have never run (no lastRunAt), e.g. just added. */
+  onlyNew?: boolean;
   http?: PoliteClient;
   log?: (message: string) => void;
 }
@@ -72,10 +74,12 @@ export async function collect(options: CollectOptions): Promise<CollectResult> {
   const classifier = createClassifier(config);
   const previousHealth = new Map(previous.health.sources.map((h) => [h.id, h]));
 
+  const isNew = (s: SourceConfig) => !previousHealth.get(s.id)?.lastRunAt;
   const runnable = config.sources.filter(
     (s) =>
       s.enabled &&
       s.adapter !== 'link-out' &&
+      (!options.onlyNew || isNew(s)) &&
       (!options.only || options.only.includes(s.id)) &&
       (options.force || options.only || isSourceDue(s, previousHealth.get(s.id), now)),
   );
@@ -85,6 +89,7 @@ export async function collect(options: CollectOptions): Promise<CollectResult> {
       s.enabled &&
       s.adapter === 'link-out' &&
       s.watch &&
+      (!options.onlyNew || isNew(s)) &&
       (!options.only || options.only.includes(s.id)) &&
       (options.force || options.only || isSourceDue(s, previousHealth.get(s.id), now)),
   );

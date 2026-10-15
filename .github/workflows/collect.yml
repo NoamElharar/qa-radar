@@ -66,7 +66,8 @@ jobs:
       - run: npm ci
 
       - name: Collect jobs
-        run: npm run collect -- ${{ (github.event_name == 'workflow_dispatch' && inputs.force) && '--force' || '' }}
+        # On push outside the Israel-time schedule, newly added sources still get their first run.
+        run: npm run collect -- ${{ (github.event_name == 'workflow_dispatch' && inputs.force) && '--force' || '' }} ${{ github.event_name == 'push' && '--include-new' || '' }}
 
       - name: Commit data
         id: commit

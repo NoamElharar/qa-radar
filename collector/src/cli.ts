@@ -18,6 +18,7 @@ import {
  *   npm run collect -- --force      run every enabled source now
  *   npm run collect -- --only sqlink,ness
  *   npm run collect -- --dry-run    run but don't write data files
+ *   npm run collect -- --include-new  outside the schedule, still run sources that never ran (on push)
  *   npm run collect -- --data-dir ../data
  */
 const { values } = parseArgs({
@@ -25,6 +26,7 @@ const { values } = parseArgs({
     force: { type: 'boolean', default: false },
     only: { type: 'string' },
     'dry-run': { type: 'boolean', default: false },
+    'include-new': { type: 'boolean', default: false },
     'data-dir': { type: 'string' },
   },
 });
@@ -34,19 +36,23 @@ const log = (message: string) => console.log(`${new Date().toISOString().slice(1
 async function main(): Promise<void> {
   const now = new Date();
   const only = values.only?.split(',').map((s) => s.trim()).filter(Boolean);
+  let onlyNew = false;
   if (!values.force && !only) {
     const gate = shouldRunAt(now);
-    if (!gate.run) {
+    if (!gate.run && !values['include-new']) {
       log(`skipping run: ${gate.reason}`);
       return;
     }
-    log(`schedule: ${gate.reason}`);
+    // A push outside the schedule: give newly added sources their first run (and publish registry
+    // edits) now, without re-fetching anything else.
+    onlyNew = !gate.run;
+    log(onlyNew ? `${gate.reason} — running only sources that have never run` : `schedule: ${gate.reason}`);
   }
 
   const config = loadConfig();
   const paths = dataPaths(values['data-dir'] ?? join(REPO_ROOT, 'data'));
   const previous = readState(paths);
-  const result = await collect({ config, previous, now, force: values.force, only, log });
+  const result = await collect({ config, previous, now, force: values.force, only, onlyNew, log });
 
   // Two timers (GitHub's schedule + the external backup) may fire in the same hour. When no source was
   // due, leave the data files untouched so the run is a true no-op (no commit, no redeploy) — unless
