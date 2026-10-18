@@ -115,7 +115,13 @@ export function buildFixtures(now = Date.now()): { jobs: JobsFile; health: Healt
   ];
 
   return {
-    jobs: { version: 1, generatedAt: iso(30 * 60_000), jobs },
+    jobs: {
+      version: 1,
+      generatedAt: iso(30 * 60_000),
+      jobs,
+      // A source re-published the manual-QA job twice under other ids before it got its stable id.
+      aliases: { 'fixture:manual-repost-1': 'fixture:manual', 'fixture:manual-repost-2': 'fixture:manual' },
+    },
     health: { version: 1, generatedAt: iso(30 * 60_000), sources },
   };
 }

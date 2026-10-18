@@ -56,6 +56,11 @@ export interface JobsFile {
   version: 1;
   generatedAt: string;
   jobs: Job[];
+  /**
+   * Old job id → the id the job has now, for sources whose job identity changed (see `idFromUrl`).
+   * Personal statuses saved under an old id follow the job.
+   */
+  aliases?: Record<string, string>;
 }
 
 export type SourceStatus = 'ok' | 'error' | 'suspect' | 'disabled' | 'link-out';

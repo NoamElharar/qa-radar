@@ -21,6 +21,11 @@ export const sourceSchema = z.object({
   homepage: z.string().url(),
   everyHours: z.number().positive().default(1),
   categoryQa: z.boolean().default(false),
+  /**
+   * Regex whose first group, matched against the job URL, is the job's stable id — for sources that
+   * re-publish the same jobs under new internal ids (Comblack: a new WordPress post every day).
+   */
+  idFromUrl: z.string().optional(),
   note: z.string().optional(),
   quickLinks: z.array(quickLink).optional(),
   options: z.record(z.unknown()).default({}),

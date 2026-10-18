@@ -203,6 +203,8 @@ sources:
     tier: A
     adapter: wp-rest
     homepage: https://comblack.co.il/career/
+    # The site re-creates every job as a new WordPress post each day; the URL's position number is stable.
+    idFromUrl: 'position-(\d+)'
     options: { baseUrl: 'https://comblack.co.il', postType: careers }
 
   - id: tesnet

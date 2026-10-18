@@ -59,7 +59,9 @@ export function normalizeJobs(
     if (!decision.qa) continue;
 
     const url = r.url ?? source.homepage;
-    const sourceJobId = r.sourceJobId?.trim() || undefined;
+    // Re-publishing sources: a number in the URL is the stable identity, not the adapter's id.
+    const fromUrl = source.idFromUrl && r.url ? new RegExp(source.idFromUrl).exec(r.url)?.[1] : undefined;
+    const sourceJobId = fromUrl ?? (r.sourceJobId?.trim() || undefined);
     // Without a native id: hash the URL when it is job-specific, otherwise hash the title.
     const fallbackKey = r.url && canonicalUrl(r.url) !== canonicalUrl(source.homepage) ? canonicalUrl(r.url) : title;
     const id = `${source.id}:${sourceJobId ?? `h-${shortHash(fallbackKey)}`}`;

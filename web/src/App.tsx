@@ -9,6 +9,7 @@ import { SourcesView } from './components/SourcesView.tsx';
 import { Toolbar } from './components/Toolbar.tsx';
 import { useRadarData } from './lib/useRadarData.ts';
 import { applyFilters, applySourceTypeFilter, defaultFilters } from './lib/filters.ts';
+import { resolveStatuses } from './lib/aliases.ts';
 import {
   exportPersonal,
   importPersonal,
@@ -81,9 +82,16 @@ export function App() {
   const sources = useMemo(() => data?.health.sources ?? [], [data]);
   const sourceById = useMemo(() => new Map(sources.map((s) => [s.id, s])), [sources]);
   const jobsById = useMemo(() => new Map(jobs.map((j) => [j.id, j])), [jobs]);
+  // Statuses saved under an old id of a re-published job count for the job's current id.
+  const aliases = useMemo(() => data?.jobs.aliases ?? {}, [data]);
+  const resolved = useMemo(() => resolveStatuses(personal.statuses, aliases), [personal.statuses, aliases]);
+  const statuses = resolved.statuses;
   const typeOf = useCallback((id: string): SourceType | undefined => sourceById.get(id)?.type, [sourceById]);
 
-  const ctx = useMemo(() => ({ now, statuses: personal.statuses, hiddenCompanies: personal.hiddenCompanies }), [now, personal]);
+  const ctx = useMemo(
+    () => ({ now, statuses, hiddenCompanies: personal.hiddenCompanies }),
+    [now, statuses, personal.hiddenCompanies],
+  );
   const visible = useMemo(
     () => applySourceTypeFilter(applyFilters(jobs, filters, ctx), filters, typeOf),
     [jobs, filters, ctx, typeOf],
@@ -119,11 +127,12 @@ export function App() {
 
   const setStatus = useCallback(
     (job: Job, status: JobStatus | undefined) => {
-      const statuses = { ...personal.statuses };
-      if (!status) delete statuses[job.id];
+      const next = { ...personal.statuses };
+      // Clearing a status clears it from the job's old ids too, or they would show through again.
+      if (!status) for (const id of resolved.members.get(job.id) ?? [job.id]) delete next[id];
       else {
         const prev = statuses[job.id];
-        statuses[job.id] = {
+        next[job.id] = {
           ...prev,
           status,
           updatedAt: new Date().toISOString(),
@@ -131,20 +140,21 @@ export function App() {
           snapshot: { title: job.title, company: job.company ?? job.agency, url: job.url },
         };
       }
-      updatePersonal({ ...personal, statuses });
+      updatePersonal({ ...personal, statuses: next });
     },
-    [personal, updatePersonal],
+    [personal, statuses, resolved, updatePersonal],
   );
 
   const onOpen = useCallback(
     (job: Job) => {
-      if (!personal.statuses[job.id]) setStatus(job, 'viewed');
+      if (!statuses[job.id]) setStatus(job, 'viewed');
     },
-    [personal.statuses, setStatus],
+    [statuses, setStatus],
   );
 
+  // Edits are saved under the job's current id (an entry there takes over from any old ids).
   const updateEntry = (id: string, patch: Partial<StatusEntry>) => {
-    const prev = personal.statuses[id];
+    const prev = statuses[id];
     if (!prev) return;
     updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: { ...prev, ...patch, updatedAt: new Date().toISOString() } } });
   };
@@ -152,7 +162,7 @@ export function App() {
     updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: entry } });
   /** Pinning is about display order only, so it doesn't count as an update (keeps "waiting" timers honest). */
   const togglePin = (id: string) => {
-    const prev = personal.statuses[id];
+    const prev = statuses[id];
     if (!prev) return;
     const next: StatusEntry = prev.pinned
       ? { ...prev, pinned: undefined, pinnedAt: undefined }
@@ -160,9 +170,9 @@ export function App() {
     updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: next } });
   };
   const clearEntry = (id: string) => {
-    const statuses = { ...personal.statuses };
-    delete statuses[id];
-    updatePersonal({ ...personal, statuses });
+    const next = { ...personal.statuses };
+    for (const member of resolved.members.get(id) ?? [id]) delete next[member];
+    updatePersonal({ ...personal, statuses: next });
   };
   const hideCompany = (name: string) =>
     updatePersonal({ ...personal, hiddenCompanies: [...new Set([...personal.hiddenCompanies, name])] });
@@ -243,7 +253,7 @@ export function App() {
                   <JobCard
                     job={job}
                     sourceName={sourceById.get(job.sourceId)?.name ?? job.sourceId}
-                    status={personal.statuses[job.id]}
+                    status={statuses[job.id]}
                     highlight={!!previousVisit && isNewSince(job, previousVisit)}
                     now={now}
                     onStatus={setStatus}
@@ -275,7 +285,7 @@ export function App() {
           <>
             <h2 className="text-xl font-bold">המועמדויות שלי</h2>
             <MineView
-              personal={personal}
+              personal={{ ...personal, statuses }}
               jobsById={jobsById}
               now={now}
               onUpdate={updateEntry}
@@ -320,7 +330,7 @@ export function App() {
         counts={{
           new: newTodayCount,
           // "נצפה" is set automatically when a posting is opened — not something to act on, so not counted.
-          mine: Object.values(personal.statuses).filter((e) => e.status !== 'viewed').length || undefined,
+          mine: Object.values(statuses).filter((e) => e.status !== 'viewed').length || undefined,
           sources: failing.length || undefined,
         }}
         onView={setView}

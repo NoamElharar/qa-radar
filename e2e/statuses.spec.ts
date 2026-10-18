@@ -106,3 +106,30 @@ test('the new labels render right-to-left and fit on a phone', async ({ page, is
   expect(audit.offscreen).toEqual([]);
   expect(audit.tooSmall).toEqual([]);
 });
+
+test('statuses saved on reposted copies follow the job: applied stays applied, one row in "שלי"', async ({ page }) => {
+  const day = (n: number) => new Date(Date.now() - n * 864e5).toISOString();
+  await page.addInitScript((value) => {
+    if (!localStorage.getItem('qa-radar:statuses')) localStorage.setItem('qa-radar:statuses', value);
+  }, JSON.stringify({
+    'fixture:manual-repost-1': { status: 'applied', appliedAt: day(10), updatedAt: day(10), note: 'שלחתי קו"ח' },
+    'fixture:manual-repost-2': { status: 'irrelevant', updatedAt: day(3) },
+  }));
+
+  // Already applied, so it is not offered again in "חדש".
+  await page.goto('./');
+  await expect(card(page, TITLES.automationNew)).toBeVisible();
+  await expect(card(page, TITLES.manualNew)).toHaveCount(0);
+
+  await page.goto('./?view=mine');
+  await expect(row(page, TITLES.manualNew)).toHaveCount(1);
+  await expect(statusFilter(page).getByRole('button', { name: /^הגשתי 1$/ })).toBeVisible();
+  await expect(statusFilter(page).getByRole('button', { name: /^לא רלוונטי 0$/ })).toBeVisible();
+
+  // A change is saved under the current id and survives a reload.
+  await row(page, TITLES.manualNew).locator('button[aria-expanded]').click();
+  await row(page, TITLES.manualNew).getByRole('radio', { name: 'ראיון' }).click();
+  await page.reload();
+  await expect(statusFilter(page).getByRole('button', { name: /^ראיון 1$/ })).toBeVisible();
+  await expect(row(page, TITLES.manualNew)).toHaveCount(1);
+});
