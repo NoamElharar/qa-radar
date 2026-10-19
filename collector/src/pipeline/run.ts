@@ -6,7 +6,7 @@ import { isSourceDue } from '../schedule.ts';
 import { createClassifier, type Classifier } from './classify.ts';
 import { normalizeJobs } from './normalize.ts';
 import { mergeRun, type SourceRunResult } from './state.ts';
-import { rekeyJobs } from './rekey.ts';
+import { rekeyJobs, rekeyRules } from './rekey.ts';
 import { summarizeWatch } from './watch.ts';
 
 const SOURCE_TIMEOUT_MS = 5 * 60 * 1000;
@@ -125,10 +125,7 @@ export async function collect(options: CollectOptions): Promise<CollectResult> {
   const watched = new Map(watchResults.map((r) => [r.sourceId, r]));
 
   // Sources that re-publish jobs under new ids: fold their copies into one job per stable id first.
-  const rules = config.sources.flatMap((s) =>
-    s.idFromUrl ? [{ sourceId: s.id, pattern: new RegExp(s.idFromUrl) }] : [],
-  );
-  const rekeyed = rekeyJobs(previous.jobs.jobs, previous.jobs.aliases ?? {}, rules);
+  const rekeyed = rekeyJobs(previous.jobs.jobs, previous.jobs.aliases ?? {}, rekeyRules(config.sources));
 
   const merged = mergeRun({ previousJobs: rekeyed.jobs, previousHealth, results, now });
   const nowIso = now.toISOString();

@@ -58,6 +58,14 @@ async function main(): Promise<void> {
   // due, leave the data files untouched so the run is a true no-op (no commit, no redeploy) — unless
   // sources.yaml changed (a new link-out source, edited quick links): then only the health file is updated.
   if (!result.results.length) {
+    // A new idFromUrl/idFromContent rule re-keyed jobs: save that now rather than at the next due run.
+    const rekeyed = JSON.stringify(previous.jobs.aliases ?? {}) !== JSON.stringify(result.jobs.aliases ?? {});
+    if (rekeyed && !values['dry-run']) {
+      writeState(paths, result.jobs, result.health);
+      appendArchive(paths, result.archived);
+      log(`no source is due yet — job ids were re-keyed (idFromUrl/idFromContent), wrote ${paths.jobs}`);
+      return;
+    }
     if (healthChanged(previous.health, result.health) && !values['dry-run']) {
       writeHealth(paths, result.health);
       log(`no source is due yet — the source registry changed, wrote ${paths.health}`);

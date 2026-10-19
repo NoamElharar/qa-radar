@@ -1,9 +1,23 @@
 import type { Job } from '@qa-radar/shared';
+import type { SourceConfig } from '../config.ts';
+import { contentKey } from './ids.ts';
 
 export interface RekeyRule {
   sourceId: string;
-  /** First group, matched against the job URL, is the stable id (sources.yaml `idFromUrl`). */
-  pattern: RegExp;
+  /** The job's stable id, or undefined to leave it alone. */
+  keyOf: (job: Job) => string | undefined;
+}
+
+/** Rules for the sources that declare a stable identity (`idFromUrl` / `idFromContent`). */
+export function rekeyRules(sources: SourceConfig[]): RekeyRule[] {
+  return sources.flatMap((s): RekeyRule[] => {
+    if (s.idFromContent) return [{ sourceId: s.id, keyOf: (job) => contentKey(job.title, job.snippet) }];
+    if (s.idFromUrl) {
+      const pattern = new RegExp(s.idFromUrl);
+      return [{ sourceId: s.id, keyOf: (job) => pattern.exec(job.url)?.[1] }];
+    }
+    return [];
+  });
 }
 
 /** One job out of the copies a source re-published under different ids. */
@@ -23,9 +37,10 @@ function foldCopies(copies: Job[]): Job {
 }
 
 /**
- * Give jobs of `idFromUrl` sources their stable id and fold the copies a source re-published under
- * new ids into one job: the earliest first-seen date (so a repost is never "new"), active if any copy
- * is. Every replaced id is recorded in `aliases` so statuses saved under it follow the job.
+ * Give jobs of `idFromUrl` / `idFromContent` sources their stable id and fold the copies a source
+ * re-published under new ids into one job: the earliest first-seen date (so a repost is never "new"),
+ * active if any copy is. Every replaced id is recorded in `aliases` so statuses saved under it follow
+ * the job.
  * Idempotent: once a source's ids follow the rule, nothing changes.
  */
 export function rekeyJobs(
@@ -34,13 +49,13 @@ export function rekeyJobs(
   rules: RekeyRule[],
 ): { jobs: Job[]; aliases: Record<string, string> } {
   if (!rules.length) return { jobs, aliases };
-  const patternFor = new Map(rules.map((r) => [r.sourceId, r.pattern]));
+  const keyFor = new Map(rules.map((r) => [r.sourceId, r.keyOf]));
   const nextAliases = { ...aliases };
   const groups = new Map<string, Job[]>();
   const out: Job[] = [];
 
   for (const job of jobs) {
-    const key = patternFor.get(job.sourceId)?.exec(job.url)?.[1];
+    const key = keyFor.get(job.sourceId)?.(job);
     if (!key) {
       out.push(job);
       continue;

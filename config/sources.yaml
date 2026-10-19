@@ -399,6 +399,9 @@ sources:
     tier: A
     adapter: wp-rest
     homepage: https://ucl-group.co.il/career/
+    # The site re-creates its jobs as new WordPress posts daily (slugs sometimes gaining "-2"), with no
+    # job number anywhere — a job's own title and text are its identity.
+    idFromContent: true
     options: { baseUrl: 'https://ucl-group.co.il', postType: jobs }
 
   - id: inmanage

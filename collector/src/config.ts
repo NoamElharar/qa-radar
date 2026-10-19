@@ -26,6 +26,11 @@ export const sourceSchema = z.object({
    * re-publish the same jobs under new internal ids (Comblack: a new WordPress post every day).
    */
   idFromUrl: z.string().optional(),
+  /**
+   * The job's id is a fingerprint of its title and text — for sources that re-publish jobs under new
+   * ids and URLs with no stable number at all (UCL: daily new WordPress posts, slugs gaining "-2").
+   */
+  idFromContent: z.boolean().default(false),
   note: z.string().optional(),
   quickLinks: z.array(quickLink).optional(),
   options: z.record(z.unknown()).default({}),

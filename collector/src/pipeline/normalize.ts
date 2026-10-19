@@ -2,7 +2,7 @@ import type { SourceConfig } from '../config.ts';
 import type { RawJob } from '../adapters/types.ts';
 import type { Classifier, QaDecision } from './classify.ts';
 import { parseSourceDate } from './dates.ts';
-import { canonicalUrl, shortHash } from './ids.ts';
+import { canonicalUrl, contentKey, shortHash } from './ids.ts';
 import { cleanText, htmlToText, snippetOf } from './text.ts';
 import type { Job } from '@qa-radar/shared';
 
@@ -59,9 +59,11 @@ export function normalizeJobs(
     if (!decision.qa) continue;
 
     const url = r.url ?? source.homepage;
-    // Re-publishing sources: a number in the URL is the stable identity, not the adapter's id.
+    const snippet = snippetOf(description);
+    // Re-publishing sources: a number in the URL, or the job's own text, is the stable identity.
     const fromUrl = source.idFromUrl && r.url ? new RegExp(source.idFromUrl).exec(r.url)?.[1] : undefined;
-    const sourceJobId = fromUrl ?? (r.sourceJobId?.trim() || undefined);
+    const stableId = source.idFromContent ? contentKey(title, snippet) : fromUrl;
+    const sourceJobId = stableId ?? (r.sourceJobId?.trim() || undefined);
     // Without a native id: hash the URL when it is job-specific, otherwise hash the title.
     const fallbackKey = r.url && canonicalUrl(r.url) !== canonicalUrl(source.homepage) ? canonicalUrl(r.url) : title;
     const id = `${source.id}:${sourceJobId ?? `h-${shortHash(fallbackKey)}`}`;
@@ -81,7 +83,7 @@ export function normalizeJobs(
       agency: isAgency ? source.name : undefined,
       endClient: isAgency ? (r.endClient ?? r.company ?? extractEndClient(title)) : undefined,
       locationText: location || undefined,
-      snippet: snippetOf(description),
+      snippet,
       postedAt: parseSourceDate(r.postedAt, now),
       ...classification,
     });
