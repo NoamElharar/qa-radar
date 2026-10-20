@@ -194,5 +194,51 @@
     "state": "closed",
     "baseline": true,
     "closedAt": "2026-10-06T05:00:31.381Z"
+  },
+  {
+    "id": "commit:DC.A67",
+    "sourceId": "commit",
+    "sourceJobId": "DC.A67",
+    "url": "https://www.comeet.com/jobs/comm-it/76.008/qa-automation-engineer/DC.A67",
+    "title": "QA Automation Engineer",
+    "agency": "CommIT",
+    "endClient": "CommIT",
+    "locationText": "Petah Tikva, HQ, On-site",
+    "snippet": "Commit is a fast-growing technology company focused on delivering high-quality, scalable products through innovation, automation, and engineering excellence. We are looking for an experienced C# Automation Developer to design, develop, and maintain robust automation solutions, contribute to our automation strategy, and drive quality across complex systems and applications. Responsibilities: · Design, develop, and maintain automation frameworks using C# · Define and implement automation strategies for Web, API, and backend systems · Build scalable, maintainable, and reliable automated test…",
+    "tags": [
+      "אוטומציה",
+      "API/Backend",
+      "ביצועים ועומסים",
+      "דאטה/DB",
+      "ענן/DevOps"
+    ],
+    "seniority": "unknown",
+    "city": "פתח תקווה",
+    "regions": [
+      "center"
+    ],
+    "distanceKm": 26,
+    "score": 56,
+    "matched": [
+      "API testing",
+      "SQL",
+      "JMeter / עומסים",
+      "AWS",
+      "Backend / Batch",
+      "Selenium (בסיסי)",
+      "Agile"
+    ],
+    "missing": [
+      "C#",
+      "Playwright",
+      "Kubernetes / Docker",
+      "CI/CD"
+    ],
+    "firstSeenAt": "2026-10-04T08:27:15.595Z",
+    "lastSeenAt": "2026-10-06T09:00:33.475Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": true,
+    "closedAt": "2026-10-06T12:00:38.328Z"
   }
 ]
