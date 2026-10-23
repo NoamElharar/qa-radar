@@ -558,5 +558,82 @@
     "state": "closed",
     "baseline": true,
     "closedAt": "2026-10-07T11:00:39.242Z"
+  },
+  {
+    "id": "mobileye:b1883e14-5a78-4cd4-af6d-f22790187366",
+    "sourceId": "mobileye",
+    "sourceJobId": "b1883e14-5a78-4cd4-af6d-f22790187366",
+    "url": "https://careers.mobileye.com/jobs/junior-validation-integration-engineer/b1883e14-5a78-4cd4-af6d-f22790187366",
+    "title": "Junior Validation & Integration Engineer",
+    "company": "Mobileye",
+    "locationText": "Jerusalem",
+    "snippet": "Integration Engineering About the team:The Product Validation department is looking for a Validation Engineer. Our department is responsible for delivering high-quality ADAS (Advanced Driver Assistance Systems) products. We are the first line of support for Mobileye’s customers around the globe, and as our Validation Engineer, you will interact with most of Mobileye’s departments to achieve Mobileye’s goals. What will your job look like:Perform system-level validation of embedded systems, covering both hardware and software, with a strong focus on functional testingDesign and maintain test…",
+    "tags": [
+      "בדיקות ידניות/E2E",
+      "אמבדד/חומרה"
+    ],
+    "seniority": "junior",
+    "yearsRequired": 1,
+    "city": "ירושלים",
+    "regions": [
+      "jerusalem"
+    ],
+    "distanceKm": 38,
+    "score": 82,
+    "matched": [
+      "Manual / E2E",
+      "STP/STD/STR",
+      "Jira / Xray",
+      "Backend / Batch"
+    ],
+    "missing": [
+      "Linux"
+    ],
+    "firstSeenAt": "2026-10-07T12:00:34.879Z",
+    "lastSeenAt": "2026-10-08T15:00:40.525Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": false,
+    "closedAt": "2026-10-09T00:00:36.060Z"
+  },
+  {
+    "id": "yael:25737",
+    "sourceId": "yael",
+    "sourceJobId": "25737",
+    "url": "https://yaelgroup.com/jobs/order/25737/",
+    "title": "מפתח/ת אוטומציה - Automation Developer",
+    "agency": "קבוצת יעל",
+    "snippet": "תיאור התפקיד: פיתוח, תכנון, יישום ותחזוקה של תשתיות, כלים ומסגרות עבודה (Frameworks) לבדיקות אוטומטיות מקצה לקצה (End-to-End) עבור מערכות Web מורכבות. כתיבת קוד אוטומציה תחזוקתי ומודולרי בסביבת C# (.NET Core) על בסיס ניתוח דרישות מערכת ותיקי אפיון. השתלבות מעת לעת במשימות פיתוח Front-End ב-Angular ובגב-המערכת כחלק אינטגרלי מצוות הפיתוח הרחב באגף. עבודה במתודולוגיית DevOps/Agile, תוך התאמת תשתיות הבדיקה לסביבות On-Premises וענן, ושימוש מתקדם בכלי AI לייעול תהליכי הפיתוח והבדיקות. דרישות התפקיד: 4 שנות ניסיון כללי בתחום התוכנה והאוטומציה. 3 שנות ניסיון בפיתוח ותחזוקת תשתיות אוטומציה (Automation…",
+    "tags": [
+      "בדיקות ידניות/E2E",
+      "אוטומציה",
+      "API/Backend",
+      "דאטה/DB",
+      "ענן/DevOps"
+    ],
+    "seniority": "mid",
+    "yearsRequired": 4,
+    "regions": [],
+    "score": 60,
+    "matched": [
+      "Manual / E2E",
+      "API testing",
+      "SOAP",
+      "SQL",
+      "Selenium (בסיסי)",
+      "Agile"
+    ],
+    "missing": [
+      "C#",
+      "TypeScript",
+      "Playwright",
+      "CI/CD"
+    ],
+    "firstSeenAt": "2026-10-04T08:27:15.595Z",
+    "lastSeenAt": "2026-10-08T17:00:34.171Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": true,
+    "closedAt": "2026-10-09T03:00:31.055Z"
   }
 ]
