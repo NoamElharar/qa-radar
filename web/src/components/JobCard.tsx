@@ -264,7 +264,8 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
               role="menu"
               ref={menuListRef}
               style={menuPlace.maxHeight ? { maxHeight: menuPlace.maxHeight } : undefined}
-              className={`absolute end-0 z-20 w-48 overflow-y-auto overscroll-contain rounded-xl border border-slate-200 bg-white py-1 shadow-xl dark:border-slate-700 dark:bg-slate-900 ${
+              // Two columns: eleven statuses stay one short block (6 rows) that fits a phone screen.
+              className={`absolute end-0 z-20 grid w-72 grid-cols-2 overflow-y-auto overscroll-contain rounded-xl border border-slate-200 bg-white py-1 shadow-xl dark:border-slate-700 dark:bg-slate-900 ${
                 menuPlace.up ? 'bottom-full mb-2' : 'top-full mt-2'
               }`}
             >
@@ -293,7 +294,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
                     onStatus(job, undefined);
                     setMenuOpen(false);
                   }}
-                  className="w-full px-3 py-3 text-start text-sm text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="col-span-2 w-full border-t border-slate-100 px-3 py-3 text-start text-sm text-slate-500 hover:bg-slate-100 dark:border-slate-800 dark:hover:bg-slate-800"
                 >
                   נקה סטטוס
                 </button>
@@ -308,7 +309,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
                     }
                     setMenuOpen(false);
                   }}
-                  className="w-full border-t border-slate-100 px-3 py-3 text-start text-sm text-rose-700 hover:bg-rose-50 dark:border-slate-800 dark:text-rose-400 dark:hover:bg-rose-950"
+                  className="col-span-2 w-full border-t border-slate-100 px-3 py-3 text-start text-sm text-rose-700 hover:bg-rose-50 dark:border-slate-800 dark:text-rose-400 dark:hover:bg-rose-950"
                 >
                   הסתר חברה: <bdi>{companyName}</bdi>
                 </button>

@@ -7,13 +7,15 @@ import {
   interviewFormatOf,
   STATUS_DESCRIPTIONS,
   STATUS_LABELS,
-  STATUS_ORDER,
+  ALL_STATUSES,
+  LEGACY_STATUSES,
   type InterviewFormat,
   type JobStatus,
   type StatusEntry,
 } from '../../lib/storage.ts';
 import { formatDate, relativeTime } from '../../lib/time.ts';
 import { ExternalIcon, PinIcon } from '../icons.tsx';
+import { NotesField } from './NotesField.tsx';
 import { StatusDot } from './StatusDot.tsx';
 
 interface Props {
@@ -168,7 +170,8 @@ export const MineRow = memo(function MineRow({
       {expanded && (
         <div className="space-y-3 px-3 pb-4 ps-11">
           <div role="radiogroup" aria-label="סטטוס" className="flex flex-wrap gap-1.5">
-            {STATUS_ORDER.map((s: JobStatus) => (
+            {/* A legacy status (the unsorted "ראיון") shows only on the entry that still has it. */}
+            {ALL_STATUSES.filter((s) => !LEGACY_STATUSES.has(s) || s === entry.status).map((s: JobStatus) => (
               <button
                 key={s}
                 type="button"
@@ -198,7 +201,7 @@ export const MineRow = memo(function MineRow({
 
           {entry.manual && <ManualDetails id={id} entry={entry} onUpdate={onUpdate} />}
 
-          <div className="grid gap-3 sm:grid-cols-[11rem_10rem_9rem_1fr]">
+          <div className="grid gap-3 sm:grid-cols-3">
             <label className="text-sm">
               <span className="mb-1 block text-xs text-slate-500">איפה הגשתי</span>
               <input
@@ -244,20 +247,19 @@ export const MineRow = memo(function MineRow({
                 ))}
               </select>
             </label>
-            <label className="text-sm">
-              <span className="mb-1 block text-xs text-slate-500">הערות</span>
-              <textarea
-                defaultValue={entry.note ?? ''}
-                onBlur={(e) =>
-                  e.target.value !== (entry.note ?? '') &&
-                  onUpdate(id, { note: e.target.value || undefined })
-                }
-                rows={2}
-                placeholder="איש קשר, שלב בתהליך, שכר שנאמר…"
-                className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
-              />
-            </label>
           </div>
+
+          <label className="block text-sm">
+            <span className="mb-1 block text-xs text-slate-500">הערות</span>
+            <NotesField
+              defaultValue={entry.note ?? ''}
+              onBlur={(e) =>
+                e.target.value !== (entry.note ?? '') &&
+                onUpdate(id, { note: e.target.value || undefined })
+              }
+              placeholder="איש קשר, שלב בתהליך, שכר שנאמר…"
+            />
+          </label>
 
           <div className="flex items-center gap-3 text-sm">
             {url && (

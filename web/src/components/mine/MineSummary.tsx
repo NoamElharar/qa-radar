@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { OUTCOMES, PIPELINE, STALE_DAYS, type MineStats } from '../../lib/mine.ts';
+import { OUTCOMES, STALE_DAYS, visiblePipeline, type MineStats } from '../../lib/mine.ts';
 import { STATUS_DESCRIPTIONS, STATUS_LABELS, type JobStatus } from '../../lib/storage.ts';
 import { StatusDot } from './StatusDot.tsx';
 import { WeeklyChart } from './WeeklyChart.tsx';
@@ -46,6 +46,7 @@ export function MineSummary({
   onToggleStale,
 }: Props) {
   const delta = stats.appliedThisWeek - stats.appliedLastWeek;
+  const pipeline = visiblePipeline(stats.byStatus);
   const pct = Math.round(stats.interviewRate * 100);
 
   const chip = (s: JobStatus) => {
@@ -134,10 +135,10 @@ export function MineSummary({
           className="mx-1 h-5 w-px shrink-0 bg-slate-200 dark:bg-slate-700"
           aria-hidden="true"
         />
-        {PIPELINE.map((s, i) => (
+        {pipeline.map((s, i) => (
           <span key={s} className="flex shrink-0 items-center gap-1.5">
             {chip(s)}
-            {i < PIPELINE.length - 1 && (
+            {i < pipeline.length - 1 && (
               <span className="text-slate-300 dark:text-slate-600" aria-hidden="true">
                 ‹
               </span>

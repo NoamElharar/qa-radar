@@ -9,7 +9,11 @@ export type JobStatus =
   | 'applied'
   | 'recruiter_call'
   | 'home_assignment'
+  /** Legacy (before the split into video / frontal): kept so older entries stay readable; not offered. */
   | 'interview'
+  | 'interview_video'
+  | 'interview_frontal'
+  | 'awaiting_answer'
   | 'offer'
   | 'rejected'
   | 'irrelevant';
@@ -22,6 +26,9 @@ export const STATUS_LABELS: Record<JobStatus | 'new', string> = {
   recruiter_call: 'שיחה ממגייסת',
   home_assignment: 'עבודת בית',
   interview: 'ראיון',
+  interview_video: 'ראיון שיחת וידאו',
+  interview_frontal: 'ראיון פרונטלי',
+  awaiting_answer: 'ממתין לתשובה',
   offer: 'הצעה',
   rejected: 'נדחה',
   irrelevant: 'לא רלוונטי',
@@ -32,20 +39,33 @@ export const STATUS_DESCRIPTIONS: Partial<Record<JobStatus, string>> = {
   recruiter_call:
     'שיחת סינון טלפונית קצרה עם מגייסת מחברת השמה, שבה שואלים על הרקע והניסיון שלי לפני שמעבירים את קורות החיים למעסיקים.',
   home_assignment: 'החברה שלחה לי עבודת בית להכין לפני הראיון.',
+  interview_video: 'ראיון בשיחת וידאו (Zoom / Teams / Google Meet) — לרוב השלב הראשון מול החברה.',
+  interview_frontal: 'ראיון פנים אל פנים במשרדי החברה — לרוב השלב שאחרי ראיון הווידאו.',
+  awaiting_answer: 'סיימתי את הראיונות ומחכה לתשובה — בין אם אעבור ובין אם לא.',
+  interview: 'ראיון שעוד לא סווג — כדאי לבחור "ראיון שיחת וידאו" או "ראיון פרונטלי".',
 };
 
-/** Order used by the status menu and the "המועמדויות שלי" view. */
-export const STATUS_ORDER: JobStatus[] = [
+/** Every status in pipeline order, including legacy ones (counts, filters, URLs). */
+export const ALL_STATUSES: JobStatus[] = [
   'saved',
   'applied',
   'recruiter_call',
   'home_assignment',
   'interview',
+  'interview_video',
+  'interview_frontal',
+  'awaiting_answer',
   'offer',
   'rejected',
   'irrelevant',
   'viewed',
 ];
+
+/** Statuses that still read correctly on old entries but are no longer offered as a choice. */
+export const LEGACY_STATUSES: ReadonlySet<JobStatus> = new Set(['interview']);
+
+/** The statuses offered in the job-card menu and on "המועמדויות שלי". */
+export const STATUS_ORDER: JobStatus[] = ALL_STATUSES.filter((s) => !LEGACY_STATUSES.has(s));
 
 /** Statuses hidden by "הסתר משרות שטיפלתי בהן". */
 export const HANDLED_STATUSES: ReadonlySet<JobStatus> = new Set([
@@ -53,6 +73,9 @@ export const HANDLED_STATUSES: ReadonlySet<JobStatus> = new Set([
   'recruiter_call',
   'home_assignment',
   'interview',
+  'interview_video',
+  'interview_frontal',
+  'awaiting_answer',
   'offer',
   'rejected',
   'irrelevant',

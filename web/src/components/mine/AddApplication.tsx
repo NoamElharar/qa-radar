@@ -10,13 +10,16 @@ import {
   type StatusEntry,
 } from '../../lib/storage.ts';
 import { israelDayKey } from '../../lib/time.ts';
+import { NotesField } from './NotesField.tsx';
 
 const STATUS_CHOICES: JobStatus[] = [
   'applied',
   'saved',
   'recruiter_call',
   'home_assignment',
-  'interview',
+  'interview_video',
+  'interview_frontal',
+  'awaiting_answer',
   'offer',
   'rejected',
 ];
@@ -189,12 +192,12 @@ export function AddApplication({ onAdd }: { onAdd: (id: string, entry: StatusEnt
 
       <label className="block text-sm">
         <span className="mb-1 block text-xs text-slate-500">הערות</span>
-        <textarea
+        <NotesField
           value={form.note}
           onChange={(e) => set({ note: e.target.value })}
-          rows={2}
+          minRows={2}
           placeholder="איש קשר, שלב בתהליך…"
-          className={inputClass}
+          className="text-sm"
         />
       </label>
 

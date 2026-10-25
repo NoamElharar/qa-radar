@@ -9,6 +9,7 @@ import {
   isStale,
   mineFiltersFromParams,
   mineStats,
+  visiblePipeline,
   weekStart,
   writeMineParams,
   type MineFilters,
@@ -254,6 +255,50 @@ describe('recruiter calls, home assignments and interview formats', () => {
     const unknown = createManualEntry({ ...base, interviewFormat: 'unknown' }, now);
     expect('entry' in zoom && zoom.entry.interviewFormat).toBe('zoom');
     expect('entry' in unknown && 'interviewFormat' in unknown.entry).toBe(false);
+  });
+});
+
+describe('the interview split (video → frontal → waiting for the answer)', () => {
+  const items = buildItems(
+    {
+      video: entry({ status: 'interview_video' }),
+      frontal: entry({ status: 'interview_frontal' }),
+      waiting: entry({ status: 'awaiting_answer' }),
+      legacy: entry({ status: 'interview' }),
+      applied: entry({ status: 'applied' }),
+    },
+    new Map(),
+  );
+
+  it('every interview stage counts as "זימון לראיון" and as an application', () => {
+    const stats = mineStats(items, now);
+    expect(stats.interviews).toBe(4); // video, frontal, waiting, old "ראיון"
+    expect(stats.applications).toBe(5);
+    expect(stats.byStatus.awaiting_answer).toBe(1);
+  });
+
+  it('lists the most advanced first: waiting, frontal, video, then the old "ראיון"', () => {
+    expect(groupItems(items).groups.map((g) => g.status)).toEqual([
+      'awaiting_answer',
+      'interview_frontal',
+      'interview_video',
+      'interview',
+      'applied',
+    ]);
+  });
+
+  it('shows the old "ראיון" chip only while some entry still has it', () => {
+    const withLegacy = visiblePipeline(mineStats(items, now).byStatus);
+    expect(withLegacy).toContain('interview');
+    const without = visiblePipeline(mineStats(items.filter((i) => i.id !== 'legacy'), now).byStatus);
+    expect(without).not.toContain('interview');
+    expect(without.slice(4)).toEqual(['interview_video', 'interview_frontal', 'awaiting_answer', 'offer']);
+  });
+
+  it('the new statuses can be filtered and kept in the URL', () => {
+    expect(ids(applyMineFilters(items, f({ statuses: ['awaiting_answer'] }), now))).toEqual(['waiting']);
+    const params = writeMineParams(new URLSearchParams(), f({ statuses: ['interview_frontal', 'interview'] }));
+    expect(mineFiltersFromParams(params).statuses).toEqual(['interview_frontal', 'interview']);
   });
 });
 

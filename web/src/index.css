@@ -22,6 +22,10 @@
  * recruiter_call (aqua) and home_assignment (violet) were validated in pipeline order
  * (saved → applied → recruiter_call → home_assignment → interview → offer) in both modes; the dark
  * violet is #7c3aed because the palette's #9085e9 is indistinguishable from the blue under protan.
+ * The interview split (home_assignment → interview_video → interview_frontal → awaiting_answer →
+ * offer) was validated in that order too: orange, navy/indigo, pink. Orange may not sit next to the
+ * green offer (protan ΔE 3) nor pink next to orange (normal 12.9). The legacy unsorted "interview"
+ * keeps its pink but renders as a ring (see StatusDot), so it never looks like awaiting_answer.
  */
 :root {
   --st-saved: #eda100;
@@ -29,6 +33,9 @@
   --st-recruiter_call: #1baf7a;
   --st-home_assignment: #4a3aa7;
   --st-interview: #e87ba4;
+  --st-interview_video: #eb6834;
+  --st-interview_frontal: #1d4ed8;
+  --st-awaiting_answer: #e87ba4;
   --st-offer: #008300;
   --st-rejected: #e34948;
   --st-irrelevant: #94a3b8;
@@ -40,6 +47,9 @@ html[data-theme='dark'] {
   --st-recruiter_call: #199e70;
   --st-home_assignment: #7c3aed;
   --st-interview: #d55181;
+  --st-interview_video: #d95926;
+  --st-interview_frontal: #6366f1;
+  --st-awaiting_answer: #d55181;
   --st-offer: #008300;
   --st-rejected: #e66767;
   --st-irrelevant: #64748b;

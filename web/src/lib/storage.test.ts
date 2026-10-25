@@ -1,10 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
+  ALL_STATUSES,
   HANDLED_STATUSES,
   importPersonal,
   INTERVIEW_FORMAT_LABELS,
   INTERVIEW_FORMATS,
   interviewFormatOf,
+  LEGACY_STATUSES,
   STATUS_DESCRIPTIONS,
   STATUS_LABELS,
   STATUS_ORDER,
@@ -20,7 +22,9 @@ describe('statuses', () => {
       'applied',
       'recruiter_call',
       'home_assignment',
-      'interview',
+      'interview_video',
+      'interview_frontal',
+      'awaiting_answer',
       'offer',
       'rejected',
       'irrelevant',
@@ -29,7 +33,23 @@ describe('statuses', () => {
     expect(STATUS_LABELS.applied).toBe('הגשתי');
     expect(STATUS_LABELS.recruiter_call).toBe('שיחה ממגייסת');
     expect(STATUS_LABELS.home_assignment).toBe('עבודת בית');
+  });
+
+  it('splits "ראיון" into video, frontal and waiting for the answer — in that order', () => {
+    expect(STATUS_LABELS.interview_video).toBe('ראיון שיחת וידאו');
+    expect(STATUS_LABELS.interview_frontal).toBe('ראיון פרונטלי');
+    expect(STATUS_LABELS.awaiting_answer).toBe('ממתין לתשובה');
+    for (const s of ['interview_video', 'interview_frontal', 'awaiting_answer'] as const) {
+      expect(STATUS_DESCRIPTIONS[s]).toBeTruthy();
+      expect(HANDLED_STATUSES.has(s)).toBe(true);
+    }
+  });
+
+  it('keeps the old "ראיון" readable on existing entries, but no longer offers it', () => {
     expect(STATUS_LABELS.interview).toBe('ראיון');
+    expect(LEGACY_STATUSES.has('interview')).toBe(true);
+    expect(ALL_STATUSES).toContain('interview');
+    expect(STATUS_ORDER).not.toContain('interview');
   });
 
   it('explains the new steps (tooltips) and treats them as handled', () => {

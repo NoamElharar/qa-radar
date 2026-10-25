@@ -128,8 +128,71 @@ test('statuses saved on reposted copies follow the job: applied stays applied, o
 
   // A change is saved under the current id and survives a reload.
   await row(page, TITLES.manualNew).locator('button[aria-expanded]').click();
-  await row(page, TITLES.manualNew).getByRole('radio', { name: 'ראיון' }).click();
+  await row(page, TITLES.manualNew).getByRole('radio', { name: 'ראיון פרונטלי' }).click();
   await page.reload();
-  await expect(statusFilter(page).getByRole('button', { name: /^ראיון 1$/ })).toBeVisible();
+  await expect(statusFilter(page).getByRole('button', { name: /^ראיון פרונטלי 1$/ })).toBeVisible();
   await expect(row(page, TITLES.manualNew)).toHaveCount(1);
+});
+
+test('an interview moves video → frontal → waiting for the answer, and each step is remembered', async ({ page }) => {
+  await page.goto('./');
+  const job = card(page, TITLES.automationNew);
+  await job.getByRole('button', { name: /^סטטוס/ }).click();
+  await job.getByRole('menuitemradio', { name: 'ראיון שיחת וידאו' }).click();
+
+  await page.goto('./?view=mine');
+  await expect(statusFilter(page).getByRole('button', { name: /^ראיון שיחת וידאו 1$/ })).toBeVisible();
+  const r = row(page, TITLES.automationNew);
+  await r.locator('button[aria-expanded]').click();
+  await r.getByRole('radio', { name: 'ראיון פרונטלי' }).click();
+  await expect(statusFilter(page).getByRole('button', { name: /^ראיון פרונטלי 1$/ })).toBeVisible();
+  await r.getByRole('radio', { name: 'ממתין לתשובה' }).click();
+
+  await page.reload();
+  await expect(statusFilter(page).getByRole('button', { name: /^ממתין לתשובה 1$/ })).toBeVisible();
+  await expect(statusFilter(page).getByRole('button', { name: /^ראיון שיחת וידאו 0$/ })).toBeVisible();
+  await expect(page.getByText('זימונים לראיון').locator('..')).toContainText('1');
+});
+
+test('an old "ראיון" entry stays readable and can be sorted into the new kinds', async ({ page }) => {
+  await seedStatuses(page, { 'fixture:manual': 'interview' });
+  await page.goto('./?view=mine');
+  await expect(statusFilter(page).getByRole('button', { name: /^ראיון 1$/ })).toBeVisible();
+
+  const r = row(page, TITLES.manualNew);
+  await r.locator('button[aria-expanded]').click();
+  await expect(r.getByRole('radio', { name: 'ראיון', exact: true })).toHaveAttribute('aria-checked', 'true');
+  await r.getByRole('radio', { name: 'ראיון שיחת וידאו' }).click();
+
+  // Once nothing is left in the old "ראיון", its chip leaves the pipeline.
+  await expect(statusFilter(page).getByRole('button', { name: /^ראיון 1$/ })).toHaveCount(0);
+  await expect(statusFilter(page).getByRole('button', { name: /^ראיון שיחת וידאו 1$/ })).toBeVisible();
+  await expect(r.getByRole('radio', { name: 'ראיון', exact: true })).toHaveCount(0);
+});
+
+test('a long note is shown in full, full width, and grows as you type', async ({ page }) => {
+  const note = ['התקשרה מישהי מNESS למשרה בבנק', 'ראיון ראשון בזום ביום ראשון', 'שכר שנאמר: 18-20', 'איש קשר: דנה', 'לשלוח תיק עבודות'].join('\n');
+  const now = new Date().toISOString();
+  await page.addInitScript((value) => {
+    if (!localStorage.getItem('qa-radar:statuses')) localStorage.setItem('qa-radar:statuses', value);
+  }, JSON.stringify({ 'fixture:manual': { status: 'applied', updatedAt: now, appliedAt: now, note } }));
+  await page.goto('./?view=mine');
+  const r = row(page, TITLES.manualNew);
+  await r.locator('button[aria-expanded]').click();
+
+  const box = r.getByLabel('הערות');
+  await expect(box).toHaveValue(note);
+  const fits = () => box.evaluate((el) => el.scrollHeight <= el.clientHeight + 1);
+  expect(await fits(), 'the whole note is visible without scrolling inside the box').toBe(true);
+  const width = await box.evaluate((el) => el.getBoundingClientRect().width / el.closest('li')!.getBoundingClientRect().width);
+  expect(width).toBeGreaterThan(0.75);
+  expect(await box.getAttribute('dir')).toBe('auto');
+
+  const before = (await box.boundingBox())!.height;
+  await box.click();
+  await page.keyboard.press('End');
+  await box.press('Control+End');
+  await page.keyboard.type('\nשורה חדשה\nועוד שורה');
+  expect((await box.boundingBox())!.height).toBeGreaterThan(before);
+  expect(await fits()).toBe(true);
 });

@@ -6,9 +6,12 @@ import type { JobStatus, StatusEntry } from './storage.ts';
  * which beats "נצפה" (set automatically when a posting is opened).
  */
 const MERGE_RANK: Record<JobStatus, number> = {
-  offer: 8,
-  rejected: 7,
-  interview: 6,
+  offer: 11,
+  rejected: 10,
+  awaiting_answer: 9,
+  interview_frontal: 8,
+  interview: 7,
+  interview_video: 6,
   home_assignment: 5,
   recruiter_call: 4,
   applied: 3,

@@ -1,8 +1,9 @@
 import { matchesQuery, type Job } from '@qa-radar/shared';
 import {
+  ALL_STATUSES,
   INTERVIEW_FORMATS,
   interviewFormatOf,
-  STATUS_ORDER,
+  LEGACY_STATUSES,
   type InterviewFormat,
   type JobStatus,
   type StatusEntry,
@@ -67,12 +68,23 @@ export const PIPELINE: JobStatus[] = [
   'recruiter_call',
   'home_assignment',
   'interview',
+  'interview_video',
+  'interview_frontal',
+  'awaiting_answer',
   'offer',
 ];
+
+/** Legacy statuses only take a place in the pipeline while some entry still has them. */
+export function visiblePipeline(byStatus: Record<JobStatus, number>): JobStatus[] {
+  return PIPELINE.filter((s) => !LEGACY_STATUSES.has(s) || byStatus[s] > 0);
+}
 export const OUTCOMES: JobStatus[] = ['rejected', 'irrelevant', 'viewed'];
 /** Group order in the list: most actionable first. */
 export const GROUP_ORDER: JobStatus[] = [
   'offer',
+  'awaiting_answer',
+  'interview_frontal',
+  'interview_video',
   'interview',
   'home_assignment',
   'recruiter_call',
@@ -94,6 +106,18 @@ const APPLIED_STATUSES: ReadonlySet<JobStatus> = new Set([
   'recruiter_call',
   'home_assignment',
   'interview',
+  'interview_video',
+  'interview_frontal',
+  'awaiting_answer',
+  'offer',
+]);
+
+/** Reached an interview (any kind) or beyond it — the "זימונים לראיון" count. */
+const INTERVIEW_STAGE: ReadonlySet<JobStatus> = new Set([
+  'interview',
+  'interview_video',
+  'interview_frontal',
+  'awaiting_answer',
   'offer',
 ]);
 
@@ -224,7 +248,7 @@ export interface MineStats {
   byStatus: Record<JobStatus, number>;
   byFormat: Record<InterviewFormat, number>;
   applications: number;
-  /** Interview or offer — the share of applications that turned into a real conversation. */
+  /** An interview (any kind), waiting for its answer, or an offer — applications that became a real conversation. */
   interviews: number;
   interviewRate: number;
   appliedThisWeek: number;
@@ -235,7 +259,7 @@ export interface MineStats {
 }
 
 export function mineStats(items: MineItem[], now: Date, weeks = 8): MineStats {
-  const byStatus = Object.fromEntries(STATUS_ORDER.map((s) => [s, 0])) as Record<JobStatus, number>;
+  const byStatus = Object.fromEntries(ALL_STATUSES.map((s) => [s, 0])) as Record<JobStatus, number>;
   const byFormat = Object.fromEntries(INTERVIEW_FORMATS.map((f) => [f, 0])) as Record<
     InterviewFormat,
     number
@@ -248,7 +272,7 @@ export function mineStats(items: MineItem[], now: Date, weeks = 8): MineStats {
     byStatus[entry.status] += 1;
     byFormat[interviewFormatOf(entry)] += 1;
     if (isApplication(entry)) applications += 1;
-    if (entry.status === 'interview' || entry.status === 'offer') interviews += 1;
+    if (INTERVIEW_STAGE.has(entry.status)) interviews += 1;
     if (isStale(entry, now)) stale += 1;
     if (entry.appliedAt) {
       const key = weekStart(new Date(entry.appliedAt));
@@ -287,7 +311,7 @@ export function mineFiltersFromParams(p: URLSearchParams): MineFilters {
   return {
     q: p.get('mq') ?? '',
     statuses: list(p.get('ms')).filter((s): s is JobStatus =>
-      STATUS_ORDER.includes(s as JobStatus),
+      ALL_STATUSES.includes(s as JobStatus),
     ),
     formats: list(p.get('mi')).filter((f): f is InterviewFormat =>
       INTERVIEW_FORMATS.includes(f as InterviewFormat),
