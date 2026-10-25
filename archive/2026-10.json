@@ -703,5 +703,66 @@
     "state": "closed",
     "baseline": false,
     "closedAt": "2026-10-11T11:00:33.381Z"
+  },
+  {
+    "id": "logica:20300",
+    "sourceId": "logica",
+    "sourceJobId": "20300",
+    "url": "https://logica-it.com/jobs/20300/",
+    "title": "בודק תוכנה",
+    "agency": "Logica-IT",
+    "locationText": "גוש דן",
+    "snippet": "QA גוש דן",
+    "tags": [],
+    "seniority": "unknown",
+    "regions": [
+      "center"
+    ],
+    "score": 50,
+    "matched": [],
+    "missing": [],
+    "firstSeenAt": "2026-10-06T09:44:46.141Z",
+    "lastSeenAt": "2026-10-11T06:00:36.308Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": true,
+    "closedAt": "2026-10-11T13:00:36.926Z"
+  },
+  {
+    "id": "yael:25685",
+    "sourceId": "yael",
+    "sourceJobId": "25685",
+    "url": "https://yaelgroup.com/jobs/order/25685/",
+    "title": "מפתח/ת תוכנה לבדיקות אוטומציה (Automation Developer)",
+    "agency": "קבוצת יעל",
+    "snippet": "תיאור תפקיד פיתוח, כתיבה ותחזוקה שוטפת של סקריפטים לבדיקות אוטומציות כחלק מצוות פיתוח מוצר. ביצוע בדיקות ידניות בעת הצורך לצד תהליכי האוטומציה. פיתוח ובדיקות עבור מערכות מידע תשתיתיות ורוחביות מורכבות (ניהול נתוני יישובים, לוח שנה, זיקות מקצוע, גזרות פעילות, גורמי קשר ויחידות ארגוניות). עבודה מול בסיסי נתונים מורכבים וביצוע בדיקות נתונים מעמיקות. מודל עבודה היברידי. דרישות התפקיד רקע וניסיון בפיתוח תוכנה עם מומחיות/הכשרה בבדיקות אוטומציות ב-Selenium או Playwright (בשפות C# או Java). ידע וניסיון רחב בכתיבת שאילתות SQL מורכבות (ברמת ה-JOIN של מספר טבלאות) ועבודה מול בסיסי נתונים. ניסיון מעשי…",
+    "tags": [
+      "בדיקות ידניות/E2E",
+      "אוטומציה",
+      "API/Backend",
+      "דאטה/DB"
+    ],
+    "seniority": "unknown",
+    "regions": [
+      "remote"
+    ],
+    "score": 68,
+    "matched": [
+      "Manual / E2E",
+      "SQL",
+      "Backend / Batch",
+      "Selenium (בסיסי)",
+      "Java (בסיסי)"
+    ],
+    "missing": [
+      "C#",
+      "Playwright"
+    ],
+    "firstSeenAt": "2026-10-04T08:27:15.595Z",
+    "lastSeenAt": "2026-10-11T07:00:34.398Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": true,
+    "closedAt": "2026-10-11T13:00:36.926Z"
   }
 ]
