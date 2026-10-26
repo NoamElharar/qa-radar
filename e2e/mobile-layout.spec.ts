@@ -106,6 +106,29 @@ test('the status menu of the top card is fully visible — never under the heade
   expect(box.y + box.height).toBeLessThanOrEqual(nav.y);
 });
 
+test('every filter chip on "שלי" is fully on screen — none cut off at the edge', async ({ page }) => {
+  // Saved statuses across the whole pipeline, so every status chip is shown.
+  const now = new Date().toISOString();
+  const statuses = ['applied', 'recruiter_call', 'home_assignment', 'interview', 'interview_video', 'interview_frontal', 'awaiting_answer', 'offer', 'rejected', 'irrelevant', 'saved'];
+  const ids = ['manual', 'automation', 'long', 'back', 'baseline', 'north', 'closed', 'm1', 'm2', 'm3', 'm4'];
+  const seeded = Object.fromEntries(
+    statuses.map((status, i) => [`fixture:${ids[i]}`, { status, updatedAt: now, appliedAt: now, snapshot: { title: `משרה ${i}`, url: '' } }]),
+  );
+  await page.addInitScript((v) => localStorage.setItem('qa-radar:statuses', v), JSON.stringify(seeded));
+  await page.goto('./?view=mine');
+
+  const width = await page.evaluate(() => document.documentElement.clientWidth);
+  for (const group of ['סינון לפי סטטוס', 'סינון לפי פורמט ראיון']) {
+    const buttons = await page.getByRole('group', { name: group }).getByRole('button').all();
+    expect(buttons.length).toBeGreaterThan(3);
+    for (const button of buttons) {
+      const box = (await button.boundingBox())!;
+      expect(box.x, `${await button.textContent()} starts off screen`).toBeGreaterThanOrEqual(0);
+      expect(box.x + box.width, `${await button.textContent()} is cut at the edge`).toBeLessThanOrEqual(width);
+    }
+  }
+});
+
 test('the filter sheet fits the phone and its main button stays reachable', async ({ page, isMobile }) => {
   await page.goto('./');
   await page.getByRole('button', { name: 'סינון', exact: true }).click();

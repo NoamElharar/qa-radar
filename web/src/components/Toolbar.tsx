@@ -44,7 +44,7 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
           )}
         </button>
       </div>
-      <div className="no-scrollbar -mx-4 flex items-center gap-2 overflow-x-auto px-4">
+      <div className="flex flex-wrap items-center gap-2">
         <button
           type="button"
           onClick={() => onChange({ ...f, sort: f.sort === 'new' ? 'score' : 'new' })}

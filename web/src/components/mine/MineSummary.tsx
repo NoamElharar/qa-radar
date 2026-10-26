@@ -115,7 +115,7 @@ export function MineSummary({
       {stats.applications > 0 && <WeeklyChart weeks={stats.weekly} />}
 
       <div
-        className="no-scrollbar -mx-4 flex items-center gap-1.5 overflow-x-auto px-4 pb-1"
+        className="flex flex-wrap items-center gap-1.5"
         role="group"
         aria-label="סינון לפי סטטוס"
       >

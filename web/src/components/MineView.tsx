@@ -187,7 +187,7 @@ export function MineView({
                 </select>
               </label>
             </div>
-            <div className="no-scrollbar -mx-4 flex items-center gap-1.5 overflow-x-auto px-4">
+            <div className="flex flex-wrap items-center gap-1.5">
               {(Object.keys(FLAG_LABELS) as MineFlag[]).map((flag) => {
                 const active = filters.flags.includes(flag);
                 return (
@@ -233,7 +233,7 @@ export function MineView({
               )}
             </div>
             <div
-              className="no-scrollbar -mx-4 flex items-center gap-1.5 overflow-x-auto px-4"
+              className="flex flex-wrap items-center gap-1.5"
               role="group"
               aria-label="סינון לפי פורמט ראיון"
             >
