@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { isNewSince, type Job, type SourceType } from '@qa-radar/shared';
 import { BottomNav, Header } from './components/Chrome.tsx';
 import { FilterSheet, type FilterOptions } from './components/FilterSheet.tsx';
@@ -15,8 +15,9 @@ import {
   importPersonal,
   loadPersonal,
   loadTheme,
+  refreshPersonal,
   saveLastVisit,
-  savePersonal,
+  savePersonalChanges,
   saveTheme,
   type JobStatus,
   type PersonalData,
@@ -73,9 +74,30 @@ export function App() {
 
   useEffect(() => setLimit(PAGE_SIZE), [filters]);
 
+  // The data this render shows — every update is computed from it, so only the difference is saved.
+  const shown = useRef(personal);
+  useLayoutEffect(() => {
+    shown.current = personal;
+  }, [personal]);
   const updatePersonal = useCallback((next: PersonalData) => {
-    setPersonal(next);
-    savePersonal(next);
+    setPersonal(savePersonalChanges(shown.current, next));
+  }, []);
+
+  // Another tab (or one left open on the phone) saved something: show it here too.
+  useEffect(() => {
+    const refresh = () => setPersonal(refreshPersonal);
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === null || e.key.startsWith('qa-radar:')) refresh();
+    };
+    const onVisible = () => document.visibilityState === 'visible' && refresh();
+    window.addEventListener('storage', onStorage);
+    window.addEventListener('pageshow', refresh);
+    document.addEventListener('visibilitychange', onVisible);
+    return () => {
+      window.removeEventListener('storage', onStorage);
+      window.removeEventListener('pageshow', refresh);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
   }, []);
 
   const jobs = useMemo(() => data?.jobs.jobs ?? [], [data]);

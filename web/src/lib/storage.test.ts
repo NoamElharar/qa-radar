@@ -7,10 +7,12 @@ import {
   INTERVIEW_FORMATS,
   interviewFormatOf,
   LEGACY_STATUSES,
+  mergePersonalChanges,
   STATUS_DESCRIPTIONS,
   STATUS_LABELS,
   STATUS_ORDER,
   type PersonalData,
+  type StatusEntry,
 } from './storage.ts';
 
 const empty = (): PersonalData => ({ version: 1, statuses: {}, hiddenCompanies: [], quickChecks: {} });
@@ -158,5 +160,50 @@ describe('JSON import', () => {
       note: 'ראיון ב-15.9',
       pinned: true,
     });
+  });
+});
+
+describe('two open tabs', () => {
+  const at = (day: number) => `2026-10-${String(day).padStart(2, '0')}T10:00:00.000Z`;
+  const entry = (status: StatusEntry['status'], day: number): StatusEntry => ({ status, updatedAt: at(day) });
+  // Tab A opened with `before`; tab B saved `stored` since; tab A now makes its own change.
+  const before: PersonalData = {
+    ...empty(),
+    statuses: { moveo: entry('applied', 1), ness: entry('saved', 1) },
+    hiddenCompanies: ['אקמה'],
+  };
+  const stored: PersonalData = {
+    ...before,
+    statuses: { moveo: entry('recruiter_call', 2), ness: entry('saved', 1), shva: entry('applied', 2) },
+    hiddenCompanies: ['אקמה', 'חברה ב'],
+    quickChecks: { dialog: at(2) },
+  };
+
+  it('keeps what the other tab saved when this tab changes a different job', () => {
+    const after = { ...before, statuses: { ...before.statuses, ness: entry('applied', 3) } };
+    expect(mergePersonalChanges(before, after, stored).statuses).toEqual({
+      moveo: entry('recruiter_call', 2), // the recruiter call from tab B survives
+      ness: entry('applied', 3),
+      shva: entry('applied', 2),
+    });
+  });
+
+  it('this tab’s own change to the same job wins, and a cleared status stays cleared', () => {
+    const changed = { ...before, statuses: { ...before.statuses, moveo: entry('interview_video', 3) } };
+    expect(mergePersonalChanges(before, changed, stored).statuses.moveo).toEqual(entry('interview_video', 3));
+
+    const { ness: _cleared, ...rest } = before.statuses;
+    const cleared = { ...before, statuses: rest };
+    expect(mergePersonalChanges(before, cleared, stored).statuses).toEqual({
+      moveo: entry('recruiter_call', 2),
+      shva: entry('applied', 2),
+    });
+  });
+
+  it('merges hidden companies and manual checks the same way', () => {
+    const after = { ...before, hiddenCompanies: ['חברה ג'], quickChecks: { sqlink: at(3) } };
+    const merged = mergePersonalChanges(before, after, stored);
+    expect(merged.hiddenCompanies).toEqual(['חברה ב', 'חברה ג']); // "אקמה" unhidden here, "חברה ב" hidden there
+    expect(merged.quickChecks).toEqual({ dialog: at(2), sqlink: at(3) });
   });
 });

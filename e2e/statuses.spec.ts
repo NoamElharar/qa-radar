@@ -134,6 +134,35 @@ test('statuses saved on reposted copies follow the job: applied stays applied, o
   await expect(row(page, TITLES.manualNew)).toHaveCount(1);
 });
 
+test('two open tabs never erase each other’s statuses', async ({ page, context }) => {
+  // Tab A is opened first and left as it is (like a forgotten tab on the phone).
+  await page.goto('./');
+  await expect(card(page, TITLES.manualNew)).toBeVisible();
+
+  // Tab B marks the recruiter call.
+  const other = await context.newPage();
+  await other.goto('./');
+  const job = card(other, TITLES.manualNew);
+  await job.getByRole('button', { name: /^סטטוס/ }).click();
+  await job.getByRole('menuitemradio', { name: 'שיחה ממגייסת' }).click();
+  await expect(card(other, TITLES.manualNew)).toHaveCount(0);
+
+  // Tab A catches up on its own: the job leaves "חדש" there too.
+  await expect(card(page, TITLES.manualNew)).toHaveCount(0);
+
+  // A change in tab A keeps tab B's recruiter call.
+  const second = card(page, TITLES.automationNew);
+  await second.getByRole('button', { name: /^סטטוס/ }).click();
+  await second.getByRole('menuitemradio', { name: 'הגשתי' }).click();
+
+  for (const tab of [page, other]) {
+    await tab.goto('./?view=mine');
+    await expect(row(tab, TITLES.manualNew)).toBeVisible();
+    await expect(row(tab, TITLES.automationNew)).toBeVisible();
+    await expect(statusFilter(tab).getByRole('button', { name: /^שיחה ממגייסת 1$/ })).toBeVisible();
+  }
+});
+
 test('an interview moves video → frontal → waiting for the answer, and each step is remembered', async ({ page }) => {
   await page.goto('./');
   const job = card(page, TITLES.automationNew);

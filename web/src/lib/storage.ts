@@ -176,6 +176,63 @@ export function savePersonal(data: PersonalData): void {
   write(KEYS.quick, data.quickChecks);
 }
 
+const same = (a: unknown, b: unknown) => a === b || JSON.stringify(a) === JSON.stringify(b);
+
+/** Apply the keys that changed between `before` and `after` (set or removed) onto `base`. */
+function applyChanges<T>(before: Record<string, T>, after: Record<string, T>, base: Record<string, T>): Record<string, T> {
+  const result = { ...base };
+  for (const key of new Set([...Object.keys(before), ...Object.keys(after)])) {
+    if (same(before[key], after[key])) continue;
+    if (after[key] === undefined) delete result[key];
+    else result[key] = after[key];
+  }
+  return result;
+}
+
+/**
+ * A tab's update (`before` → `after`) applied on top of what is stored now, so it keeps whatever
+ * another open tab saved in the meantime — instead of writing back this tab's older copy of everything.
+ */
+export function mergePersonalChanges(before: PersonalData, after: PersonalData, stored: PersonalData): PersonalData {
+  const added = after.hiddenCompanies.filter((name) => !before.hiddenCompanies.includes(name));
+  const removed = new Set(before.hiddenCompanies.filter((name) => !after.hiddenCompanies.includes(name)));
+  return {
+    ...after,
+    statuses: applyChanges(before.statuses, after.statuses, stored.statuses),
+    hiddenCompanies: [...new Set([...stored.hiddenCompanies, ...added])].filter((name) => !removed.has(name)),
+    quickChecks: applyChanges(before.quickChecks, after.quickChecks, stored.quickChecks),
+  };
+}
+
+function storageReadable(): boolean {
+  try {
+    localStorage.getItem(KEYS.statuses);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Save one update without erasing another tab's changes. Returns the data to show. */
+export function savePersonalChanges(before: PersonalData, after: PersonalData): PersonalData {
+  // Without storage there is no other tab to merge with — keep working in memory.
+  if (!storageReadable()) return after;
+  const merged = mergePersonalChanges(before, after, loadPersonal());
+  savePersonal(merged);
+  return merged;
+}
+
+/** The stored data when another tab changed it, else `current` itself (so nothing re-renders). */
+export function refreshPersonal(current: PersonalData): PersonalData {
+  if (!storageReadable()) return current;
+  const stored = loadPersonal();
+  const unchanged =
+    same(stored.statuses, current.statuses) &&
+    same(stored.hiddenCompanies, current.hiddenCompanies) &&
+    same(stored.quickChecks, current.quickChecks);
+  return unchanged ? current : { ...stored, lastVisitAt: current.lastVisitAt };
+}
+
 export function saveLastVisit(iso: string): void {
   write(KEYS.lastVisit, iso);
 }
