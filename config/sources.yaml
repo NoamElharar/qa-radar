@@ -433,6 +433,27 @@ sources:
       endClient: '.text-block-8'
       description: '.paragraph-6'
 
+  - id: logon
+    name: Log-On
+    type: agency
+    tier: B
+    adapter: ajax-load-more
+    # Every result comes from a QA-only search, so a weak title ("ראש/ת צוות בדיקות") counts as QA.
+    categoryQa: true
+    homepage: https://b.log-on.com/חיפוש-משרות-בהייטק/?areas=786,571,568,569
+    # Terms page = privacy policy only (no copying or crawler ban); robots.txt allows everything.
+    # The search for every QA sub-area: the "QA ואוטומציה" group plus the QA entries filed under
+    # students, ex-army, team leads, Mobile, BI, SAP and CRM. The page turns ?areas= into job ids.
+    options:
+      url: https://b.log-on.com/חיפוש-משרות-בהייטק/?areas=786,314,570,571,143,573,568,745,666,569,513,223,319,593,523,529,346,623,327
+      item: 'div.job'
+      title: 'h2.job-name'
+      id: { selector: '.send-your-cv', attr: data-job-id }
+      # The only link to the job's own page is inside its share buttons.
+      link: { selector: 'a.whatsapp', attr: href, regex: 'text=(https?://[^&\s]+)' }
+      location: { selector: 'ul.info li:contains("מיקום")', remove: span }
+      description: 'ul.info, .desc .text, .list'
+
   - id: abra
     name: Abra
     type: agency

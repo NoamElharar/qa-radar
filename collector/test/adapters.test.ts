@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { adamtotalSiteAdapter, parseAdamtotalPage } from '../src/adapters/adamtotal.ts';
+import { ajaxLoadMoreAdapter, readAlmQuery } from '../src/adapters/ajax-load-more.ts';
 import { mapComeet } from '../src/adapters/comeet.ts';
 import { getPath, parseEmbeddedJson } from '../src/adapters/embedded-json.ts';
 import { htmlAdapter, htmlOptionsSchema, parseHtmlJobs } from '../src/adapters/html.ts';
@@ -520,5 +521,89 @@ describe('OZ Software (WPML admin-ajax)', () => {
       /parsed 3 of 66/,
     );
     await expect(run({ success: true, loaded_posts: '<div></div>' })).rejects.toThrow(/no jobs/);
+  });
+});
+
+describe('Log-On (Ajax Load More)', () => {
+  // Synthetic markup mirroring the real search page and admin-ajax pages (structure copied, content invented).
+  const page = `<div class="ajax-load-more-wrap"><div class="alm-listing alm-ajax" data-post-type="job"
+    data-meta-key="openning_date" data-post-in="11,12,13" data-post-not-in="99" data-order="DESC"
+    data-orderby="meta_value" data-posts-per-page="2" data-theme-repeater="jobs-repeater-v2.php"></div></div>`;
+  const job = (id: string, title: string, area: string, place: string) =>
+    `<div class="job"> <h2 class="job-name">${title}</h2> <ul class="info">
+      <li><span><i class="fa fa-anchor"></i>תחום: </span>${area}</li>
+      <li><span><i class="fa fa-history"></i>שנות נסיון: </span>2+</li>
+      <li><span><i class="fa fa-map-marker"></i>מיקום: </span>${place}</li></ul>
+      <div class="desc"><div class="title">תיאור משרה:</div><div class="text"><p>בדיקות למערכת ליבה.</p></div></div>
+      <div class="list"><div class="title">דרישות משרה:</div><ul><li>ניסיון ב-SQL</li></ul></div>
+      <div class="job-footer clearfix"><div class="buttons-container clearfix">
+        <button type="button" class="button-lo send-your-cv" data-job-id="${id}" data-job-area-id="96">שלח/י קו"ח</button></div>
+        <div class="social-links clearfix">
+          <a class="whatsapp" href="https://api.whatsapp.com/send?text=https://logon.test/job/job-${id}/"></a>
+          <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://logon.test/job/job-${id}/&title=x"></a>
+        </div></div></div>`;
+  const pages = [
+    job('11', 'דרוש/ה בודק/ת QA לארגון פיננסי', 'QA ואוטומציה', 'מרכז') +
+      job('12', 'דרוש/ה בודק/ת QA Automation בתחום AI', 'AI ופיתוח מודלים', 'חיפה'),
+    job('13', 'דרוש/ה בודק/ת תוכנה ידני/ת', 'QA ואוטומציה', 'ירושלים'),
+  ];
+  const logon = () => {
+    const real = loadConfig().sources.find((s) => s.id === 'logon')!;
+    return { ...real, options: { ...real.options, url: 'https://logon.test/search/?areas=568' } } as SourceConfig;
+  };
+  const run = (answer: (page: number) => unknown, requested: string[] = [], text = page) =>
+    ajaxLoadMoreAdapter({
+      source: logon(),
+      http: {
+        text: async (url: string) => {
+          requested.push(url);
+          return text;
+        },
+        json: async (url: string) => {
+          requested.push(url);
+          return answer(Number(new URL(url).searchParams.get('page')));
+        },
+      } as unknown as PoliteClient,
+      log: () => {},
+      isQaCandidate: () => true,
+    });
+
+  it('reads the filtered search from the page: post type, the job ids and the paging', () => {
+    expect(readAlmQuery(page)).toMatchObject({
+      action: 'alm_get_posts',
+      post_type: 'job',
+      post__in: '11,12,13',
+      post__not_in: '99',
+      posts_per_page: '2',
+      theme_repeater: 'jobs-repeater-v2.php',
+    });
+  });
+
+  it('pages through admin-ajax until the reported total, with the configured selectors', async () => {
+    const requested: string[] = [];
+    const jobs = await run((p) => ({ html: pages[p], meta: { postcount: p ? 1 : 2, totalposts: 3 } }), requested);
+    expect(requested).toHaveLength(3); // the search page + two pages of jobs, nothing more
+    expect(requested[1]).toContain('https://logon.test/wp-admin/admin-ajax.php?action=alm_get_posts');
+    expect(requested[1]).toContain('post__in=11%2C12%2C13');
+    expect(jobs.map((j) => [j.sourceJobId, j.url, j.location])).toEqual([
+      ['11', 'https://logon.test/job/job-11/', 'מרכז'],
+      ['12', 'https://logon.test/job/job-12/', 'חיפה'],
+      ['13', 'https://logon.test/job/job-13/', 'ירושלים'],
+    ]);
+    expect(jobs[0]!.description).toContain('בדיקות למערכת ליבה');
+    expect(jobs[0]!.description).toContain('ניסיון ב-SQL');
+  });
+
+  it('fails loudly when the page or the job markup changes, or paging stops short', async () => {
+    const answer = (p: number) => ({ html: pages[p], meta: { postcount: p ? 1 : 2, totalposts: 3 } });
+    await expect(run(answer, [], '<div class="jobs"></div>')).rejects.toThrow(/no Ajax Load More listing/);
+    await expect(run(answer, [], page.replace('data-post-in="11,12,13"', ''))).rejects.toThrow(/no job ids/);
+    await expect(run(() => ({ html: '<div class="job"></div>', meta: { postcount: 2, totalposts: 3 } }))).rejects.toThrow(
+      /parsed 0 of 2/,
+    );
+    await expect(run((p) => ({ html: p ? '' : pages[0], meta: { postcount: p ? 0 : 2, totalposts: 3 } }))).rejects.toThrow(
+      /got 2 of 3/,
+    );
+    await expect(run(() => ({ error: 'bad' }))).rejects.toThrow(/no HTML/);
   });
 });

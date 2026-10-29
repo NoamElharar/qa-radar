@@ -1,4 +1,5 @@
 import { adamtotalSiteAdapter } from './adamtotal.ts';
+import { ajaxLoadMoreAdapter } from './ajax-load-more.ts';
 import { comeetAdapter } from './comeet.ts';
 import { embeddedJsonAdapter } from './embedded-json.ts';
 import { htmlAdapter } from './html.ts';
@@ -21,6 +22,7 @@ export const ADAPTERS: Record<string, Adapter> = {
   base44: base44Adapter,
   redmatch: redmatchAdapter,
   'wpml-ajax': wpmlAjaxAdapter,
+  'ajax-load-more': ajaxLoadMoreAdapter,
 };
 
 export type { Adapter, AdapterContext, RawJob } from './types.ts';
