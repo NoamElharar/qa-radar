@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-29T16:00:38.969Z",
+  "generatedAt": "2026-10-29T16:08:31.220Z",
   "sources": [
     {
       "id": "linkedin",
@@ -993,6 +993,24 @@
       "recentCounts": []
     },
     {
+      "id": "cal",
+      "name": "כאל",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://www.cal-online.co.il/about/jobs/",
+      "quickLinks": [
+        {
+          "label": "כל המשרות (לשונית \"טכנולוגיות\")",
+          "url": "https://www.cal-online.co.il/about/jobs/"
+        }
+      ],
+      "note": "חומת האש של האתר דוחה בקשות אוטומטיות (\"Request Rejected\") — לא עוקפים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
       "id": "ibi",
       "name": "IBI",
       "type": "direct",
@@ -1437,6 +1455,90 @@
           "score": 73
         }
       ]
+    },
+    {
+      "id": "bezeq",
+      "name": "בזק",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://www.bezeq.co.il/career_new/",
+      "quickLinks": [
+        {
+          "label": "חיפוש משרות",
+          "url": "https://www.bezeq.co.il/career_new/"
+        }
+      ],
+      "note": "תנאי השימוש באתר (סעיף 4) אוסרים שימוש ברובוטים ובכלים אוטומטיים לאחזור מידע",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "cellcom",
+      "name": "סלקום",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://cellcom.co.il/jobs/Careersportal/",
+      "quickLinks": [
+        {
+          "label": "כל המשרות (סינון \"מערכות מידע\")",
+          "url": "https://cellcom.co.il/jobs/Careersportal/"
+        }
+      ],
+      "note": "תנאי השימוש אוסרים איסוף נתונים מהאתר באמצעות robots ו-crawlers",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
+    },
+    {
+      "id": "partner",
+      "name": "פרטנר",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://career.adamtotal.co.il/Home/Index?token=0940de9c-ccff-4b4d-9abf-f4543f88cba5",
+      "quickLinks": [
+        {
+          "label": "כל המשרות",
+          "url": "https://career.adamtotal.co.il/Home/Index?token=0940de9c-ccff-4b4d-9abf-f4543f88cba5"
+        }
+      ],
+      "note": "תנאי השימוש של פרטנר מתירים שימוש אישי בלבד ואוסרים העתקה ופרסום של התכנים — הרדאר רק סופר משרות QA ולא שומר את תוכנן",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-10-29T16:08:31.220Z",
+      "lastSuccessAt": "2026-10-29T16:08:31.220Z",
+      "fetched": 0,
+      "kept": 0,
+      "durationMs": 12627,
+      "watch": []
+    },
+    {
+      "id": "freesbe",
+      "name": "פריסבי (freesbe)",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://careers.freesbe.com/jobs",
+      "quickLinks": [
+        {
+          "label": "כל המשרות",
+          "url": "https://careers.freesbe.com/jobs"
+        }
+      ],
+      "note": "תנאי השימוש אוסרים העתקה ופרסום של המידע באתר ללא אישור בכתב — הרדאר רק סופר משרות QA ולא שומר את תוכנן",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-10-29T16:08:31.220Z",
+      "lastSuccessAt": "2026-10-29T16:08:31.220Z",
+      "fetched": 0,
+      "kept": 0,
+      "durationMs": 3146,
+      "watch": []
     },
     {
       "id": "elal",
