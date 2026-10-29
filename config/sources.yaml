@@ -522,6 +522,16 @@ sources:
     quickLinks:
       - { label: 'משרות טכנולוגיות', url: 'https://marketing.isracard.co.il/careershome/divisions/טכנולוגיות/' }
 
+  - id: cal
+    name: כאל
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://www.cal-online.co.il/about/jobs/
+    note: 'חומת האש של האתר דוחה בקשות אוטומטיות ("Request Rejected") — לא עוקפים'
+    quickLinks:
+      - { label: 'כל המשרות (לשונית "טכנולוגיות")', url: 'https://www.cal-online.co.il/about/jobs/' }
+
   - id: ibi
     name: IBI
     type: direct
@@ -744,6 +754,70 @@ sources:
     watch: # count only, through the company's public Comeet API
       adapter: comeet
       options: { uid: '28.003', token: 82330D228AF208C208C493B30D2208C38F538F5, hostedSlug: superplay }
+
+  # ─────────────────────────── Telecom ───────────────────────────
+  - id: bezeq
+    name: בזק
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://www.bezeq.co.il/career_new/
+    note: תנאי השימוש באתר (סעיף 4) אוסרים שימוש ברובוטים ובכלים אוטומטיים לאחזור מידע
+    quickLinks:
+      - { label: 'חיפוש משרות', url: 'https://www.bezeq.co.il/career_new/' }
+
+  - id: cellcom
+    name: סלקום
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://cellcom.co.il/jobs/Careersportal/
+    note: תנאי השימוש אוסרים איסוף נתונים מהאתר באמצעות robots ו-crawlers
+    quickLinks:
+      - { label: 'כל המשרות (סינון "מערכות מידע")', url: 'https://cellcom.co.il/jobs/Careersportal/' }
+
+  - id: partner
+    name: פרטנר
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://career.adamtotal.co.il/Home/Index?token=0940de9c-ccff-4b4d-9abf-f4543f88cba5
+    everyHours: 6 # each result page is 1.5–4.5 MB (inline images)
+    note: תנאי השימוש של פרטנר מתירים שימוש אישי בלבד ואוסרים העתקה ופרסום של התכנים — הרדאר רק סופר משרות QA ולא שומר את תוכנן
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://career.adamtotal.co.il/Home/Index?token=0940de9c-ccff-4b4d-9abf-f4543f88cba5' }
+    watch: # count only — the adamtotal career site; its division filter is ignored, so the site's own keyword search is used
+      adapter: adamtotal-site
+      options:
+        baseUrl: https://career.adamtotal.co.il
+        token: 0940de9c-ccff-4b4d-9abf-f4543f88cba5
+        searches: [QA, בודק, בדיקות, אוטומציה]
+
+  # ─────────────────────────── Automotive & mobility ───────────────────────────
+  - id: freesbe
+    name: פריסבי (freesbe)
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://careers.freesbe.com/jobs
+    everyHours: 3
+    note: תנאי השימוש אוסרים העתקה ופרסום של המידע באתר ללא אישור בכתב — הרדאר רק סופר משרות QA ולא שומר את תוכנן
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://careers.freesbe.com/jobs' }
+    watch: # count only — the site's public Strapi API (it also holds recruiter contacts; never stored)
+      adapter: embedded-json
+      options:
+        # IT jobs plus any job whose title names QA work; at most 100 per request (Strapi's cap).
+        # An unknown field name makes Strapi answer 400, so a schema change fails loudly.
+        url: 'https://careers-admin.freesbe.com/api/jobs?filters[$or][0][profession_name][$eq]=מערכות מידע&filters[$or][1][description][$containsi]=QA&filters[$or][2][description][$containsi]=בודק&filters[$or][3][description][$containsi]=בדיקות&filters[$or][4][description][$containsi]=אוטומציה&pagination[pageSize]=100'
+        api: true
+        path: data
+        fields:
+          id: order_id
+          title: description
+          location: 'jobLocations[]'
+          description: [profession_name, notes_text]
+        urlTemplate: 'https://careers.freesbe.com/jobs/{id}'
 
   # ─────────────────────────── Public sector, health, infrastructure & transport ───────────────────────────
   - id: elal

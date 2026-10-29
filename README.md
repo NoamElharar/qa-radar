@@ -40,7 +40,7 @@ flowchart LR
 
 ## Sources
 
-40 sources are collected automatically and 28 are link-out only (5 of them in watch mode) (one-tap searches in the "check manually" panel). The original audit — platform, access method, robots/ToS notes and feasibility for every source — is in [`docs/PHASE-0-SOURCE-AUDIT.md`](docs/PHASE-0-SOURCE-AUDIT.md).
+40 sources are collected automatically and 33 are link-out only (7 of them in watch mode) (one-tap searches in the "check manually" panel). The original audit — platform, access method, robots/ToS notes and feasibility for every source — is in [`docs/PHASE-0-SOURCE-AUDIT.md`](docs/PHASE-0-SOURCE-AUDIT.md).
 
 ### Politeness & ethics
 
