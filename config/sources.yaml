@@ -561,6 +561,26 @@ sources:
     homepage: https://www.masav.co.il/careers-2/
     options: { baseUrl: 'https://www.masav.co.il', postType: position }
 
+  - id: pelecard
+    name: פלאקארד
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://pelecard.com/דרושים/
+    everyHours: 3
+    note: תנאי השימוש אוסרים העתקה ופרסום של תכני האתר ללא אישור בכתב — הרדאר רק סופר משרות QA ולא שומר את תוכנן
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://pelecard.com/דרושים/' }
+    watch: # count only — every job (title, summary, link) is a block on the hand-built Elementor jobs page
+      adapter: html
+      options:
+        url: https://pelecard.com/דרושים/
+        # A job block is the only page section with a "למידע על המשרה" (job details) link.
+        item: '.e-parent:has(a:contains("למידע על המשרה"))'
+        title: 'h2'
+        link: { selector: 'a:contains("למידע על המשרה")', attr: href }
+        description: { selector: ':self', remove: '.elementor-widget-heading:first-child, a' } # all but the title and the link
+
   - id: altshuler
     name: אלטשולר שחם
     type: direct
