@@ -20,6 +20,8 @@ describe('QA relevance — accepted', () => {
     'מהנדס/ת בדיקות תוכנה',
     'Senior Test Automation Engineer',
     'ר"צ בדיקות תוכנה',
+    'QA Automation Engineer | ארגון ביטחוני במרכז הארץ', // a defense org, not a security screener
+    'דרוש/ה בודק/ת תוכנה לחברה ביטחונית בצפון',
   ])('%s', (title) => {
     expect(classifier.decideQa(title, undefined, false).qa).toBe(true);
   });

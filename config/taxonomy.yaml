@@ -78,7 +78,6 @@ qa:
     - reliability lab
   # Title-level vetoes: non-software quality roles and look-alikes (real false positives from the audit).
   exclude:
-    - ביטחוני # "אגף ביטחון - בודק/ת ביטחוני" (El Al)
     - מתקנים # "בודק/ת מתקנים במתח גבוה" (IEC)
     - מתח גבוה
     - אל הרס # "בדיקות אל הרס" (IEC)
@@ -105,6 +104,7 @@ qa:
     - marketing automation
     - treasury
     - בודק מוסמך
+    # "בודק/ת ביטחוני" is a security screener (El Al). A bare "ביטחוני" veto also dropped QA jobs at defense orgs ("ארגון ביטחוני").
     - 're:בודק[\s-]+(?:ביטוח|רכב|גז|חשמל|ביטחוני)'
     - SoC # chip design verification, not software testing ("Experienced SoC Verification Engineer", Mobileye)
     - formal verification
