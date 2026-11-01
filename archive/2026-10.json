@@ -1553,5 +1553,59 @@
     "state": "closed",
     "baseline": false,
     "closedAt": "2026-10-18T09:00:37.598Z"
+  },
+  {
+    "id": "bynet:10224",
+    "sourceId": "bynet",
+    "sourceJobId": "10224",
+    "url": "https://www.bynet.co.il/career/open-positions/#job-10224",
+    "title": "QA Team Leader",
+    "company": "בינת",
+    "locationText": "צפון KALEIDOO",
+    "snippet": "QA Team Lead — Manual, Automation & AI-Driven Testing (AIQ Platform) About Kaleidoo & AIQ Kaleidoo is a leading provider of Big Data and AI solutions. AIQ is our flagship AI platform — combining advanced AI models across documents, audio, and media. AIQ is deployed across various environments and serves large-scale, enterprise customers. Role Overview As QA Team Lead for AIQ, you will own quality across a complex, AI-first, multi-modal platform — combining classical software QA discipline with AI quality engineering practices for LLM, RAG, and ML-driven features. You will define how we…",
+    "postedAt": "2026-07-16T03:19:00.000Z",
+    "tags": [
+      "בדיקות ידניות/E2E",
+      "אוטומציה",
+      "API/Backend",
+      "מובייל",
+      "ביצועים ועומסים",
+      "דאטה/DB",
+      "ענן/DevOps",
+      "גיימינג/אודיו/מדיה",
+      "ראש צוות/QA Lead"
+    ],
+    "seniority": "management",
+    "regions": [
+      "north"
+    ],
+    "score": 49,
+    "matched": [
+      "Manual / E2E",
+      "API testing",
+      "Swagger",
+      "JMeter / עומסים",
+      "AWS",
+      "Mobile (iOS/Android)",
+      "Selenium (בסיסי)",
+      "JavaScript (בסיסי)",
+      "Agile",
+      "AI agents for QA"
+    ],
+    "missing": [
+      "Python",
+      "TypeScript",
+      "Playwright",
+      "Cypress",
+      "Appium",
+      "Kubernetes / Docker",
+      "CI/CD"
+    ],
+    "firstSeenAt": "2026-10-06T08:34:33.803Z",
+    "lastSeenAt": "2026-10-18T10:00:36.285Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": true,
+    "closedAt": "2026-10-18T13:00:33.672Z"
   }
 ]
