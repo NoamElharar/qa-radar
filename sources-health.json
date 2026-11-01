@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-01T05:01:09.750Z",
+  "generatedAt": "2026-11-01T06:01:10.611Z",
   "sources": [
     {
       "id": "linkedin",
@@ -143,11 +143,11 @@
         588,
         588
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 588,
       "kept": 574,
-      "durationMs": 141890
+      "durationMs": 143644
     },
     {
       "id": "goozali",
@@ -188,11 +188,11 @@
         246,
         246
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 246,
       "kept": 40,
-      "durationMs": 4284
+      "durationMs": 3882
     },
     {
       "id": "proceed",
@@ -251,11 +251,11 @@
         15,
         15
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 15,
       "kept": 3,
-      "durationMs": 6987
+      "durationMs": 7516
     },
     {
       "id": "sqlink",
@@ -286,8 +286,8 @@
       "type": "agency",
       "tier": "B",
       "homepage": "https://logica-it.com/jobs/",
-      "status": "error",
-      "consecutiveFailures": 1,
+      "status": "ok",
+      "consecutiveFailures": 0,
       "baselineDone": true,
       "recentCounts": [
         212,
@@ -301,12 +301,11 @@
         212,
         212
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T04:01:09.191Z",
-      "fetched": 0,
-      "kept": 0,
-      "error": "HTTP 403 for https://logica-it.com/jobs/",
-      "durationMs": 3749
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
+      "fetched": 212,
+      "kept": 10,
+      "durationMs": 7474
     },
     {
       "id": "compie",
@@ -329,11 +328,11 @@
         15,
         15
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 15,
       "kept": 0,
-      "durationMs": 2482
+      "durationMs": 2542
     },
     {
       "id": "commit",
@@ -356,11 +355,11 @@
         127,
         127
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 127,
       "kept": 2,
-      "durationMs": 7057
+      "durationMs": 5403
     },
     {
       "id": "comblack",
@@ -383,11 +382,11 @@
         322,
         322
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 322,
       "kept": 13,
-      "durationMs": 15760
+      "durationMs": 15577
     },
     {
       "id": "tesnet",
@@ -410,11 +409,11 @@
         31,
         31
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 31,
       "kept": 11,
-      "durationMs": 3897
+      "durationMs": 3711
     },
     {
       "id": "aman",
@@ -437,11 +436,11 @@
         7,
         7
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 7,
       "kept": 6,
-      "durationMs": 3744
+      "durationMs": 3143
     },
     {
       "id": "yael",
@@ -464,11 +463,11 @@
         350,
         350
       ],
-      "lastRunAt": "2026-11-01T04:01:09.191Z",
-      "lastSuccessAt": "2026-11-01T04:01:09.191Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 350,
       "kept": 34,
-      "durationMs": 5768
+      "durationMs": 6077
     },
     {
       "id": "ozsoftware",
@@ -491,11 +490,11 @@
         66,
         66
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 66,
       "kept": 6,
-      "durationMs": 8925
+      "durationMs": 7488
     },
     {
       "id": "mertens",
@@ -518,11 +517,11 @@
         12,
         12
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 12,
       "kept": 12,
-      "durationMs": 6042
+      "durationMs": 6111
     },
     {
       "id": "bynet",
@@ -545,11 +544,11 @@
         33,
         33
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 33,
       "kept": 1,
-      "durationMs": 7852
+      "durationMs": 8196
     },
     {
       "id": "malamteam",
@@ -742,11 +741,11 @@
         254,
         254
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 254,
       "kept": 20,
-      "durationMs": 7795
+      "durationMs": 4554
     },
     {
       "id": "ucl",
@@ -754,11 +753,10 @@
       "type": "agency",
       "tier": "A",
       "homepage": "https://ucl-group.co.il/career/",
-      "status": "error",
-      "consecutiveFailures": 1,
+      "status": "ok",
+      "consecutiveFailures": 0,
       "baselineDone": true,
       "recentCounts": [
-        151,
         54,
         54,
         54,
@@ -767,14 +765,14 @@
         54,
         54,
         55,
+        55,
         55
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T04:01:09.191Z",
-      "fetched": 0,
-      "kept": 0,
-      "error": "robots.txt unavailable for https://ucl-group.co.il (unreachable: fetch failed) — skipped this run to be safe",
-      "durationMs": 10552
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
+      "fetched": 55,
+      "kept": 4,
+      "durationMs": 5026
     },
     {
       "id": "inmanage",
@@ -797,11 +795,11 @@
         17,
         17
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 17,
       "kept": 1,
-      "durationMs": 4764
+      "durationMs": 4681
     },
     {
       "id": "moveo",
@@ -824,11 +822,11 @@
         78,
         78
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 78,
       "kept": 5,
-      "durationMs": 4481
+      "durationMs": 4254
     },
     {
       "id": "logon",
@@ -851,11 +849,11 @@
         52,
         52
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 52,
       "kept": 48,
-      "durationMs": 21031
+      "durationMs": 21487
     },
     {
       "id": "abra",
@@ -901,11 +899,11 @@
         2,
         2
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 2,
       "kept": 2,
-      "durationMs": 5527
+      "durationMs": 6096
     },
     {
       "id": "dialog",
@@ -946,11 +944,11 @@
         7,
         7
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 7,
       "kept": 0,
-      "durationMs": 9071
+      "durationMs": 7494
     },
     {
       "id": "max",
@@ -1036,11 +1034,11 @@
         49,
         49
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 49,
       "kept": 1,
-      "durationMs": 5137
+      "durationMs": 4736
     },
     {
       "id": "mataf",
@@ -1089,11 +1087,11 @@
         2,
         2
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 2,
       "kept": 0,
-      "durationMs": 11790
+      "durationMs": 10139
     },
     {
       "id": "masav",
@@ -1116,11 +1114,11 @@
         3,
         3
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 3,
       "kept": 1,
-      "durationMs": 6165
+      "durationMs": 6333
     },
     {
       "id": "pelecard",
@@ -1311,17 +1309,17 @@
         30,
         30,
         30,
-        30,
+        31,
         31,
         31,
         31,
         31
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 31,
       "kept": 0,
-      "durationMs": 4965
+      "durationMs": 4987
     },
     {
       "id": "mobileye",
@@ -1398,11 +1396,11 @@
         34,
         34
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 34,
       "kept": 0,
-      "durationMs": 4777
+      "durationMs": 4899
     },
     {
       "id": "playperfect",
@@ -1425,11 +1423,11 @@
         13,
         13
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 13,
       "kept": 0,
-      "durationMs": 14415
+      "durationMs": 13150
     },
     {
       "id": "superplay",
@@ -1794,11 +1792,11 @@
         29,
         29
       ],
-      "lastRunAt": "2026-11-01T05:01:09.750Z",
-      "lastSuccessAt": "2026-11-01T05:01:09.750Z",
+      "lastRunAt": "2026-11-01T06:01:10.611Z",
+      "lastSuccessAt": "2026-11-01T06:01:10.611Z",
       "fetched": 29,
       "kept": 0,
-      "durationMs": 17342
+      "durationMs": 15352
     }
   ]
 }
