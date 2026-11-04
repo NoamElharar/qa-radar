@@ -532,6 +532,16 @@ sources:
     quickLinks:
       - { label: 'כל המשרות (לשונית "טכנולוגיות")', url: 'https://www.cal-online.co.il/about/jobs/' }
 
+  - id: mimunyashir
+    name: מימון ישיר
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://www.5555.co.il/דרושים/כל-המשרות
+    note: תנאי השימוש ("התחייבויות המשתמש") אוסרים שימוש ברובוטים ובכלים אוטומטיים לאחזור מידע
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://www.5555.co.il/דרושים/כל-המשרות' }
+
   - id: ibi
     name: IBI
     type: direct
