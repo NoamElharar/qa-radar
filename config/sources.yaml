@@ -231,6 +231,25 @@ sources:
     options:
       feedUrl: https://www.aman-global.com/careers/בדיקות-תוכנה-qa/feed/
 
+  - id: amanet
+    name: אמנת (קבוצת אמן)
+    type: agency
+    tier: B
+    adapter: html
+    homepage: https://www.amanet.co.il/career/
+    everyHours: 6 # the group's own page (Sysnet, Dialog, Tesnet, AMAN, Tadiad): a handful of jobs
+    # Site policy = privacy policy only (no copying or crawler ban); robots.txt allows everything.
+    options:
+      url: https://www.amanet.co.il/career/
+      # One accordion per job (a JetEngine listing); the company dropdown only filters these on the page.
+      item: '.jet-listing-grid__item'
+      title: '.jet-toggle__label-text'
+      id: { selector: ':self', attr: data-post-id }
+      urlTemplate: '{pageUrl}#{id}' # jobs have no page of their own (applying is by email)
+      # The company heading (AMAN, dialogue…) and the job text.
+      description: 'h4.elementor-heading-title, .jet-toggle__content .elementor-widget-text-editor'
+      allowEmpty: true # a small group page that can legitimately list no jobs
+
   - id: yael
     name: קבוצת יעל
     type: agency
