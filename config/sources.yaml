@@ -250,6 +250,29 @@ sources:
       description: 'h4.elementor-heading-title, .jet-toggle__content .elementor-widget-text-editor'
       allowEmpty: true # a small group page that can legitimately list no jobs
 
+  - id: digitalhunters
+    name: DigitalHunters
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://app.civi.co.il/?promos&lang=he&id=A3M56Q5WCH
+    everyHours: 3
+    note: תנאי השימוש של Civi ושל DigitalHunters אוסרים העתקה ופרסום של התכנים ללא אישור בכתב — הרדאר רק סופר משרות QA ולא שומר את תוכנן
+    quickLinks:
+      - { label: 'חיפוש "QA"', url: 'https://app.civi.co.il/?promos&lang=he&id=A3M56Q5WCH&p=1&r=20&o=date_opened%2Cd&f=;f-search,QA&l=' }
+      - { label: 'כל המשרות', url: 'https://app.civi.co.il/?promos&lang=he&id=A3M56Q5WCH' }
+    watch: # count only — the agency's public job board on the Civi recruiting system (~240 jobs)
+      adapter: html
+      options:
+        # 100 jobs per page; without the link's `src` (an ad-source id), so checks don't count as its visits.
+        url: 'https://app.civi.co.il/?promos&lang=he&id=A3M56Q5WCH&p=1&r=100&o=date_opened%2Cd&f=&l='
+        item: '.thumb'
+        title: '.title'
+        id: { selector: '.thumb-content', attr: onclick, regex: 'openPromo\(event,(\d+)' }
+        description: '.descr'
+        # Past the last page the site repeats it, which adds no new jobs and ends the paging.
+        pagination: { param: p, start: 1, max: 5 }
+
   - id: yael
     name: קבוצת יעל
     type: agency
