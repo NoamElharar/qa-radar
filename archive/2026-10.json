@@ -2246,5 +2246,69 @@
     "state": "closed",
     "baseline": false,
     "closedAt": "2026-10-23T09:00:35.839Z"
+  },
+  {
+    "id": "mertens:37848",
+    "sourceId": "mertens",
+    "sourceJobId": "37848",
+    "url": "https://mertens.malam.com/%d7%a7%d7%a8%d7%99%d7%99%d7%a8%d7%94-%d7%91%d7%9e%d7%a8%d7%98%d7%a0%d7%a1-%d7%a8%d7%92%d7%99%d7%9c/?jid=37848",
+    "title": "בודק.ת QA",
+    "agency": "Mertens (Malam Team)",
+    "locationText": "ירושלים והסביבה",
+    "snippet": "חברת Mertens - MalamTeam מגייסת בודק.ת QA לארגון גדול בירושלים תיאור משרה: התפקיד כולל עבודה בקשר שבין הרשויות המקומיות",
+    "tags": [],
+    "seniority": "unknown",
+    "city": "ירושלים",
+    "regions": [
+      "jerusalem"
+    ],
+    "distanceKm": 38,
+    "score": 50,
+    "matched": [],
+    "missing": [],
+    "firstSeenAt": "2026-10-20T10:00:38.109Z",
+    "lastSeenAt": "2026-10-25T08:00:30.228Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": false,
+    "closedAt": "2026-10-25T11:00:39.443Z"
+  },
+  {
+    "id": "ness:43492",
+    "sourceId": "ness",
+    "sourceJobId": "43492",
+    "url": "https://www.ness-tech.co.il/careers/#43492",
+    "title": "בודק/ת תוכנה רמה ג'",
+    "agency": "NESS",
+    "locationText": "אזור המרכז",
+    "snippet": "בדיקות והבטחת איכות בודק/ת תוכנה לנס (NESS) דרוש/ה בודק/ת תוכנה רמה ג'. התפקיד כולל בדיקת תוכנה לפני העלאתה לסביבת ייצור, כדי לוודא שהתוכנות והתהליכים פועלים בהתאם לדרישות ולהגדרות שנקבעו. משרה מלאה, בבני ברק. דרישות התפקיד: השכלה רלוונטית - חובה. ניסיון של 4 שנים בבדיקת מערכות Web/Mobile - חובה. ניסיון בבדיקות עם Azure DevOps/TFS - חובה. ניסיון בבדיקות בשיטת Agile-Scrum - חובה. ניסיון בכתיבת שאילתות SQL - חובה. ניסיון בבדיקת API's עם SoapUI/Postman - חובה. ניסיון בבדיקות בשילוב כלי AI - חובה. ניסיון בבדיקת מערכות Desktop - חובה. ניסיון בבדיקת נגישות – יתרון.",
+    "tags": [
+      "API/Backend",
+      "מובייל",
+      "דאטה/DB",
+      "ענן/DevOps"
+    ],
+    "seniority": "mid",
+    "yearsRequired": 4,
+    "regions": [
+      "center"
+    ],
+    "score": 78,
+    "matched": [
+      "API testing",
+      "Postman",
+      "SQL",
+      "Mobile (iOS/Android)",
+      "Agile"
+    ],
+    "missing": [
+      "CI/CD"
+    ],
+    "firstSeenAt": "2026-10-18T07:00:36.625Z",
+    "lastSeenAt": "2026-10-25T08:00:30.228Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": false,
+    "closedAt": "2026-10-25T11:00:39.443Z"
   }
 ]
