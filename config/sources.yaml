@@ -584,6 +584,16 @@ sources:
     quickLinks:
       - { label: 'כל המשרות', url: 'https://www.5555.co.il/דרושים/כל-המשרות' }
 
+  - id: finq
+    name: FINQ
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://finqai.co.il/
+    note: המשרות נטענות מ-API של Dueto שה-robots.txt שלו חוסם רובוטים
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://employer.dueto.io/finqai/career-website/positions' }
+
   - id: ibi
     name: IBI
     type: direct
