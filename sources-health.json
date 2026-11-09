@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-09T09:01:05.427Z",
+  "generatedAt": "2026-11-09T09:09:47.591Z",
   "sources": [
     {
       "id": "linkedin",
@@ -1641,6 +1641,24 @@
       "kept": 0,
       "durationMs": 7753,
       "watch": []
+    },
+    {
+      "id": "ituran",
+      "name": "איתוראן",
+      "type": "direct",
+      "tier": "D",
+      "homepage": "https://www.ituran.co.il/ituranfront/about/wanted/",
+      "quickLinks": [
+        {
+          "label": "כל המשרות",
+          "url": "https://www.ituran.co.il/ituranfront/about/wanted/"
+        }
+      ],
+      "note": "מוגן ע\"י Reblaze — בקשות אוטומטיות מקבלות אתגר JavaScript (HTTP 247); לא עוקפים",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": []
     },
     {
       "id": "elal",
