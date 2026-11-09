@@ -881,6 +881,16 @@ sources:
           description: [profession_name, notes_text]
         urlTemplate: 'https://careers.freesbe.com/jobs/{id}'
 
+  - id: ituran
+    name: איתוראן
+    type: direct
+    tier: D
+    adapter: link-out
+    homepage: https://www.ituran.co.il/ituranfront/about/wanted/
+    note: 'מוגן ע"י Reblaze — בקשות אוטומטיות מקבלות אתגר JavaScript (HTTP 247); לא עוקפים'
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://www.ituran.co.il/ituranfront/about/wanted/' }
+
   # ─────────────────────────── Public sector, health, infrastructure & transport ───────────────────────────
   - id: elal
     name: אל על
