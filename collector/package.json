@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@qa-radar/shared": "*",
+    "acorn": "^8.18.0",
     "cheerio": "^1.0.0",
     "robots-parser": "^3.0.1",
     "yaml": "^2.6.1",

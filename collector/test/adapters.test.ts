@@ -4,6 +4,7 @@ import { ajaxLoadMoreAdapter, readAlmQuery } from '../src/adapters/ajax-load-mor
 import { mapComeet } from '../src/adapters/comeet.ts';
 import { getPath, parseEmbeddedJson } from '../src/adapters/embedded-json.ts';
 import { htmlAdapter, htmlOptionsSchema, parseHtmlJobs } from '../src/adapters/html.ts';
+import { extractBundleRecords, findScript, parseJsBundle } from '../src/adapters/js-bundle.ts';
 import { loadConfig, type SourceConfig } from '../src/config.ts';
 import type { PoliteClient } from '../src/http.ts';
 import { mapMax, mapNess } from '../src/adapters/json-sites.ts';
@@ -318,6 +319,67 @@ describe('embedded JSON adapter', () => {
         fields: { title: 'title' },
       }),
     ).toThrow(/not found/);
+  });
+});
+
+describe('js-bundle adapter (job list inside an SPA bundle — YouCC)', () => {
+  // Mirrors the real minified layout: literal records, factory-built records spread in, a hide-list.
+  const bundle = `
+    const menu=[{label:"About",href:"/about"}],
+      yr=(t,e,n,r,i,a)=>({id:t,category:e,title:n,location:r,summary:i,tags:a}),
+      Jae=[yr(52,"QA","Salesforce QA Tester","Israel","Manual Salesforce testing.",["Salesforce","Manual QA"]),
+           yr(53,"Cybersecurity","SOC Analyst","Lod","Monitor alerts.",["SIEM"])],
+      oN=[{id:12,category:"Software Engineering",title:"Full Stack Team Lead",location:"Herzliya",summary:"Lead a team.",remote:!0},
+          {id:42,number:"20301",category:"QA",title:\`Manual QA Tester\`,location:"Modiin",summary:"Test core systems.",tags:["SQL"]},
+          ...Jae],
+      toe=[12,99],
+      gc=oN.filter(t=>!toe.includes(t.id));
+    function find(id){return gc.find(e=>String(e.id)===String(id))}`;
+
+  it('reads literal and factory-built records, minus the ids the page hides', () => {
+    const { records, hidden } = extractBundleRecords(bundle, ['id', 'title', 'category']);
+    expect(hidden).toEqual([12, 99]);
+    expect(records.map((r) => r.id)).toEqual([42, 52, 53]);
+    expect(records[0]).toMatchObject({ number: '20301', title: 'Manual QA Tester', tags: ['SQL'] });
+  });
+
+  it('maps records to jobs with the shared fields and a URL template', () => {
+    const jobs = parseJsBundle(bundle, {
+      url: 'https://youcc.test/outsourcing',
+      keys: ['id', 'title', 'category'],
+      fields: { id: 'id', title: 'title', location: 'location', description: ['category', 'summary', 'tags[]'] },
+      urlTemplate: 'https://youcc.test/careers/{id}',
+    });
+    expect(jobs[1]).toMatchObject({
+      sourceJobId: '52',
+      url: 'https://youcc.test/careers/52',
+      title: 'Salesforce QA Tester',
+      location: 'Israel',
+      description: 'QA\nManual Salesforce testing.\nSalesforce\nManual QA',
+    });
+  });
+
+  it('reads `!0` / `!1` as booleans (minified true / false)', () => {
+    const { records } = extractBundleRecords('const x=[{id:1,title:"QA",open:!0,closed:!1}];', ['id', 'title']);
+    expect(records[0]).toMatchObject({ open: true, closed: false });
+  });
+
+  it('fails loudly when the page filters its list by a rule it cannot read', () => {
+    const code = 'const jobs=[{id:1,title:"QA"}],live=jobs.filter(j=>j.open);';
+    expect(() => extractBundleRecords(code, ['id', 'title'])).toThrow(/jobs\.filter/);
+  });
+
+  it('fails loudly when no record has the keys', () => {
+    expect(() => extractBundleRecords('const x=[{a:1}];', ['id', 'title'])).toThrow(/no job list/);
+  });
+
+  it('finds the bundle script and resolves it against the page', () => {
+    const html =
+      '<script async src="https://cdn.test/widget.js"></script><script type="module" crossorigin src="/assets/index-BoAjEvcg.js"></script>';
+    expect(findScript(html, '/assets/index-[\\w-]+\\.js', 'https://youcc.test/outsourcing')).toBe(
+      'https://youcc.test/assets/index-BoAjEvcg.js',
+    );
+    expect(findScript('<p>no scripts</p>', 'index', 'https://youcc.test/')).toBeUndefined();
   });
 });
 

@@ -273,6 +273,26 @@ sources:
         # Past the last page the site repeats it, which adds no new jobs and ends the paging.
         pagination: { param: p, start: 1, max: 5 }
 
+  - id: youcc
+    name: YouCC (Tech Match 24)
+    type: agency
+    tier: A
+    adapter: js-bundle
+    homepage: https://youcc.co.il/outsourcing
+    everyHours: 6 # the job list is inside a 2.5 MB script; ~40 IT/cyber jobs at client organizations
+    # The site's terms are a B2B service contract for its customers (no website-use rules); robots.txt allows all.
+    options:
+      url: https://youcc.co.il/outsourcing
+      # The jobs are a constant in the app's code (Base44, no content API). The page hides filled jobs
+      # by id, and the adapter drops those too.
+      keys: [id, title, category]
+      fields:
+        id: id
+        title: title
+        location: location
+        description: [category, summary, 'tags[]', 'responsibilities[]', 'requirements[]']
+      urlTemplate: 'https://youcc.co.il/careers/{id}'
+
   - id: yael
     name: קבוצת יעל
     type: agency

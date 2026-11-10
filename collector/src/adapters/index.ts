@@ -3,6 +3,7 @@ import { ajaxLoadMoreAdapter } from './ajax-load-more.ts';
 import { comeetAdapter } from './comeet.ts';
 import { embeddedJsonAdapter } from './embedded-json.ts';
 import { htmlAdapter } from './html.ts';
+import { jsBundleAdapter } from './js-bundle.ts';
 import { base44Adapter, maxAdapter, nessAdapter, redmatchAdapter } from './json-sites.ts';
 import { rssAdapter } from './rss.ts';
 import type { Adapter } from './types.ts';
@@ -23,6 +24,7 @@ export const ADAPTERS: Record<string, Adapter> = {
   redmatch: redmatchAdapter,
   'wpml-ajax': wpmlAjaxAdapter,
   'ajax-load-more': ajaxLoadMoreAdapter,
+  'js-bundle': jsBundleAdapter,
 };
 
 export type { Adapter, AdapterContext, RawJob } from './types.ts';

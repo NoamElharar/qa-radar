@@ -9,6 +9,20 @@ import type { Adapter, RawJob } from './types.ts';
  */
 const path = z.union([z.string(), z.array(z.string())]);
 
+/** RawJob property → path(s) in each item. Shared with the js-bundle adapter. */
+export const jobFieldsSchema = z.object({
+  id: path.optional(),
+  title: path,
+  url: path.optional(),
+  location: path.optional(),
+  description: path.optional(),
+  postedAt: path.optional(),
+  company: path.optional(),
+  /** Country code or name; jobs outside Israel are dropped during normalization. */
+  country: path.optional(),
+});
+type JobFields = z.input<typeof jobFieldsSchema>;
+
 export const embeddedJsonOptionsSchema = z
   .object({
     url: z.string().url(),
@@ -22,17 +36,7 @@ export const embeddedJsonOptionsSchema = z
      * pages whose block order changes ("body.columns[0].entries[1].jobsBank").
      */
     findKey: z.string().optional(),
-    fields: z.object({
-      id: path.optional(),
-      title: path,
-      url: path.optional(),
-      location: path.optional(),
-      description: path.optional(),
-      postedAt: path.optional(),
-      company: path.optional(),
-      /** Country code or name; jobs outside Israel are dropped during normalization. */
-      country: path.optional(),
-    }),
+    fields: jobFieldsSchema,
     /** Job URL from the item: "{id}" is the extracted id, any other "{path}" reads that item field. */
     urlTemplate: z.string().optional(),
   })
@@ -120,23 +124,27 @@ export function parseEmbeddedJson(body: string, options: Options): RawJob[] {
     );
   }
 
+  return mapItems(items, options.fields, options.urlTemplate);
+}
+
+/** Items (plain objects) → RawJobs through `fields`; items without a title are skipped. */
+export function mapItems(items: unknown[], fields: JobFields, urlTemplate?: string): RawJob[] {
   return items.flatMap((item): RawJob[] => {
-    const title = text(item, options.fields.title);
+    const title = text(item, fields.title);
     if (!title) return [];
-    const id = text(item, options.fields.id);
+    const id = text(item, fields.id);
     const url =
-      text(item, options.fields.url) ??
-      (options.urlTemplate ? fillTemplate(options.urlTemplate, item, id) : undefined);
+      text(item, fields.url) ?? (urlTemplate ? fillTemplate(urlTemplate, item, id) : undefined);
     return [
       {
         sourceJobId: id,
         url,
         title,
-        location: text(item, options.fields.location),
-        description: text(item, options.fields.description),
-        postedAt: text(item, options.fields.postedAt),
-        company: text(item, options.fields.company),
-        country: text(item, options.fields.country),
+        location: text(item, fields.location),
+        description: text(item, fields.description),
+        postedAt: text(item, fields.postedAt),
+        company: text(item, fields.company),
+        country: text(item, fields.country),
       },
     ];
   });
