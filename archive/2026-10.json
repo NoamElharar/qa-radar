@@ -2534,5 +2534,78 @@
     "state": "closed",
     "baseline": true,
     "closedAt": "2026-10-26T10:00:36.718Z"
+  },
+  {
+    "id": "yael:25866",
+    "sourceId": "yael",
+    "sourceJobId": "25866",
+    "url": "https://yaelgroup.com/jobs/order/25866/",
+    "title": "בודק/ת תוכנה מנוסה",
+    "agency": "קבוצת יעל",
+    "snippet": "תיאור התפקיד אחריות על בדיקות E2E, Regression, Functional, Integration ו-Smoke למערכות Web מורכבות. ניתוח אפיונים ודרישות עסקיות והמרתם לתרחישי בדיקה מפורטים. כתיבת מסמכי בדיקות מלאים (STP / STD / STR) וניהול Test Cases. עבודה בסביבת Agile / Scrum מול צוותי פיתוח, תשתיות ו-DevOps. דרישות התפקיד ניסיון של לפחות שנתיים בבדיקת תוכנה (QA), רצוי יותר ניסיון מארגון גדול עם מערכות מורכבות ניסיון מעשי בכתיבת מסמכי STP / STD / STR, תרחישי בדיקה ו-Test Cases. ניסיון מוכח בבדיקות מערכות Web מורכבות. הבנה עמוקה של מתודולוגיות QA ומחזור חיי פיתוח תוכנה (SDLC). ניסיון בעבודה בסביבת Agile / Scrum. ניסיון…",
+    "tags": [
+      "בדיקות ידניות/E2E",
+      "אוטומציה",
+      "API/Backend",
+      "דאטה/DB",
+      "ענן/DevOps"
+    ],
+    "seniority": "mid",
+    "yearsRequired": 2,
+    "regions": [],
+    "score": 84,
+    "matched": [
+      "Manual / E2E",
+      "רגרסיה / סניטי",
+      "STP/STD/STR",
+      "API testing",
+      "Postman",
+      "SQL",
+      "Jira / Xray",
+      "Backend / Batch",
+      "Selenium (בסיסי)",
+      "Agile"
+    ],
+    "missing": [
+      "Playwright",
+      "CI/CD"
+    ],
+    "firstSeenAt": "2026-10-21T15:00:40.061Z",
+    "lastSeenAt": "2026-10-26T18:00:38.245Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": false,
+    "closedAt": "2026-10-27T06:00:33.913Z"
+  },
+  {
+    "id": "comblack:25519",
+    "sourceId": "comblack",
+    "sourceJobId": "25519",
+    "url": "https://comblack.co.il/careers/position-25519/",
+    "title": "QA",
+    "agency": "Comblack",
+    "snippet": "חברת Comblack מגייסת בודק/ת תוכנה לארגון יציב וגדול בירושלים! התפקיד כולל ביצוע בדיקות איכות למערכות ליבה ורגולציה בשלבי הפיתוח, התחזוקה והתפעול, יישום מתודולוגיות בדיקה, מעקב אחר תקלות, כתיבת תסריטי בדיקות והפקת דוחות איכות שוטפים. מה אנחנו מחפשים? ✔️ ניסיון של 4 שנים ומעלה בתחום בדיקות התוכנה (QA). ✔️ ניסיון בכתיבת תסריטי בדיקות (STD), הרצת בדיקות (STP) וניהול תקלות. ✔️ ניסיון בביצוע בדיקות איכות בשלבי הפיתוח, התחזוקה והתפעול. ✔️ ראייה מערכתית, ירידה לפרטים ויכולת ניתוח תהליכים עמוקה. ✔️ יתרון לניסיון בעבודה במגזר הממשלתי / ציבורי או מול מערכות רגולטוריות. מעוניינים/ות? שלחו קורות חיים!!",
+    "postedAt": "2026-10-21T14:27:27.000Z",
+    "tags": [
+      "בדיקות ידניות/E2E"
+    ],
+    "seniority": "mid",
+    "yearsRequired": 4,
+    "city": "ירושלים",
+    "regions": [
+      "jerusalem"
+    ],
+    "distanceKm": 38,
+    "score": 60,
+    "matched": [
+      "STP/STD/STR"
+    ],
+    "missing": [],
+    "firstSeenAt": "2026-10-20T03:00:38.616Z",
+    "lastSeenAt": "2026-10-27T01:00:33.071Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": false,
+    "closedAt": "2026-10-27T06:00:33.913Z"
   }
 ]
