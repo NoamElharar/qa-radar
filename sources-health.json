@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-10T07:01:09.688Z",
+  "generatedAt": "2026-11-10T07:28:41.586Z",
   "sources": [
     {
       "id": "linkedin",
@@ -510,6 +510,24 @@
           "baseline": true
         }
       ]
+    },
+    {
+      "id": "youcc",
+      "name": "YouCC (Tech Match 24)",
+      "type": "agency",
+      "tier": "A",
+      "homepage": "https://youcc.co.il/outsourcing",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        38
+      ],
+      "lastRunAt": "2026-11-10T07:28:41.586Z",
+      "lastSuccessAt": "2026-11-10T07:28:41.586Z",
+      "fetched": 38,
+      "kept": 3,
+      "durationMs": 5336
     },
     {
       "id": "yael",

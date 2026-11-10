@@ -1,7 +1,125 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-10T07:01:09.688Z",
+  "generatedAt": "2026-11-10T07:28:41.586Z",
   "jobs": [
+    {
+      "id": "youcc:42",
+      "sourceId": "youcc",
+      "sourceJobId": "42",
+      "url": "https://youcc.co.il/careers/42",
+      "title": "Manual QA Tester",
+      "agency": "YouCC (Tech Match 24)",
+      "locationText": "Modiin",
+      "snippet": "QA We are looking for an experienced Manual QA Tester to join a team working on critical financial core systems in an IBM Mainframe environment. Manual QA IBM Mainframe SQL CICS Write and execute comprehensive manual test scenarios for financial core systems. Perform testing of Batch and Online (CICS) processes. Analyze system requirements and functional specifications and translate them into test cases. Perform Sanity, Regression, End-to-End, and UI testing. Work with databases, including SQL queries, data retrieval, and validation. Identify, document, and track defects through resolution.…",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "API/Backend",
+        "דאטה/DB",
+        "פינטק/בנקאות/ביטוח"
+      ],
+      "seniority": "mid",
+      "yearsRequired": 3,
+      "city": "מודיעין",
+      "regions": [
+        "shfela"
+      ],
+      "distanceKm": 18,
+      "score": 100,
+      "matched": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "Swagger",
+        "SQL",
+        "Backend / Batch"
+      ],
+      "missing": [
+        "ISTQB"
+      ],
+      "firstSeenAt": "2026-11-10T07:28:41.586Z",
+      "lastSeenAt": "2026-11-10T07:28:41.586Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": true
+    },
+    {
+      "id": "youcc:52",
+      "sourceId": "youcc",
+      "sourceJobId": "52",
+      "url": "https://youcc.co.il/careers/52",
+      "title": "Salesforce QA Tester",
+      "agency": "YouCC (Tech Match 24)",
+      "locationText": "Israel",
+      "snippet": "QA Perform manual Salesforce testing, investigate production issues, support users, and coordinate testing and production support across technical and business teams. Salesforce Manual Testing Test Documentation Postman Execute manual tests and prepare test documentation. Review specifications and support system users. Investigate production incidents and troubleshoot integrations. Support newly deployed features and coordinate with stakeholders. 3-4 years of software testing, including 1.5+ years testing Salesforce - mandatory. At least one year of Salesforce experience - mandatory.…",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "API/Backend"
+      ],
+      "seniority": "unknown",
+      "regions": [],
+      "score": 62,
+      "matched": [
+        "Manual / E2E",
+        "Postman",
+        "Backend / Batch"
+      ],
+      "missing": [
+        "Salesforce / SAP"
+      ],
+      "firstSeenAt": "2026-11-10T07:28:41.586Z",
+      "lastSeenAt": "2026-11-10T07:28:41.586Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": true
+    },
+    {
+      "id": "youcc:58",
+      "sourceId": "youcc",
+      "sourceJobId": "58",
+      "url": "https://youcc.co.il/careers/58",
+      "title": "Digital QA Engineer",
+      "agency": "YouCC (Tech Match 24)",
+      "locationText": "Modiin",
+      "snippet": "QA Test financial digital products across web and mobile, partnering closely with developers and business stakeholders in an Agile environment. Manual QA API Testing SQL Web & Mobile Create test scripts and document defects for digital systems. Perform API, database, web, mobile, and end-to-end testing. Collaborate with developers, QA leads, and business stakeholders. Track testing work using Monday, Azure DevOps, or Jira. 2+ years of manual testing in financial systems - mandatory. Experience writing test scenarios and documenting defects. API testing with Postman and writing SQL queries -…",
+      "tags": [
+        "בדיקות ידניות/E2E",
+        "אוטומציה",
+        "API/Backend",
+        "מובייל",
+        "דאטה/DB",
+        "ענן/DevOps",
+        "פינטק/בנקאות/ביטוח"
+      ],
+      "seniority": "unknown",
+      "city": "מודיעין",
+      "regions": [
+        "shfela"
+      ],
+      "distanceKm": 18,
+      "score": 72,
+      "matched": [
+        "Manual / E2E",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Jira / Xray",
+        "Mobile (iOS/Android)",
+        "Selenium (בסיסי)",
+        "Agile"
+      ],
+      "missing": [
+        "Playwright",
+        "Cypress",
+        "CI/CD"
+      ],
+      "firstSeenAt": "2026-11-10T07:28:41.586Z",
+      "lastSeenAt": "2026-11-10T07:28:41.586Z",
+      "missingStreak": 0,
+      "state": "active",
+      "baseline": true
+    },
     {
       "id": "moveo:h-22881f2c84b8",
       "sourceId": "moveo",
