@@ -23,6 +23,10 @@ qa:
     - בודק תוכנה
     - בדיקות תוכנה
     - הבטחת איכות
+    - בדיקות אוטומציה # "ראש צוות בדיקות אוטומציה" — two weak words that together mean test automation
+    - בודק אוטומציה
+    # A tester of a business system ("בודק/ת SAP FI", Elad), for sites that show titles only.
+    - 're:בודק[\s-]+(?:sap|crm|erp|salesforce|priority|פריוריטי)(?![a-z])'
   # Ambiguous title words: accepted only with software/QA context (see `context`) or when the
   # source page is already a QA category (sources.yaml → categoryQa: true).
   weak:

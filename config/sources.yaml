@@ -293,6 +293,30 @@ sources:
         description: [category, summary, 'tags[]', 'responsibilities[]', 'requirements[]']
       urlTemplate: 'https://youcc.co.il/careers/{id}'
 
+  - id: elad
+    name: אלעד מערכות
+    type: agency
+    tier: D
+    adapter: link-out
+    homepage: https://careers.eladsoft.com/jobs/
+    everyHours: 6 # ~28 list pages per check
+    note: תנאי השימוש אוסרים שימוש מסחרי בתוכן האתר והעתקה, הפצה או פרסום שלו — הרדאר רק סופר משרות QA ולא שומר את תוכנן
+    quickLinks:
+      - { label: 'QA & Automation', url: 'https://careers.eladsoft.com/jobs/?profession=177' }
+      - { label: 'כל המשרות', url: 'https://careers.eladsoft.com/jobs/' }
+    watch: # count only — the group's careers site (~270 jobs, 10 per page)
+      adapter: html
+      options:
+        # The full list: robots.txt disallows the profession / area / search filters, so they aren't used.
+        url: https://careers.eladsoft.com/jobs/
+        item: 'article.job-card'
+        title: 'h3.job-title'
+        link: { selector: 'h3.job-title a', attr: href }
+        id: { selector: '.job-id', regex: '(\d+)' }
+        location: '.job-areas'
+        # Past the last page the list is empty, which ends the paging.
+        pagination: { param: pg, start: 1, max: 40 }
+
   - id: yael
     name: קבוצת יעל
     type: agency

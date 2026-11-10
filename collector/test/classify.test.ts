@@ -22,6 +22,11 @@ describe('QA relevance — accepted', () => {
     'ר"צ בדיקות תוכנה',
     'QA Automation Engineer | ארגון ביטחוני במרכז הארץ', // a defense org, not a security screener
     'דרוש/ה בודק/ת תוכנה לחברה ביטחונית בצפון',
+    // Title-only listings (Elad shows no description on its list pages):
+    'ראש צוות בדיקות אוטומציה',
+    'בודק/ת SAP FI',
+    'בודק/ת CRM',
+    'בודק/ת פריוריטי',
   ])('%s', (title) => {
     expect(classifier.decideQa(title, undefined, false).qa).toBe(true);
   });
