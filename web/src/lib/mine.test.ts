@@ -349,6 +349,25 @@ describe('manual applications', () => {
     ).toBe(true);
   });
 
+  it('starts the status history: "הגשתי" on the application date, then the chosen status today', () => {
+    const later = createManualEntry(
+      { title: 'QA', status: 'recruiter_call', appliedDate: '2026-09-20' },
+      now,
+    );
+    const applied = createManualEntry({ title: 'QA', status: 'applied' }, now);
+    const saved = createManualEntry({ title: 'QA', status: 'saved', appliedDate: '2026-09-20' }, now);
+    const undated = createManualEntry({ title: 'QA', status: 'recruiter_call' }, now);
+    expect('entry' in later && later.entry.history).toEqual([
+      { status: 'applied', at: new Date('2026-09-20T12:00:00').toISOString() },
+      { status: 'recruiter_call', at: now.toISOString() },
+    ]);
+    expect('entry' in applied && applied.entry.history).toEqual([{ status: 'applied', at: now.toISOString() }]);
+    expect('entry' in saved && saved.entry.history).toEqual([{ status: 'saved', at: now.toISOString() }]);
+    expect('entry' in undated && undated.entry.history).toEqual([
+      { status: 'recruiter_call', at: now.toISOString() },
+    ]);
+  });
+
   it('keeps the end client the recruiter named', () => {
     const made = createManualEntry({ title: 'QA', endClient: '  אקמה ', status: 'applied' }, now);
     const without = createManualEntry({ title: 'QA', endClient: '  ', status: 'applied' }, now);

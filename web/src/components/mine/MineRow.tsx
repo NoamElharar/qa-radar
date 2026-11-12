@@ -15,12 +15,15 @@ import {
   STATUS_DESCRIPTIONS,
   STATUS_LABELS,
   ALL_STATUSES,
+  historyOf,
   LEGACY_STATUSES,
+  withoutStep,
+  withStepDate,
   type InterviewFormat,
   type JobStatus,
   type StatusEntry,
 } from '../../lib/storage.ts';
-import { formatDate, relativeTime } from '../../lib/time.ts';
+import { formatDate, israelDayKey, relativeTime } from '../../lib/time.ts';
 import { ExternalIcon, PinIcon } from '../icons.tsx';
 import { NotesField } from './NotesField.tsx';
 import { StatusDot } from './StatusDot.tsx';
@@ -39,6 +42,81 @@ interface Props {
   overlap?: ClientOverlap;
   /** Show every application to this end client (sets the search). */
   onShowClient: (client: string) => void;
+}
+
+/**
+ * "מהלך המועמדות": each status the application went through, with its date. A date can be fixed
+ * (a call logged a day late) and an earlier step removed (a status picked by mistake).
+ */
+function StatusHistory({
+  id,
+  entry,
+  now,
+  onUpdate,
+}: {
+  id: string;
+  entry: StatusEntry;
+  now: Date;
+  onUpdate: (id: string, patch: Partial<StatusEntry>) => void;
+}) {
+  const steps = historyOf(entry);
+  if (!steps.length) return null;
+  const today = israelDayKey(now);
+  const day = (iso: string) => israelDayKey(new Date(iso));
+  return (
+    <section aria-label="מהלך המועמדות" className="text-sm">
+      <h4 className="mb-1 text-xs text-slate-500">מהלך המועמדות</h4>
+      <ol className="space-y-1">
+        {steps.map((step, i) => {
+          const label = STATUS_LABELS[step.status];
+          const last = i === steps.length - 1;
+          return (
+            <li key={`${step.status}-${i}`} className="grid grid-cols-[1fr_auto_2rem] items-center gap-x-1.5">
+              <span className="min-w-0">
+                <span className="flex items-center gap-1.5">
+                  <StatusDot status={step.status} className="size-2 shrink-0" />
+                  <span>{label}</span>
+                </span>
+                {step.estimated && (
+                  <span
+                    title="התאריך משוער: השלב נרשם לפני שהרדאר שמר היסטוריה. אפשר לתקן אותו."
+                    className="ms-3.5 inline-block rounded-md bg-slate-100 px-1.5 py-px text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                  >
+                    משוער
+                  </span>
+                )}
+              </span>
+              <input
+                type="date"
+                aria-label={`תאריך: ${label}`}
+                value={day(step.at)}
+                min={i > 0 ? day(steps[i - 1]!.at) : undefined}
+                max={last ? today : day(steps[i + 1]!.at)}
+                onChange={(e) => onUpdate(id, withStepDate(entry, i, e.target.value))}
+                className="w-[8.25rem] rounded-lg border border-slate-300 bg-white px-1.5 py-1 text-sm dark:border-slate-700 dark:bg-slate-900"
+              />
+              {last ? (
+                <span />
+              ) : (
+                <button
+                  type="button"
+                  aria-label={`מחק את השלב "${label}"`}
+                  title="מחק שלב שסומן בטעות"
+                  onClick={() =>
+                    window.confirm(`למחוק את השלב "${label}" ממהלך המועמדות?`) &&
+                    onUpdate(id, withoutStep(entry, i))
+                  }
+                  className="grid size-8 place-items-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-rose-600 dark:hover:bg-slate-800"
+                >
+                  ×
+                </button>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  );
 }
 
 /** How many of the other applications to list before "and N more". */
@@ -275,6 +353,8 @@ export const MineRow = memo(function MineRow({
               </button>
             ))}
           </div>
+
+          <StatusHistory id={id} entry={entry} now={now} onUpdate={onUpdate} />
 
           {entry.manual && <ManualDetails id={id} entry={entry} onUpdate={onUpdate} />}
 

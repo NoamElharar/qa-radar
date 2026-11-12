@@ -123,6 +123,110 @@ export interface StatusEntry {
   interviewFormat?: InterviewFormat;
   /** Snapshot so the entry stays readable after the job leaves jobs.json. */
   snapshot?: { title: string; company?: string; url: string };
+  /**
+   * Every status the application went through, oldest first; the last step is the current status.
+   * Entries from before this field read a history rebuilt from their dates (see historyOf).
+   */
+  history?: StatusStep[];
+}
+
+/** One step of an application ("שיחה ממגייסת" on 5.11). */
+export interface StatusStep {
+  status: JobStatus;
+  at: string;
+  /** The date is a guess (rebuilt from an older entry), not the day the status was set. */
+  estimated?: true;
+}
+
+/** "נצפה" is set automatically when a posting is opened, so it is not a step of the process. */
+const isStepStatus = (s: JobStatus) => s !== 'viewed';
+
+const isStep = (v: unknown): v is StatusStep => {
+  const s = v as StatusStep;
+  return (
+    typeof s === 'object' &&
+    s !== null &&
+    ALL_STATUSES.includes(s.status) &&
+    typeof s.at === 'string' &&
+    !Number.isNaN(Date.parse(s.at))
+  );
+};
+
+/** Drops repeated steps (the same status twice in a row keeps the first date). */
+function collapse(steps: StatusStep[]): StatusStep[] {
+  return steps.filter((step, i) => i === 0 || step.status !== steps[i - 1]!.status);
+}
+
+/**
+ * The application's steps, oldest first, ending with its current status. Entries saved before
+ * history existed get one rebuilt from their dates: "הגשתי" on the application date, then the
+ * current status on the last update (marked as a guess, since any edit moves that date).
+ */
+export function historyOf(entry: StatusEntry): StatusStep[] {
+  let steps = (entry.history ?? []).filter((s) => isStep(s) && isStepStatus(s.status));
+  if (!steps.length && entry.appliedAt && entry.status !== 'saved') {
+    steps = [{ status: 'applied', at: entry.appliedAt }];
+  }
+  // The application date lives in appliedAt (the "תאריך הגשה" field); the "הגשתי" step follows it.
+  const applied = steps.findIndex((s) => s.status === 'applied');
+  if (entry.appliedAt && applied >= 0) {
+    steps = steps.map((s, i) => (i === applied ? { status: 'applied', at: entry.appliedAt! } : s));
+  }
+  const last = steps[steps.length - 1];
+  if (isStepStatus(entry.status) && last?.status !== entry.status) {
+    // Never before the step it follows.
+    const at = last && entry.updatedAt < last.at ? last.at : entry.updatedAt;
+    steps = [...steps, { status: entry.status, at, estimated: true }];
+  }
+  return collapse(steps);
+}
+
+/** The entry with `status` set as of `at`, appended to its history when it is a new step. */
+export function withStatus(prev: StatusEntry | undefined, status: JobStatus, at: string): StatusEntry {
+  const base: StatusEntry = prev ?? { status, updatedAt: at };
+  const steps = prev ? historyOf(prev) : [];
+  const history =
+    isStepStatus(status) && steps[steps.length - 1]?.status !== status
+      ? [...steps, { status, at }]
+      : steps;
+  return {
+    ...base,
+    status,
+    updatedAt: at,
+    appliedAt: status === 'applied' && !base.appliedAt ? at : base.appliedAt,
+    ...(history.length ? { history } : {}),
+  };
+}
+
+/**
+ * The history with one step's date changed, kept between its neighbours so the order stays true.
+ * Changing the "הגשתי" step also moves the application date (they are the same day).
+ */
+export function withStepDate(entry: StatusEntry, index: number, day: string): Partial<StatusEntry> {
+  const steps = historyOf(entry);
+  const step = steps[index];
+  if (!step || !/^\d{4}-\d{2}-\d{2}$/.test(day)) return {};
+  let at = new Date(`${day}T12:00:00`).toISOString();
+  const before = steps[index - 1]?.at;
+  const after = steps[index + 1]?.at;
+  if (before && at < before) at = before;
+  if (after && at > after) at = after;
+  const history = steps.map((s, i) => (i === index ? { status: s.status, at } : s));
+  const firstApplied = steps.findIndex((s) => s.status === 'applied');
+  return { history, ...(index === firstApplied ? { appliedAt: at } : {}) };
+}
+
+/** The history without one earlier step (a status picked by mistake). The current status stays. */
+export function withoutStep(entry: StatusEntry, index: number): Partial<StatusEntry> {
+  const steps = historyOf(entry);
+  if (index < 0 || index >= steps.length - 1) return {};
+  return { history: collapse(steps.filter((_, i) => i !== index)) };
+}
+
+/** Merges the histories of entries that belong to one job (a source re-published it under new ids). */
+export function mergeHistories(entries: StatusEntry[]): StatusStep[] {
+  const all = entries.flatMap(historyOf).sort((a, b) => a.at.localeCompare(b.at));
+  return collapse(all);
 }
 
 export interface PersonalData {
@@ -270,12 +374,21 @@ export function importPersonal(current: PersonalData, json: string): PersonalDat
   }
   const statuses = { ...current.statuses };
   for (const [id, raw] of Object.entries(incoming.statuses ?? {})) {
-    // Older backups have no interviewFormat or endClient; values this version can't read are dropped.
-    const { interviewFormat, endClient, ...rest } = raw;
+    // Older backups have no interviewFormat, endClient or history; values this version can't read are dropped.
+    const { interviewFormat, endClient, history, ...rest } = raw;
+    const steps = Array.isArray(history)
+      ? collapse(
+          history
+            .filter(isStep)
+            .filter((s) => isStepStatus(s.status))
+            .map((s) => ({ status: s.status, at: s.at, ...(s.estimated === true ? { estimated: true as const } : {}) })),
+        )
+      : [];
     const entry: StatusEntry = {
       ...rest,
       ...(isInterviewFormat(interviewFormat) ? { interviewFormat } : {}),
       ...(typeof endClient === 'string' && endClient.trim() ? { endClient: endClient.trim() } : {}),
+      ...(steps.length ? { history: steps } : {}),
     };
     const existing = statuses[id];
     if (!existing || entry.updatedAt > existing.updatedAt) statuses[id] = entry;

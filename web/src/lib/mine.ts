@@ -7,6 +7,7 @@ import {
   type InterviewFormat,
   type JobStatus,
   type StatusEntry,
+  type StatusStep,
 } from './storage.ts';
 
 /**
@@ -503,12 +504,21 @@ export function createManualEntry(
     ? new Date(`${input.appliedDate}T12:00:00`).toISOString()
     : undefined;
   const id = `manual:${now.getTime().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
+  const at = now.toISOString();
+  const applied = appliedAt ?? (input.status === 'applied' ? at : undefined);
+  // "הגשתי" on the application date, then the status chosen in the form as of today.
+  const history: StatusStep[] = [];
+  if (applied && input.status !== 'saved') history.push({ status: 'applied', at: applied });
+  if (input.status !== 'applied' && input.status !== 'viewed') {
+    history.push({ status: input.status, at: applied && applied > at ? applied : at });
+  }
   return {
     id,
     entry: {
       status: input.status,
-      appliedAt: appliedAt ?? (input.status === 'applied' ? now.toISOString() : undefined),
-      updatedAt: now.toISOString(),
+      appliedAt: applied,
+      updatedAt: at,
+      ...(history.length ? { history } : {}),
       note: input.note?.trim() || undefined,
       manual: true,
       channel: input.channel?.trim() || undefined,

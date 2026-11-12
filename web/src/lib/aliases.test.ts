@@ -42,6 +42,18 @@ describe('resolveStatuses', () => {
     expect(resolveStatuses(saved, aliases).statuses['comblack:25288']?.status).toBe('rejected');
   });
 
+  it('joins the status histories of the copies, but not the "לא רלוונטי" used to hide a repost', () => {
+    const saved = {
+      'comblack:443186': entry('applied', 4, { appliedAt: at(4), history: [{ status: 'applied', at: at(4) }] }),
+      'comblack:443489': entry('recruiter_call', 7, { history: [{ status: 'recruiter_call', at: at(7) }] }),
+      'comblack:443809': entry('irrelevant', 8, { history: [{ status: 'irrelevant', at: at(8) }] }),
+    };
+    expect(resolveStatuses(saved, aliases).statuses['comblack:25288']?.history).toEqual([
+      { status: 'applied', at: at(4) },
+      { status: 'recruiter_call', at: at(7) },
+    ]);
+  });
+
   it('keeps the earliest application date and a pin from any copy', () => {
     const saved = {
       'comblack:443186': entry('saved', 4, { pinned: true, pinnedAt: at(4) }),

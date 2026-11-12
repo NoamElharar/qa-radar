@@ -2,15 +2,20 @@ import { describe, expect, it } from 'vitest';
 import {
   ALL_STATUSES,
   HANDLED_STATUSES,
+  historyOf,
   importPersonal,
   INTERVIEW_FORMAT_LABELS,
   INTERVIEW_FORMATS,
   interviewFormatOf,
   LEGACY_STATUSES,
+  mergeHistories,
   mergePersonalChanges,
   STATUS_DESCRIPTIONS,
   STATUS_LABELS,
   STATUS_ORDER,
+  withoutStep,
+  withStatus,
+  withStepDate,
   type PersonalData,
   type StatusEntry,
 } from './storage.ts';
@@ -77,6 +82,89 @@ describe('interview format', () => {
   it('defaults to "לא ידוע" for entries without it', () => {
     expect(interviewFormatOf({})).toBe('unknown');
     expect(interviewFormatOf({ interviewFormat: 'teams' })).toBe('teams');
+  });
+});
+
+describe('status history', () => {
+  const at = (day: number, hour = 10) => `2026-11-${String(day).padStart(2, '0')}T${String(hour).padStart(2, '0')}:00:00.000Z`;
+
+  it('records each new status as a dated step, and a repeated status only once', () => {
+    let entry = withStatus(undefined, 'applied', at(1));
+    expect(entry).toMatchObject({ status: 'applied', appliedAt: at(1), history: [{ status: 'applied', at: at(1) }] });
+    entry = withStatus(entry, 'recruiter_call', at(3));
+    entry = withStatus(entry, 'recruiter_call', at(4));
+    entry = withStatus(entry, 'interview_video', at(6));
+    expect(entry.history).toEqual([
+      { status: 'applied', at: at(1) },
+      { status: 'recruiter_call', at: at(3) },
+      { status: 'interview_video', at: at(6) },
+    ]);
+    expect(entry.appliedAt).toBe(at(1));
+  });
+
+  it('leaves "נצפה" out: it is set automatically when a posting is opened', () => {
+    const viewed = withStatus(undefined, 'viewed', at(1));
+    expect(viewed.history).toBeUndefined();
+    expect(withStatus(viewed, 'applied', at(2)).history).toEqual([{ status: 'applied', at: at(2) }]);
+  });
+
+  it('rebuilds a history for entries saved before it existed, with the later date marked as a guess', () => {
+    const old: StatusEntry = { status: 'rejected', appliedAt: at(1), updatedAt: at(9) };
+    expect(historyOf(old)).toEqual([
+      { status: 'applied', at: at(1) },
+      { status: 'rejected', at: at(9), estimated: true },
+    ]);
+    expect(historyOf({ status: 'applied', appliedAt: at(1), updatedAt: at(2) })).toEqual([{ status: 'applied', at: at(1) }]);
+    expect(historyOf({ status: 'saved', updatedAt: at(2) })).toEqual([{ status: 'saved', at: at(2), estimated: true }]);
+    expect(historyOf({ status: 'viewed', updatedAt: at(2) })).toEqual([]);
+    // The first new status keeps the rebuilt steps before it.
+    expect(withStatus(old, 'offer', at(10)).history).toEqual([...historyOf(old), { status: 'offer', at: at(10) }]);
+  });
+
+  it('follows the application date ("תאריך הגשה") and catches up when an old tab changed the status', () => {
+    const entry: StatusEntry = {
+      status: 'interview_video',
+      appliedAt: at(2),
+      updatedAt: at(8),
+      history: [
+        { status: 'applied', at: at(1) },
+        { status: 'recruiter_call', at: at(4) },
+      ],
+    };
+    expect(historyOf(entry)).toEqual([
+      { status: 'applied', at: at(2) },
+      { status: 'recruiter_call', at: at(4) },
+      { status: 'interview_video', at: at(8), estimated: true },
+    ]);
+  });
+
+  it('fixes a step date within its neighbours, and moving "הגשתי" moves the application date', () => {
+    const entry = withStatus(withStatus(withStatus(undefined, 'applied', at(1)), 'recruiter_call', at(5)), 'interview_video', at(9));
+    const patch = withStepDate(entry, 1, '2026-11-03');
+    expect(patch.history?.[1]).toEqual({ status: 'recruiter_call', at: new Date('2026-11-03T12:00:00').toISOString() });
+    // A date after the next step is held at the next step.
+    expect(withStepDate(entry, 1, '2026-11-20').history?.[1]?.at).toBe(at(9));
+    expect(withStepDate(entry, 0, '2026-10-30')).toMatchObject({ appliedAt: new Date('2026-10-30T12:00:00').toISOString() });
+    expect(withStepDate(entry, 7, '2026-11-03')).toEqual({});
+    expect(withStepDate(entry, 1, 'nonsense')).toEqual({});
+  });
+
+  it('removes a step picked by mistake, but never the current status', () => {
+    let entry = withStatus(undefined, 'applied', at(1));
+    entry = withStatus(entry, 'interview_frontal', at(2)); // a mis-tap
+    entry = withStatus(entry, 'applied', at(2, 11)); // put back
+    entry = { ...entry, ...withoutStep(entry, 1) };
+    expect(historyOf(entry)).toEqual([{ status: 'applied', at: at(1) }]); // "applied, applied" collapses
+    expect(withoutStep(entry, 0)).toEqual({});
+  });
+
+  it('merges the histories of a job saved under several ids, oldest first', () => {
+    const a: StatusEntry = { status: 'applied', appliedAt: at(1), updatedAt: at(1), history: [{ status: 'applied', at: at(1) }] };
+    const b: StatusEntry = { status: 'recruiter_call', updatedAt: at(4), history: [{ status: 'recruiter_call', at: at(4) }] };
+    expect(mergeHistories([b, a])).toEqual([
+      { status: 'applied', at: at(1) },
+      { status: 'recruiter_call', at: at(4) },
+    ]);
   });
 });
 
@@ -154,6 +242,36 @@ describe('JSON import', () => {
     const result = importPersonal(empty(), json);
     expect(result.statuses.a?.endClient).toBe('אקמה');
     expect(result.statuses.b).toEqual({ status: 'applied', updatedAt: '2026-10-10T09:00:00.000Z' });
+  });
+
+  it('keeps the status history, dropping steps it cannot read', () => {
+    const json = JSON.stringify({
+      app: 'qa-radar',
+      statuses: {
+        a: {
+          status: 'interview_video',
+          updatedAt: '2026-11-08T09:00:00.000Z',
+          history: [
+            { status: 'applied', at: '2026-11-01T09:00:00.000Z' },
+            { status: 'viewed', at: '2026-11-01T09:30:00.000Z' },
+            { status: 'recruiter_call', at: '2026-11-03T09:00:00.000Z', estimated: true, extra: 1 },
+            { status: 'recruiter_call', at: '2026-11-04T09:00:00.000Z' },
+            { status: 'party', at: '2026-11-05T09:00:00.000Z' },
+            { status: 'interview_video', at: 'yesterday' },
+            'junk',
+            { status: 'interview_video', at: '2026-11-08T09:00:00.000Z' },
+          ],
+        },
+        b: { status: 'applied', updatedAt: '2026-11-08T09:00:00.000Z', history: 'nope' },
+      },
+    });
+    const result = importPersonal(empty(), json);
+    expect(result.statuses.a?.history).toEqual([
+      { status: 'applied', at: '2026-11-01T09:00:00.000Z' },
+      { status: 'recruiter_call', at: '2026-11-03T09:00:00.000Z', estimated: true },
+      { status: 'interview_video', at: '2026-11-08T09:00:00.000Z' },
+    ]);
+    expect(result.statuses.b).toEqual({ status: 'applied', updatedAt: '2026-11-08T09:00:00.000Z' });
   });
 
   it('a newer entry in the file replaces the one in the browser (how a corrected backup applies)', () => {

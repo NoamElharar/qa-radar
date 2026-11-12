@@ -19,6 +19,7 @@ import {
   saveLastVisit,
   savePersonalChanges,
   saveTheme,
+  withStatus,
   type JobStatus,
   type PersonalData,
   type StatusEntry,
@@ -153,12 +154,8 @@ export function App() {
       // Clearing a status clears it from the job's old ids too, or they would show through again.
       if (!status) for (const id of resolved.members.get(job.id) ?? [job.id]) delete next[id];
       else {
-        const prev = statuses[job.id];
         next[job.id] = {
-          ...prev,
-          status,
-          updatedAt: new Date().toISOString(),
-          appliedAt: status === 'applied' && !prev?.appliedAt ? new Date().toISOString() : prev?.appliedAt,
+          ...withStatus(statuses[job.id], status, new Date().toISOString()),
           snapshot: { title: job.title, company: job.company ?? job.agency, url: job.url },
         };
       }
@@ -178,7 +175,11 @@ export function App() {
   const updateEntry = (id: string, patch: Partial<StatusEntry>) => {
     const prev = statuses[id];
     if (!prev) return;
-    updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: { ...prev, ...patch, updatedAt: new Date().toISOString() } } });
+    const now = new Date().toISOString();
+    // A new status becomes a step of the application's history.
+    const { status, ...rest } = patch;
+    const base = status && status !== prev.status ? withStatus(prev, status, now) : prev;
+    updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: { ...base, ...rest, updatedAt: now } } });
   };
   const addManual = (id: string, entry: StatusEntry) =>
     updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: entry } });

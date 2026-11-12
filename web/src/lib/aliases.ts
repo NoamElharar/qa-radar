@@ -1,4 +1,4 @@
-import type { JobStatus, StatusEntry } from './storage.ts';
+import { mergeHistories, type JobStatus, type StatusEntry } from './storage.ts';
 
 /**
  * When several saved entries belong to one job (a source re-published it under new ids), the most
@@ -38,11 +38,16 @@ function mergeEntries(entries: StatusEntry[]): StatusEntry {
   const appliedAt = entries.flatMap((e) => (e.appliedAt ? [e.appliedAt] : [])).sort()[0];
   const note = best.note ?? entries.find((e) => e.note?.trim())?.note;
   const pinned = entries.find((e) => e.pinned);
+  // A copy marked "לא רלוונטי" or only opened was a way to hide the repost, not a step of the process.
+  const history = mergeHistories(
+    entries.filter((e) => e === best || MERGE_RANK[e.status] > MERGE_RANK.irrelevant),
+  );
   return {
     ...best,
     ...(appliedAt ? { appliedAt } : {}),
     ...(note ? { note } : {}),
     ...(pinned ? { pinned: true, pinnedAt: pinned.pinnedAt } : {}),
+    ...(history.length ? { history } : {}),
   };
 }
 
