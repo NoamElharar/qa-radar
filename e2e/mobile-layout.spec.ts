@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { TITLES } from './fixtures.ts';
-import { auditLayout, lowContrastText } from './helpers.ts';
+import { auditLayout, bottomLimit, lowContrastText } from './helpers.ts';
 
 const VIEWS = [
   { name: 'חדש', path: './', ready: TITLES.manualNew },
@@ -123,8 +123,8 @@ test('the bottom bar never covers the last job card', async ({ page }) => {
 
   const cards = page.getByRole('article');
   const last = await cards.nth((await cards.count()) - 1).boundingBox();
-  const nav = await page.getByRole('navigation', { name: 'תצוגות' }).boundingBox();
-  expect(last!.y + last!.height).toBeLessThanOrEqual(nav!.y);
+  await expect(page.getByRole('navigation', { name: 'תצוגות' })).toBeVisible();
+  expect(last!.y + last!.height).toBeLessThanOrEqual(await bottomLimit(page));
 });
 
 test('a long job title wraps instead of widening the card', async ({ page }) => {
@@ -147,9 +147,8 @@ test('the status menu of the top card is fully visible — never under the heade
 
     const box = (await menu.boundingBox())!;
     const header = (await page.locator('header').boundingBox())!;
-    const nav = (await page.getByRole('navigation', { name: 'תצוגות' }).boundingBox())!;
     expect(box.y, 'menu starts under the sticky header').toBeGreaterThanOrEqual(header.y + header.height);
-    expect(box.y + box.height, 'menu ends under the bottom bar').toBeLessThanOrEqual(nav.y);
+    expect(box.y + box.height, 'menu ends under the bottom bar').toBeLessThanOrEqual(await bottomLimit(page));
 
     // Every choice is on screen at once — nothing hidden inside a scrolled menu.
     for (const item of await menu.getByRole('menuitemradio').all()) {
@@ -162,16 +161,13 @@ test('the status menu of the top card is fully visible — never under the heade
   await page.goto('./?view=all');
   const card = page.getByRole('article').nth(1);
   const toggle = card.getByRole('button', { name: /^סטטוס/ });
-  await toggle.evaluate((el) => {
-    const nav = document.querySelector('nav[aria-label="תצוגות"]')!.getBoundingClientRect();
-    window.scrollBy(0, el.getBoundingClientRect().bottom - (nav.top - 8));
-  });
+  const limit = await bottomLimit(page);
+  await toggle.evaluate((el, bottom) => window.scrollBy(0, el.getBoundingClientRect().bottom - (bottom - 8)), limit);
   await toggle.click();
   const box = (await card.getByRole('menu').boundingBox())!;
   const header = (await page.locator('header').boundingBox())!;
-  const nav = (await page.getByRole('navigation', { name: 'תצוגות' }).boundingBox())!;
   expect(box.y).toBeGreaterThanOrEqual(header.y + header.height);
-  expect(box.y + box.height).toBeLessThanOrEqual(nav.y);
+  expect(box.y + box.height).toBeLessThanOrEqual(await bottomLimit(page));
 });
 
 test('every filter chip on "שלי" is fully on screen — none cut off at the edge', async ({ page }) => {

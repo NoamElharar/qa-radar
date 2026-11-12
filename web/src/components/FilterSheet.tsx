@@ -96,7 +96,7 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
         {/* The sheet's handle on a phone (decorative: closing is the × button, Escape or a tap outside). */}
         <div aria-hidden="true" className="mx-auto mt-2 h-1.5 w-10 rounded-full bg-slate-300 md:hidden dark:bg-slate-600" />
         <div className="flex items-center justify-between pt-1 md:pt-2">
-          <h2 className="text-xl font-bold tracking-tight">סינון</h2>
+          <h2 className="text-xl font-semibold tracking-tight">סינון</h2>
           <button
             type="button"
             onClick={onClose}

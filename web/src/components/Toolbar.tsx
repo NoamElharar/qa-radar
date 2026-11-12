@@ -43,7 +43,7 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
             <>
               <span
                 aria-hidden="true"
-                className="absolute -top-1.5 -end-1.5 grid h-5 min-w-5 place-items-center rounded-full bg-brand-700 px-1 text-xs font-bold text-white tabular-nums ring-2 ring-slate-50 dark:ring-[#0b1220]"
+                className="absolute -top-1.5 -end-1.5 grid h-5 min-w-5 place-items-center rounded-full bg-brand-700 px-1 text-xs font-bold text-white tabular-nums ring-2 ring-[#edf2f7] dark:ring-[#0b1220]"
               >
                 {count}
               </span>

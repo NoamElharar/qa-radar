@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { isNewSince, type Job, type SourceType } from '@qa-radar/shared';
-import { BottomNav, Header } from './components/Chrome.tsx';
+import { Header, ViewNav } from './components/Chrome.tsx';
 import { AlertIcon } from './components/icons.tsx';
 import { FilterSheet, type FilterOptions } from './components/FilterSheet.tsx';
 import { JobCard } from './components/JobCard.tsx';
 import { MineView } from './components/MineView.tsx';
+import { ManualBoardsCard, Overview } from './components/Overview.tsx';
 import { QuickLaunch } from './components/QuickLaunch.tsx';
 import { SourcesView } from './components/SourcesView.tsx';
 import { StatsView } from './components/StatsView.tsx';
@@ -27,7 +28,8 @@ import {
   type StatusEntry,
   type ThemePreference,
 } from './lib/storage.ts';
-import { relativeTime } from './lib/time.ts';
+import { asOf } from './lib/overview.ts';
+import { israelDayKey, relativeTime } from './lib/time.ts';
 import { useUrlFilters } from './lib/useUrlFilters.ts';
 
 const PAGE_SIZE = 50;
@@ -129,9 +131,42 @@ export function App() {
     () => (previousVisit ? visible.filter((j) => isNewSince(j, previousVisit)).length : 0),
     [visible, previousVisit],
   );
+  // The same "חדש היום" count as it stood 24 hours ago (approximate: statuses are today's).
+  const newYesterday = useMemo(() => {
+    const then = new Date(now.getTime() - 864e5);
+    const f = defaultFilters('new');
+    return applySourceTypeFilter(applyFilters(asOf(jobs, then), f, { ...ctx, now: then }), f, typeOf).length;
+  }, [jobs, ctx, now, typeOf]);
 
   const failing = sources.filter((s) => s.status === 'error' || s.status === 'suspect');
   const linkOut = sources.filter((s) => s.status === 'link-out');
+  const today = israelDayKey(now);
+  const boardsPending = linkOut.filter((s) => {
+    const at = personal.quickChecks[s.id];
+    return !at || israelDayKey(at) !== today;
+  }).length;
+
+  // "Scroll to" requests from the overview and the side menu, run once the target is on the page.
+  const [jump, setJump] = useState<string | null>(null);
+  useEffect(() => {
+    const el = jump ? document.getElementById(jump) : null;
+    if (!el) return;
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'start' });
+    setJump(null);
+  }, [jump, filters.view, data]);
+  const jumpTo = (id: 'new-jobs' | 'manual-boards') => {
+    if (filters.view !== 'new') setView('new');
+    setJump(id);
+  };
+  /** Opens "שלי" with its filters already set, through the same query parameters "שלי" itself writes. */
+  const openMine = (params?: Record<string, string>) => {
+    setView('mine');
+    if (!params) return;
+    const p = new URLSearchParams(window.location.search);
+    for (const [key, value] of Object.entries(params)) p.set(key, value);
+    window.history.replaceState(null, '', `${window.location.pathname}?${p}`);
+  };
   const baselinePending = jobs.length > 0 && jobs.every((j) => j.baseline) && filters.view === 'new';
 
   const filterOptions: FilterOptions = useMemo(() => {
@@ -227,6 +262,8 @@ export function App() {
 
   return (
     <>
+      {/* From 1024 px the side menu (ViewNav) sits on the right; the page moves over to make room for it. */}
+      <div className="lg:ps-[18.5rem] lg:pe-6">
       <Header
         updatedAt={data?.health.generatedAt}
         now={now}
@@ -235,7 +272,7 @@ export function App() {
         refreshing={refreshing}
         onRefresh={() => void refresh()}
       />
-      <main className="mx-auto max-w-3xl space-y-4 px-4 pt-5 pb-32">
+      <main className="mx-auto max-w-3xl space-y-4 px-4 pt-5 pb-32 lg:max-w-[76rem] lg:space-y-5 lg:px-0 lg:pt-6 lg:pb-12">
         {loadError && (
           <p role="alert" className="rounded-xl bg-rose-50 p-4 text-rose-800 dark:bg-rose-950 dark:text-rose-200">
             לא הצלחתי לטעון את הנתונים ({loadError}). אם זו הפעלה מקומית — הריצו קודם <code dir="ltr">npm run collect</code>.
@@ -243,7 +280,27 @@ export function App() {
         )}
         {!data && !loadError && <LoadingCards />}
 
-        {data && failing.length > 0 && filters.view !== 'sources' && (
+        {data && filters.view === 'new' && (
+          <Overview
+            now={now}
+            newToday={newTodayCount}
+            newYesterday={newYesterday}
+            newSinceVisit={newSinceVisit}
+            statuses={statuses}
+            jobsById={jobsById}
+            sourceById={sourceById}
+            sources={sources}
+            boardsTotal={linkOut.length}
+            boardsPending={boardsPending}
+            onOpenMine={openMine}
+            onOpenStats={() => setView('stats')}
+            onOpenSources={() => setView('sources')}
+            onJumpTo={jumpTo}
+          />
+        )}
+
+        {/* On the overview the sources card already says this. */}
+        {data && failing.length > 0 && filters.view !== 'sources' && filters.view !== 'new' && (
           <button
             type="button"
             onClick={() => setView('sources')}
@@ -258,11 +315,12 @@ export function App() {
 
         {data && isJobsView && (
           <>
-            <div className="flex items-baseline justify-between">
-              <h2 className="text-2xl font-bold tracking-tight">{filters.view === 'new' ? 'חדש היום' : 'כל המשרות'}</h2>
+            <div id="new-jobs" className="flex scroll-mt-24 items-baseline justify-between px-1 pt-2 lg:scroll-mt-28">
+              <h2 className="text-2xl font-semibold tracking-tight">{filters.view === 'new' ? 'משרות חדשות היום' : 'כל המשרות'}</h2>
               <span className="text-sm text-muted tabular-nums">{visible.length} משרות</span>
             </div>
-            {previousVisit && newSinceVisit > 0 && (
+            {/* On the overview the greeting already says how many are new since the last visit. */}
+            {filters.view === 'all' && previousVisit && newSinceVisit > 0 && (
               <p className="flex items-center gap-2 rounded-2xl bg-rose-50 px-4 py-3 text-sm font-medium text-rose-800 dark:bg-rose-950/60 dark:text-rose-200">
                 <span className="size-2.5 shrink-0 rounded-full bg-rose-500" aria-hidden="true" />
                 {newSinceVisit} {newSinceVisit === 1 ? 'משרה חדשה' : 'משרות חדשות'} מאז הביקור הקודם ({relativeTime(previousVisit.toISOString(), now)})
@@ -276,7 +334,8 @@ export function App() {
               </p>
             )}
 
-            <ul className="space-y-3">
+            {/* Separate cards up to 1280 px; from there one panel of rows, like a table. */}
+            <ul className="space-y-3 xl:space-y-0 xl:divide-y xl:divide-line xl:rounded-3xl xl:border xl:border-line xl:bg-surface xl:shadow-card">
               {visible.slice(0, limit).map((job) => (
                 <li key={job.id}>
                   <JobCard
@@ -306,13 +365,17 @@ export function App() {
               </p>
             )}
 
-            {linkOut.length > 0 && <QuickLaunch sources={linkOut} checks={personal.quickChecks} now={now} onChecked={markChecked} />}
+            {linkOut.length > 0 && (
+              <div id="manual-boards" className="scroll-mt-24 lg:scroll-mt-28">
+                <QuickLaunch sources={linkOut} checks={personal.quickChecks} now={now} onChecked={markChecked} />
+              </div>
+            )}
           </>
         )}
 
         {data && filters.view === 'mine' && (
           <>
-            <h2 className="text-2xl font-bold tracking-tight">המועמדויות שלי</h2>
+            <h2 className="px-1 text-2xl font-semibold tracking-tight lg:text-[1.75rem]">המועמדויות שלי</h2>
             <MineView
               personal={{ ...personal, statuses }}
               jobsById={jobsById}
@@ -331,7 +394,7 @@ export function App() {
 
         {data && filters.view === 'stats' && (
           <>
-            <h2 className="text-2xl font-bold tracking-tight">סטטיסטיקה</h2>
+            <h2 className="px-1 text-2xl font-semibold tracking-tight lg:text-[1.75rem]">סטטיסטיקה</h2>
             <StatsView
               statuses={statuses}
               jobsById={jobsById}
@@ -344,11 +407,12 @@ export function App() {
 
         {data && filters.view === 'sources' && (
           <>
-            <h2 className="text-2xl font-bold tracking-tight">מקורות</h2>
+            <h2 className="px-1 text-2xl font-semibold tracking-tight lg:text-[1.75rem]">מקורות</h2>
             <SourcesView sources={sources} generatedAt={data.health.generatedAt} now={now} />
           </>
         )}
       </main>
+      </div>
 
       <FilterSheet
         open={filtersOpen}
@@ -363,12 +427,12 @@ export function App() {
         <div
           role="status"
           // Above the floating tab bar, which sits higher by the iPhone home-bar inset.
-          className="fixed inset-x-4 bottom-[calc(6rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-sm rounded-2xl bg-slate-900 px-4 py-3 text-center text-sm text-white shadow-float transition-[opacity,translate] duration-200 ease-snappy motion-reduce:transition-none starting:translate-y-2 starting:opacity-0 dark:bg-slate-100 dark:text-slate-900"
+          className="fixed inset-x-4 bottom-[calc(6rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-sm lg:bottom-8 rounded-2xl bg-slate-900 px-4 py-3 text-center text-sm text-white shadow-float transition-[opacity,translate] duration-200 ease-snappy motion-reduce:transition-none starting:translate-y-2 starting:opacity-0 dark:bg-slate-100 dark:text-slate-900"
         >
           {notice}
         </div>
       )}
-      <BottomNav
+      <ViewNav
         view={filters.view}
         counts={{
           new: newTodayCount,
@@ -377,6 +441,11 @@ export function App() {
           sources: failing.length || undefined,
         }}
         onView={setView}
+        footer={
+          linkOut.length > 0 ? (
+            <ManualBoardsCard total={linkOut.length} pending={boardsPending} onOpen={() => jumpTo('manual-boards')} />
+          ) : undefined
+        }
       />
     </>
   );

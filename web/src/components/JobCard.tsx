@@ -30,14 +30,14 @@ const RING = 2 * Math.PI * 17;
  * The match score as a ring that fills to the score (out of 100). The number inside carries the
  * meaning; the arc's color (green 70+, amber 40+, gray below) only repeats it.
  */
-function ScoreRing({ score }: { score: number }) {
+function ScoreRing({ score, className = '' }: { score: number; className?: string }) {
   const tone =
-    score >= 70 ? 'text-emerald-600 dark:text-emerald-400' : score >= 40 ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400 dark:text-slate-500';
+    score >= 70 ? 'text-mint-500 dark:text-mint-300' : score >= 40 ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400 dark:text-slate-500';
   const value = Math.max(0, Math.min(100, score));
   return (
-    <span className="relative grid size-11 shrink-0 place-items-center" title="ציון התאמה לפרופיל">
+    <span className={`relative grid size-11 shrink-0 place-items-center ${className}`} title="ציון התאמה לפרופיל">
       <svg viewBox="0 0 40 40" className="absolute inset-0 size-full -rotate-90" aria-hidden="true">
-        <circle cx="20" cy="20" r="17" fill="none" strokeWidth="3" className="stroke-slate-200 dark:stroke-slate-700" />
+        <circle cx="20" cy="20" r="17" fill="none" strokeWidth="3" className="stroke-brand-100 dark:stroke-slate-700" />
         <circle
           cx="20"
           cy="20"
@@ -59,12 +59,12 @@ function ScoreRing({ score }: { score: number }) {
 }
 
 /** The first letter of the company or agency, standing in for a logo. Decorative. */
-function Monogram({ name }: { name?: string }) {
+function Monogram({ name, className = '' }: { name?: string; className?: string }) {
   const letter = name?.trim().match(/[\p{L}\p{N}]/u)?.[0]?.toUpperCase() ?? '?';
   return (
     <span
       aria-hidden="true"
-      className="grid size-10 shrink-0 place-items-center rounded-xl bg-slate-100 text-base font-bold text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+      className={`grid size-10 shrink-0 place-items-center rounded-xl bg-brand-50 text-base font-semibold text-brand-700 dark:bg-slate-800 dark:text-slate-300 ${className}`}
     >
       {letter}
     </span>
@@ -90,12 +90,15 @@ interface MenuPlacement {
 
 const MENU_GAP = 8 + 8; // the menu's offset from its button + breathing room
 
-/** Free space above/below the button, between the sticky header and the bottom bar. */
+/**
+ * Free space above/below the button, between the sticky header and the bottom tab bar. On a wide
+ * screen the view menu is a side menu, not a bottom bar, so the screen's own bottom is the limit.
+ */
 function menuRoom(button: HTMLElement) {
   const rect = button.getBoundingClientRect();
   const top = document.querySelector('header')?.getBoundingClientRect().bottom ?? 0;
-  const bottom =
-    document.querySelector('nav[aria-label="תצוגות"]')?.getBoundingClientRect().top ?? window.innerHeight;
+  const nav = document.querySelector('nav[aria-label="תצוגות"]')?.getBoundingClientRect();
+  const bottom = nav && nav.top > window.innerHeight / 2 ? nav.top : window.innerHeight;
   return { above: rect.top - top - MENU_GAP, below: bottom - rect.bottom - MENU_GAP, top: rect.top - top };
 }
 
@@ -179,7 +182,9 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
 
   return (
     <article
-      className={`relative rounded-2xl border bg-surface p-4 shadow-card ${
+      // Up to 1280 px a card. From there a row of the jobs panel (App puts the rows in one panel):
+      // mark | title, place and tags | score | actions, with the details opening underneath.
+      className={`relative rounded-2xl border bg-surface p-4 shadow-card xl:grid xl:grid-cols-[2.75rem_minmax(0,1fr)_2.75rem_auto] xl:items-center xl:gap-x-5 xl:gap-y-1 xl:rounded-none xl:border-0 xl:bg-transparent xl:px-5 xl:py-4 xl:shadow-none ${
         highlight ? 'border-rose-300 dark:border-rose-800' : 'border-line'
       } ${job.state === 'closed' ? 'opacity-60' : ''}`}
       aria-labelledby={`job-${job.id}`}
@@ -187,9 +192,9 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
       {highlight && <span className="absolute inset-y-4 -start-px w-1 rounded-e-full bg-rose-500" aria-hidden="true" />}
 
       {/* Head: company mark · badge, title and company · match score */}
-      <div className="flex items-start gap-3">
-        <Monogram name={companyName} />
-        <div className="min-w-0 flex-1">
+      <div className="flex items-start gap-3 xl:contents">
+        <Monogram name={companyName} className="xl:col-start-1 xl:row-span-3 xl:row-start-1 xl:size-11 xl:self-start xl:rounded-2xl" />
+        <div className="min-w-0 flex-1 xl:col-start-2 xl:row-start-1">
           {badge && (
             <span className={`mb-1 inline-flex items-center gap-1.5 rounded-full px-2 py-px text-xs font-semibold ${BADGE_STYLES[badge]}`}>
               <span className="size-1.5 rounded-full bg-current" aria-hidden="true" />
@@ -214,11 +219,11 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
             )}
           </p>
         </div>
-        <ScoreRing score={job.score} />
+        <ScoreRing score={job.score} className="xl:col-start-3 xl:row-span-3 xl:row-start-1" />
       </div>
 
       {/* Location · distance · first seen */}
-      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
+      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted xl:col-start-2 xl:row-start-2 xl:mt-1">
         <span className="inline-flex items-center gap-1">
           <PinIcon className="shrink-0" />
           {[job.city, ...regionChips].filter(Boolean).join(' · ') || 'מיקום לא צוין'}
@@ -233,7 +238,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
 
       {/* Row 4: my interview format (when set) + tags + seniority */}
       {(job.tags.length > 0 || job.seniority !== 'unknown' || format !== 'unknown') && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <div className="mt-3 flex flex-wrap gap-1.5 xl:col-start-2 xl:row-start-3 xl:mt-1.5">
           {format !== 'unknown' && (
             <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-medium text-brand-800 dark:bg-brand-900/60 dark:text-brand-100">
               ראיון: {INTERVIEW_FORMAT_LABELS[format]}
@@ -258,7 +263,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
 
       {/* Row 5: ✓ / ✗ details */}
       {expanded && (
-        <div className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3.5 text-sm dark:bg-slate-800/60">
+        <div className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3.5 text-sm xl:col-span-3 xl:col-start-2 xl:row-start-4 dark:bg-slate-800/60">
           {job.matched.length > 0 && (
             <p>
               <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 dark:text-emerald-400">
@@ -294,20 +299,20 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
         Row 6: actions. Every label stays on one line and the star keeps its 44 px; on a narrow phone
         a long status name ("ראיון שיחת וידאו") is what gets shortened, and the menu shows it in full.
       */}
-      <div className="mt-4 flex items-center gap-2 border-t border-line pt-3">
+      <div className="mt-4 flex items-center gap-2 border-t border-line pt-3 xl:col-start-4 xl:row-span-3 xl:row-start-1 xl:mt-0 xl:border-t-0 xl:pt-0">
         <a
           href={job.url}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => onOpen(job)}
-          className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl bg-brand-700 px-3 text-sm font-semibold whitespace-nowrap text-white shadow-sm transition-[background-color,scale] duration-150 hover:bg-brand-800 active:scale-[.97] motion-reduce:transition-none"
+          className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-brand-700 px-3.5 text-sm font-semibold whitespace-nowrap text-white shadow-sm transition-[background-color,scale] duration-150 hover:bg-brand-800 active:scale-[.97] motion-reduce:transition-none"
         >
           הגש מועמדות <ExternalIcon className="max-[390px]:hidden" />
         </a>
         <button
           type="button"
           onClick={() => onStatus(job, saved ? undefined : 'saved')}
-          className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl text-lg transition-colors duration-150 ${saved ? 'bg-amber-50 text-amber-500 dark:bg-amber-950' : 'text-muted hover:bg-slate-100 hover:text-amber-600 dark:hover:bg-slate-800 dark:hover:text-amber-400'}`}
+          className={`inline-flex size-11 shrink-0 items-center justify-center rounded-full text-lg transition-colors duration-150 ${saved ? 'bg-amber-50 text-amber-500 dark:bg-amber-950' : 'text-muted hover:bg-slate-100 hover:text-amber-600 dark:hover:bg-slate-800 dark:hover:text-amber-400'}`}
           aria-pressed={saved}
           aria-label={saved ? 'הסר משמורים' : 'שמור משרה'}
         >
@@ -316,7 +321,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="inline-flex min-h-11 shrink-0 items-center rounded-xl px-2 text-sm font-medium text-slate-600 transition-colors duration-150 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          className="inline-flex min-h-11 shrink-0 items-center rounded-full px-2.5 text-sm font-medium text-slate-600 transition-colors duration-150 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
           aria-expanded={expanded}
         >
           {expanded ? 'פחות' : 'פרטים'}
@@ -332,7 +337,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
               openedByKeyboard.current = e.detail === 0;
               setMenuOpen((v) => !v);
             }}
-            className="inline-flex min-h-11 max-w-full items-center gap-1 rounded-xl bg-slate-100 px-2.5 text-sm font-medium text-slate-700 transition-colors duration-150 hover:bg-slate-200 aria-expanded:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 dark:aria-expanded:bg-slate-700"
+            className="inline-flex min-h-11 max-w-full items-center gap-1 rounded-full bg-slate-100 px-3 text-sm font-medium text-slate-700 transition-colors duration-150 hover:bg-slate-200 aria-expanded:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 dark:aria-expanded:bg-slate-700"
             aria-haspopup="menu"
             aria-expanded={menuOpen}
             aria-label={`סטטוס: ${status ? STATUS_LABELS[status.status] : STATUS_LABELS.new} — שינוי`}
