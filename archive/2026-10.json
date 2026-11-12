@@ -2667,5 +2667,78 @@
     "state": "closed",
     "baseline": true,
     "closedAt": "2026-10-28T19:00:38.161Z"
+  },
+  {
+    "id": "comblack:25288",
+    "sourceId": "comblack",
+    "sourceJobId": "25288",
+    "url": "https://comblack.co.il/careers/position-25288/",
+    "title": "QA – SAP",
+    "agency": "Comblack",
+    "snippet": "חברת Comblack מגייסת בודק/ת תוכנה (QA) למערכות SAP לארגון יציב וגדול בירושלים! התפקיד כולל ביצוע בדיקות תוכנה מורכבות מקצה לקצה במערכות SAP, תכנון וכתיבת תסריטי בדיקות (STD) על בסיס מסמכי אפיון, בדיקת ממשקים ותהליכים חוצי מודולים, ביצוע רגרסיה ועבודה שוטפת מול מערכות SOLMAN, BW ו-TFS. מה אנחנו מחפשים? ✔️ ניסיון של 4 שנים ומעלה, עם ניסיון מוכח בביצוע בדיקות תוכנה וכתיבת תסריטי בדיקה למערכות SAP. ✔️ תעודת הכשרה בתחום הבדיקות וניסיון בתכנון וכתיבת מסמכי STD ותסריטי E2E. ✔️ ניסיון מוכח של שנתיים לפחות בעבודה עם מערכת SOLMAN ושנתיים לפחות בעבודה עם TFS. ✔️ ניסיון בבדיקות במערכת BW, בדיקת ממשקים…",
+    "postedAt": "2026-10-21T12:30:25.000Z",
+    "tags": [
+      "בדיקות ידניות/E2E",
+      "אוטומציה"
+    ],
+    "seniority": "mid",
+    "yearsRequired": 4,
+    "city": "ירושלים",
+    "regions": [
+      "jerusalem"
+    ],
+    "distanceKm": 38,
+    "score": 66,
+    "matched": [
+      "Manual / E2E",
+      "רגרסיה / סניטי",
+      "STP/STD/STR"
+    ],
+    "missing": [
+      "Salesforce / SAP"
+    ],
+    "firstSeenAt": "2026-10-06T03:00:32.343Z",
+    "lastSeenAt": "2026-10-29T01:00:32.733Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": false,
+    "closedAt": "2026-10-29T05:57:36.157Z"
+  },
+  {
+    "id": "comblack:24450",
+    "sourceId": "comblack",
+    "sourceJobId": "24450",
+    "url": "https://comblack.co.il/careers/position-24450/",
+    "title": "Manual & Automation QA",
+    "agency": "Comblack",
+    "snippet": "חברת Comblack מגייסת בודק/ת תוכנה (Manual & Automation) לארגון יציב וגדול בשפלה! התפקיד כולל הובלת מערך הבדיקות מקצה לקצה (End-to-End) בסביבה מאתגרת ומאובטחת, שילוב של כ-80% בדיקות ידניות מורכבות וכ-20% אוטומציה, ניהול בדיקות מסירה וקבלה, הדרכת בודקים זוטרים ועבודה צמודה מול מפתחים ומנהלי מוצר. מה אנחנו מחפשים? ✔️ ניסיון של שנתיים ומעלה בבדיקות תוכנה למערכות גדולות ומורכבות. ✔️ ניסיון מוכח בכתיבת מסמכי בדיקות מקיפים (STP / STD) ותרחישים מורכבים מאפס. ✔️ ניסיון מעשי בבדיקות ידניות לצד פיתוח ותחזוקת תסריטי אוטומציה. ✔️ שליטה בעבודה מול בסיסי נתונים ותחקור שאילתות SQL. ✔️ ניסיון בבדיקת ממשקים…",
+    "postedAt": "2026-10-21T14:53:59.000Z",
+    "tags": [
+      "בדיקות ידניות/E2E",
+      "אוטומציה",
+      "דאטה/DB",
+      "ענן/DevOps"
+    ],
+    "seniority": "mid",
+    "yearsRequired": 2,
+    "regions": [
+      "shfela"
+    ],
+    "score": 84,
+    "matched": [
+      "Manual / E2E",
+      "STP/STD/STR",
+      "SQL",
+      "Jira / Xray"
+    ],
+    "missing": [
+      "CI/CD"
+    ],
+    "firstSeenAt": "2026-10-04T08:27:15.595Z",
+    "lastSeenAt": "2026-10-29T01:00:32.733Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": true,
+    "closedAt": "2026-10-29T05:57:36.157Z"
   }
 ]
