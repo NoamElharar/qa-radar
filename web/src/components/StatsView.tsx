@@ -176,6 +176,8 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
             />
           </div>
 
+          {/* Two sections per row on a desktop, so the bars stay a readable length. */}
+          <div className="space-y-4 lg:grid lg:grid-cols-2 lg:items-start lg:gap-5 lg:space-y-0">
           <Card title="המשפך" subtitle="כמה מההגשות הגיעו לכל שלב">
             <ol className="space-y-2.5">
               {stats.funnel.map((row) => {
@@ -312,6 +314,7 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
               </p>
             )}
           </Card>
+          </div>
         </>
       )}
     </div>

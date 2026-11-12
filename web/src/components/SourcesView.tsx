@@ -27,7 +27,7 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
         <Stat label="בבעיה" value={failing.length} tone={failing.length ? 'bad' : 'ok'} />
       </div>
       <p className="text-xs text-muted">ריצה אחרונה: {formatDateTime(generatedAt)} ({relativeTime(generatedAt, now)})</p>
-      <div className="rounded-xl border border-brand-200 bg-brand-50 p-3 text-sm dark:border-brand-800 dark:bg-brand-900/40">
+      <div className="rounded-3xl border border-brand-200 bg-brand-50 p-4 lg:p-5 text-sm dark:border-brand-800 dark:bg-brand-900/40">
         <p className="font-semibold">צריך איסוף עכשיו?</p>
         <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
           האיסוף רץ לבד כל שעה (א׳–ה׳ 07:00–21:00, ובשאר הזמן כל 3 שעות). לאיסוף מיידי: פתחו את דף ההרצה ב-GitHub, לחצו{' '}
@@ -42,11 +42,11 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
           הרצת איסוף ב-GitHub <ExternalIcon />
         </a>
       </div>
-      <ul className="space-y-2">
+      <ul className="grid gap-2 lg:grid-cols-2 lg:gap-3">
         {sorted.map((s) => {
           const meta = STATUS_META[s.status];
           return (
-            <li key={s.id} className="rounded-xl border border-line bg-surface p-3 shadow-card">
+            <li key={s.id} className="rounded-2xl border border-line bg-surface p-3.5 shadow-card lg:p-4">
               <div className="flex items-center gap-2">
                 <span className={`size-2.5 shrink-0 rounded-full ${meta.dot}`} aria-hidden="true" />
                 <a href={s.homepage} target="_blank" rel="noopener noreferrer" className="tap-44 font-medium hover:underline">
@@ -104,8 +104,8 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
 function Stat({ label, value, tone }: { label: string; value: number; tone?: 'ok' | 'bad' }) {
   const color = tone === 'bad' ? 'text-rose-600' : tone === 'ok' ? 'text-emerald-600' : '';
   return (
-    <div className="rounded-xl border border-line bg-surface p-3 shadow-card">
-      <p className={`text-2xl font-bold tabular-nums ${color}`}>{value}</p>
+    <div className="rounded-3xl border border-line bg-surface p-3 shadow-card lg:p-5">
+      <p className={`text-3xl font-semibold tabular-nums ${color}`}>{value}</p>
       <p className="text-xs text-muted">{label}</p>
     </div>
   );

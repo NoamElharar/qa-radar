@@ -2,10 +2,10 @@ import type { ReactNode } from 'react';
 
 /*
  * The building blocks of "סטטיסטיקה". One encoding across the page (emphasis form): answers in the
- * brand accent, applications with no answer in a recessive gray. Checked with the dataviz palette
- * validator on the card surfaces: #0d9488 passes the band, chroma and 3:1 contrast in both modes, and
- * sits ΔE 24 (light) / 16 (dark, deutan) from the gray. The gray is under 3:1 by design, so every
- * value is also printed as text (or in a screen-reader table for the weekly chart).
+ * brand accent, applications with no answer in a recessive gray. The accent is the Sonar harbor blue
+ * (brand-600, #2c67ad: 5.1:1 on the light cards, far darker than the gray, so the two stay apart for
+ * every kind of color vision). The gray is under 3:1 by design, so every value is also printed as
+ * text (or in a screen-reader table for the weekly chart).
  */
 export const REPLIED_FILL = 'bg-brand-600';
 export const NO_REPLY_FILL = 'bg-slate-300 dark:bg-slate-600';
@@ -22,10 +22,10 @@ export function Card({
   return (
     <section
       aria-label={title}
-      className="space-y-3 rounded-2xl border border-line bg-surface p-4 shadow-card"
+      className="space-y-3 rounded-3xl border border-line bg-surface p-4 shadow-card lg:p-5"
     >
       <header>
-        <h3 className="text-sm font-semibold">{title}</h3>
+        <h3 className="text-base font-semibold">{title}</h3>
         {subtitle && <p className="mt-0.5 text-xs text-muted">{subtitle}</p>}
       </header>
       {children}

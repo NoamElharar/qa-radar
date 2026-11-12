@@ -3,21 +3,43 @@
 /* Dark mode follows data-theme on <html> (set from the saved preference or the OS setting). */
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
+/*
+ * "Sonar" (2026-11 redesign): harbor blue for the brand, mint for good news, on a pale ice page.
+ * The brand scale keeps the roles the old teal scale had, so every class that names a step still
+ * means the same thing: 600 = focus ring, 700 = buttons and selected fills, 500 = accents in dark mode.
+ */
 @theme {
-  --font-sans: 'Heebo', 'Assistant', 'Rubik', system-ui, sans-serif;
-  --color-brand-50: #f0fdfa;
-  --color-brand-100: #ccfbf1;
-  --color-brand-200: #99f6e4;
-  --color-brand-500: #14b8a6;
-  --color-brand-600: #0d9488;
-  --color-brand-700: #0f766e;
-  --color-brand-800: #115e59;
-  --color-brand-900: #134e4a;
+  --font-sans: 'Rubik', 'Heebo', system-ui, sans-serif;
+
+  --color-brand-50: #f0f5fb;
+  --color-brand-100: #e4edf8;
+  --color-brand-200: #cfdff2;
+  --color-brand-300: #a8c4e8;
+  --color-brand-400: #86ade6;
+  /* Text and accents on the dark surfaces: 6.1:1 on slate-900. */
+  --color-brand-500: #6b9be0;
+  /* Focus rings on the light page: 5.1:1 on the ice background. */
+  --color-brand-600: #2c67ad;
+  /* Primary buttons and selected fills under white text: 8.6:1. */
+  --color-brand-700: #1d4e89;
+  --color-brand-800: #173f70;
+  --color-brand-900: #12335c;
+  --color-brand-950: #0b2240;
+
+  --color-mint-50: #e3f5ee;
+  --color-mint-300: #8fe6c8;
+  --color-mint-500: #2e9e7a;
+  --color-mint-700: #17694f;
+
+  /* Softer corners than Tailwind's defaults: cards are 20 px, big panels 28 px. */
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
 }
 
 /*
  * Secondary text ("עודכן לפני…", counts, card details, hints, placeholders). One token for both themes:
- * slate-500 is 4.8:1 on white, but only 3.3–4.2:1 on the dark surfaces, so dark mode uses slate-400 (7:1).
+ * on the light side a slate between 500 and 600 (#56657a: 5.9:1 on white, 5.2:1 on the ice page, where
+ * slate-500 would drop to 4.3:1); dark mode uses slate-400 (7:1 on the dark surfaces).
  */
 @theme inline {
   --color-muted: var(--muted);
@@ -25,7 +47,7 @@
   --color-line: var(--line);
 }
 :root {
-  --muted: var(--color-slate-500);
+  --muted: #56657a;
 }
 html[data-theme='dark'] {
   --muted: var(--color-slate-400);
@@ -38,15 +60,15 @@ html[data-theme='dark'] {
  */
 :root {
   --surface: #fff;
-  --line: rgb(15 23 42 / 0.08);
-  --elev-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 12px -4px rgb(15 23 42 / 0.08);
-  --elev-float: 0 18px 40px -12px rgb(15 23 42 / 0.28), 0 4px 12px -4px rgb(15 23 42 / 0.1);
+  --line: rgb(14 26 43 / 0.08);
+  --elev-card: 0 1px 2px rgb(14 26 43 / 0.04), 0 14px 32px -20px rgb(14 26 43 / 0.24);
+  --elev-float: 0 22px 44px -16px rgb(14 26 43 / 0.32), 0 4px 12px -4px rgb(14 26 43 / 0.08);
 }
 html[data-theme='dark'] {
   --surface: var(--color-slate-900);
   --line: rgb(255 255 255 / 0.08);
-  --elev-card: inset 0 1px 0 rgb(255 255 255 / 0.03);
-  --elev-float: 0 18px 40px -12px rgb(0 0 0 / 0.7), inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --elev-card: inset 0 1px 0 rgb(255 255 255 / 0.04);
+  --elev-float: 0 22px 44px -16px rgb(0 0 0 / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.07);
 }
 @utility shadow-card {
   box-shadow: var(--elev-card);
@@ -56,22 +78,31 @@ html[data-theme='dark'] {
 }
 
 /*
- * Frosted glass for the header and the tab bar only — content stays on solid surfaces. 82% opacity plus
- * a strong blur keeps text over a scrolled-under teal button above 4.5:1. Solid when the OS asks for
- * less transparency.
+ * Frosted glass for the frame only (header, tab bar, sheets, a few highlight panels) — content stays
+ * on solid surfaces. 78% opacity plus a strong blur keeps text over a scrolled-under blue button
+ * above 4.5:1. Solid when the OS asks for less transparency.
  */
 @utility glass {
   background-color: var(--surface);
   @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-    background-color: color-mix(in srgb, var(--surface) 82%, transparent);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
-    backdrop-filter: blur(20px) saturate(1.8);
+    background-color: color-mix(in srgb, var(--surface) 78%, transparent);
+    -webkit-backdrop-filter: blur(22px) saturate(1.7);
+    backdrop-filter: blur(22px) saturate(1.7);
   }
   @media (prefers-reduced-transparency: reduce) {
     background-color: var(--surface);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
+}
+
+/*
+ * Diagonal stripes for "still waiting / no answer" (in the color of the element's text), so waiting is
+ * told apart from done by pattern as well as by color.
+ */
+@utility hatch {
+  border: 1px solid currentColor;
+  background-image: repeating-linear-gradient(135deg, currentColor 0 2px, transparent 2px 6px);
 }
 
 /* One easing for every UI transition: quick start, soft landing. */
@@ -123,7 +154,7 @@ html[data-theme='dark'] {
 
 html {
   -webkit-text-size-adjust: 100%;
-  background-color: #f8fafc;
+  background-color: #edf2f7;
   color-scheme: light;
   /* Keep a focused control clear of the sticky header and the bottom bar when the browser scrolls to it. */
   scroll-padding-top: 5rem;
@@ -136,6 +167,26 @@ html[data-theme='dark'] {
 
 body {
   @apply min-h-dvh font-sans text-slate-900 antialiased dark:text-slate-100;
+}
+
+/*
+ * The soft light the glass frame sits on: a blue glow at the top corner, a mint one at the bottom.
+ * Fixed behind everything, so it stays put while the content scrolls over it.
+ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(70rem 44rem at 92% -14%, rgb(207 225 245 / 0.95), transparent 62%),
+    radial-gradient(56rem 40rem at -6% 108%, rgb(214 240 230 / 0.9), transparent 60%);
+}
+html[data-theme='dark'] body::before {
+  background:
+    radial-gradient(70rem 44rem at 92% -14%, rgb(44 103 173 / 0.22), transparent 62%),
+    radial-gradient(56rem 40rem at -6% 108%, rgb(46 158 122 / 0.1), transparent 60%);
 }
 
 /*
@@ -155,7 +206,7 @@ bdi {
   unicode-bidi: isolate;
 }
 
-/* brand-600 is 3.7:1 on the light page (brand-500 was 2.5:1); brand-500 is 7.6:1 on the dark one. */
+/* brand-600 is 5.1:1 on the light page; brand-500 is 6.1:1 on the dark one. */
 :focus-visible {
   @apply outline-2 outline-offset-2 outline-brand-600 dark:outline-brand-500;
 }

@@ -85,6 +85,17 @@ export function auditLayout(page: Page): Promise<LayoutAudit> {
  * from 24px / 18.66px bold). Disabled controls are exempt. Colors are read through a canvas, which
  * turns any CSS color (Tailwind's oklch included) into sRGB.
  */
+/**
+ * Where the free part of the screen ends: the top of the view tabs when they are a bottom bar (a
+ * phone), else the bottom of the screen (from 1024 px the tabs are a side menu).
+ */
+export function bottomLimit(page: Page): Promise<number> {
+  return page.evaluate(() => {
+    const nav = document.querySelector('nav[aria-label="תצוגות"]')!.getBoundingClientRect();
+    return nav.top > window.innerHeight / 2 ? nav.top : window.innerHeight;
+  });
+}
+
 export function lowContrastText(page: Page): Promise<string[]> {
   return page.evaluate(() => {
     const canvas = document.createElement('canvas');

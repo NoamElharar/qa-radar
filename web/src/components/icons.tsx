@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react';
+import { useId, type SVGProps } from 'react';
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -157,12 +157,53 @@ export const SortIcon = (p: IconProps) => (
 );
 
 /** The app's mark (same drawing as favicon.svg): a radar sweep with one blip. Decorative. */
-export const RadarMark = ({ className = '' }: { className?: string }) => (
-  <svg viewBox="0 0 64 64" aria-hidden="true" className={className}>
-    <rect width="64" height="64" rx="16" fill="#0f766e" />
-    <circle cx="32" cy="32" r="20" fill="none" stroke="#ccfbf1" strokeWidth="3" opacity=".5" />
-    <circle cx="32" cy="32" r="11" fill="none" stroke="#ccfbf1" strokeWidth="3" opacity=".8" />
-    <path d="M32 32 L48 18" stroke="#ccfbf1" strokeWidth="4" strokeLinecap="round" />
-    <circle cx="44" cy="40" r="4" fill="#fbbf24" />
-  </svg>
+export const ArrowUpIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M12 19V5M6 11l6-6 6 6" />
+  </Svg>
 );
+export const ArrowDownIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M12 5v14M6 13l6 6 6-6" />
+  </Svg>
+);
+/** "Go there" in a right-to-left layout. */
+export const ArrowUpLeftIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="M17 17 7 7M7 15V7h8" />
+  </Svg>
+);
+export const OverviewIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <rect x="4" y="4" width="7" height="7" rx="2" />
+    <rect x="13" y="4" width="7" height="7" rx="2" />
+    <rect x="4" y="13" width="7" height="7" rx="2" />
+    <rect x="13" y="13" width="7" height="7" rx="2" />
+  </Svg>
+);
+
+/** An id that is safe inside `url(#…)` (React's own ids contain characters some engines refuse there). */
+export function useSvgId(prefix: string): string {
+  return `${prefix}-${useId().replace(/[^\w-]/g, '')}`;
+}
+
+/** A radar ring whose tail makes it a Q, a sweep inside it, and a mint blip: a job that fits. */
+export function RadarMark({ className = '' }: { className?: string }) {
+  const tile = useSvgId('mark');
+  return (
+    <svg viewBox="0 0 40 40" aria-hidden="true" className={className}>
+      <defs>
+        <linearGradient id={tile} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#2c67ad" />
+          <stop offset="1" stopColor="#173f70" />
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" rx="12" fill={`url(#${tile})`} />
+      <circle cx="19" cy="19" r="10" fill="none" stroke="#fff" strokeWidth="2.4" />
+      <circle cx="19" cy="19" r="5" fill="none" stroke="#fff" strokeOpacity=".45" strokeWidth="1.5" />
+      <path d="M19 19 L19 9 A10 10 0 0 1 28.4 15.6 Z" fill="#fff" fillOpacity=".32" />
+      <path d="M25.6 25.6 L31 31" stroke="#fff" strokeWidth="2.8" strokeLinecap="round" />
+      <circle cx="24.6" cy="13.2" r="2" fill="#8fe6c8" />
+    </svg>
+  );
+}

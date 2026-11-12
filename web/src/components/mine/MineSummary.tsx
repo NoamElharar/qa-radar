@@ -27,9 +27,9 @@ export function Tile({
   children?: ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-line bg-surface p-3 shadow-card">
-      <p className="text-xs text-muted">{label}</p>
-      <p className="mt-1 text-3xl leading-none font-bold tracking-tight tabular-nums">{value}</p>
+    <div className="rounded-3xl border border-line bg-surface p-3 shadow-card lg:p-5">
+      <p className="text-xs text-muted lg:text-sm lg:font-medium lg:text-slate-900 dark:lg:text-slate-100">{label}</p>
+      <p className="mt-1 text-3xl leading-none font-semibold tracking-tight tabular-nums lg:mt-2 lg:text-4xl">{value}</p>
       {sub && <p className="mt-1.5 text-xs text-muted">{sub}</p>}
       {children}
     </div>
@@ -99,14 +99,14 @@ export function MineSummary({
           type="button"
           onClick={onToggleStale}
           aria-pressed={staleActive}
-          className={`rounded-2xl border p-3 text-start transition ${
+          className={`rounded-3xl border p-3 text-start transition lg:p-5 ${
             staleActive
               ? 'border-amber-400 bg-amber-50 dark:border-amber-600 dark:bg-amber-950/50'
               : 'border-line bg-surface shadow-card hover:border-amber-300 dark:hover:border-amber-700'
           }`}
         >
-          <span className="block text-xs text-muted">ממתינות לתגובה</span>
-          <span className="mt-1 block text-3xl leading-none font-bold tracking-tight tabular-nums">{stats.stale}</span>
+          <span className="block text-xs text-muted lg:text-sm lg:font-medium lg:text-slate-900 dark:lg:text-slate-100">ממתינות לתגובה</span>
+          <span className="mt-1 block text-3xl leading-none font-semibold tracking-tight tabular-nums lg:mt-2 lg:text-4xl">{stats.stale}</span>
           <span className="mt-1.5 block text-xs text-muted">
             <ClockIcon className="inline-block align-[-0.125em]" /> {STALE_DAYS}+ ימים ·{' '}
             {staleActive ? 'מסונן ✓' : 'הצג'}
