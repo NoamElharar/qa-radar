@@ -235,19 +235,19 @@ export function App() {
         refreshing={refreshing}
         onRefresh={() => void refresh()}
       />
-      <main className="mx-auto max-w-3xl space-y-4 px-4 pt-4 pb-28">
+      <main className="mx-auto max-w-3xl space-y-4 px-4 pt-5 pb-32">
         {loadError && (
           <p role="alert" className="rounded-xl bg-rose-50 p-4 text-rose-800 dark:bg-rose-950 dark:text-rose-200">
             לא הצלחתי לטעון את הנתונים ({loadError}). אם זו הפעלה מקומית — הריצו קודם <code dir="ltr">npm run collect</code>.
           </p>
         )}
-        {!data && !loadError && <p className="py-10 text-center text-muted">טוען…</p>}
+        {!data && !loadError && <LoadingCards />}
 
         {data && failing.length > 0 && filters.view !== 'sources' && (
           <button
             type="button"
             onClick={() => setView('sources')}
-            className="flex w-full items-start gap-2 rounded-xl border border-amber-300 bg-amber-50 p-3 text-start text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950/60 dark:text-amber-200"
+            className="flex w-full items-start gap-2.5 rounded-2xl border border-amber-200 bg-amber-50 p-3.5 text-start text-sm text-amber-900 transition-colors duration-150 hover:bg-amber-100 dark:border-amber-900 dark:bg-amber-950/60 dark:text-amber-200 dark:hover:bg-amber-950"
           >
             <AlertIcon className="mt-0.5 shrink-0 text-amber-700 dark:text-amber-400" />
             <span>
@@ -259,11 +259,11 @@ export function App() {
         {data && isJobsView && (
           <>
             <div className="flex items-baseline justify-between">
-              <h2 className="text-xl font-bold">{filters.view === 'new' ? 'חדש היום' : 'כל המשרות'}</h2>
-              <span className="text-sm text-muted">{visible.length} משרות</span>
+              <h2 className="text-2xl font-bold tracking-tight">{filters.view === 'new' ? 'חדש היום' : 'כל המשרות'}</h2>
+              <span className="text-sm text-muted tabular-nums">{visible.length} משרות</span>
             </div>
             {previousVisit && newSinceVisit > 0 && (
-              <p className="flex items-center gap-2 rounded-xl bg-rose-50 px-4 py-2.5 text-sm font-medium text-rose-800 dark:bg-rose-950/60 dark:text-rose-200">
+              <p className="flex items-center gap-2 rounded-2xl bg-rose-50 px-4 py-3 text-sm font-medium text-rose-800 dark:bg-rose-950/60 dark:text-rose-200">
                 <span className="size-2.5 shrink-0 rounded-full bg-rose-500" aria-hidden="true" />
                 {newSinceVisit} {newSinceVisit === 1 ? 'משרה חדשה' : 'משרות חדשות'} מאז הביקור הקודם ({relativeTime(previousVisit.toISOString(), now)})
               </p>
@@ -271,7 +271,7 @@ export function App() {
             <Toolbar filters={filters} onChange={setFilters} onOpenFilters={() => setFiltersOpen(true)} />
 
             {baselinePending && (
-              <p className="rounded-xl border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-100">
+              <p className="rounded-2xl border border-brand-200 bg-brand-50 p-4 text-sm text-brand-900 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-100">
                 זו הריצה הראשונה — כל המשרות הקיימות נשמרו כ"בסיס" ולא מסומנות כחדשות. משרות שיופיעו מעכשיו יוצגו כאן. בינתיים אפשר לראות את כל {jobs.length} המשרות בלשונית "הכל".
               </p>
             )}
@@ -293,7 +293,7 @@ export function App() {
               ))}
             </ul>
             {visible.length > limit && (
-              <button type="button" onClick={() => setLimit((l) => l + PAGE_SIZE)} className="w-full rounded-xl border border-slate-300 py-3 text-sm dark:border-slate-700">
+              <button type="button" onClick={() => setLimit((l) => l + PAGE_SIZE)} className="min-h-11 w-full rounded-2xl border border-line bg-surface py-3 text-sm font-medium shadow-card transition-colors duration-150 hover:bg-slate-50 dark:hover:bg-slate-800">
                 הצג עוד {Math.min(PAGE_SIZE, visible.length - limit)} (מתוך {visible.length - limit} נוספות)
               </button>
             )}
@@ -312,7 +312,7 @@ export function App() {
 
         {data && filters.view === 'mine' && (
           <>
-            <h2 className="text-xl font-bold">המועמדויות שלי</h2>
+            <h2 className="text-2xl font-bold tracking-tight">המועמדויות שלי</h2>
             <MineView
               personal={{ ...personal, statuses }}
               jobsById={jobsById}
@@ -331,7 +331,7 @@ export function App() {
 
         {data && filters.view === 'stats' && (
           <>
-            <h2 className="text-xl font-bold">סטטיסטיקה</h2>
+            <h2 className="text-2xl font-bold tracking-tight">סטטיסטיקה</h2>
             <StatsView
               statuses={statuses}
               jobsById={jobsById}
@@ -344,7 +344,7 @@ export function App() {
 
         {data && filters.view === 'sources' && (
           <>
-            <h2 className="text-xl font-bold">מקורות</h2>
+            <h2 className="text-2xl font-bold tracking-tight">מקורות</h2>
             <SourcesView sources={sources} generatedAt={data.health.generatedAt} now={now} />
           </>
         )}
@@ -362,8 +362,8 @@ export function App() {
       {notice && (
         <div
           role="status"
-          // Above the bottom bar, which is taller by the iPhone home-bar inset.
-          className="fixed inset-x-4 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-sm rounded-xl bg-slate-900 px-4 py-3 text-center text-sm text-white shadow-lg dark:bg-slate-100 dark:text-slate-900"
+          // Above the floating tab bar, which sits higher by the iPhone home-bar inset.
+          className="fixed inset-x-4 bottom-[calc(6rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-sm rounded-2xl bg-slate-900 px-4 py-3 text-center text-sm text-white shadow-float transition-[opacity,translate] duration-200 ease-snappy motion-reduce:transition-none starting:translate-y-2 starting:opacity-0 dark:bg-slate-100 dark:text-slate-900"
         >
           {notice}
         </div>
@@ -379,5 +379,27 @@ export function App() {
         onView={setView}
       />
     </>
+  );
+}
+
+/** Placeholder cards in the shape of a job card while the data loads (no shimmer when motion is reduced). */
+function LoadingCards() {
+  return (
+    <div role="status" className="space-y-3">
+      <span className="sr-only">טוען…</span>
+      {[0, 1, 2].map((i) => (
+        <div key={i} aria-hidden="true" className="rounded-2xl border border-line bg-surface p-4 shadow-card">
+          <div className="flex animate-pulse gap-3 motion-reduce:animate-none">
+            <div className="size-10 shrink-0 rounded-xl bg-slate-200 dark:bg-slate-800" />
+            <div className="flex-1 space-y-2.5 pt-1">
+              <div className="h-4 w-3/4 rounded-full bg-slate-200 dark:bg-slate-800" />
+              <div className="h-3 w-1/2 rounded-full bg-slate-200 dark:bg-slate-800" />
+              <div className="h-3 w-2/3 rounded-full bg-slate-200 dark:bg-slate-800" />
+            </div>
+            <div className="size-11 shrink-0 rounded-full bg-slate-200 dark:bg-slate-800" />
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }

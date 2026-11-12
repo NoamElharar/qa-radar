@@ -211,7 +211,7 @@ export function MineView({
                   onChange={(e) => set({ q: e.target.value })}
                   placeholder="חיפוש…"
                   title="חיפוש בכותרת, בשם החברה, בלקוח הקצה ובהערות"
-                  className="w-full rounded-xl border border-slate-200 bg-white py-2.5 ps-9 pe-3 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900"
+                  className="w-full min-h-11 rounded-2xl border border-line bg-surface py-2.5 ps-9 pe-3 text-sm shadow-card"
                 />
               </label>
               <label>
@@ -219,7 +219,7 @@ export function MineView({
                 <select
                   value={filters.sort}
                   onChange={(e) => set({ sort: e.target.value as MineSort })}
-                  className="min-h-11 rounded-xl border border-slate-200 bg-white px-2 py-2.5 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900"
+                  className="min-h-11 rounded-2xl border border-line bg-surface px-2 py-2.5 text-sm shadow-card"
                 >
                   {(Object.keys(MINE_SORT_LABELS) as MineSort[]).map((s) => (
                     <option key={s} value={s}>
@@ -325,7 +325,7 @@ export function MineView({
           )}
 
           {pinned.length > 0 && (
-            <section className="overflow-hidden rounded-2xl border border-brand-200 bg-white dark:border-brand-800 dark:bg-slate-900">
+            <section className="overflow-hidden rounded-2xl border border-brand-200 bg-surface shadow-card dark:border-brand-800">
               <h3 className="flex items-center gap-1.5 border-b border-brand-100 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-900 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-100">
                 <PinIcon className="shrink-0" />
                 נעוצים · {pinned.length}
@@ -340,7 +340,7 @@ export function MineView({
             return (
               <section
                 key={status}
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
+                className="overflow-hidden rounded-2xl border border-line bg-surface shadow-card"
               >
                 <h3>
                   <button
@@ -389,7 +389,7 @@ export function MineView({
         </>
       )}
 
-      <details className="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+      <details className="group rounded-2xl border border-line bg-surface shadow-card">
         <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-3 text-sm font-semibold [&::-webkit-details-marker]:hidden">
           <GearIcon className="shrink-0 text-muted" />
           חברות מוסתרות וגיבוי

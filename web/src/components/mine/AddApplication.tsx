@@ -121,7 +121,7 @@ export function AddApplication({
     <form
       onSubmit={submit}
       noValidate
-      className="space-y-3 rounded-2xl border border-brand-200 bg-white p-4 dark:border-brand-800 dark:bg-slate-900"
+      className="space-y-3 rounded-2xl border border-brand-200 bg-surface p-4 shadow-card dark:border-brand-800"
       aria-label="הוספת מועמדות ידנית"
     >
       <div className="flex items-baseline justify-between">

@@ -1,6 +1,6 @@
 import { REGION_LABELS } from '@qa-radar/shared';
 import { activeFilterCount, TIME_LABELS, type Filters } from '../lib/filters.ts';
-import { FilterIcon, SearchIcon } from './icons.tsx';
+import { CloseIcon, FilterIcon, SearchIcon, SortIcon } from './icons.tsx';
 
 interface Props {
   filters: Filters;
@@ -24,26 +24,26 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
       <div className="flex items-center gap-2">
         <label className="relative flex-1">
           <span className="sr-only">חיפוש</span>
-          <SearchIcon className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <SearchIcon className="pointer-events-none absolute start-3.5 top-1/2 -translate-y-1/2 text-muted" />
           <input
             type="search"
             value={f.q}
             onChange={(e) => onChange({ ...f, q: e.target.value })}
             placeholder="חיפוש: API, מובייל, NESS…"
-            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 ps-9 pe-3 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900"
+            className="min-h-11 w-full rounded-2xl border border-line bg-surface py-2.5 ps-10 pe-3 text-sm shadow-card transition-shadow duration-150 focus:border-brand-600 dark:focus:border-brand-500"
           />
         </label>
         <button
           type="button"
           onClick={onOpenFilters}
-          className="relative inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-medium shadow-sm dark:border-slate-700 dark:bg-slate-900"
+          className="relative inline-flex min-h-11 items-center gap-1.5 rounded-2xl border border-line bg-surface px-3.5 py-2.5 text-sm font-medium shadow-card transition-colors duration-150 hover:bg-slate-50 dark:hover:bg-slate-800"
         >
           <FilterIcon /> סינון
           {count > 0 && (
             <>
               <span
                 aria-hidden="true"
-                className="absolute -top-1.5 -end-1.5 grid h-5 min-w-5 place-items-center rounded-full bg-brand-700 px-1 text-xs font-bold text-white tabular-nums"
+                className="absolute -top-1.5 -end-1.5 grid h-5 min-w-5 place-items-center rounded-full bg-brand-700 px-1 text-xs font-bold text-white tabular-nums ring-2 ring-slate-50 dark:ring-[#0b1220]"
               >
                 {count}
               </span>
@@ -57,19 +57,20 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
           type="button"
           onClick={() => onChange({ ...f, sort: f.sort === 'new' ? 'score' : 'new' })}
           // The visible text is the name, so screen readers and voice control hear the current sort.
-          className="tap-44 inline-flex min-h-9 shrink-0 items-center gap-1 rounded-full bg-slate-800 px-3 text-xs font-medium text-white dark:bg-slate-200 dark:text-slate-900"
+          className="tap-44 inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border border-line bg-surface px-3 text-xs font-medium text-slate-700 shadow-card transition-colors duration-150 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
         >
-          מיון: {f.sort === 'new' ? 'חדש ביותר' : 'התאמה הכי טובה'} <span aria-hidden="true">⇅</span>
+          <SortIcon className="text-muted" />
+          מיון: {f.sort === 'new' ? 'חדש ביותר' : 'התאמה הכי טובה'}
         </button>
         {chips.map((c) => (
           <button
             key={c.key}
             type="button"
             onClick={c.clear}
-            className="tap-44 inline-flex min-h-9 shrink-0 items-center rounded-full border border-brand-200 bg-brand-50 px-3 text-xs text-brand-800 dark:border-brand-800 dark:bg-brand-900/50 dark:text-brand-100"
+            className="tap-44 inline-flex min-h-9 shrink-0 items-center gap-1 rounded-full border border-brand-200 bg-brand-50 ps-3 pe-2 text-xs font-medium text-brand-800 transition-colors duration-150 hover:bg-brand-100 dark:border-brand-800 dark:bg-brand-900/50 dark:text-brand-100 dark:hover:bg-brand-900"
             aria-label={`הסר סינון ${c.label}`}
           >
-            {c.label} ✕
+            {c.label} <CloseIcon className="text-sm" />
           </button>
         ))}
       </div>

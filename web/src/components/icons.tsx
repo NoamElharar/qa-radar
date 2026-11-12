@@ -150,3 +150,19 @@ export const ChevronDownIcon = (p: IconProps) => (
     <path d="m6 9 6 6 6-6" />
   </Svg>
 );
+export const SortIcon = (p: IconProps) => (
+  <Svg {...p}>
+    <path d="m3 16 4 4 4-4M7 20V4M21 8l-4-4-4 4M17 4v16" />
+  </Svg>
+);
+
+/** The app's mark (same drawing as favicon.svg): a radar sweep with one blip. Decorative. */
+export const RadarMark = ({ className = '' }: { className?: string }) => (
+  <svg viewBox="0 0 64 64" aria-hidden="true" className={className}>
+    <rect width="64" height="64" rx="16" fill="#0f766e" />
+    <circle cx="32" cy="32" r="20" fill="none" stroke="#ccfbf1" strokeWidth="3" opacity=".5" />
+    <circle cx="32" cy="32" r="11" fill="none" stroke="#ccfbf1" strokeWidth="3" opacity=".8" />
+    <path d="M32 32 L48 18" stroke="#ccfbf1" strokeWidth="4" strokeLinecap="round" />
+    <circle cx="44" cy="40" r="4" fill="#fbbf24" />
+  </svg>
+);

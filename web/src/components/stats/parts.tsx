@@ -22,7 +22,7 @@ export function Card({
   return (
     <section
       aria-label={title}
-      className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900"
+      className="space-y-3 rounded-2xl border border-line bg-surface p-4 shadow-card"
     >
       <header>
         <h3 className="text-sm font-semibold">{title}</h3>

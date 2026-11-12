@@ -26,7 +26,7 @@ export function WeeklyChart({ weeks }: { weeks: WeekCount[] }) {
   const labelStep = weeks.length > 8 ? 2 : 1;
 
   return (
-    <figure className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+    <figure className="rounded-2xl border border-line bg-surface p-4 shadow-card">
       <figcaption className="flex items-baseline justify-between">
         <span className="text-sm font-semibold">הגשות לפי שבוע</span>
         <span className="text-xs text-muted">{weeks.length} השבועות האחרונים</span>

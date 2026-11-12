@@ -27,9 +27,9 @@ export function Tile({
   children?: ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
+    <div className="rounded-2xl border border-line bg-surface p-3 shadow-card">
       <p className="text-xs text-muted">{label}</p>
-      <p className="mt-1 text-2xl leading-none font-semibold">{value}</p>
+      <p className="mt-1 text-3xl leading-none font-bold tracking-tight tabular-nums">{value}</p>
       {sub && <p className="mt-1.5 text-xs text-muted">{sub}</p>}
       {children}
     </div>
@@ -102,11 +102,11 @@ export function MineSummary({
           className={`rounded-2xl border p-3 text-start transition ${
             staleActive
               ? 'border-amber-400 bg-amber-50 dark:border-amber-600 dark:bg-amber-950/50'
-              : 'border-slate-200 bg-white hover:border-amber-300 dark:border-slate-800 dark:bg-slate-900'
+              : 'border-line bg-surface shadow-card hover:border-amber-300 dark:hover:border-amber-700'
           }`}
         >
           <span className="block text-xs text-muted">ממתינות לתגובה</span>
-          <span className="mt-1 block text-2xl leading-none font-semibold">{stats.stale}</span>
+          <span className="mt-1 block text-3xl leading-none font-bold tracking-tight tabular-nums">{stats.stale}</span>
           <span className="mt-1.5 block text-xs text-muted">
             <ClockIcon className="inline-block align-[-0.125em]" /> {STALE_DAYS}+ ימים ·{' '}
             {staleActive ? 'מסונן ✓' : 'הצג'}

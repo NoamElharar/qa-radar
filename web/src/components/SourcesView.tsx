@@ -46,7 +46,7 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
         {sorted.map((s) => {
           const meta = STATUS_META[s.status];
           return (
-            <li key={s.id} className="rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
+            <li key={s.id} className="rounded-xl border border-line bg-surface p-3 shadow-card">
               <div className="flex items-center gap-2">
                 <span className={`size-2.5 shrink-0 rounded-full ${meta.dot}`} aria-hidden="true" />
                 <a href={s.homepage} target="_blank" rel="noopener noreferrer" className="tap-44 font-medium hover:underline">
@@ -104,7 +104,7 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
 function Stat({ label, value, tone }: { label: string; value: number; tone?: 'ok' | 'bad' }) {
   const color = tone === 'bad' ? 'text-rose-600' : tone === 'ok' ? 'text-emerald-600' : '';
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
+    <div className="rounded-xl border border-line bg-surface p-3 shadow-card">
       <p className={`text-2xl font-bold tabular-nums ${color}`}>{value}</p>
       <p className="text-xs text-muted">{label}</p>
     </div>

@@ -90,13 +90,22 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
       onClose={onClose}
       onClick={(e) => e.target === dialogRef.current && onClose()}
       aria-label="סינון משרות"
-      className="sheet m-0 mt-auto max-h-[88dvh] w-full max-w-none rounded-t-3xl bg-white p-0 text-slate-900 shadow-2xl backdrop:bg-slate-950/50 md:ms-auto md:mt-0 md:h-dvh md:max-h-none md:w-[26rem] md:rounded-none dark:bg-slate-900 dark:text-slate-100"
+      className="sheet m-0 mt-auto max-h-[88dvh] w-full max-w-none rounded-t-3xl bg-surface p-0 text-slate-900 shadow-float backdrop:bg-slate-950/50 md:ms-auto md:mt-0 md:h-dvh md:max-h-none md:w-[26rem] md:rounded-none dark:text-slate-100"
     >
-      <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-100 bg-white px-5 py-3 dark:border-slate-800 dark:bg-slate-900">
-        <h2 className="text-lg font-bold">סינון</h2>
-        <button type="button" onClick={onClose} className="grid size-11 place-items-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="סגור">
-          <CloseIcon />
-        </button>
+      <div className="sticky top-0 z-10 border-b border-line bg-surface px-5 pb-2">
+        {/* The sheet's handle on a phone (decorative: closing is the × button, Escape or a tap outside). */}
+        <div aria-hidden="true" className="mx-auto mt-2 h-1.5 w-10 rounded-full bg-slate-300 md:hidden dark:bg-slate-600" />
+        <div className="flex items-center justify-between pt-1 md:pt-2">
+          <h2 className="text-xl font-bold tracking-tight">סינון</h2>
+          <button
+            type="button"
+            onClick={onClose}
+            className="grid size-11 place-items-center rounded-full bg-slate-100 transition-colors duration-150 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
+            aria-label="סגור"
+          >
+            <CloseIcon />
+          </button>
+        </div>
       </div>
 
       <div className="px-5 pb-[calc(7rem+env(safe-area-inset-bottom))]">
@@ -216,11 +225,11 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
       </div>
 
       {/* Clear of the iPhone home bar, whose swipe-up gesture would otherwise compete with the buttons. */}
-      <div className="fixed inset-x-0 bottom-0 flex gap-3 border-t border-slate-100 bg-white p-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:absolute dark:border-slate-800 dark:bg-slate-900">
-        <button type="button" onClick={onReset} className="min-h-11 rounded-xl border border-slate-300 px-4 text-sm dark:border-slate-700">
+      <div className="fixed inset-x-0 bottom-0 flex gap-3 border-t border-line bg-surface p-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:absolute">
+        <button type="button" onClick={onReset} className="min-h-11 rounded-xl bg-slate-100 px-4 text-sm font-medium transition-colors duration-150 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700">
           איפוס
         </button>
-        <button type="button" onClick={onClose} className="min-h-11 flex-1 rounded-xl bg-brand-700 px-4 text-sm font-semibold text-white">
+        <button type="button" onClick={onClose} className="min-h-11 flex-1 rounded-xl bg-brand-700 px-4 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-brand-800">
           הצג {resultCount} משרות
         </button>
       </div>

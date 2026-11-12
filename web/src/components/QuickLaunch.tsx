@@ -32,7 +32,7 @@ export function QuickLaunch({ sources, checks, now, onChecked }: Props) {
   const [open, setOpen] = useState(pending > 0 || fresh > 0);
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <section className="rounded-2xl border border-line bg-surface shadow-card">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
