@@ -1,12 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import type { Job } from '@qa-radar/shared';
 import {
+  applicationsTo,
   applyMineFilters,
   buildItems,
+  clientOverlaps,
   createManualEntry,
   DEFAULT_MINE_FILTERS,
   groupItems,
   isStale,
+  knownClients,
+  sameCompany,
   mineFiltersFromParams,
   mineStats,
   visiblePipeline,
@@ -345,6 +349,13 @@ describe('manual applications', () => {
     ).toBe(true);
   });
 
+  it('keeps the end client the recruiter named', () => {
+    const made = createManualEntry({ title: 'QA', endClient: '  אקמה ', status: 'applied' }, now);
+    const without = createManualEntry({ title: 'QA', endClient: '  ', status: 'applied' }, now);
+    expect('entry' in made && made.entry.endClient).toBe('אקמה');
+    expect('entry' in without && without.entry.endClient).toBeUndefined();
+  });
+
   it('is never marked as "removed from the source", and can be filtered and searched by channel', () => {
     const made = createManualEntry(
       { title: 'Manual QA', channel: 'חבר מביא חבר', status: 'applied' },
@@ -355,5 +366,81 @@ describe('manual applications', () => {
     expect(items.find((i) => i.id === made.id)?.gone).toBe(false);
     expect(ids(applyMineFilters(items, f({ flags: ['manual'] }), now))).toEqual([made.id]);
     expect(ids(applyMineFilters(items, f({ q: 'חבר מביא' }), now))).toEqual([made.id]);
+  });
+});
+
+describe('end client — the company the job is really at', () => {
+  // Names are made up; "אקמה" stands in for any end client.
+  const via = (company: string, endClient?: string, overrides: Partial<StatusEntry> = {}) =>
+    entry({ manual: true, endClient, snapshot: { title: 'QA', company, url: '' }, ...overrides });
+
+  it('reads one company however it was typed', () => {
+    expect(sameCompany('שב"א', 'שבא')).toBe(true);
+    expect(sameCompany('בנק מזרחי', 'מזרחי טפחות')).toBe(true);
+    expect(sameCompany('לאומי', 'בנק לאומי')).toBe(true);
+    expect(sameCompany('Acme Ltd.', 'ACME')).toBe(true);
+    expect(sameCompany('בנק לאומי', 'בנק מזרחי')).toBe(false);
+    expect(sameCompany('אקמה', '')).toBe(false);
+  });
+
+  it('warns when two different agencies sent my CV to the same company', () => {
+    const items = buildItems(
+      {
+        first: via('סוכנות א', 'אקמה', { appliedAt: daysAgo(9) }),
+        second: via('סוכנות ב', 'אקמה בע"מ', { appliedAt: daysAgo(2) }),
+        elsewhere: via('סוכנות ב', 'חברה אחרת'),
+      },
+      new Map(),
+    );
+    const overlaps = clientOverlaps(items);
+    expect(overlaps.get('second')).toMatchObject({ client: 'אקמה בע"מ', conflict: true });
+    expect(ids(overlaps.get('second')!.others)).toEqual(['first']);
+    expect(overlaps.has('elsewhere')).toBe(false);
+    expect(ids(applyMineFilters(items, f({ flags: ['overlap'] }), now)).sort()).toEqual([
+      'first',
+      'second',
+    ]);
+  });
+
+  it('the same agency coming back about the same company is not a clash', () => {
+    const items = buildItems(
+      { a: via('Agency X', 'אקמה'), b: via('agency x', 'אקמה', { status: 'recruiter_call' }) },
+      new Map(),
+    );
+    expect(clientOverlaps(items).get('a')).toMatchObject({ conflict: false });
+    expect(applyMineFilters(items, f({ flags: ['overlap'] }), now)).toEqual([]);
+  });
+
+  it('a direct application counts for its company without typing it', () => {
+    const direct = { id: 'acme:1', title: 'QA', company: 'אקמה', state: 'active', url: 'https://a.test' } as Job;
+    const items = buildItems(
+      { 'acme:1': entry(), later: via('סוכנות א', 'אקמה') },
+      new Map([['acme:1', direct]]),
+    );
+    expect(clientOverlaps(items).get('later')).toMatchObject({ conflict: true });
+    expect(ids(applicationsTo(items, 'אקמה'))).toEqual(['acme:1', 'later']);
+  });
+
+  it('only real applications count, and an agency ad never names the client by itself', () => {
+    const agencyAd = { id: 'ag:1', title: 'QA', agency: 'סוכנות א', endClient: 'אקמה', state: 'active', url: 'https://b.test' } as Job;
+    const items = buildItems(
+      {
+        'ag:1': entry(),
+        saved: via('סוכנות ב', 'אקמה', { status: 'saved', appliedAt: undefined }),
+        applied: via('סוכנות ג', 'אקמה'),
+      },
+      new Map([['ag:1', agencyAd]]),
+    );
+    expect(ids(applicationsTo(items, 'אקמה'))).toEqual(['applied']);
+    expect(clientOverlaps(items).size).toBe(0);
+  });
+
+  it('is searchable and suggested with the spelling used most', () => {
+    const items = buildItems(
+      { a: via('סוכנות א', 'אקמה'), b: via('סוכנות ב', 'אקמה'), c: via('סוכנות ג', 'בטא') },
+      new Map(),
+    );
+    expect(ids(applyMineFilters(items, f({ q: 'בטא' }), now))).toEqual(['c']);
+    expect(knownClients(items)).toEqual(['אקמה', 'בטא']);
   });
 });

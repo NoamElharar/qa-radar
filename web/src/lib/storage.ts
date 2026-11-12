@@ -114,6 +114,11 @@ export interface StatusEntry {
   manual?: boolean;
   /** Where I applied, e.g. "LinkedIn", "AllJobs", "חבר מביא חבר". */
   channel?: string;
+  /**
+   * The company the job is really at, when an agency recruits for it ("אקמה"). Two agencies sending
+   * my CV to the same company can cost the application, so "שלי" warns about it.
+   */
+  endClient?: string;
   /** Optional; missing means "לא ידוע" (and is how entries from before this field read). */
   interviewFormat?: InterviewFormat;
   /** Snapshot so the entry stays readable after the job leaves jobs.json. */
@@ -265,9 +270,13 @@ export function importPersonal(current: PersonalData, json: string): PersonalDat
   }
   const statuses = { ...current.statuses };
   for (const [id, raw] of Object.entries(incoming.statuses ?? {})) {
-    // Older backups have no interviewFormat; a value this version doesn't know is dropped.
-    const { interviewFormat, ...rest } = raw;
-    const entry: StatusEntry = isInterviewFormat(interviewFormat) ? { ...rest, interviewFormat } : rest;
+    // Older backups have no interviewFormat or endClient; values this version can't read are dropped.
+    const { interviewFormat, endClient, ...rest } = raw;
+    const entry: StatusEntry = {
+      ...rest,
+      ...(isInterviewFormat(interviewFormat) ? { interviewFormat } : {}),
+      ...(typeof endClient === 'string' && endClient.trim() ? { endClient: endClient.trim() } : {}),
+    };
     const existing = statuses[id];
     if (!existing || entry.updatedAt > existing.updatedAt) statuses[id] = entry;
   }

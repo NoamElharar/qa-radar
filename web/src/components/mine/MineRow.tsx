@@ -1,6 +1,13 @@
 import { memo } from 'react';
 import { textDir } from '../../lib/bidi.ts';
-import { daysWaiting, isStale, type MineItem } from '../../lib/mine.ts';
+import {
+  daysWaiting,
+  endClientOf,
+  isStale,
+  submitterOf,
+  type ClientOverlap,
+  type MineItem,
+} from '../../lib/mine.ts';
 import {
   INTERVIEW_FORMAT_LABELS,
   INTERVIEW_FORMATS,
@@ -28,6 +35,61 @@ interface Props {
   onRemove: (id: string) => void;
   /** Show the status pill (needed where statuses are mixed, e.g. the pinned section). */
   showStatus: boolean;
+  /** Other applications to the same end client, if any. */
+  overlap?: ClientOverlap;
+  /** Show every application to this end client (sets the search). */
+  onShowClient: (client: string) => void;
+}
+
+/** How many of the other applications to list before "and N more". */
+const OVERLAP_LIST = 5;
+
+/** The other applications to the same company; a warning when someone else sent my CV there too. */
+function OverlapNote({
+  overlap,
+  onShowClient,
+}: {
+  overlap: ClientOverlap;
+  onShowClient: (client: string) => void;
+}) {
+  const { client, others, conflict } = overlap;
+  return (
+    <div
+      className={`mt-2 rounded-lg border p-2.5 text-xs ${
+        conflict
+          ? 'border-rose-200 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-100'
+          : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
+      }`}
+    >
+      <p className="font-medium">
+        {conflict ? '⚠️ כבר הוגשת ל-' : 'עוד מועמדות ל-'}
+        <bdi>{client}</bdi>
+        {conflict ? ' גם ממקור אחר:' : ', מאותה חברה:'}
+      </p>
+      <ul className="mt-1 space-y-0.5">
+        {others.slice(0, OVERLAP_LIST).map((o) => (
+          <li key={o.id}>
+            <bdi>{submitterOf(o) ?? 'לא ידוע מי הגיש'}</bdi> · {STATUS_LABELS[o.entry.status]}
+            {o.entry.appliedAt && ` · הוגש ${formatDate(o.entry.appliedAt)}`}
+          </li>
+        ))}
+        {others.length > OVERLAP_LIST && <li>ועוד {others.length - OVERLAP_LIST}</li>}
+      </ul>
+      {conflict && (
+        <p className="mt-1.5">
+          חברה שמקבלת את אותם קורות חיים מכמה חברות השמה עלולה לפסול את המועמדות. לפני הגשה נוספת
+          — כדאי לברר מי הגיש ראשון.
+        </p>
+      )}
+      <button
+        type="button"
+        onClick={() => onShowClient(client)}
+        className="mt-1 min-h-9 underline"
+      >
+        הצג את כל המועמדויות ל-<bdi>{client}</bdi>
+      </button>
+    </div>
+  );
 }
 
 const fieldClass =
@@ -100,11 +162,16 @@ export const MineRow = memo(function MineRow({
   onUpdate,
   onRemove,
   showStatus,
+  overlap,
+  onShowClient,
 }: Props) {
-  const { id, entry, title, company, url, gone } = item;
+  const { id, entry, title, company, url, gone, job } = item;
   const stale = isStale(entry, now);
   const pinned = Boolean(entry.pinned);
   const format = interviewFormatOf(entry);
+  const client = endClientOf(item);
+  // A direct job already names its company; an agency's ad only hints at it ("ארגון פיננסי").
+  const clientHint = job && !job.agency ? job.company : job?.endClient && `במודעה: ${job.endClient}`;
 
   return (
     <li className={expanded ? 'bg-slate-50/80 dark:bg-slate-800/40' : ''}>
@@ -135,6 +202,16 @@ export const MineRow = memo(function MineRow({
           </span>
           <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-slate-500">
             {company && <bdi className="max-w-[12rem] truncate">{company}</bdi>}
+            {client && client !== company && (
+              <span className="max-w-[12rem] truncate">
+                עבור <bdi>{client}</bdi>
+              </span>
+            )}
+            {overlap?.conflict && (
+              <span className="rounded-md bg-rose-100 px-1.5 py-px font-medium text-rose-900 dark:bg-rose-900/40 dark:text-rose-100">
+                ⚠️ {overlap.others.length + 1} הגשות ל-<bdi>{overlap.client}</bdi>
+              </span>
+            )}
             {entry.appliedAt && <span>הוגש {formatDate(entry.appliedAt)}</span>}
             <span>עודכן {relativeTime(entry.updatedAt, now)}</span>
             {stale && (
@@ -247,6 +324,25 @@ export const MineRow = memo(function MineRow({
                 ))}
               </select>
             </label>
+          </div>
+
+          <div className="text-sm">
+            <label className="block">
+              <span className="mb-1 block text-xs text-slate-500">
+                לקוח הקצה — החברה שבה המשרה
+              </span>
+              <input
+                defaultValue={entry.endClient ?? ''}
+                list="qa-radar-clients"
+                placeholder={clientHint || 'לדוגמה: אקמה'}
+                onBlur={(e) =>
+                  e.target.value.trim() !== (entry.endClient ?? '') &&
+                  onUpdate(id, { endClient: e.target.value.trim() || undefined })
+                }
+                className={fieldClass}
+              />
+            </label>
+            {overlap && <OverlapNote overlap={overlap} onShowClient={onShowClient} />}
           </div>
 
           <label className="block text-sm">

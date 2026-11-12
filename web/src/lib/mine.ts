@@ -1,4 +1,4 @@
-import { matchesQuery, type Job } from '@qa-radar/shared';
+import { matchesQuery, normalizeText, type Job } from '@qa-radar/shared';
 import {
   ALL_STATUSES,
   INTERVIEW_FORMATS,
@@ -18,7 +18,7 @@ import {
 export const STALE_DAYS = 14;
 const DAY_MS = 864e5;
 
-export type MineFlag = 'pinned' | 'stale' | 'notes' | 'manual';
+export type MineFlag = 'pinned' | 'stale' | 'notes' | 'manual' | 'overlap';
 export type MineSort = 'updated' | 'applied' | 'waiting' | 'company';
 export type AppliedWindow = 'any' | '7d' | '30d' | '90d';
 
@@ -174,20 +174,25 @@ export function isStale(entry: StatusEntry, now: Date): boolean {
 }
 
 export function applyMineFilters(items: MineItem[], f: MineFilters, now: Date): MineItem[] {
-  const filtered = items.filter(({ entry, title, company }) => {
+  const overlaps = f.flags.includes('overlap') ? clientOverlaps(items) : undefined;
+  const filtered = items.filter(({ id, entry, title, company }) => {
     if (f.statuses.length && !f.statuses.includes(entry.status)) return false;
     if (f.formats.length && !f.formats.includes(interviewFormatOf(entry))) return false;
     if (f.flags.includes('pinned') && !entry.pinned) return false;
     if (f.flags.includes('stale') && !isStale(entry, now)) return false;
     if (f.flags.includes('notes') && !entry.note?.trim()) return false;
     if (f.flags.includes('manual') && !entry.manual) return false;
+    if (overlaps && !overlaps.get(id)?.conflict) return false;
     if (f.applied !== 'any') {
       if (!entry.appliedAt || now.getTime() - Date.parse(entry.appliedAt) > WINDOW_MS[f.applied])
         return false;
     }
     if (
       f.q &&
-      !matchesQuery([title, company, entry.note, entry.channel].filter(Boolean).join(' '), f.q)
+      !matchesQuery(
+        [title, company, entry.endClient, entry.note, entry.channel].filter(Boolean).join(' '),
+        f.q,
+      )
     )
       return false;
     return true;
@@ -220,6 +225,108 @@ export function groupItems(items: MineItem[]): {
     items: rest.filter((i) => i.entry.status === status),
   })).filter((g) => g.items.length);
   return { pinned, groups };
+}
+
+// ── End client: the company the job is really at ─────────────────────────────────────
+
+/** Words that don't tell companies apart, so "בנק מזרחי" and "מזרחי טפחות" read as one company. */
+const GENERIC_COMPANY_WORDS = new Set([
+  'בנק',
+  'חברת',
+  'חברה',
+  'קבוצת',
+  'קבוצה',
+  'בעמ',
+  'ltd',
+  'inc',
+  'group',
+]);
+
+/** The words that identify a company name, however it was typed (case, quotes, punctuation). */
+export function companyWords(name: string): string[] {
+  const words = normalizeText(name)
+    .replace(/["'`]/g, '') // שב"א = שבא, בע"מ = בעמ
+    .split(/[^\p{L}\p{N}]+/u)
+    .filter(Boolean);
+  const specific = words.filter((w) => !GENERIC_COMPANY_WORDS.has(w));
+  return specific.length ? specific : words;
+}
+
+/** One company: every identifying word of the shorter name is in the other ("לאומי" = "בנק לאומי"). */
+export function sameCompany(a: string, b: string): boolean {
+  const wa = companyWords(a);
+  const wb = companyWords(b);
+  if (!wa.length || !wb.length) return false;
+  const [short, long] = wa.length <= wb.length ? [wa, new Set(wb)] : [wb, new Set(wa)];
+  return short.every((w) => long.has(w));
+}
+
+/**
+ * The company the job is at: as I typed it, else the hiring company of a job that company posted
+ * itself (applying there directly and through an agency is the same clash).
+ */
+export function endClientOf(item: MineItem): string | undefined {
+  const typed = item.entry.endClient?.trim();
+  if (typed) return typed;
+  return item.job && !item.job.agency ? item.job.company : undefined;
+}
+
+/** Who sent my CV: the agency, or the company itself for a direct application. */
+export function submitterOf(item: MineItem): string | undefined {
+  return item.job?.agency ?? item.company;
+}
+
+const firstApplied = (a: MineItem, b: MineItem) =>
+  (a.entry.appliedAt ?? a.entry.updatedAt).localeCompare(b.entry.appliedAt ?? b.entry.updatedAt);
+
+/** Applications to this company, the first one first (it is usually the one that counts). */
+export function applicationsTo(items: MineItem[], client: string): MineItem[] {
+  if (!companyWords(client).length) return [];
+  return items
+    .filter((item) => {
+      const other = isApplication(item.entry) ? endClientOf(item) : undefined;
+      return Boolean(other && sameCompany(other, client));
+    })
+    .sort(firstApplied);
+}
+
+export interface ClientOverlap {
+  /** The end client as this application names it. */
+  client: string;
+  /** The other applications to the same company, the first one first. */
+  others: MineItem[];
+  /** Some of them were sent by someone else: the company may get my CV twice and drop it. */
+  conflict: boolean;
+}
+
+/** For each application whose end client also has other applications: those, and whether they clash. */
+export function clientOverlaps(items: MineItem[]): Map<string, ClientOverlap> {
+  const known = items.flatMap((item) => {
+    const client = isApplication(item.entry) ? endClientOf(item) : undefined;
+    return client ? [{ item, client, by: submitterOf(item) }] : [];
+  });
+  const result = new Map<string, ClientOverlap>();
+  for (const a of known) {
+    const others = known.filter((b) => b !== a && sameCompany(a.client, b.client));
+    if (!others.length) continue;
+    result.set(a.item.id, {
+      client: a.client,
+      others: others.map((o) => o.item).sort(firstApplied),
+      // Without a name for who sent it, assume it could be someone else.
+      conflict: others.some((b) => !a.by || !b.by || !sameCompany(a.by, b.by)),
+    });
+  }
+  return result;
+}
+
+/** End clients I have typed, the most used first (suggestions keep one spelling per company). */
+export function knownClients(items: MineItem[]): string[] {
+  const counts = new Map<string, number>();
+  for (const { entry } of items) {
+    const client = entry.endClient?.trim();
+    if (client) counts.set(client, (counts.get(client) ?? 0) + 1);
+  }
+  return [...counts].sort((a, b) => b[1] - a[1]).map(([client]) => client);
 }
 
 // ── Statistics ──────────────────────────────────────────────────────────────────────
@@ -302,7 +409,7 @@ export function mineStats(items: MineItem[], now: Date, weeks = 8): MineStats {
 
 // ── URL state (only while view=mine) ─────────────────────────────────────────────────
 
-const FLAG_VALUES: MineFlag[] = ['pinned', 'stale', 'notes', 'manual'];
+const FLAG_VALUES: MineFlag[] = ['pinned', 'stale', 'notes', 'manual', 'overlap'];
 const list = (v: string | null) => (v ? v.split(',').filter(Boolean) : []);
 
 export function mineFiltersFromParams(p: URLSearchParams): MineFilters {
@@ -366,6 +473,7 @@ export interface ManualInput {
   company?: string;
   url?: string;
   channel?: string;
+  endClient?: string;
   status: JobStatus;
   /** YYYY-MM-DD from the date input; empty = not applied yet. */
   appliedDate?: string;
@@ -404,6 +512,7 @@ export function createManualEntry(
       note: input.note?.trim() || undefined,
       manual: true,
       channel: input.channel?.trim() || undefined,
+      endClient: input.endClient?.trim() || undefined,
       ...(input.interviewFormat && input.interviewFormat !== 'unknown'
         ? { interviewFormat: input.interviewFormat }
         : {}),

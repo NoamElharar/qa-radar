@@ -143,6 +143,19 @@ describe('JSON import', () => {
     });
   });
 
+  it('keeps the end client, and drops one that is not text', () => {
+    const json = JSON.stringify({
+      app: 'qa-radar',
+      statuses: {
+        a: { status: 'applied', updatedAt: '2026-10-10T09:00:00.000Z', endClient: ' אקמה ' },
+        b: { status: 'applied', updatedAt: '2026-10-10T09:00:00.000Z', endClient: 42 },
+      },
+    });
+    const result = importPersonal(empty(), json);
+    expect(result.statuses.a?.endClient).toBe('אקמה');
+    expect(result.statuses.b).toEqual({ status: 'applied', updatedAt: '2026-10-10T09:00:00.000Z' });
+  });
+
   it('a newer entry in the file replaces the one in the browser (how a corrected backup applies)', () => {
     const current = importPersonal(empty(), oldExport);
     const corrected = JSON.stringify({

@@ -6,9 +6,11 @@ import {
   applyMineFilters,
   buildItems,
   CHANNEL_SUGGESTIONS,
+  clientOverlaps,
   COLLAPSED_BY_DEFAULT,
   DEFAULT_MINE_FILTERS,
   groupItems,
+  knownClients,
   MINE_SORT_LABELS,
   mineFiltersFromParams,
   mineStats,
@@ -54,6 +56,7 @@ const FLAG_LABELS: Record<MineFlag, string> = {
   stale: '⏳ ממתינות 14+ ימים',
   notes: '📝 עם הערות',
   manual: '✍️ ידניות',
+  overlap: '⚠️ הגשה כפולה ללקוח',
 };
 
 function useMineFilters() {
@@ -96,9 +99,23 @@ export function MineView({
   const stats = useMemo(() => mineStats(items, now), [items, now]);
   const visible = useMemo(() => applyMineFilters(items, filters, now), [items, filters, now]);
   const { pinned, groups } = useMemo(() => groupItems(visible), [visible]);
+  const overlaps = useMemo(() => clientOverlaps(items), [items]);
+  const clashCount = useMemo(
+    () => [...overlaps.values()].filter((o) => o.conflict).length,
+    [overlaps],
+  );
+  const clients = useMemo(() => knownClients(items), [items]);
   const activeCount = activeMineFilterCount(filters);
 
   const set = (patch: Partial<MineFilters>) => setFilters({ ...filters, ...patch });
+  // Every application to that company, whatever else was filtered (the search covers the end client).
+  const showClient = useCallback(
+    (client: string) => {
+      setFilters({ ...DEFAULT_MINE_FILTERS, sort: filters.sort, q: client });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    [filters.sort, setFilters],
+  );
   const toggleIn = <T,>(list: T[], v: T) =>
     list.includes(v) ? list.filter((x) => x !== v) : [...list, v];
   const toggleExpand = useCallback(
@@ -127,6 +144,8 @@ export function MineView({
           onUpdate={onUpdate}
           onRemove={onClear}
           showStatus={showStatus}
+          overlap={overlaps.get(item.id)}
+          onShowClient={showClient}
         />
       ))}
     </ul>
@@ -134,9 +153,14 @@ export function MineView({
 
   return (
     <div className="space-y-4">
-      <AddApplication onAdd={onAdd} />
+      <AddApplication onAdd={onAdd} existing={items} />
       <datalist id="qa-radar-channels">
         {CHANNEL_SUGGESTIONS.map((c) => (
+          <option key={c} value={c} />
+        ))}
+      </datalist>
+      <datalist id="qa-radar-clients">
+        {clients.map((c) => (
           <option key={c} value={c} />
         ))}
       </datalist>
@@ -161,14 +185,14 @@ export function MineView({
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <label className="relative flex-1">
-                <span className="sr-only">חיפוש במועמדויות (כותרת, חברה, הערות)</span>
+                <span className="sr-only">חיפוש במועמדויות (כותרת, חברה, לקוח, הערות)</span>
                 <SearchIcon className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type="search"
                   value={filters.q}
                   onChange={(e) => set({ q: e.target.value })}
                   placeholder="חיפוש…"
-                  title="חיפוש בכותרת, בשם החברה ובהערות"
+                  title="חיפוש בכותרת, בשם החברה, בלקוח הקצה ובהערות"
                   className="w-full rounded-xl border border-slate-200 bg-white py-2.5 ps-9 pe-3 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900"
                 />
               </label>
@@ -190,6 +214,8 @@ export function MineView({
             <div className="flex flex-wrap items-center gap-1.5">
               {(Object.keys(FLAG_LABELS) as MineFlag[]).map((flag) => {
                 const active = filters.flags.includes(flag);
+                // Shown only while there is something to find (or the filter is on).
+                if (flag === 'overlap' && !clashCount && !active) return null;
                 return (
                   <button
                     key={flag}
@@ -203,6 +229,11 @@ export function MineView({
                     }`}
                   >
                     {FLAG_LABELS[flag]}
+                    {flag === 'overlap' && (
+                      <span className={`ms-1 tabular-nums ${active ? '' : 'text-slate-500'}`}>
+                        {clashCount}
+                      </span>
+                    )}
                   </button>
                 );
               })}

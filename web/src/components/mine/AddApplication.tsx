@@ -1,5 +1,14 @@
-import { useId, useState, type FormEvent } from 'react';
-import { CHANNEL_SUGGESTIONS, createManualEntry, type ManualInput } from '../../lib/mine.ts';
+import { useId, useMemo, useState, type FormEvent } from 'react';
+import {
+  applicationsTo,
+  CHANNEL_SUGGESTIONS,
+  createManualEntry,
+  sameCompany,
+  submitterOf,
+  type ManualInput,
+  type MineItem,
+} from '../../lib/mine.ts';
+import { formatDate } from '../../lib/time.ts';
 import {
   INTERVIEW_FORMAT_LABELS,
   INTERVIEW_FORMATS,
@@ -29,6 +38,7 @@ const emptyForm = (): ManualInput => ({
   company: '',
   url: '',
   channel: '',
+  endClient: '',
   status: 'applied',
   appliedDate: israelDayKey(new Date()),
   note: '',
@@ -38,13 +48,33 @@ const emptyForm = (): ManualInput => ({
 const inputClass =
   'w-full rounded-lg border border-slate-300 bg-white px-2.5 py-2 text-sm dark:border-slate-700 dark:bg-slate-900';
 
+/** How many earlier applications to name in the warning. */
+const EARLIER_LIST = 4;
+
 /** "➕ הוספת מועמדות" — for applications the collector never saw (LinkedIn, AllJobs, a friend…). */
-export function AddApplication({ onAdd }: { onAdd: (id: string, entry: StatusEntry) => void }) {
+export function AddApplication({
+  onAdd,
+  existing,
+}: {
+  onAdd: (id: string, entry: StatusEntry) => void;
+  /** Applications already saved, to warn before a second agency sends my CV to the same company. */
+  existing: MineItem[];
+}) {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<ManualInput>(emptyForm);
   const [error, setError] = useState<string>();
   const [savedTitle, setSavedTitle] = useState<string>();
   const channelsId = useId();
+  const earlier = useMemo(
+    () => applicationsTo(existing, form.endClient ?? ''),
+    [existing, form.endClient],
+  );
+  // Only a different sender clashes; the same agency coming back about the same company is fine.
+  const company = form.company?.trim() ?? '';
+  const clash = earlier.some((item) => {
+    const by = submitterOf(item);
+    return !company || !by || !sameCompany(by, company);
+  });
 
   const set = (patch: Partial<ManualInput>) => {
     setForm((f) => ({ ...f, ...patch }));
@@ -134,6 +164,53 @@ export function AddApplication({ onAdd }: { onAdd: (id: string, entry: StatusEnt
             ))}
           </datalist>
         </label>
+      </div>
+
+      <div className="text-sm">
+        <label className="block">
+          <span className="mb-1 block text-xs text-slate-500">
+            לקוח הקצה — החברה שבה המשרה (אם המגייסת אמרה)
+          </span>
+          <input
+            value={form.endClient}
+            onChange={(e) => set({ endClient: e.target.value })}
+            list="qa-radar-clients"
+            placeholder="לדוגמה: אקמה"
+            className={inputClass}
+          />
+        </label>
+        {earlier.length > 0 && (
+          <div
+            role="status"
+            className={`mt-2 rounded-lg border p-2.5 text-xs ${
+              clash
+                ? 'border-rose-200 bg-rose-50 text-rose-900 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-100'
+                : 'border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200'
+            }`}
+          >
+            <p className="font-medium">
+              {clash ? '⚠️ ' : ''}כבר יש לך{' '}
+              {earlier.length === 1 ? 'מועמדות אחת' : `${earlier.length} מועמדויות`} ל-
+              <bdi>{form.endClient?.trim()}</bdi>:
+            </p>
+            <ul className="mt-1 space-y-0.5">
+              {earlier.slice(0, EARLIER_LIST).map((item) => (
+                <li key={item.id}>
+                  <bdi>{submitterOf(item) ?? 'לא ידוע מי הגיש'}</bdi> ·{' '}
+                  {STATUS_LABELS[item.entry.status]}
+                  {item.entry.appliedAt && ` · הוגש ${formatDate(item.entry.appliedAt)}`}
+                </li>
+              ))}
+              {earlier.length > EARLIER_LIST && <li>ועוד {earlier.length - EARLIER_LIST}</li>}
+            </ul>
+            {clash && (
+              <p className="mt-1.5">
+                חברה שמקבלת את אותם קורות חיים מכמה חברות השמה עלולה לפסול את המועמדות. כדאי לברר מי
+                הגיש ראשון לפני שמסכימים להגשה נוספת.
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       <label className="block text-sm">
