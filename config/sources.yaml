@@ -231,6 +231,21 @@ sources:
     options:
       feedUrl: https://www.aman-global.com/careers/בדיקות-תוכנה-qa/feed/
 
+  - id: medulla
+    name: Medulla (מדולה)
+    type: agency
+    tier: A
+    adapter: rss
+    homepage: https://medulla.co.il/new-jobs/
+    # Site policy = privacy policy only (no copying or crawler ban; the "terms of use" it mentions
+    # don't exist); robots.txt allows everything. Mostly hardware, chips and development jobs.
+    # Medulla never takes old posts down: 693 are live, back to 2020, and at launch the newest QA job
+    # was from July 2026. So read only the 3 newest feed pages (30 jobs, about six weeks); anything
+    # older is almost surely filled.
+    options:
+      feedUrl: https://medulla.co.il/jobs/feed/
+      maxPages: 3
+
   - id: amanet
     name: אמנת (קבוצת אמן)
     type: agency
