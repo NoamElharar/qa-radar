@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import type { View } from '../lib/filters.ts';
 import type { ThemePreference } from '../lib/storage.ts';
 import { relativeTime } from '../lib/time.ts';
-import { AutoThemeIcon, BoltIcon, ListIcon, MoonIcon, PulseIcon, RefreshIcon, SunIcon, UserIcon } from './icons.tsx';
+import { AutoThemeIcon, BoltIcon, ChartIcon, ListIcon, MoonIcon, PulseIcon, RefreshIcon, SunIcon, UserIcon } from './icons.tsx';
 
 const THEME_NEXT: Record<ThemePreference, ThemePreference> = { system: 'light', light: 'dark', dark: 'system' };
 const THEME_LABEL: Record<ThemePreference, string> = { system: 'ערכת נושא: לפי המכשיר', light: 'ערכת נושא: בהירה', dark: 'ערכת נושא: כהה' };
@@ -57,6 +57,7 @@ const TABS: Array<{ view: View; label: string; icon: (p: { className?: string })
   { view: 'new', label: 'חדש', icon: BoltIcon },
   { view: 'all', label: 'הכל', icon: ListIcon },
   { view: 'mine', label: 'שלי', icon: UserIcon },
+  { view: 'stats', label: 'סטטיסטיקה', icon: ChartIcon },
   { view: 'sources', label: 'מקורות', icon: PulseIcon },
 ];
 
@@ -66,7 +67,7 @@ export function BottomNav({ view, counts, onView }: { view: View; counts: Partia
       className="fixed inset-x-0 bottom-0 z-30 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur dark:border-slate-800 dark:bg-slate-950/95"
       aria-label="תצוגות"
     >
-      <ul className="mx-auto grid max-w-3xl grid-cols-4">
+      <ul className="mx-auto grid max-w-3xl grid-cols-5">
         {TABS.map(({ view: v, label, icon: Icon }) => {
           const active = v === view;
           const count = counts[v];

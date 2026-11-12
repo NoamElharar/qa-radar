@@ -14,7 +14,7 @@ interface Props {
   onToggleStale: () => void;
 }
 
-function Tile({
+export function Tile({
   label,
   value,
   sub,

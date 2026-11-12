@@ -6,6 +6,7 @@ const VIEWS = [
   { name: 'חדש', path: './', ready: TITLES.manualNew },
   { name: 'הכל', path: './?view=all', ready: TITLES.baseline },
   { name: 'שלי', path: './?view=mine', ready: 'המועמדויות שלי' },
+  { name: 'סטטיסטיקה', path: './?view=stats', ready: 'עוד אין הגשות לנתח' },
   { name: 'מקורות', path: './?view=sources', ready: 'מקור תקול' },
 ];
 

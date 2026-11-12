@@ -6,6 +6,7 @@ import { JobCard } from './components/JobCard.tsx';
 import { MineView } from './components/MineView.tsx';
 import { QuickLaunch } from './components/QuickLaunch.tsx';
 import { SourcesView } from './components/SourcesView.tsx';
+import { StatsView } from './components/StatsView.tsx';
 import { Toolbar } from './components/Toolbar.tsx';
 import { useRadarData } from './lib/useRadarData.ts';
 import { applyFilters, applySourceTypeFilter, defaultFilters } from './lib/filters.ts';
@@ -319,6 +320,19 @@ export function App() {
               onUnhide={unhideCompany}
               onExport={doExport}
               onImport={doImport}
+            />
+          </>
+        )}
+
+        {data && filters.view === 'stats' && (
+          <>
+            <h2 className="text-xl font-bold">סטטיסטיקה</h2>
+            <StatsView
+              statuses={statuses}
+              jobsById={jobsById}
+              sourceById={sourceById}
+              now={now}
+              onOpenMine={() => setView('mine')}
             />
           </>
         )}

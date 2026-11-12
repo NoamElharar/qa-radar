@@ -10,7 +10,7 @@ import {
 } from '@qa-radar/shared';
 import { HANDLED_STATUSES, type StatusEntry } from './storage.ts';
 
-export type View = 'new' | 'all' | 'mine' | 'sources';
+export type View = 'new' | 'all' | 'mine' | 'stats' | 'sources';
 export type TimeWindow = '24h' | '3d' | '7d' | '30d' | 'any';
 export type SortOrder = 'new' | 'score';
 
@@ -74,7 +74,7 @@ const TIME_VALUES = Object.keys(TIME_LABELS) as TimeWindow[];
 
 export function filtersFromParams(params: URLSearchParams): Filters {
   const viewParam = params.get('view');
-  const view: View = viewParam === 'all' || viewParam === 'mine' || viewParam === 'sources' ? viewParam : 'new';
+  const view: View = (['all', 'mine', 'stats', 'sources'] as const).find((v) => v === viewParam) ?? 'new';
   const d = defaultFilters(view);
   const time = params.get('t') as TimeWindow | null;
   const km = Number(params.get('km'));
