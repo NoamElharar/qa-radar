@@ -2,7 +2,7 @@ import type { SourceHealth, SourceStatus } from '@qa-radar/shared';
 import { SOURCE_TYPE_LABELS } from '@qa-radar/shared';
 import { COLLECT_WORKFLOW_URL } from '../lib/data.ts';
 import { formatDateTime, relativeTime } from '../lib/time.ts';
-import { ExternalIcon } from './icons.tsx';
+import { AlertIcon, ExternalIcon } from './icons.tsx';
 
 const STATUS_META: Record<SourceStatus, { dot: string; label: string }> = {
   ok: { dot: 'bg-emerald-500', label: 'תקין' },
@@ -26,7 +26,7 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
         <Stat label="תקינים" value={collected.length - failing.length} tone="ok" />
         <Stat label="בבעיה" value={failing.length} tone={failing.length ? 'bad' : 'ok'} />
       </div>
-      <p className="text-xs text-slate-500">ריצה אחרונה: {formatDateTime(generatedAt)} ({relativeTime(generatedAt, now)})</p>
+      <p className="text-xs text-muted">ריצה אחרונה: {formatDateTime(generatedAt)} ({relativeTime(generatedAt, now)})</p>
       <div className="rounded-xl border border-brand-200 bg-brand-50 p-3 text-sm dark:border-brand-800 dark:bg-brand-900/40">
         <p className="font-semibold">צריך איסוף עכשיו?</p>
         <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
@@ -49,20 +49,26 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
             <li key={s.id} className="rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
               <div className="flex items-center gap-2">
                 <span className={`size-2.5 shrink-0 rounded-full ${meta.dot}`} aria-hidden="true" />
-                <a href={s.homepage} target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">
+                <a href={s.homepage} target="_blank" rel="noopener noreferrer" className="tap-44 font-medium hover:underline">
                   {s.name}
                 </a>
-                <span className="text-xs text-slate-500">
+                <span className="text-xs text-muted">
                   {SOURCE_TYPE_LABELS[s.type]} · Tier {s.tier}
                 </span>
                 <span className="ms-auto text-xs font-medium">{meta.label}</span>
               </div>
-              <div className="mt-1 ps-4.5 text-xs text-slate-500">
+              <div className="mt-1 ps-4.5 text-xs text-muted">
                 {s.status === 'link-out' || s.status === 'disabled' ? (
                   <span>
                     {s.note}
                     {s.watch && s.lastSuccessAt && ` · נספרו ${s.watch.length} משרות QA ${relativeTime(s.lastSuccessAt, now)}`}
-                    {s.watch && s.error && ' · ⚠ הספירה האחרונה נכשלה'}
+                    {s.watch && s.error && (
+                      <>
+                        {' · '}
+                        <AlertIcon className="inline-block align-[-0.125em] text-amber-700 dark:text-amber-400" />{' '}
+                        הספירה האחרונה נכשלה
+                      </>
+                    )}
                   </span>
                 ) : (
                   <>
@@ -81,7 +87,7 @@ export function SourcesView({ sources, generatedAt, now }: { sources: SourceHeal
               {s.status === 'link-out' && s.quickLinks?.length ? (
                 <div className="mt-2 flex flex-wrap gap-2 ps-4.5">
                   {s.quickLinks.map((l) => (
-                    <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-9 items-center gap-1 text-xs text-brand-700 hover:underline dark:text-brand-100">
+                    <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="tap-44 inline-flex min-h-9 items-center gap-1 text-xs text-brand-700 hover:underline dark:text-brand-100">
                       {l.label} <ExternalIcon />
                     </a>
                   ))}
@@ -100,7 +106,7 @@ function Stat({ label, value, tone }: { label: string; value: number; tone?: 'ok
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
       <p className={`text-2xl font-bold tabular-nums ${color}`}>{value}</p>
-      <p className="text-xs text-slate-500">{label}</p>
+      <p className="text-xs text-muted">{label}</p>
     </div>
   );
 }

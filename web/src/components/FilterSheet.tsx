@@ -31,16 +31,27 @@ function toggle<T>(list: T[], value: T): T[] {
   return list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
 }
 
-function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: ReactNode }) {
+function Chip({
+  active,
+  onClick,
+  disabled,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  disabled?: boolean;
+  children: ReactNode;
+}) {
   return (
     <button
       type="button"
       aria-pressed={active}
       onClick={onClick}
-      className={`min-h-10 rounded-full border px-3 text-sm transition ${
+      disabled={disabled}
+      className={`tap-44 min-h-10 rounded-full border px-3 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
         active
-          ? 'border-brand-600 bg-brand-600 text-white'
-          : 'border-slate-300 bg-white text-slate-700 hover:border-brand-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
+          ? 'border-brand-700 bg-brand-700 text-white'
+          : 'border-slate-300 bg-white text-slate-700 enabled:hover:border-brand-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
       }`}
     >
       {children}
@@ -79,7 +90,7 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
       onClose={onClose}
       onClick={(e) => e.target === dialogRef.current && onClose()}
       aria-label="סינון משרות"
-      className="m-0 mt-auto max-h-[88dvh] w-full max-w-none rounded-t-3xl bg-white p-0 text-slate-900 shadow-2xl backdrop:bg-slate-950/50 md:ms-auto md:mt-0 md:h-dvh md:max-h-none md:w-[26rem] md:rounded-none dark:bg-slate-900 dark:text-slate-100"
+      className="sheet m-0 mt-auto max-h-[88dvh] w-full max-w-none rounded-t-3xl bg-white p-0 text-slate-900 shadow-2xl backdrop:bg-slate-950/50 md:ms-auto md:mt-0 md:h-dvh md:max-h-none md:w-[26rem] md:rounded-none dark:bg-slate-900 dark:text-slate-100"
     >
       <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-100 bg-white px-5 py-3 dark:border-slate-800 dark:bg-slate-900">
         <h2 className="text-lg font-bold">סינון</h2>
@@ -88,7 +99,7 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
         </button>
       </div>
 
-      <div className="px-5 pb-28">
+      <div className="px-5 pb-[calc(7rem+env(safe-area-inset-bottom))]">
         <Section title="אזור">
           <div className="flex flex-wrap gap-2">
             {REGION_IDS.map((r: RegionId) => (
@@ -97,7 +108,7 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
               </Chip>
             ))}
           </div>
-          <label className="mt-3 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+          <label className="mt-1 flex min-h-11 items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
             <input type="checkbox" checked={f.includeUnknown} onChange={(e) => set({ includeUnknown: e.target.checked })} className="size-4 accent-brand-600" />
             כולל משרות בלי מיקום ידוע
           </label>
@@ -170,8 +181,9 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
 
         <Section title={f.view === 'new' ? 'זמן (בתצוגת "חדש" — 24 שעות אחרונות)' : 'נראתה לראשונה'}>
           <div className="flex flex-wrap gap-2">
+            {/* "חדש" is always the last 24 hours, so the time choices only apply to "הכל". */}
             {(Object.keys(TIME_LABELS) as TimeWindow[]).map((t) => (
-              <Chip key={t} active={f.time === t} onClick={() => f.view !== 'new' && set({ time: t })}>
+              <Chip key={t} active={f.time === t} disabled={f.view === 'new'} onClick={() => set({ time: t })}>
                 {TIME_LABELS[t]}
               </Chip>
             ))}
@@ -192,18 +204,19 @@ export function FilterSheet({ open, filters: f, options, resultCount, onChange, 
         </Section>
 
         <Section title="תצוגה">
-          <label className="flex items-center gap-2 py-1 text-sm">
+          <label className="flex min-h-11 items-center gap-2 py-1 text-sm">
             <input type="checkbox" checked={f.hideHandled} onChange={(e) => set({ hideHandled: e.target.checked })} className="size-4 accent-brand-600" />
             הסתר משרות שטיפלתי בהן (הגשתי / ראיון / נדחה / לא רלוונטי)
           </label>
-          <label className="flex items-center gap-2 py-1 text-sm">
+          <label className="flex min-h-11 items-center gap-2 py-1 text-sm">
             <input type="checkbox" checked={f.showClosed} onChange={(e) => set({ showClosed: e.target.checked })} className="size-4 accent-brand-600" />
             הצג משרות שנסגרו (14 הימים האחרונים)
           </label>
         </Section>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 flex gap-3 border-t border-slate-100 bg-white p-4 md:absolute dark:border-slate-800 dark:bg-slate-900">
+      {/* Clear of the iPhone home bar, whose swipe-up gesture would otherwise compete with the buttons. */}
+      <div className="fixed inset-x-0 bottom-0 flex gap-3 border-t border-slate-100 bg-white p-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:absolute dark:border-slate-800 dark:bg-slate-900">
         <button type="button" onClick={onReset} className="min-h-11 rounded-xl border border-slate-300 px-4 text-sm dark:border-slate-700">
           איפוס
         </button>

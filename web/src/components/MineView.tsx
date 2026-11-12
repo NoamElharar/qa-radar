@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { Job } from '@qa-radar/shared';
 import {
   activeMineFilterCount,
@@ -29,7 +29,16 @@ import {
   type PersonalData,
   type StatusEntry,
 } from '../lib/storage.ts';
-import { SearchIcon } from './icons.tsx';
+import {
+  AlertIcon,
+  ChevronDownIcon,
+  ClockIcon,
+  GearIcon,
+  NoteIcon,
+  PenIcon,
+  PinIcon,
+  SearchIcon,
+} from './icons.tsx';
 import { AddApplication } from './mine/AddApplication.tsx';
 import { MineRow } from './mine/MineRow.tsx';
 import { MineSummary } from './mine/MineSummary.tsx';
@@ -51,13 +60,21 @@ interface Props {
   onImport: (json: string) => void;
 }
 
-const FLAG_LABELS: Record<MineFlag, string> = {
-  pinned: '📌 נעוצים',
-  stale: '⏳ ממתינות 14+ ימים',
-  notes: '📝 עם הערות',
-  manual: '✍️ ידניות',
-  overlap: '⚠️ הגשה כפולה ללקוח',
+const FLAGS: Record<MineFlag, { label: string; Icon: (p: { className?: string }) => ReactNode }> = {
+  pinned: { label: 'נעוצים', Icon: PinIcon },
+  stale: { label: 'ממתינות 14+ ימים', Icon: ClockIcon },
+  notes: { label: 'עם הערות', Icon: NoteIcon },
+  manual: { label: 'ידניות', Icon: PenIcon },
+  overlap: { label: 'הגשה כפולה ללקוח', Icon: AlertIcon },
 };
+
+/** A filter chip: 36 px to the eye, a 44 px tap area (rows of them keep an 8 px gap). */
+const chipClass = (active: boolean) =>
+  `tap-44 inline-flex min-h-9 shrink-0 items-center gap-1 rounded-full border px-3 text-xs ${
+    active
+      ? 'border-brand-700 bg-brand-700 text-white'
+      : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
+  }`;
 
 function useMineFilters() {
   const [filters, setState] = useState<MineFilters>(() =>
@@ -112,7 +129,8 @@ export function MineView({
   const showClient = useCallback(
     (client: string) => {
       setFilters({ ...DEFAULT_MINE_FILTERS, sort: filters.sort, q: client });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: calm ? 'auto' : 'smooth' });
     },
     [filters.sort, setFilters],
   );
@@ -165,7 +183,7 @@ export function MineView({
         ))}
       </datalist>
       {!items.length ? (
-        <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-slate-500 dark:border-slate-700">
+        <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-muted dark:border-slate-700">
           עוד לא סימנת משרות. השתמש/י בכוכב או בתפריט הסטטוס בכרטיס משרה — או הוסף/י ידנית מועמדות
           שהגשת במקום אחר.
         </p>
@@ -201,7 +219,7 @@ export function MineView({
                 <select
                   value={filters.sort}
                   onChange={(e) => set({ sort: e.target.value as MineSort })}
-                  className="rounded-xl border border-slate-200 bg-white px-2 py-2.5 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900"
+                  className="min-h-11 rounded-xl border border-slate-200 bg-white px-2 py-2.5 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900"
                 >
                   {(Object.keys(MINE_SORT_LABELS) as MineSort[]).map((s) => (
                     <option key={s} value={s}>
@@ -211,9 +229,10 @@ export function MineView({
                 </select>
               </label>
             </div>
-            <div className="flex flex-wrap items-center gap-1.5">
-              {(Object.keys(FLAG_LABELS) as MineFlag[]).map((flag) => {
+            <div className="flex flex-wrap items-center gap-2">
+              {(Object.keys(FLAGS) as MineFlag[]).map((flag) => {
                 const active = filters.flags.includes(flag);
+                const { label, Icon } = FLAGS[flag];
                 // Shown only while there is something to find (or the filter is on).
                 if (flag === 'overlap' && !clashCount && !active) return null;
                 return (
@@ -222,28 +241,26 @@ export function MineView({
                     type="button"
                     aria-pressed={active}
                     onClick={() => set({ flags: toggleIn(filters.flags, flag) })}
-                    className={`min-h-9 shrink-0 rounded-full border px-3 text-xs ${
-                      active
-                        ? 'border-brand-600 bg-brand-600 text-white'
-                        : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
-                    }`}
+                    className={chipClass(active)}
                   >
-                    {FLAG_LABELS[flag]}
+                    <Icon className="shrink-0" />
+                    {label}
                     {flag === 'overlap' && (
-                      <span className={`ms-1 tabular-nums ${active ? '' : 'text-slate-500'}`}>
+                      <span className={`tabular-nums ${active ? '' : 'text-muted'}`}>
                         {clashCount}
                       </span>
                     )}
                   </button>
                 );
               })}
+              {/* A <select> can't take a larger invisible tap area, so it is 44 px high itself. */}
               <select
                 value={filters.applied}
                 onChange={(e) => set({ applied: e.target.value as AppliedWindow })}
                 aria-label="תאריך הגשה"
-                className={`min-h-9 shrink-0 rounded-full border px-2 text-xs ${
+                className={`min-h-11 shrink-0 rounded-full border px-2 text-xs ${
                   filters.applied !== 'any'
-                    ? 'border-brand-600 bg-brand-600 text-white'
+                    ? 'border-brand-700 bg-brand-700 text-white'
                     : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
                 }`}
               >
@@ -257,18 +274,18 @@ export function MineView({
                 <button
                   type="button"
                   onClick={() => setFilters({ ...DEFAULT_MINE_FILTERS, sort: filters.sort })}
-                  className="min-h-9 shrink-0 px-2 text-xs text-brand-700 underline dark:text-brand-500"
+                  className="tap-44 min-h-9 shrink-0 px-2 text-xs text-brand-700 underline dark:text-brand-500"
                 >
                   נקה סינון ({activeCount})
                 </button>
               )}
             </div>
             <div
-              className="flex flex-wrap items-center gap-1.5"
+              className="flex flex-wrap items-center gap-2"
               role="group"
               aria-label="סינון לפי פורמט ראיון"
             >
-              <span className="shrink-0 text-xs text-slate-500">פורמט ראיון:</span>
+              <span className="shrink-0 text-xs text-muted">פורמט ראיון:</span>
               {INTERVIEW_FORMATS.map((format) => {
                 const active = filters.formats.includes(format);
                 return (
@@ -277,21 +294,17 @@ export function MineView({
                     type="button"
                     aria-pressed={active}
                     onClick={() => set({ formats: toggleIn(filters.formats, format) })}
-                    className={`inline-flex min-h-9 shrink-0 items-center gap-1 rounded-full border px-3 text-xs ${
-                      active
-                        ? 'border-brand-600 bg-brand-600 text-white'
-                        : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
-                    }`}
+                    className={chipClass(active)}
                   >
                     {INTERVIEW_FORMAT_LABELS[format]}
-                    <span className={`tabular-nums ${active ? '' : 'text-slate-500'}`}>
+                    <span className={`tabular-nums ${active ? '' : 'text-muted'}`}>
                       {stats.byFormat[format]}
                     </span>
                   </button>
                 );
               })}
             </div>
-            <p className="text-xs text-slate-500" aria-live="polite">
+            <p className="text-xs text-muted" aria-live="polite">
               {visible.length === items.length
                 ? `${items.length} משרות`
                 : `מציג ${visible.length} מתוך ${items.length}`}
@@ -299,12 +312,12 @@ export function MineView({
           </div>
 
           {!visible.length && (
-            <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-slate-500 dark:border-slate-700">
+            <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-muted dark:border-slate-700">
               אין מועמדויות שמתאימות לסינון.{' '}
               <button
                 type="button"
                 onClick={() => setFilters(DEFAULT_MINE_FILTERS)}
-                className="text-brand-700 underline dark:text-brand-500"
+                className="tap-44 text-brand-700 underline dark:text-brand-500"
               >
                 נקה סינון
               </button>
@@ -313,8 +326,9 @@ export function MineView({
 
           {pinned.length > 0 && (
             <section className="overflow-hidden rounded-2xl border border-brand-200 bg-white dark:border-brand-800 dark:bg-slate-900">
-              <h3 className="border-b border-brand-100 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-900 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-100">
-                📌 נעוצים · {pinned.length}
+              <h3 className="flex items-center gap-1.5 border-b border-brand-100 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-900 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-100">
+                <PinIcon className="shrink-0" />
+                נעוצים · {pinned.length}
               </h3>
               {renderRows(pinned, true)}
             </section>
@@ -340,16 +354,16 @@ export function MineView({
                       })
                     }
                     aria-expanded={!closed}
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-start text-sm font-semibold"
+                    className="flex min-h-11 w-full items-center gap-2 px-4 py-2.5 text-start text-sm font-semibold"
                   >
                     <StatusDot status={status} />
                     {STATUS_LABELS[status]}
-                    <span className="font-normal text-slate-500 tabular-nums">
+                    <span className="font-normal text-muted tabular-nums">
                       {groupList.length}
                     </span>
-                    <span className="ms-auto text-slate-400" aria-hidden="true">
-                      {closed ? '▾' : '▴'}
-                    </span>
+                    <ChevronDownIcon
+                      className={`ms-auto shrink-0 text-muted transition-transform motion-reduce:transition-none ${closed ? '' : 'rotate-180'}`}
+                    />
                   </button>
                 </h3>
                 {!closed && (
@@ -361,7 +375,7 @@ export function MineView({
                         onClick={() =>
                           setShown((prev) => ({ ...prev, [status]: limit + GROUP_PAGE }))
                         }
-                        className="w-full border-t border-slate-100 py-2.5 text-sm text-brand-700 dark:border-slate-800 dark:text-brand-500"
+                        className="min-h-11 w-full border-t border-slate-100 py-2.5 text-sm text-brand-700 dark:border-slate-800 dark:text-brand-500"
                       >
                         הצג עוד {Math.min(GROUP_PAGE, groupList.length - limit)} (נותרו{' '}
                         {groupList.length - limit})
@@ -376,16 +390,19 @@ export function MineView({
       )}
 
       <details className="group rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-        <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold">
-          ⚙️ חברות מוסתרות וגיבוי
-          <span className="ms-2 text-xs font-normal text-slate-500">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-3 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+          <GearIcon className="shrink-0 text-muted" />
+          חברות מוסתרות וגיבוי
+          <span className="text-xs font-normal text-muted">
             {personal.hiddenCompanies.length ? `${personal.hiddenCompanies.length} מוסתרות` : ''}
           </span>
+          {/* The open/closed cue the browser's own marker gave (it is hidden by list-none). */}
+          <ChevronDownIcon className="ms-auto shrink-0 text-muted transition-transform group-open:rotate-180 motion-reduce:transition-none" />
         </summary>
         <div className="space-y-5 border-t border-slate-100 px-4 py-4 dark:border-slate-800">
           <div>
             <h4 className="text-sm font-semibold">חברות מוסתרות</h4>
-            <p className="mb-3 text-xs text-slate-500">
+            <p className="mb-3 text-xs text-muted">
               משרות שמזכירות את השמות האלה לא יוצגו. נשמר רק בדפדפן הזה.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -394,14 +411,14 @@ export function MineView({
                   key={name}
                   type="button"
                   onClick={() => onUnhide(name)}
-                  className="min-h-9 rounded-full bg-slate-100 px-3 text-sm dark:bg-slate-800"
+                  className="tap-44 min-h-9 rounded-full bg-slate-100 px-3 text-sm dark:bg-slate-800"
                   aria-label={`הצג שוב את ${name}`}
                 >
                   <bdi>{name}</bdi> ✕
                 </button>
               ))}
               {!personal.hiddenCompanies.length && (
-                <span className="text-sm text-slate-400">אין</span>
+                <span className="text-sm text-muted">אין</span>
               )}
             </div>
             <form
@@ -428,7 +445,7 @@ export function MineView({
           </div>
           <div>
             <h4 className="text-sm font-semibold">גיבוי</h4>
-            <p className="mb-3 text-xs text-slate-500">
+            <p className="mb-3 text-xs text-muted">
               הסטטוסים, ההערות והנעיצות נשמרים רק בדפדפן הזה. כדאי לייצא גיבוי מדי פעם (וכדי להעביר
               לטלפון אחר).
             </p>

@@ -26,6 +26,8 @@ export function WeeklyCohortChart({ weeks }: { weeks: WeekCohort[] }) {
   const max = Math.max(...weeks.map((w) => w.applications), 0);
   const last = weeks.length - 1;
   const peak = weeks.findIndex((w) => w.applications === max && max > 0);
+  // Past 8 weeks the dates no longer fit under each bar: label every other week, counting back from this one.
+  const labelStep = weeks.length > 8 ? 2 : 1;
   const height = (n: number) => (n > 0 ? Math.max((n / max) * PLOT_PX, 3) : 0);
 
   return (
@@ -48,10 +50,10 @@ export function WeeklyCohortChart({ weeks }: { weeks: WeekCohort[] }) {
                 onMouseLeave={() => setActive(null)}
                 onFocus={() => setActive(i)}
                 onBlur={() => setActive(null)}
-                className="relative flex h-full flex-1 cursor-default flex-col items-center justify-end outline-none"
+                className="relative flex h-full flex-1 cursor-default flex-col items-center justify-end rounded-sm"
               >
                 {showLabel && (
-                  <span className="mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+                  <span className="mb-1 text-xs text-slate-600 dark:text-slate-300">
                     {w.applications}
                   </span>
                 )}
@@ -84,13 +86,13 @@ export function WeeklyCohortChart({ weeks }: { weeks: WeekCohort[] }) {
             );
           })}
         </div>
-        <div className="mt-1 flex gap-1 text-[10px] text-slate-400 tabular-nums">
+        <div className="mt-1 flex gap-1 text-xs text-muted tabular-nums">
           {weeks.map((w, i) => (
             <span
               key={w.week}
-              className={`flex-1 text-center ${i === last ? 'font-semibold text-slate-600 dark:text-slate-300' : ''}`}
+              className={`flex min-w-0 flex-1 justify-center whitespace-nowrap ${i === last ? 'font-semibold text-slate-600 dark:text-slate-300' : ''}`}
             >
-              {i === last ? 'השבוע' : dayMonth(w.week)}
+              {i === last ? 'השבוע' : (last - i) % labelStep === 0 && dayMonth(w.week)}
             </span>
           ))}
         </div>

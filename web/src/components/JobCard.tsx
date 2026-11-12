@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { BADGE_LABELS, badgeFor, REGION_LABELS, SENIORITY_LABELS, type Badge, type Job } from '@qa-radar/shared';
 import {
   INTERVIEW_FORMAT_LABELS,
@@ -81,11 +81,18 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuListRef = useRef<HTMLDivElement>(null);
+  /** Opened with Enter/Space: focus moves into the menu (a tap leaves focus where it was). */
+  const openedByKeyboard = useRef(false);
+  const menuItems = () => [...(menuListRef.current?.querySelectorAll<HTMLButtonElement>('[role^="menuitem"]') ?? [])];
 
   // Measure the open menu before it paints and put it where all of it is visible.
   useLayoutEffect(() => {
     if (!menuOpen || !menuButtonRef.current || !menuListRef.current) return;
     setMenuPlace(placeMenu(menuButtonRef.current, menuListRef.current.scrollHeight));
+    if (openedByKeyboard.current) {
+      const items = menuItems();
+      (items.find((b) => b.getAttribute('aria-checked') === 'true') ?? items[0])?.focus();
+    }
   }, [menuOpen]);
   const badge = badgeFor(job, now);
   const saved = status?.status === 'saved';
@@ -93,16 +100,37 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
 
   useEffect(() => {
     if (!menuOpen) return;
-    const close = (e: MouseEvent | KeyboardEvent) => {
-      if (e instanceof KeyboardEvent ? e.key === 'Escape' : !menuRef.current?.contains(e.target as Node)) setMenuOpen(false);
+    const onPointer = (e: MouseEvent) => {
+      if (!menuRef.current?.contains(e.target as Node)) setMenuOpen(false);
     };
-    document.addEventListener('mousedown', close);
-    document.addEventListener('keydown', close);
+    // Escape closes; when focus was in the menu it goes back to the status button.
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      const focusInside = menuRef.current?.contains(document.activeElement);
+      setMenuOpen(false);
+      if (focusInside) menuButtonRef.current?.focus();
+    };
+    document.addEventListener('mousedown', onPointer);
+    document.addEventListener('keydown', onKey);
     return () => {
-      document.removeEventListener('mousedown', close);
-      document.removeEventListener('keydown', close);
+      document.removeEventListener('mousedown', onPointer);
+      document.removeEventListener('keydown', onKey);
     };
   }, [menuOpen]);
+
+  /** Arrow keys move between the choices (in reading order), Home/End jump to the first/last. */
+  const onMenuKeyDown = (e: ReactKeyboardEvent<HTMLDivElement>) => {
+    const items = menuItems();
+    const at = items.indexOf(document.activeElement as HTMLButtonElement);
+    const go = (i: number) => {
+      e.preventDefault();
+      items[(i + items.length) % items.length]?.focus();
+    };
+    if (e.key === 'ArrowDown') go(at + 1);
+    else if (e.key === 'ArrowUp') go(at < 0 ? items.length - 1 : at - 1);
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(items.length - 1);
+  };
 
   const regionChips = job.regions.map((r) => REGION_LABELS[r]);
   const format = status ? interviewFormatOf(status) : 'unknown';
@@ -130,6 +158,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
           className={`shrink-0 rounded-lg px-2 py-0.5 text-sm font-bold tabular-nums ring-1 ${scoreStyle(job.score)}`}
           title="ציון התאמה לפרופיל"
         >
+          <span className="sr-only">ציון התאמה </span>
           {job.score}
         </span>
       </div>
@@ -151,7 +180,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
       </p>
 
       {/* Row 3: location · distance · first seen */}
-      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
+      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
         <span className="inline-flex items-center gap-1">
           <PinIcon className="text-slate-400" />
           {job.city ?? (regionChips.length ? '' : 'מיקום לא צוין')}
@@ -186,7 +215,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
             </span>
           ))}
           {!expanded && job.tags.length > MAX_TAGS && (
-            <span className="px-1 py-0.5 text-xs text-slate-500">+{job.tags.length - MAX_TAGS}</span>
+            <span className="px-1 py-0.5 text-xs text-muted">+{job.tags.length - MAX_TAGS}</span>
           )}
         </div>
       )}
@@ -206,34 +235,37 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
               {job.missing.join(' · ')}
             </p>
           )}
-          {!job.matched.length && !job.missing.length && <p className="text-slate-500">לא זוהו כישורים בתיאור המשרה.</p>}
+          {!job.matched.length && !job.missing.length && <p className="text-muted">לא זוהו כישורים בתיאור המשרה.</p>}
           {job.snippet && (
             <p className="text-slate-600 dark:text-slate-300">
               <bdi>{job.snippet}</bdi>
             </p>
           )}
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-muted">
             מקור: {sourceName}
             {job.locationText ? ` · מיקום במקור: ${job.locationText}` : ''}
           </p>
         </div>
       )}
 
-      {/* Row 6: actions */}
+      {/*
+        Row 6: actions. Every label stays on one line and the star keeps its 44 px; on a narrow phone
+        a long status name ("ראיון שיחת וידאו") is what gets shortened, and the menu shows it in full.
+      */}
       <div className="mt-3 flex items-center gap-2">
         <a
           href={job.url}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => onOpen(job)}
-          className="inline-flex min-h-11 items-center gap-1.5 rounded-xl bg-brand-700 px-4 text-sm font-semibold text-white shadow-sm hover:bg-brand-800 active:scale-[.98]"
+          className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-xl bg-brand-700 px-3 text-sm font-semibold whitespace-nowrap text-white shadow-sm hover:bg-brand-800 active:scale-[.98]"
         >
-          הגש מועמדות <ExternalIcon />
+          הגש מועמדות <ExternalIcon className="max-[390px]:hidden" />
         </a>
         <button
           type="button"
           onClick={() => onStatus(job, saved ? undefined : 'saved')}
-          className={`inline-flex size-11 items-center justify-center rounded-xl border text-lg ${saved ? 'border-amber-300 bg-amber-50 text-amber-500 dark:border-amber-700 dark:bg-amber-950' : 'border-slate-200 text-slate-400 dark:border-slate-700'}`}
+          className={`inline-flex size-11 shrink-0 items-center justify-center rounded-xl border text-lg ${saved ? 'border-amber-300 bg-amber-50 text-amber-500 dark:border-amber-700 dark:bg-amber-950' : 'border-slate-200 text-muted dark:border-slate-700'}`}
           aria-pressed={saved}
           aria-label={saved ? 'הסר משמורים' : 'שמור משרה'}
         >
@@ -242,31 +274,41 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="inline-flex min-h-11 items-center rounded-xl px-2.5 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          className="inline-flex min-h-11 shrink-0 items-center rounded-xl px-2 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
           aria-expanded={expanded}
         >
           {expanded ? 'פחות' : 'פרטים'}
         </button>
-        <div className="relative ms-auto" ref={menuRef}>
+        <div className="relative ms-auto min-w-0" ref={menuRef} onBlur={(e) => {
+          // Tabbing out of the menu closes it (a click elsewhere has no focus target, and is handled above).
+          if (menuOpen && e.relatedTarget && !e.currentTarget.contains(e.relatedTarget)) setMenuOpen(false);
+        }}>
           <button
             type="button"
             ref={menuButtonRef}
-            onClick={() => setMenuOpen((v) => !v)}
-            className="inline-flex min-h-11 items-center gap-1 rounded-xl border border-slate-200 px-2.5 text-sm dark:border-slate-700"
+            onClick={(e) => {
+              openedByKeyboard.current = e.detail === 0;
+              setMenuOpen((v) => !v);
+            }}
+            className="inline-flex min-h-11 max-w-full items-center gap-1 rounded-xl border border-slate-200 px-2.5 text-sm dark:border-slate-700"
             aria-haspopup="menu"
             aria-expanded={menuOpen}
             aria-label={`סטטוס: ${status ? STATUS_LABELS[status.status] : STATUS_LABELS.new} — שינוי`}
+            title={status ? STATUS_LABELS[status.status] : STATUS_LABELS.new}
           >
-            {status ? STATUS_LABELS[status.status] : STATUS_LABELS.new} <DotsIcon />
+            <span className="truncate">{status ? STATUS_LABELS[status.status] : STATUS_LABELS.new}</span>
+            <DotsIcon className="shrink-0" />
           </button>
           {menuOpen && (
             <div
               role="menu"
               ref={menuListRef}
+              onKeyDown={onMenuKeyDown}
               style={menuPlace.maxHeight ? { maxHeight: menuPlace.maxHeight } : undefined}
               // Two columns: eleven statuses stay one short block (6 rows) that fits a phone screen.
-              className={`absolute end-0 z-20 grid w-72 grid-cols-2 overflow-y-auto overscroll-contain rounded-xl border border-slate-200 bg-white py-1 shadow-xl dark:border-slate-700 dark:bg-slate-900 ${
-                menuPlace.up ? 'bottom-full mb-2' : 'top-full mt-2'
+              // It grows out of the status button (150 ms), unless the OS asks for less motion.
+              className={`absolute end-0 z-20 grid w-72 grid-cols-2 overflow-y-auto overscroll-contain rounded-xl border border-slate-200 bg-white py-1 shadow-xl transition-[opacity,scale] duration-150 ease-out motion-reduce:transition-none starting:scale-95 starting:opacity-0 dark:border-slate-700 dark:bg-slate-900 ${
+                menuPlace.up ? 'bottom-full mb-2 origin-bottom-left' : 'top-full mt-2 origin-top-left'
               }`}
             >
               {STATUS_ORDER.map((s) => (
@@ -294,7 +336,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
                     onStatus(job, undefined);
                     setMenuOpen(false);
                   }}
-                  className="col-span-2 w-full border-t border-slate-100 px-3 py-3 text-start text-sm text-slate-500 hover:bg-slate-100 dark:border-slate-800 dark:hover:bg-slate-800"
+                  className="col-span-2 w-full border-t border-slate-100 px-3 py-3 text-start text-sm text-muted hover:bg-slate-100 dark:border-slate-800 dark:hover:bg-slate-800"
                 >
                   נקה סטטוס
                 </button>

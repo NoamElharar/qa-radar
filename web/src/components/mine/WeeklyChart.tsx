@@ -22,12 +22,14 @@ export function WeeklyChart({ weeks }: { weeks: WeekCount[] }) {
   const max = Math.max(...weeks.map((w) => w.count), 0);
   const last = weeks.length - 1;
   const peak = weeks.findIndex((w) => w.count === max && max > 0);
+  // Past 8 weeks the dates no longer fit under each bar: label every other week, counting back from this one.
+  const labelStep = weeks.length > 8 ? 2 : 1;
 
   return (
     <figure className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
       <figcaption className="flex items-baseline justify-between">
         <span className="text-sm font-semibold">הגשות לפי שבוע</span>
-        <span className="text-xs text-slate-500">{weeks.length} השבועות האחרונים</span>
+        <span className="text-xs text-muted">{weeks.length} השבועות האחרונים</span>
       </figcaption>
 
       <div dir="ltr" className="relative mt-3">
@@ -48,10 +50,10 @@ export function WeeklyChart({ weeks }: { weeks: WeekCount[] }) {
                 onMouseLeave={() => setActive(null)}
                 onFocus={() => setActive(i)}
                 onBlur={() => setActive(null)}
-                className="relative flex h-full flex-1 cursor-default flex-col items-center justify-end outline-none"
+                className="relative flex h-full flex-1 cursor-default flex-col items-center justify-end rounded-sm"
               >
                 {showLabel && (
-                  <span className="mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+                  <span className="mb-1 text-xs text-slate-600 dark:text-slate-300">
                     {w.count}
                   </span>
                 )}
@@ -73,13 +75,13 @@ export function WeeklyChart({ weeks }: { weeks: WeekCount[] }) {
             );
           })}
         </div>
-        <div className="mt-1 flex gap-1 text-[10px] text-slate-400 tabular-nums">
+        <div className="mt-1 flex gap-1 text-xs text-muted tabular-nums">
           {weeks.map((w, i) => (
             <span
               key={w.week}
-              className={`flex-1 text-center ${i === last ? 'font-semibold text-slate-600 dark:text-slate-300' : ''}`}
+              className={`flex min-w-0 flex-1 justify-center whitespace-nowrap ${i === last ? 'font-semibold text-slate-600 dark:text-slate-300' : ''}`}
             >
-              {i === last ? 'השבוע' : dayMonth(w.week)}
+              {i === last ? 'השבוע' : (last - i) % labelStep === 0 && dayMonth(w.week)}
             </span>
           ))}
         </div>

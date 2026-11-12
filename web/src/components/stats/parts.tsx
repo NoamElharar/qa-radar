@@ -26,7 +26,7 @@ export function Card({
     >
       <header>
         <h3 className="text-sm font-semibold">{title}</h3>
-        {subtitle && <p className="mt-0.5 text-xs text-slate-500">{subtitle}</p>}
+        {subtitle && <p className="mt-0.5 text-xs text-muted">{subtitle}</p>}
       </header>
       {children}
     </section>
@@ -104,8 +104,8 @@ export function OutOf({ count, of, pct }: { count: number; of: number; pct?: num
   return (
     <>
       <span className="font-semibold">{count}</span>
-      <span className="text-slate-500"> מתוך {of}</span>
-      {pct !== undefined && <span className="text-slate-500"> · {pct}%</span>}
+      <span className="text-muted"> מתוך {of}</span>
+      {pct !== undefined && <span className="text-muted"> · {pct}%</span>}
     </>
   );
 }

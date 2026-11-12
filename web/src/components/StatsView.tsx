@@ -84,12 +84,12 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
 
   if (!facts.length) {
     return (
-      <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-slate-500 dark:border-slate-700">
+      <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-muted dark:border-slate-700">
         עוד אין הגשות לנתח. סמן/י "הגשתי" על משרה, או הוסף/י מועמדות ידנית ב
         <button
           type="button"
           onClick={onOpenMine}
-          className="text-brand-700 underline dark:text-brand-500"
+          className="tap-44 text-brand-700 underline dark:text-brand-500"
         >
           לשונית "שלי"
         </button>
@@ -110,13 +110,13 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         <label className="flex items-center gap-2 text-sm">
-          <span className="text-slate-500">תקופה</span>
+          <span className="text-muted">תקופה</span>
           <select
             value={period}
             onChange={(e) => setPeriod(e.target.value as StatsPeriod)}
-            className={`min-h-9 rounded-full border px-3 text-sm ${
+            className={`min-h-11 rounded-full border px-3 text-sm ${
               period !== 'all'
-                ? 'border-brand-600 bg-brand-600 text-white'
+                ? 'border-brand-700 bg-brand-700 text-white'
                 : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
             }`}
           >
@@ -127,16 +127,16 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
             ))}
           </select>
         </label>
-        <p className="text-xs text-slate-500">לפי תאריך ההגשה · מחושב מהמועמדויות שבדפדפן הזה</p>
+        <p className="text-xs text-muted">לפי תאריך ההגשה · מחושב מהמועמדויות שבדפדפן הזה</p>
       </div>
 
       {!stats.applications ? (
-        <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-slate-500 dark:border-slate-700">
+        <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-muted dark:border-slate-700">
           אין הגשות ב{STATS_PERIOD_LABELS[period]}.{' '}
           <button
             type="button"
             onClick={() => setPeriod('all')}
-            className="text-brand-700 underline dark:text-brand-500"
+            className="tap-44 text-brand-700 underline dark:text-brand-500"
           >
             הצג את כל התקופה
           </button>
@@ -190,7 +190,7 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
                       <>
                         <span className="font-semibold">{row.count}</span>
                         {pct !== undefined && (
-                          <span className="text-xs text-slate-500">
+                          <span className="text-xs text-muted">
                             {' '}
                             · {pct}% {FUNNEL_BASE[row.stage]}
                           </span>
@@ -201,11 +201,11 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
                 );
               })}
             </ol>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted">
               בדרך: {stats.homeAssignments} עבודות בית · {stats.frontals} ראיונות פרונטליים ·{' '}
               {stats.rejected} נדחו · {stats.inProcess} עדיין בתהליך
             </p>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted">
               תשובה = כל תגובה, גם דחייה. שיחה = שיחה ממגייסת, עבודת בית, ראיון או הצעה.
             </p>
           </Card>
@@ -235,7 +235,7 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
                 )}
               </ul>
               {stats.manual.applications > 0 && (
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted">
                   מועמדות ידנית נרשמת לרוב אחרי שמישהו כבר התקשר, ולכן יש בה יותר תשובות.
                 </p>
               )}
@@ -249,7 +249,7 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
             >
               <Legend />
               <WeeklyCohortChart weeks={stats.weekly} />
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-muted">
                 להגשות מהשבועות האחרונים עוד יכולה להגיע תשובה.
                 {stats.undated > 0 && ` ${stats.undated} הגשות בלי תאריך לא מוצגות כאן.`}
               </p>
@@ -278,7 +278,7 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
                         <>
                           <span className="font-semibold">{b.count}</span>
                           {pct !== undefined && (
-                            <span className="text-xs text-slate-500"> · {pct}%</span>
+                            <span className="text-xs text-muted"> · {pct}%</span>
                           )}
                         </>
                       }
@@ -295,7 +295,7 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
                     {s.eligible ? (
                       <OutOf count={s.noReply} of={s.eligible} pct={rate(s.noReply, s.eligible)} />
                     ) : (
-                      <span className="text-xs text-slate-500">
+                      <span className="text-xs text-muted">
                         אין עדיין הגשות בנות {s.days} יום
                       </span>
                     )}
@@ -304,7 +304,7 @@ export function StatsView({ statuses, jobsById, sourceById, now, onOpenMine }: P
               ))}
             </ul>
             {stats.delays.estimated > 0 && (
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-muted">
                 {stats.delays.estimated === 1
                   ? 'תשובה אחת עם תאריך משוער לא נספרה כאן'
                   : `${stats.delays.estimated} תשובות עם תאריך משוער לא נספרו כאן`}{' '}

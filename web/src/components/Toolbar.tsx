@@ -30,7 +30,7 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
             value={f.q}
             onChange={(e) => onChange({ ...f, q: e.target.value })}
             placeholder="חיפוש: API, מובייל, NESS…"
-            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 ps-9 pe-3 text-sm shadow-sm placeholder:text-slate-400 dark:border-slate-700 dark:bg-slate-900"
+            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 ps-9 pe-3 text-sm shadow-sm dark:border-slate-700 dark:bg-slate-900"
           />
         </label>
         <button
@@ -40,7 +40,15 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
         >
           <FilterIcon /> סינון
           {count > 0 && (
-            <span className="absolute -top-1.5 -end-1.5 grid size-5 place-items-center rounded-full bg-brand-600 text-[11px] font-bold text-white">{count}</span>
+            <>
+              <span
+                aria-hidden="true"
+                className="absolute -top-1.5 -end-1.5 grid h-5 min-w-5 place-items-center rounded-full bg-brand-700 px-1 text-xs font-bold text-white tabular-nums"
+              >
+                {count}
+              </span>
+              <span className="sr-only">, {count === 1 ? 'סינון אחד פעיל' : `${count} סינונים פעילים`}</span>
+            </>
           )}
         </button>
       </div>
@@ -48,17 +56,17 @@ export function Toolbar({ filters: f, onChange, onOpenFilters }: Props) {
         <button
           type="button"
           onClick={() => onChange({ ...f, sort: f.sort === 'new' ? 'score' : 'new' })}
-          className="inline-flex min-h-9 shrink-0 items-center rounded-full bg-slate-800 px-3 text-xs font-medium text-white dark:bg-slate-200 dark:text-slate-900"
-          aria-label="שינוי מיון"
+          // The visible text is the name, so screen readers and voice control hear the current sort.
+          className="tap-44 inline-flex min-h-9 shrink-0 items-center gap-1 rounded-full bg-slate-800 px-3 text-xs font-medium text-white dark:bg-slate-200 dark:text-slate-900"
         >
-          מיון: {f.sort === 'new' ? 'חדש ביותר' : 'התאמה הכי טובה'} ⇅
+          מיון: {f.sort === 'new' ? 'חדש ביותר' : 'התאמה הכי טובה'} <span aria-hidden="true">⇅</span>
         </button>
         {chips.map((c) => (
           <button
             key={c.key}
             type="button"
             onClick={c.clear}
-            className="inline-flex min-h-9 shrink-0 items-center rounded-full border border-brand-200 bg-brand-50 px-3 text-xs text-brand-800 dark:border-brand-800 dark:bg-brand-900/50 dark:text-brand-100"
+            className="tap-44 inline-flex min-h-9 shrink-0 items-center rounded-full border border-brand-200 bg-brand-50 px-3 text-xs text-brand-800 dark:border-brand-800 dark:bg-brand-900/50 dark:text-brand-100"
             aria-label={`הסר סינון ${c.label}`}
           >
             {c.label} ✕

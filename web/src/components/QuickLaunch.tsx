@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { SourceHealth } from '@qa-radar/shared';
 import { israelDayKey, relativeTime } from '../lib/time.ts';
 import { watchStatus, type WatchStatus } from '../lib/watch.ts';
-import { CheckIcon, ExternalIcon } from './icons.tsx';
+import { AlertIcon, CheckIcon, ChevronDownIcon, ExternalIcon } from './icons.tsx';
 
 interface Props {
   sources: SourceHealth[];
@@ -36,12 +36,12 @@ export function QuickLaunch({ sources, checks, now, onChecked }: Props) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between px-4 py-3 text-start"
+        className="flex min-h-11 w-full items-center justify-between gap-2 px-4 py-3 text-start"
         aria-expanded={open}
       >
         <span className="font-semibold">
           לוחות חיצוניים — בדיקה ידנית
-          <span className="ms-2 text-sm font-normal text-slate-500">
+          <span className="ms-2 text-sm font-normal text-muted">
             {pending ? `${pending} לא נבדקו היום` : 'הכל נבדק היום ✓'}
           </span>
           {fresh > 0 && (
@@ -50,9 +50,9 @@ export function QuickLaunch({ sources, checks, now, onChecked }: Props) {
             </span>
           )}
         </span>
-        <span className="text-slate-400" aria-hidden="true">
-          {open ? '▴' : '▾'}
-        </span>
+        <ChevronDownIcon
+          className={`shrink-0 text-muted transition-transform motion-reduce:transition-none ${open ? 'rotate-180' : ''}`}
+        />
       </button>
       {open && (
         <ul className="divide-y divide-slate-100 border-t border-slate-100 dark:divide-slate-800 dark:border-slate-800">
@@ -65,7 +65,7 @@ export function QuickLaunch({ sources, checks, now, onChecked }: Props) {
                 <div className="flex items-center justify-between gap-2">
                   <div className="min-w-0">
                     <p className="font-medium">{s.name}</p>
-                    <p className="truncate text-xs text-slate-500">
+                    <p className="truncate text-xs text-muted">
                       {checkedAt ? `נבדק ${relativeTime(checkedAt, now)}` : 'עוד לא נבדק'}
                       {s.note ? ` · ${s.note}` : ''}
                     </p>
@@ -80,7 +80,10 @@ export function QuickLaunch({ sources, checks, now, onChecked }: Props) {
                       </p>
                     )}
                     {s.watch && s.error && (
-                      <p className="mt-1 text-xs text-amber-700 dark:text-amber-400">⚠ הספירה האוטומטית נכשלה בבדיקה האחרונה</p>
+                      <p className="mt-1 flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400">
+                        <AlertIcon className="shrink-0" />
+                        הספירה האוטומטית נכשלה בבדיקה האחרונה
+                      </p>
                     )}
                   </div>
                   <button

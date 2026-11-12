@@ -25,7 +25,7 @@ export function Header({ updatedAt, now, theme, onTheme, refreshing, onRefresh }
           <h1 className="text-lg leading-tight font-bold">
             רדאר משרות <span className="text-brand-700 dark:text-brand-500">QA</span>
           </h1>
-          {updatedAt && <p className="text-xs text-slate-500">עודכן {relativeTime(updatedAt, now)}</p>}
+          {updatedAt && <p className="text-xs text-muted">עודכן {relativeTime(updatedAt, now)}</p>}
         </div>
         <div className="flex items-center gap-1">
           <button
@@ -53,12 +53,18 @@ export function Header({ updatedAt, now, theme, onTheme, refreshing, onRefresh }
   );
 }
 
-const TABS: Array<{ view: View; label: string; icon: (p: { className?: string }) => ReactNode }> = [
-  { view: 'new', label: 'חדש', icon: BoltIcon },
+const TABS: Array<{
+  view: View;
+  label: string;
+  icon: (p: { className?: string }) => ReactNode;
+  /** What the tab's badge counts, read by screen readers ("חדש, 12 משרות חדשות"). */
+  counted?: (n: number) => string;
+}> = [
+  { view: 'new', label: 'חדש', icon: BoltIcon, counted: (n) => (n === 1 ? 'משרה חדשה אחת' : `${n} משרות חדשות`) },
   { view: 'all', label: 'הכל', icon: ListIcon },
-  { view: 'mine', label: 'שלי', icon: UserIcon },
+  { view: 'mine', label: 'שלי', icon: UserIcon, counted: (n) => (n === 1 ? 'מועמדות אחת' : `${n} מועמדויות`) },
   { view: 'stats', label: 'סטטיסטיקה', icon: ChartIcon },
-  { view: 'sources', label: 'מקורות', icon: PulseIcon },
+  { view: 'sources', label: 'מקורות', icon: PulseIcon, counted: (n) => (n === 1 ? 'מקור אחד בבעיה' : `${n} מקורות בבעיה`) },
 ];
 
 export function BottomNav({ view, counts, onView }: { view: View; counts: Partial<Record<View, number>>; onView: (v: View) => void }) {
@@ -68,7 +74,7 @@ export function BottomNav({ view, counts, onView }: { view: View; counts: Partia
       aria-label="תצוגות"
     >
       <ul className="mx-auto grid max-w-3xl grid-cols-5">
-        {TABS.map(({ view: v, label, icon: Icon }) => {
+        {TABS.map(({ view: v, label, icon: Icon, counted }) => {
           const active = v === view;
           const count = counts[v];
           return (
@@ -77,14 +83,20 @@ export function BottomNav({ view, counts, onView }: { view: View; counts: Partia
                 type="button"
                 onClick={() => onView(v)}
                 aria-current={active ? 'page' : undefined}
-                className={`relative flex w-full flex-col items-center gap-0.5 py-2 text-xs ${active ? 'font-semibold text-brand-700 dark:text-brand-500' : 'text-slate-500'}`}
+                className={`relative flex w-full flex-col items-center gap-0.5 py-2 text-xs ${active ? 'font-semibold text-brand-700 dark:text-brand-500' : 'text-muted'}`}
               >
                 <Icon className="text-xl" />
                 {label}
                 {count ? (
-                  <span className={`absolute top-1 start-[calc(50%+6px)] rounded-full px-1.5 text-[10px] font-bold text-white ${v === 'sources' ? 'bg-rose-600' : 'bg-brand-600'}`}>
-                    {count}
-                  </span>
+                  <>
+                    <span
+                      aria-hidden="true"
+                      className={`absolute top-1 start-[calc(50%+6px)] min-w-5 rounded-full px-1 text-center text-xs leading-4 font-bold text-white tabular-nums ${v === 'sources' ? 'bg-rose-600' : 'bg-brand-700'}`}
+                    >
+                      {count}
+                    </span>
+                    {counted && <span className="sr-only">, {counted(count)}</span>}
+                  </>
                 ) : null}
               </button>
             </li>

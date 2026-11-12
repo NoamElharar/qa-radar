@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { TITLES } from './fixtures.ts';
-import { auditLayout } from './helpers.ts';
+import { auditLayout, lowContrastText } from './helpers.ts';
 
 const VIEWS = [
   { name: 'חדש', path: './', ready: TITLES.manualNew },
@@ -25,6 +25,73 @@ for (const view of VIEWS) {
     if (isMobile) expect(audit.smallFields, 'fields under 16px make iOS zoom in').toEqual([]);
   });
 }
+
+for (const colorScheme of ['light', 'dark'] as const) {
+  test(`every view's text is readable in ${colorScheme} mode — at least 4.5:1`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme });
+    for (const view of VIEWS) {
+      await page.goto(view.path);
+      await expect(page.getByText(view.ready).first()).toBeVisible();
+      expect(await lowContrastText(page), `low-contrast text on "${view.name}"`).toEqual([]);
+    }
+  });
+}
+
+test('a job card keeps its actions on one line on a small iPhone (375 px)', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 667 });
+  await page.goto('./');
+  for (const card of await page.getByRole('article').all()) {
+    const apply = card.getByRole('link', { name: /הגש מועמדות/ });
+    const lines = await apply.evaluate((a) => {
+      const range = document.createRange();
+      range.selectNodeContents(a);
+      return new Set([...range.getClientRects()].map((r) => Math.round(r.top))).size;
+    });
+    expect(lines, 'the "הגש מועמדות" label wraps').toBe(1);
+    const star = (await card.getByRole('button', { name: /שמור משרה|הסר משמורים/ }).boundingBox())!;
+    expect(star.width, 'the star button was squeezed').toBeGreaterThanOrEqual(44);
+  }
+});
+
+test('the status menu works from the keyboard', async ({ page }) => {
+  await page.goto('./');
+  const card = page.getByRole('article', { name: TITLES.manualNew, exact: true });
+  const toggle = card.getByRole('button', { name: /^סטטוס/ });
+  await toggle.focus();
+  await page.keyboard.press('Enter');
+  // Focus moves into the menu, onto the current status ("חדש" has none, so the first choice).
+  const items = card.getByRole('menuitemradio');
+  await expect(items.first()).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await expect(items.nth(1)).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(card.getByRole('menu')).toBeHidden();
+  await expect(toggle).toBeFocused();
+});
+
+test('an open application in "שלי" has no tap target under 24 px', async ({ page }) => {
+  const now = new Date().toISOString();
+  const seeded = {
+    'fixture:manual': {
+      status: 'recruiter_call',
+      appliedAt: now,
+      updatedAt: now,
+      history: [
+        { status: 'applied', at: now },
+        { status: 'recruiter_call', at: now },
+      ],
+      snapshot: { title: TITLES.manualNew, url: 'https://jobs.example.test/manual' },
+    },
+  };
+  await page.addInitScript((v) => localStorage.setItem('qa-radar:statuses', v), JSON.stringify(seeded));
+  await page.goto('./?view=mine');
+  await page.getByRole('button', { name: TITLES.manualNew }).click();
+  await expect(page.getByRole('button', { name: 'הסר מהרשימה' })).toBeVisible();
+
+  const audit = await auditLayout(page);
+  expect(audit.tooSmall).toEqual([]);
+  expect(audit.overflowX).toBeLessThanOrEqual(0);
+});
 
 test('the main controls meet Apple’s 44pt tap size', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'phone guideline');

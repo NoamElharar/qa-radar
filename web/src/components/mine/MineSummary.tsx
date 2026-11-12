@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { OUTCOMES, STALE_DAYS, visiblePipeline, type MineStats } from '../../lib/mine.ts';
 import { STATUS_DESCRIPTIONS, STATUS_LABELS, type JobStatus } from '../../lib/storage.ts';
+import { ClockIcon } from '../icons.tsx';
 import { StatusDot } from './StatusDot.tsx';
 import { WeeklyChart } from './WeeklyChart.tsx';
 
@@ -27,9 +28,9 @@ export function Tile({
 }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900">
-      <p className="text-xs text-slate-500">{label}</p>
+      <p className="text-xs text-muted">{label}</p>
       <p className="mt-1 text-2xl leading-none font-semibold">{value}</p>
-      {sub && <p className="mt-1.5 text-xs text-slate-500">{sub}</p>}
+      {sub && <p className="mt-1.5 text-xs text-muted">{sub}</p>}
       {children}
     </div>
   );
@@ -58,7 +59,7 @@ export function MineSummary({
         aria-pressed={active}
         title={STATUS_DESCRIPTIONS[s]}
         onClick={() => onToggleStatus(s)}
-        className={`inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border px-3 text-sm transition ${
+        className={`tap-44 inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border px-3 text-sm transition ${
           active
             ? 'border-slate-800 bg-slate-800 text-white dark:border-slate-200 dark:bg-slate-200 dark:text-slate-900'
             : 'border-slate-200 bg-white text-slate-700 hover:border-slate-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
@@ -66,7 +67,7 @@ export function MineSummary({
       >
         <StatusDot status={s} />
         {STATUS_LABELS[s]}
-        <span className={`tabular-nums ${active ? '' : 'text-slate-500'}`}>
+        <span className={`tabular-nums ${active ? '' : 'text-muted'}`}>
           {stats.byStatus[s]}
         </span>
       </button>
@@ -104,10 +105,11 @@ export function MineSummary({
               : 'border-slate-200 bg-white hover:border-amber-300 dark:border-slate-800 dark:bg-slate-900'
           }`}
         >
-          <span className="block text-xs text-slate-500">ממתינות לתגובה</span>
+          <span className="block text-xs text-muted">ממתינות לתגובה</span>
           <span className="mt-1 block text-2xl leading-none font-semibold">{stats.stale}</span>
-          <span className="mt-1.5 block text-xs text-slate-500">
-            ⏳ {STALE_DAYS}+ ימים · {staleActive ? 'מסונן ✓' : 'הצג'}
+          <span className="mt-1.5 block text-xs text-muted">
+            <ClockIcon className="inline-block align-[-0.125em]" /> {STALE_DAYS}+ ימים ·{' '}
+            {staleActive ? 'מסונן ✓' : 'הצג'}
           </span>
         </button>
       </div>
@@ -115,7 +117,7 @@ export function MineSummary({
       {stats.applications > 0 && <WeeklyChart weeks={stats.weekly} />}
 
       <div
-        className="flex flex-wrap items-center gap-1.5"
+        className="flex flex-wrap items-center gap-2"
         role="group"
         aria-label="סינון לפי סטטוס"
       >
@@ -123,26 +125,27 @@ export function MineSummary({
           type="button"
           aria-pressed={!selected.length}
           onClick={onClearStatuses}
-          className={`min-h-9 shrink-0 rounded-full border px-3 text-sm ${
+          className={`tap-44 min-h-9 shrink-0 rounded-full border px-3 text-sm ${
             !selected.length
               ? 'border-brand-700 bg-brand-700 text-white'
               : 'border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'
           }`}
         >
-          הכל <span className="tabular-nums opacity-80">{total}</span>
+          הכל <span className="tabular-nums">{total}</span>
         </button>
         <span
           className="mx-1 h-5 w-px shrink-0 bg-slate-200 dark:bg-slate-700"
           aria-hidden="true"
         />
+        {/* The "‹" leads into each step after the first, so a wrapped line starts with it instead of ending on it. */}
         {pipeline.map((s, i) => (
           <span key={s} className="flex shrink-0 items-center gap-1.5">
-            {chip(s)}
-            {i < pipeline.length - 1 && (
-              <span className="text-slate-300 dark:text-slate-600" aria-hidden="true">
+            {i > 0 && (
+              <span className="text-muted" aria-hidden="true">
                 ‹
               </span>
             )}
+            {chip(s)}
           </span>
         ))}
         <span

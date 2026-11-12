@@ -24,7 +24,7 @@ import {
   type StatusEntry,
 } from '../../lib/storage.ts';
 import { formatDate, israelDayKey, relativeTime } from '../../lib/time.ts';
-import { ExternalIcon, PinIcon } from '../icons.tsx';
+import { AlertIcon, ClockIcon, CloseIcon, ExternalIcon, NoteIcon, PenIcon, PinIcon } from '../icons.tsx';
 import { NotesField } from './NotesField.tsx';
 import { StatusDot } from './StatusDot.tsx';
 
@@ -65,13 +65,13 @@ function StatusHistory({
   const day = (iso: string) => israelDayKey(new Date(iso));
   return (
     <section aria-label="מהלך המועמדות" className="text-sm">
-      <h4 className="mb-1 text-xs text-slate-500">מהלך המועמדות</h4>
+      <h4 className="mb-1 text-xs text-muted">מהלך המועמדות</h4>
       <ol className="space-y-1">
         {steps.map((step, i) => {
           const label = STATUS_LABELS[step.status];
           const last = i === steps.length - 1;
           return (
-            <li key={`${step.status}-${i}`} className="grid grid-cols-[1fr_auto_2rem] items-center gap-x-1.5">
+            <li key={`${step.status}-${i}`} className="grid grid-cols-[1fr_auto_2.75rem] items-center gap-x-1.5">
               <span className="min-w-0">
                 <span className="flex items-center gap-1.5">
                   <StatusDot status={step.status} className="size-2 shrink-0" />
@@ -93,7 +93,7 @@ function StatusHistory({
                 min={i > 0 ? day(steps[i - 1]!.at) : undefined}
                 max={last ? today : day(steps[i + 1]!.at)}
                 onChange={(e) => onUpdate(id, withStepDate(entry, i, e.target.value))}
-                className="w-[8.25rem] rounded-lg border border-slate-300 bg-white px-1.5 py-1 text-sm dark:border-slate-700 dark:bg-slate-900"
+                className="min-h-11 w-[8.25rem] rounded-lg border border-slate-300 bg-white px-1.5 py-1 text-sm dark:border-slate-700 dark:bg-slate-900"
               />
               {last ? (
                 <span />
@@ -106,9 +106,9 @@ function StatusHistory({
                     window.confirm(`למחוק את השלב "${label}" ממהלך המועמדות?`) &&
                     onUpdate(id, withoutStep(entry, i))
                   }
-                  className="grid size-8 place-items-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-rose-600 dark:hover:bg-slate-800"
+                  className="grid size-11 place-items-center rounded-lg text-muted hover:bg-slate-100 hover:text-rose-600 dark:hover:bg-slate-800"
                 >
-                  ×
+                  <CloseIcon />
                 </button>
               )}
             </li>
@@ -140,7 +140,8 @@ function OverlapNote({
       }`}
     >
       <p className="font-medium">
-        {conflict ? '⚠️ כבר הוגשת ל-' : 'עוד מועמדות ל-'}
+        {conflict && <AlertIcon className="me-1 inline-block align-[-0.125em]" />}
+        {conflict ? 'כבר הוגשת ל-' : 'עוד מועמדות ל-'}
         <bdi>{client}</bdi>
         {conflict ? ' גם ממקור אחר:' : ', מאותה חברה:'}
       </p>
@@ -162,7 +163,7 @@ function OverlapNote({
       <button
         type="button"
         onClick={() => onShowClient(client)}
-        className="mt-1 min-h-9 underline"
+        className="tap-44 mt-1 min-h-9 text-start underline"
       >
         הצג את כל המועמדויות ל-<bdi>{client}</bdi>
       </button>
@@ -171,7 +172,7 @@ function OverlapNote({
 }
 
 const fieldClass =
-  'w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900';
+  'min-h-11 w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900';
 
 /** Title / company / link are editable only for applications added by hand (collected ones come from the source). */
 function ManualDetails({
@@ -198,7 +199,7 @@ function ManualDetails({
   return (
     <div className="grid gap-3 sm:grid-cols-3">
       <label className="text-sm">
-        <span className="mb-1 block text-xs text-slate-500">שם המשרה</span>
+        <span className="mb-1 block text-xs text-muted">שם המשרה</span>
         <input
           defaultValue={snapshot.title}
           onBlur={(e) => save({ title: e.target.value.trim() })}
@@ -206,7 +207,7 @@ function ManualDetails({
         />
       </label>
       <label className="text-sm">
-        <span className="mb-1 block text-xs text-slate-500">חברה</span>
+        <span className="mb-1 block text-xs text-muted">חברה</span>
         <input
           defaultValue={snapshot.company ?? ''}
           onBlur={(e) => save({ company: e.target.value.trim() || undefined })}
@@ -214,7 +215,7 @@ function ManualDetails({
         />
       </label>
       <label className="text-sm">
-        <span className="mb-1 block text-xs text-slate-500">קישור</span>
+        <span className="mb-1 block text-xs text-muted">קישור</span>
         <input
           type="url"
           dir="ltr"
@@ -260,10 +261,10 @@ export const MineRow = memo(function MineRow({
           aria-pressed={pinned}
           aria-label={pinned ? 'בטל נעיצה' : 'נעץ למעלה'}
           title={pinned ? 'בטל נעיצה' : 'נעץ למעלה'}
-          className={`grid size-10 shrink-0 place-items-center rounded-lg text-base ${
+          className={`grid size-11 shrink-0 place-items-center rounded-lg text-base ${
             pinned
               ? 'text-brand-700 dark:text-brand-500'
-              : 'text-slate-300 hover:text-slate-500 dark:text-slate-600 dark:hover:text-slate-400'
+              : 'text-muted hover:text-slate-700 dark:hover:text-slate-200'
           }`}
         >
           <PinIcon className={pinned ? 'fill-current' : ''} />
@@ -273,12 +274,12 @@ export const MineRow = memo(function MineRow({
           type="button"
           onClick={() => onToggleExpand(id)}
           aria-expanded={expanded}
-          className="min-w-0 flex-1 text-start"
+          className="min-h-11 min-w-0 flex-1 text-start"
         >
           <span className="line-clamp-2 leading-snug font-medium">
             <bdi dir={textDir(title)}>{title}</bdi>
           </span>
-          <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-slate-500">
+          <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted">
             {company && <bdi className="max-w-[12rem] truncate">{company}</bdi>}
             {client && client !== company && (
               <span className="max-w-[12rem] truncate">
@@ -286,20 +287,25 @@ export const MineRow = memo(function MineRow({
               </span>
             )}
             {overlap?.conflict && (
-              <span className="rounded-md bg-rose-100 px-1.5 py-px font-medium text-rose-900 dark:bg-rose-900/40 dark:text-rose-100">
-                ⚠️ {overlap.others.length + 1} הגשות ל-<bdi>{overlap.client}</bdi>
+              <span className="inline-flex items-center gap-1 rounded-md bg-rose-100 px-1.5 py-px font-medium text-rose-900 dark:bg-rose-900/40 dark:text-rose-100">
+                <AlertIcon className="shrink-0" />
+                <span>
+                  {overlap.others.length + 1} הגשות ל-<bdi>{overlap.client}</bdi>
+                </span>
               </span>
             )}
             {entry.appliedAt && <span>הוגש {formatDate(entry.appliedAt)}</span>}
             <span>עודכן {relativeTime(entry.updatedAt, now)}</span>
             {stale && (
-              <span className="rounded-md bg-amber-100 px-1.5 py-px text-amber-900 dark:bg-amber-900/40 dark:text-amber-200">
-                ⏳ {daysWaiting(entry, now)} ימים בלי תגובה
+              <span className="inline-flex items-center gap-1 rounded-md bg-amber-100 px-1.5 py-px text-amber-900 dark:bg-amber-900/40 dark:text-amber-200">
+                <ClockIcon className="shrink-0" />
+                {daysWaiting(entry, now)} ימים בלי תגובה
               </span>
             )}
             {entry.manual ? (
-              <span className="rounded-md bg-slate-100 px-1.5 py-px text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                ✍️ ידני{entry.channel ? ` · ${entry.channel}` : ''}
+              <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-1.5 py-px text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                <PenIcon className="shrink-0" />
+                ידני{entry.channel ? ` · ${entry.channel}` : ''}
               </span>
             ) : (
               entry.channel && <span>דרך {entry.channel}</span>
@@ -309,8 +315,13 @@ export const MineRow = memo(function MineRow({
                 ראיון: {INTERVIEW_FORMAT_LABELS[format]}
               </span>
             )}
-            {gone && <span className="text-slate-400">· המשרה הוסרה מהמקור</span>}
-            {entry.note && <span title={entry.note}>📝 הערה</span>}
+            {gone && <span>· המשרה הוסרה מהמקור</span>}
+            {entry.note && (
+              <span title={entry.note} className="inline-flex items-center gap-1">
+                <NoteIcon className="shrink-0" />
+                הערה
+              </span>
+            )}
           </span>
         </button>
 
@@ -324,7 +335,7 @@ export const MineRow = memo(function MineRow({
 
       {expanded && (
         <div className="space-y-3 px-3 pb-4 ps-11">
-          <div role="radiogroup" aria-label="סטטוס" className="flex flex-wrap gap-1.5">
+          <div role="radiogroup" aria-label="סטטוס" className="flex flex-wrap gap-2">
             {/* A legacy status (the unsorted "ראיון") shows only on the entry that still has it. */}
             {ALL_STATUSES.filter((s) => !LEGACY_STATUSES.has(s) || s === entry.status).map((s: JobStatus) => (
               <button
@@ -342,7 +353,7 @@ export const MineRow = memo(function MineRow({
                         : entry.appliedAt,
                   })
                 }
-                className={`inline-flex min-h-9 items-center gap-1.5 rounded-full border px-2.5 text-xs ${
+                className={`tap-44 inline-flex min-h-9 items-center gap-1.5 rounded-full border px-2.5 text-xs ${
                   entry.status === s
                     ? 'border-slate-800 bg-slate-800 text-white dark:border-slate-200 dark:bg-slate-200 dark:text-slate-900'
                     : 'border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900'
@@ -360,7 +371,7 @@ export const MineRow = memo(function MineRow({
 
           <div className="grid gap-3 sm:grid-cols-3">
             <label className="text-sm">
-              <span className="mb-1 block text-xs text-slate-500">איפה הגשתי</span>
+              <span className="mb-1 block text-xs text-muted">איפה הגשתי</span>
               <input
                 defaultValue={entry.channel ?? ''}
                 list="qa-radar-channels"
@@ -369,11 +380,11 @@ export const MineRow = memo(function MineRow({
                   e.target.value.trim() !== (entry.channel ?? '') &&
                   onUpdate(id, { channel: e.target.value.trim() || undefined })
                 }
-                className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
+                className="min-h-11 w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
               />
             </label>
             <label className="text-sm">
-              <span className="mb-1 block text-xs text-slate-500">תאריך הגשה</span>
+              <span className="mb-1 block text-xs text-muted">תאריך הגשה</span>
               <input
                 type="date"
                 value={entry.appliedAt?.slice(0, 10) ?? ''}
@@ -384,18 +395,18 @@ export const MineRow = memo(function MineRow({
                       : undefined,
                   })
                 }
-                className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
+                className="min-h-11 w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
               />
             </label>
             <label className="text-sm">
-              <span className="mb-1 block text-xs text-slate-500">פורמט ראיון</span>
+              <span className="mb-1 block text-xs text-muted">פורמט ראיון</span>
               <select
                 value={format}
                 onChange={(e) => {
                   const next = e.target.value as InterviewFormat;
                   onUpdate(id, { interviewFormat: next === 'unknown' ? undefined : next });
                 }}
-                className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
+                className="min-h-11 w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 dark:border-slate-700 dark:bg-slate-900"
               >
                 {INTERVIEW_FORMATS.map((f) => (
                   <option key={f} value={f}>
@@ -408,7 +419,7 @@ export const MineRow = memo(function MineRow({
 
           <div className="text-sm">
             <label className="block">
-              <span className="mb-1 block text-xs text-slate-500">
+              <span className="mb-1 block text-xs text-muted">
                 לקוח הקצה — החברה שבה המשרה
               </span>
               <input
@@ -426,7 +437,7 @@ export const MineRow = memo(function MineRow({
           </div>
 
           <label className="block text-sm">
-            <span className="mb-1 block text-xs text-slate-500">הערות</span>
+            <span className="mb-1 block text-xs text-muted">הערות</span>
             <NotesField
               defaultValue={entry.note ?? ''}
               onBlur={(e) =>
@@ -443,7 +454,7 @@ export const MineRow = memo(function MineRow({
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-brand-700 hover:underline dark:text-brand-500"
+                className="inline-flex min-h-11 items-center gap-1 text-brand-700 hover:underline dark:text-brand-500"
               >
                 פתח משרה <ExternalIcon />
               </a>
@@ -451,7 +462,7 @@ export const MineRow = memo(function MineRow({
             <button
               type="button"
               onClick={() => window.confirm(`להסיר את "${title}" מהרשימה?`) && onRemove(id)}
-              className="ms-auto text-xs text-rose-600 hover:underline"
+              className="ms-auto min-h-11 px-2 text-xs text-rose-700 hover:underline dark:text-rose-400"
             >
               הסר מהרשימה
             </button>

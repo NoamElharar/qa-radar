@@ -30,7 +30,7 @@ test('two agencies sending my CV to the same company are flagged in "שלי"', a
   await seedTwoAgencies(page);
   await page.goto('./?view=mine');
 
-  await expect(row(page, 'בודק תוכנה שני').getByText('⚠️ 2 הגשות ל-אקמה')).toBeVisible();
+  await expect(row(page, 'בודק תוכנה שני').getByText('2 הגשות ל-אקמה')).toBeVisible();
   const flag = page.getByRole('button', { name: /הגשה כפולה ללקוח/ });
   await expect(flag).toHaveText(/2$/);
 
@@ -60,5 +60,5 @@ test('the add form warns before a third agency is logged for the same company', 
   // Saved anyway: now three applications to that company, and a reload keeps the end client.
   await form.getByRole('button', { name: 'שמור מועמדות' }).click();
   await page.reload();
-  await expect(row(page, 'בודק תוכנה שלישי').getByText('⚠️ 3 הגשות ל-אקמה')).toBeVisible();
+  await expect(row(page, 'בודק תוכנה שלישי').getByText('3 הגשות ל-אקמה')).toBeVisible();
 });

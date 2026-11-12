@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { isNewSince, type Job, type SourceType } from '@qa-radar/shared';
 import { BottomNav, Header } from './components/Chrome.tsx';
+import { AlertIcon } from './components/icons.tsx';
 import { FilterSheet, type FilterOptions } from './components/FilterSheet.tsx';
 import { JobCard } from './components/JobCard.tsx';
 import { MineView } from './components/MineView.tsx';
@@ -240,15 +241,18 @@ export function App() {
             לא הצלחתי לטעון את הנתונים ({loadError}). אם זו הפעלה מקומית — הריצו קודם <code dir="ltr">npm run collect</code>.
           </p>
         )}
-        {!data && !loadError && <p className="py-10 text-center text-slate-500">טוען…</p>}
+        {!data && !loadError && <p className="py-10 text-center text-muted">טוען…</p>}
 
         {data && failing.length > 0 && filters.view !== 'sources' && (
           <button
             type="button"
             onClick={() => setView('sources')}
-            className="w-full rounded-xl border border-amber-300 bg-amber-50 p-3 text-start text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950/60 dark:text-amber-200"
+            className="flex w-full items-start gap-2 rounded-xl border border-amber-300 bg-amber-50 p-3 text-start text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950/60 dark:text-amber-200"
           >
-            ⚠️ {failing.length === 1 ? 'מקור אחד לא נטען' : `${failing.length} מקורות לא נטענו`} בריצה האחרונה ({failing.map((s) => s.name).join(', ')}) — ייתכן שחסרות משרות. לפרטים ←
+            <AlertIcon className="mt-0.5 shrink-0 text-amber-700 dark:text-amber-400" />
+            <span>
+              {failing.length === 1 ? 'מקור אחד לא נטען' : `${failing.length} מקורות לא נטענו`} בריצה האחרונה ({failing.map((s) => s.name).join(', ')}) — ייתכן שחסרות משרות. לפרטים ←
+            </span>
           </button>
         )}
 
@@ -256,11 +260,12 @@ export function App() {
           <>
             <div className="flex items-baseline justify-between">
               <h2 className="text-xl font-bold">{filters.view === 'new' ? 'חדש היום' : 'כל המשרות'}</h2>
-              <span className="text-sm text-slate-500">{visible.length} משרות</span>
+              <span className="text-sm text-muted">{visible.length} משרות</span>
             </div>
             {previousVisit && newSinceVisit > 0 && (
-              <p className="rounded-xl bg-rose-50 px-4 py-2.5 text-sm font-medium text-rose-800 dark:bg-rose-950/60 dark:text-rose-200">
-                🔴 {newSinceVisit} {newSinceVisit === 1 ? 'משרה חדשה' : 'משרות חדשות'} מאז הביקור הקודם ({relativeTime(previousVisit.toISOString(), now)})
+              <p className="flex items-center gap-2 rounded-xl bg-rose-50 px-4 py-2.5 text-sm font-medium text-rose-800 dark:bg-rose-950/60 dark:text-rose-200">
+                <span className="size-2.5 shrink-0 rounded-full bg-rose-500" aria-hidden="true" />
+                {newSinceVisit} {newSinceVisit === 1 ? 'משרה חדשה' : 'משרות חדשות'} מאז הביקור הקודם ({relativeTime(previousVisit.toISOString(), now)})
               </p>
             )}
             <Toolbar filters={filters} onChange={setFilters} onOpenFilters={() => setFiltersOpen(true)} />
@@ -293,9 +298,9 @@ export function App() {
               </button>
             )}
             {!visible.length && !baselinePending && (
-              <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-slate-500 dark:border-slate-700">
+              <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-muted dark:border-slate-700">
                 {filters.view === 'new' ? 'אין משרות חדשות ב-24 השעות האחרונות לפי הסינון.' : 'אין משרות שמתאימות לסינון.'}{' '}
-                <button type="button" onClick={resetFilters} className="text-brand-700 underline dark:text-brand-500">
+                <button type="button" onClick={resetFilters} className="tap-44 text-brand-700 underline dark:text-brand-500">
                   איפוס סינון
                 </button>
               </p>
@@ -357,7 +362,8 @@ export function App() {
       {notice && (
         <div
           role="status"
-          className="fixed inset-x-4 bottom-20 z-40 mx-auto max-w-sm rounded-xl bg-slate-900 px-4 py-3 text-center text-sm text-white shadow-lg dark:bg-slate-100 dark:text-slate-900"
+          // Above the bottom bar, which is taller by the iPhone home-bar inset.
+          className="fixed inset-x-4 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-sm rounded-xl bg-slate-900 px-4 py-3 text-center text-sm text-white shadow-lg dark:bg-slate-100 dark:text-slate-900"
         >
           {notice}
         </div>

@@ -19,6 +19,7 @@ import {
   type StatusEntry,
 } from '../../lib/storage.ts';
 import { israelDayKey } from '../../lib/time.ts';
+import { AlertIcon, PlusIcon } from '../icons.tsx';
 import { NotesField } from './NotesField.tsx';
 
 const STATUS_CHOICES: JobStatus[] = [
@@ -46,12 +47,12 @@ const emptyForm = (): ManualInput => ({
 });
 
 const inputClass =
-  'w-full rounded-lg border border-slate-300 bg-white px-2.5 py-2 text-sm dark:border-slate-700 dark:bg-slate-900';
+  'min-h-11 w-full rounded-lg border border-slate-300 bg-white px-2.5 py-2 text-sm dark:border-slate-700 dark:bg-slate-900';
 
 /** How many earlier applications to name in the warning. */
 const EARLIER_LIST = 4;
 
-/** "➕ הוספת מועמדות" — for applications the collector never saw (LinkedIn, AllJobs, a friend…). */
+/** "הוספת מועמדות ידנית" — for applications the collector never saw (LinkedIn, AllJobs, a friend…). */
 export function AddApplication({
   onAdd,
   existing,
@@ -104,7 +105,8 @@ export function AddApplication({
           }}
           className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-dashed border-brand-600 px-3 text-sm font-medium text-brand-700 hover:bg-brand-50 dark:border-brand-500 dark:text-brand-500 dark:hover:bg-brand-900/40"
         >
-          ➕ הוספת מועמדות ידנית
+          <PlusIcon className="shrink-0" />
+          הוספת מועמדות ידנית
         </button>
         {savedTitle && (
           <span role="status" className="text-xs text-emerald-700 dark:text-emerald-400">
@@ -124,11 +126,11 @@ export function AddApplication({
     >
       <div className="flex items-baseline justify-between">
         <h3 className="font-semibold">הוספת מועמדות ידנית</h3>
-        <span className="text-xs text-slate-500">למשרות שהרדאר לא אסף</span>
+        <span className="text-xs text-muted">למשרות שהרדאר לא אסף</span>
       </div>
 
       <label className="block text-sm">
-        <span className="mb-1 block text-xs text-slate-500">שם המשרה *</span>
+        <span className="mb-1 block text-xs text-muted">שם המשרה *</span>
         <input
           value={form.title}
           onChange={(e) => set({ title: e.target.value })}
@@ -141,7 +143,7 @@ export function AddApplication({
 
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="block text-sm">
-          <span className="mb-1 block text-xs text-slate-500">חברה</span>
+          <span className="mb-1 block text-xs text-muted">חברה</span>
           <input
             value={form.company}
             onChange={(e) => set({ company: e.target.value })}
@@ -150,7 +152,7 @@ export function AddApplication({
           />
         </label>
         <label className="block text-sm">
-          <span className="mb-1 block text-xs text-slate-500">איפה הגשתי</span>
+          <span className="mb-1 block text-xs text-muted">איפה הגשתי</span>
           <input
             value={form.channel}
             onChange={(e) => set({ channel: e.target.value })}
@@ -168,7 +170,7 @@ export function AddApplication({
 
       <div className="text-sm">
         <label className="block">
-          <span className="mb-1 block text-xs text-slate-500">
+          <span className="mb-1 block text-xs text-muted">
             לקוח הקצה — החברה שבה המשרה (אם המגייסת אמרה)
           </span>
           <input
@@ -189,7 +191,8 @@ export function AddApplication({
             }`}
           >
             <p className="font-medium">
-              {clash ? '⚠️ ' : ''}כבר יש לך{' '}
+              {clash && <AlertIcon className="me-1 inline-block align-[-0.125em]" />}
+              כבר יש לך{' '}
               {earlier.length === 1 ? 'מועמדות אחת' : `${earlier.length} מועמדויות`} ל-
               <bdi>{form.endClient?.trim()}</bdi>:
             </p>
@@ -214,7 +217,7 @@ export function AddApplication({
       </div>
 
       <label className="block text-sm">
-        <span className="mb-1 block text-xs text-slate-500">קישור למשרה (לא חובה)</span>
+        <span className="mb-1 block text-xs text-muted">קישור למשרה (לא חובה)</span>
         <input
           type="url"
           inputMode="url"
@@ -228,7 +231,7 @@ export function AddApplication({
 
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="block text-sm">
-          <span className="mb-1 block text-xs text-slate-500">סטטוס</span>
+          <span className="mb-1 block text-xs text-muted">סטטוס</span>
           <select
             value={form.status}
             onChange={(e) => set({ status: e.target.value as JobStatus })}
@@ -242,7 +245,7 @@ export function AddApplication({
           </select>
         </label>
         <label className="block text-sm">
-          <span className="mb-1 block text-xs text-slate-500">תאריך הגשה</span>
+          <span className="mb-1 block text-xs text-muted">תאריך הגשה</span>
           <input
             type="date"
             value={form.appliedDate}
@@ -253,7 +256,7 @@ export function AddApplication({
       </div>
 
       <label className="block text-sm">
-        <span className="mb-1 block text-xs text-slate-500">פורמט ראיון</span>
+        <span className="mb-1 block text-xs text-muted">פורמט ראיון</span>
         <select
           value={form.interviewFormat ?? 'unknown'}
           onChange={(e) => set({ interviewFormat: e.target.value as InterviewFormat })}
@@ -268,7 +271,7 @@ export function AddApplication({
       </label>
 
       <label className="block text-sm">
-        <span className="mb-1 block text-xs text-slate-500">הערות</span>
+        <span className="mb-1 block text-xs text-muted">הערות</span>
         <NotesField
           value={form.note}
           onChange={(e) => set({ note: e.target.value })}
