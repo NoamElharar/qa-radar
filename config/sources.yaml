@@ -362,10 +362,12 @@ sources:
     type: agency
     tier: B
     adapter: html
-    homepage: https://mertens.malam.com/
-    categoryQa: true
+    homepage: https://mertens.malam.com/career/
     options:
-      url: 'https://mertens.malam.com/%d7%a8%d7%a9%d7%99%d7%9e%d7%aa-%d7%9e%d7%a9%d7%a8%d7%95%d7%aa-%d7%a8%d7%92%d7%99%d7%9c/?prof=2&loc=&t='
+      # The full list (~270 jobs, one page, ~90 KB gzipped). The QA field (?prof=2) misses testers filed
+      # under other fields ("בודק.ת ERP – התמחות ב-SAP MM", "בודק.ת תוכנה בתחום PM"), and the list doesn't
+      # say which field a job is in, so the titles decide — that keeps every job the QA field had.
+      url: 'https://mertens.malam.com/%d7%a8%d7%a9%d7%99%d7%9e%d7%aa-%d7%9e%d7%a9%d7%a8%d7%95%d7%aa-%d7%a8%d7%92%d7%99%d7%9c/?prof=&loc=&t='
       item: 'div.job-item-container'
       title: 'h2.job-name'
       link: { selector: 'div.job-actions a.btn', attr: href }
