@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15T11:05:02.450Z",
+  "generatedAt": "2026-11-15T11:23:56.866Z",
   "sources": [
     {
       "id": "linkedin",
@@ -792,11 +792,15 @@
       "homepage": "https://www.malamteam.com/",
       "quickLinks": [
         {
-          "label": "לובי קריירה",
-          "url": "https://www.malamteam.com/לובי-קריירה/"
+          "label": "חיפוש QA",
+          "url": "https://www.malamteam.com/לובי-חיפוש-קריירה/?serch=QA&field=&location="
+        },
+        {
+          "label": "כל המשרות",
+          "url": "https://www.malamteam.com/לובי-חיפוש-קריירה/"
         }
       ],
-      "note": "מוגן ע\"י אתגר בוטים של Cloudflare — לא עוקפים",
+      "note": "משרות Mertens (מספר משרה בן 5 ספרות) כבר ברדאר — חדשות לך רק משרות עם מספר בן 6 ספרות. Cloudflare חוסם איסוף אוטומטי",
       "status": "link-out",
       "consecutiveFailures": 0,
       "baselineDone": false,
