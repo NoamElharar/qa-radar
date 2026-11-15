@@ -494,6 +494,27 @@ sources:
       id: '.job-ID'
       qaCategory: { selector: '.job-category', match: 'בדיקות' }
 
+  - id: peax
+    name: Peax
+    type: agency # the group's IT-services companies (Innova, WEDO, Unitask); most jobs are placements at clients
+    tier: D
+    adapter: link-out
+    homepage: https://peax.co.il/career/
+    note: תנאי השימוש אוסרים העתקה, הצגה או הנגשה לציבור של תוכן האתר ויצירת מאגר ממנו — הרדאר רק סופר משרות QA ולא שומר את תוכנן
+    quickLinks:
+      - { label: 'כל המשרות', url: 'https://peax.co.il/career/#all' }
+    watch: # count only — the group's own careers page; its jobs are not on Horizontech's list
+      adapter: html
+      options:
+        # Every job is in the page (the filters and "show more" are client-side). An item's classes carry
+        # its WordPress post number ("t435"), which stays put when a title is edited.
+        url: https://peax.co.il/career/
+        item: '#careers-list .item'
+        title: 'h3.title'
+        link: { selector: 'h3.title a', attr: href }
+        id: { selector: ':self', attr: class, regex: '(?:^|\s)t(\d+)(?:\s|$)' }
+        description: '.meta, .text' # the company line ("Software | Innova") and the one-line summary
+
   - id: ucl
     name: UCL Group
     type: agency
