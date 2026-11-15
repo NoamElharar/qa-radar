@@ -398,9 +398,14 @@ sources:
     tier: D
     adapter: link-out
     homepage: https://www.malamteam.com/
-    note: מוגן ע"י אתגר בוטים של Cloudflare — לא עוקפים
+    # The group's job search (~425 jobs) = Mertens' list (5-digit job numbers, already collected as `mertens`)
+    # + the other group companies' jobs (6-digit numbers). Automated requests get a Cloudflare challenge
+    # (403, cf-mitigated: challenge), so the rest stays a manual check. A text search for "QA" also finds
+    # the QA roles filed under SAP (the QA field alone misses them).
+    note: משרות Mertens (מספר משרה בן 5 ספרות) כבר ברדאר — חדשות לך רק משרות עם מספר בן 6 ספרות. Cloudflare חוסם איסוף אוטומטי
     quickLinks:
-      - { label: 'לובי קריירה', url: 'https://www.malamteam.com/לובי-קריירה/' }
+      - { label: 'חיפוש QA', url: 'https://www.malamteam.com/לובי-חיפוש-קריירה/?serch=QA&field=&location=' }
+      - { label: 'כל המשרות', url: 'https://www.malamteam.com/לובי-חיפוש-קריירה/' }
 
   - id: idor
     name: עידור (IDOR GROUP)
