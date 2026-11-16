@@ -27,6 +27,9 @@ describe('QA relevance — accepted', () => {
     'בודק/ת SAP FI',
     'בודק/ת CRM',
     'בודק/ת פריוריטי',
+    // QualityAI lists titles only, with either word order:
+    'Automation Test Developer Team Lead',
+    'SAP Automation Test Developer',
   ])('%s', (title) => {
     expect(classifier.decideQa(title, undefined, false).qa).toBe(true);
   });
