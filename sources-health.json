@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-16T07:01:11.759Z",
+  "generatedAt": "2026-11-16T07:22:14.116Z",
   "sources": [
     {
       "id": "linkedin",
@@ -1014,6 +1014,217 @@
       "lastRunAt": "2026-11-16T07:01:11.759Z",
       "error": "HTTP 403 for https://peax.co.il/career/",
       "durationMs": 7278
+    },
+    {
+      "id": "qualityai",
+      "name": "QualityAI (Qualitest)",
+      "type": "agency",
+      "tier": "D",
+      "homepage": "https://careers.quality-ai.com/",
+      "quickLinks": [
+        {
+          "label": "משרות בישראל",
+          "url": "https://careers.quality-ai.com/search/?q=&shifttype=Israel&sortColumn=referencedate&sortDirection=desc"
+        }
+      ],
+      "note": "תנאי השימוש מתירים שימוש לא-מסחרי לשם מידע בלבד ואוסרים העתקה של תוכן האתר — הרדאר רק סופר משרות QA ולא שומר את תוכנן",
+      "status": "link-out",
+      "consecutiveFailures": 0,
+      "baselineDone": false,
+      "recentCounts": [],
+      "lastRunAt": "2026-11-16T07:22:14.116Z",
+      "lastSuccessAt": "2026-11-16T07:22:14.116Z",
+      "fetched": 65,
+      "kept": 31,
+      "durationMs": 9871,
+      "watch": [
+        {
+          "key": "3221a705de67",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 56,
+          "baseline": true
+        },
+        {
+          "key": "a527ec0cd7a0",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "25bc2617fb49",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 56,
+          "baseline": true
+        },
+        {
+          "key": "6829937489e3",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 58,
+          "baseline": true
+        },
+        {
+          "key": "f35f8ff0adea",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 60,
+          "baseline": true
+        },
+        {
+          "key": "207a30d69083",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 56,
+          "baseline": true
+        },
+        {
+          "key": "4a0ca54219c1",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "9d4a828a7f62",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "c41c29fcf991",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 35,
+          "baseline": true
+        },
+        {
+          "key": "575f69aa04ef",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "847aec05b901",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "acc17d8432ee",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "594ba9829fd4",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "9255736e89ed",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "3887bddc72f5",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "702466f44a62",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "16d671c77a2f",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 41,
+          "baseline": true
+        },
+        {
+          "key": "7933e0b1ef99",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 44,
+          "baseline": true
+        },
+        {
+          "key": "4a450556889f",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 35,
+          "baseline": true
+        },
+        {
+          "key": "5b61226d5838",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "6b4e7ae76810",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 56,
+          "baseline": true
+        },
+        {
+          "key": "79a6d50a2fc2",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 66,
+          "baseline": true
+        },
+        {
+          "key": "a32d2a7dd35b",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 56,
+          "baseline": true
+        },
+        {
+          "key": "2b631f114efc",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 44,
+          "baseline": true
+        },
+        {
+          "key": "d5cf52d66414",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 56,
+          "baseline": true
+        },
+        {
+          "key": "3387f91c8f32",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 44,
+          "baseline": true
+        },
+        {
+          "key": "b16cbbcefdbc",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 58,
+          "baseline": true
+        },
+        {
+          "key": "e68bc83a1597",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 35,
+          "baseline": true
+        },
+        {
+          "key": "8b058f0a0663",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 50,
+          "baseline": true
+        },
+        {
+          "key": "6b88d2b76b14",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 64,
+          "baseline": true
+        },
+        {
+          "key": "c941db7e3cda",
+          "firstSeenAt": "2026-11-16T07:22:14.116Z",
+          "score": 44,
+          "baseline": true
+        }
+      ]
     },
     {
       "id": "ucl",
