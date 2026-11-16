@@ -53,9 +53,17 @@ export const htmlOptionsSchema = z
      * matches `match` counts as filed under testing/QA, like sources.yaml `categoryQa`.
      */
     qaCategory: z.object({ selector: z.string(), match: z.string() }).optional(),
-    /** Query-string pagination: ?{param}=start, start+1, … until a page adds no new jobs. */
+    /**
+     * Query-string pagination: ?{param}=start, start+step, … until a page adds no new jobs, at most `max`
+     * pages. `step` is 1 for page numbers, or the page size for row offsets (SuccessFactors: startrow=0, 25…).
+     */
     pagination: z
-      .object({ param: z.string(), start: z.number().default(1), max: z.number().default(10) })
+      .object({
+        param: z.string(),
+        start: z.number().default(1),
+        step: z.number().int().positive().default(1),
+        max: z.number().default(10),
+      })
       .optional(),
     /** Article layout: each heading is a job; the blocks after it (until the next heading) are its text. */
     headings: z.string().optional(),
@@ -181,12 +189,12 @@ export const htmlAdapter: Adapter = async ({ source, http, log }) => {
   if (!options.pagination) {
     return assertNotEmpty(parseHtmlJobs(await http.text(options.url), options.url, options), options);
   }
-  const { param, start, max } = options.pagination;
+  const { param, start, step, max } = options.pagination;
   const all: RawJob[] = [];
   const seen = new Set<string>();
-  for (let page = start; page < start + max; page++) {
+  for (let page = 0; page < max; page++) {
     const pageUrl = new URL(options.url);
-    pageUrl.searchParams.set(param, String(page));
+    pageUrl.searchParams.set(param, String(start + page * step));
     const jobs = parseHtmlJobs(await http.text(pageUrl.toString()), pageUrl.toString(), options);
     const fresh = jobs.filter((j) => {
       const key = j.sourceJobId ?? j.url ?? j.title;
@@ -196,7 +204,7 @@ export const htmlAdapter: Adapter = async ({ source, http, log }) => {
     });
     all.push(...fresh);
     if (!fresh.length) break;
-    if (page === start + max - 1) log(`stopped at pagination limit (${max} pages)`);
+    if (page === max - 1) log(`stopped at pagination limit (${max} pages)`);
   }
   return assertNotEmpty(all, options);
 };

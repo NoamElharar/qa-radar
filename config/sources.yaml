@@ -522,6 +522,27 @@ sources:
         id: { selector: ':self', attr: class, regex: '(?:^|\s)t(\d+)(?:\s|$)' }
         description: '.meta, .text' # the company line ("Software | Innova") and the one-line summary
 
+  - id: qualityai
+    name: QualityAI (Qualitest)
+    type: agency # the testing-services group formerly called Qualitest; most jobs are at clients
+    tier: D
+    adapter: link-out
+    homepage: https://careers.quality-ai.com/
+    note: תנאי השימוש מתירים שימוש לא-מסחרי לשם מידע בלבד ואוסרים העתקה של תוכן האתר — הרדאר רק סופר משרות QA ולא שומר את תוכנן
+    quickLinks:
+      - { label: 'משרות בישראל', url: 'https://careers.quality-ai.com/search/?q=&shifttype=Israel&sortColumn=referencedate&sortDirection=desc' }
+    watch: # count only — an SAP SuccessFactors careers site; robots.txt blocks its RSS feed (/services/)
+      adapter: html
+      options:
+        # The site files its Israel jobs under the "shifttype" field. 25 rows a page, paged by row offset.
+        url: 'https://careers.quality-ai.com/search/?q=&shifttype=Israel&sortColumn=referencedate&sortDirection=desc&searchby=location&d=15'
+        item: 'tr.data-row'
+        title: 'a.jobTitle-link'
+        link: { selector: 'a.jobTitle-link', attr: href }
+        id: { selector: 'a.jobTitle-link', attr: href, regex: '/(\d+)/?$' }
+        location: '.jobLocation'
+        pagination: { param: startrow, start: 0, step: 25, max: 12 }
+
   - id: ucl
     name: UCL Group
     type: agency

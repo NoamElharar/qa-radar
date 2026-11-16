@@ -184,6 +184,39 @@ describe('html adapter (selector-driven)', () => {
     await expect(htmlAdapter(ctx(source({})))).rejects.toThrow(/no job items matched/);
     await expect(htmlAdapter(ctx(source({ allowEmpty: true })))).resolves.toEqual([]);
   });
+
+  it('pages by row offset and stops when a page adds nothing new (SuccessFactors, QualityAI)', async () => {
+    // 3 jobs, 2 per page; past the end the site repeats its last page.
+    const rows = ['24295 - Manual QA Engineer', '24334 - System Test Automation', '24364 - DevOps Engineer'];
+    const requested: string[] = [];
+    const page = (offset: number) =>
+      rows
+        .slice(Math.min(offset, 2), Math.min(offset, 2) + 2)
+        .map((t) => `<tr class="data-row"><td><a class="jobTitle-link" href="/job/${t.slice(0, 5)}/">${t}</a></td></tr>`)
+        .join('');
+    const jobs = await htmlAdapter({
+      source: {
+        id: 'x',
+        options: {
+          url: 'https://careers.x.test/search/?q=&startrow=0',
+          item: 'tr.data-row',
+          title: 'a.jobTitle-link',
+          link: { selector: 'a.jobTitle-link', attr: 'href' },
+          pagination: { param: 'startrow', start: 0, step: 2, max: 10 },
+        },
+      } as unknown as SourceConfig,
+      http: {
+        text: async (url: string) => {
+          requested.push(new URL(url).searchParams.get('startrow')!);
+          return `<table>${page(Number(new URL(url).searchParams.get('startrow')))}</table>`;
+        },
+      } as unknown as PoliteClient,
+      log: () => {},
+      isQaCandidate: () => true,
+    });
+    expect(requested).toEqual(['0', '2', '4']);
+    expect(jobs.map((j) => j.title)).toEqual(rows);
+  });
 });
 
 describe('embedded JSON adapter', () => {

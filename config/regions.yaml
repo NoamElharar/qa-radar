@@ -33,7 +33,7 @@ cities:
   - { name: רמת גן, regions: [center], lat: 32.0684, lon: 34.8248, aliases: [רמת-גן, הבורסה, ramat gan] }
   - { name: גבעתיים, regions: [center], lat: 32.0722, lon: 34.8125, aliases: [givatayim] }
   - { name: בני ברק, regions: [center], lat: 32.0807, lon: 34.8338, aliases: [בני-ברק, bnei brak] }
-  - { name: פתח תקווה, regions: [center], lat: 32.0840, lon: 34.8878, aliases: [פתח תקוה, פתח-תקווה, 'פ"ת', קריית אריה, קרית אריה, קריית מטלון, petah tikva, petach tikva, petah tiqwa] }
+  - { name: פתח תקווה, regions: [center], lat: 32.0840, lon: 34.8878, aliases: [פתח תקוה, פתח-תקווה, 'פ"ת', קריית אריה, קרית אריה, קריית מטלון, petah tikva, petach tikva, petah tiqwa, 'petach-. tikva'] } # the last: QualityAI's careers site spells it so
   - { name: חולון, regions: [center], lat: 32.0158, lon: 34.7874, aliases: [holon] }
   - { name: בת ים, regions: [center], lat: 32.0171, lon: 34.7454, aliases: [בת-ים, bat yam] }
   - { name: ראש העין, regions: [center], lat: 32.0956, lon: 34.9566, aliases: [ראש-העין, פארק אפק, rosh haayin, rosh ha'ayin] }
