@@ -30,7 +30,7 @@ import {
   type ThemePreference,
 } from './lib/storage.ts';
 import { asOf } from './lib/overview.ts';
-import { rescoreJobs } from './lib/cv.ts';
+import { rescoreJobs, rescoreWatched } from './lib/cv.ts';
 import { israelDayKey, relativeTime } from './lib/time.ts';
 import { useUrlFilters } from './lib/useUrlFilters.ts';
 
@@ -117,7 +117,11 @@ export function App() {
     () => (cv?.active && scoring ? rescoreJobs(collected, scoring, cv) : collected),
     [collected, scoring, cv],
   );
-  const sources = useMemo(() => data?.health.sources ?? [], [data]);
+  // Watch-mode sources too: "התאמה עד …" follows the CV when it is on.
+  const sources = useMemo(() => {
+    const all = data?.health.sources ?? [];
+    return cv?.active && scoring ? rescoreWatched(all, scoring, cv) : all;
+  }, [data, scoring, cv]);
   const sourceById = useMemo(() => new Map(sources.map((s) => [s.id, s])), [sources]);
   const jobsById = useMemo(() => new Map(jobs.map((j) => [j.id, j])), [jobs]);
   // Statuses saved under an old id of a re-published job count for the job's current id.

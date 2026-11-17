@@ -100,9 +100,14 @@ test('a CV uploaded once re-scores every job against its skills', async ({ page 
     /70$/,
   );
 
+  // A watch-mode source's best match follows the CV too: b2 50+12+10+6 = 78, c3 50−12+8 = 46, a1 (older) 70.
+  const watched = page.getByRole('listitem').filter({ hasText: 'סוכנות במעקב' });
+  await expect(watched).toContainText('התאמה עד 78');
+
   // Switched off, jobs go back to the fixed profile — and the choice survives a reload.
   await cv.getByRole('switch', { name: 'ציון לפי קורות החיים' }).click();
   await expect(automation.getByTitle('ציון התאמה לפרופיל')).toHaveText(/88$/);
+  await expect(watched).toContainText('התאמה עד 84');
   await page.reload();
   await expect(cvRegion(page).getByRole('switch')).toHaveAttribute('aria-checked', 'false');
   await expect(card(page, TITLES.automationNew).getByTitle('ציון התאמה לפרופיל')).toHaveText(/88$/);

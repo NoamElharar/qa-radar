@@ -1,6 +1,6 @@
 import { strToU8, zipSync } from 'fflate';
 import { describe, expect, it } from 'vitest';
-import type { Job, ScoringConfig } from '@qa-radar/shared';
+import type { Job, ScoringConfig, SourceHealth } from '@qa-radar/shared';
 import {
   CvReadError,
   cvProfile,
@@ -9,6 +9,7 @@ import {
   mirrorHebrew,
   missingSkills,
   rescoreJobs,
+  rescoreWatched,
 } from './cv.ts';
 import { docxText, wordXmlText } from './docx.ts';
 
@@ -144,5 +145,43 @@ describe('scoring against a CV', () => {
       { label: 'Python', count: 2, share: 67 },
       { label: 'Postman', count: 1, share: 33 },
     ]);
+  });
+
+  it('re-scores watch-mode jobs from the classification the collector kept', () => {
+    const source = (watch: SourceHealth['watch']): SourceHealth => ({
+      id: 'w',
+      name: 'w',
+      type: 'agency',
+      tier: 'D',
+      homepage: '',
+      status: 'link-out',
+      consecutiveFailures: 0,
+      baselineDone: true,
+      recentCounts: [],
+      watch,
+    });
+    const at = '2026-11-17T08:00:00.000Z';
+    const [watched, plain] = rescoreWatched(
+      [
+        source([
+          // 50 + 12 (Playwright, SQL) + 10 (fintech) + 10 (mid) + 6 (2 years) = 88; was 40 by the profile.
+          {
+            key: 'a',
+            firstSeenAt: at,
+            score: 40,
+            requires: ['SQL', 'Playwright'],
+            tags: ['פינטק/בנקאות/ביטוח'],
+            seniority: 'mid',
+            yearsRequired: 2,
+          },
+          { key: 'old', firstSeenAt: at, score: 61 }, // saved before entries kept their skills
+        ]),
+        source(undefined),
+      ],
+      scoring,
+      cv,
+    );
+    expect(watched!.watch!.map((w) => w.score)).toEqual([88, 61]);
+    expect(plain!.watch).toBeUndefined();
   });
 });

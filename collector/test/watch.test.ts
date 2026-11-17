@@ -21,6 +21,34 @@ describe('summarizeWatch', () => {
     expect(next[0]).toMatchObject({ firstSeenAt: t0, score: 82, baseline: true });
     expect(next[1]).toEqual({ key: expect.any(String) as string, firstSeenAt: t1, score: 90 });
   });
+
+  it('keeps what the score was computed from, so a CV can re-score it — bonus tags only', () => {
+    const [entry] = summarizeWatch(
+      undefined,
+      [
+        {
+          id: 'ingima:a',
+          score: 72,
+          requires: ['API testing', 'Playwright'],
+          tags: ['אוטומציה', 'פינטק/בנקאות/ביטוח'],
+          seniority: 'mid',
+          yearsRequired: 3,
+        },
+      ],
+      t0,
+      new Set(['פינטק/בנקאות/ביטוח']),
+    );
+    expect(entry).toEqual({
+      key: expect.any(String) as string,
+      firstSeenAt: t0,
+      score: 72,
+      baseline: true,
+      requires: ['API testing', 'Playwright'],
+      tags: ['פינטק/בנקאות/ביטוח'],
+      seniority: 'mid',
+      yearsRequired: 3,
+    });
+  });
 });
 
 describe('watch mode in a collector run', () => {
@@ -57,14 +85,17 @@ describe('watch mode in a collector run', () => {
       },
     }) as unknown as PoliteClient;
 
-  it('counts QA jobs but stores no job and no content', async () => {
+  it('counts QA jobs but stores no job and no content — only our own classification', async () => {
     const result = await collect({ config, previous: empty(), http: http(feed), now: new Date('2026-10-11T08:00:00Z') });
     expect(result.jobs.jobs).toEqual([]);
     const health = result.health.sources[0]!;
     expect(health).toMatchObject({ status: 'link-out', fetched: 2, kept: 1, consecutiveFailures: 0 });
     expect(health.watch).toHaveLength(1);
+    // The skill labels we detected, from our own list (so a CV can re-score the job) …
+    expect(health.watch![0]).toMatchObject({ requires: ['API testing', 'Playwright'], seniority: 'unknown' });
+    // … but never the source's title, text, ids or recruiter details.
     const saved = JSON.stringify(result.health);
-    for (const content of ['QA Automation Engineer', 'Playwright', 'r@agency.test', 'j1']) {
+    for (const content of ['QA Automation Engineer', 'Playwright, API', 'r@agency.test', 'j1', 'React']) {
       expect(saved).not.toContain(content);
     }
     expect(result.results[0]!.jobs).toEqual([]);

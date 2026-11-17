@@ -11,6 +11,7 @@ import {
   type ScoreProfile,
   type ScoringConfig,
   type SkillDef,
+  type SourceHealth,
 } from '@qa-radar/shared';
 import { CvReadError } from './cv-errors.ts';
 
@@ -143,6 +144,41 @@ export function rescoreJobs(jobs: readonly Job[], scoring: ScoringConfig, cv: Cv
           ),
         }
       : job,
+  );
+}
+
+/**
+ * Watch-mode sources with their jobs' scores re-computed against a CV (what "התאמה עד …" shows).
+ * Entries saved before the collector kept their skills keep their stored score.
+ */
+export function rescoreWatched(
+  sources: readonly SourceHealth[],
+  scoring: ScoringConfig,
+  cv: CvSkills,
+): SourceHealth[] {
+  const profile = cvProfile(scoring, cv);
+  return sources.map((source) =>
+    source.watch?.some((w) => w.requires)
+      ? {
+          ...source,
+          watch: source.watch.map((w) =>
+            w.requires
+              ? {
+                  ...w,
+                  score: scoreJob(
+                    {
+                      requires: w.requires,
+                      tags: w.tags ?? [],
+                      seniority: w.seniority ?? 'unknown',
+                      yearsRequired: w.yearsRequired,
+                    },
+                    profile,
+                  ).score,
+                }
+              : w,
+          ),
+        }
+      : source,
   );
 }
 

@@ -134,8 +134,16 @@ export function buildFixtures(now = Date.now()): { jobs: JobsFile; health: Healt
       quickLinks: [{ label: 'חיפוש QA בסוכנות', url: 'https://watched.example.test/jobs?search=QA' }],
       watch: [
         { key: 'a1', firstSeenAt: iso(30 * 24 * HOUR), baseline: true, score: 70 },
-        { key: 'b2', firstSeenAt: iso(2 * HOUR), score: 84 },
-        { key: 'c3', firstSeenAt: iso(26 * HOUR), score: 60 },
+        // b2 and c3 keep what their score came from, so a CV can re-score them; a1 is an older entry.
+        {
+          key: 'b2',
+          firstSeenAt: iso(2 * HOUR),
+          score: 84,
+          requires: ['Playwright', 'TypeScript'],
+          seniority: 'mid',
+          yearsRequired: 2,
+        },
+        { key: 'c3', firstSeenAt: iso(26 * HOUR), score: 60, requires: ['Java', 'Python'], seniority: 'junior' },
       ],
     }),
   ];

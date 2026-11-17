@@ -167,7 +167,7 @@ export async function collect(options: CollectOptions): Promise<CollectResult> {
             error: undefined,
             consecutiveFailures: 0,
             durationMs: run.durationMs,
-            watch: summarizeWatch(prev?.watch, run.jobs, nowIso),
+            watch: summarizeWatch(prev?.watch, run.jobs, nowIso, new Set(Object.keys(config.profile.bonusTags))),
           }
         : { ...linkOut, lastRunAt: nowIso, error: run.error, consecutiveFailures: linkOut.consecutiveFailures + 1, durationMs: run.durationMs };
     }

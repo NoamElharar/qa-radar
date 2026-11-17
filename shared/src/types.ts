@@ -108,8 +108,8 @@ export interface SourceHealth {
 
 /**
  * One QA-relevant job at a watch-mode source. Deliberately content-free: a hash of the job's id,
- * when we first saw it and our match score — never its title or text, which the source's terms
- * don't let us republish.
+ * when we first saw it and our own classification of it — never its title or text, which the
+ * source's terms don't let us republish.
  */
 export interface WatchedJob {
   key: string;
@@ -118,6 +118,15 @@ export interface WatchedJob {
   score?: number;
   /** Seen on the source's first check (silent baseline, never counted as new). */
   baseline?: boolean;
+  /**
+   * What the score was computed from, so the dashboard can re-score the job against a CV: the skill
+   * labels we detected (from `JobsFile.scoring.skills`), the level, the years asked for, and only the
+   * domain tags that earn a bonus. Missing on entries saved before CV matching.
+   */
+  requires?: string[];
+  tags?: string[];
+  seniority?: Seniority;
+  yearsRequired?: number;
 }
 
 export interface HealthFile {
