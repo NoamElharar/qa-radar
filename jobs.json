@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-17T17:01:20.099Z",
+  "generatedAt": "2026-11-17T17:49:07.984Z",
   "jobs": [
     {
       "id": "comblack:25964",
@@ -26,18 +26,26 @@
       "matched": [
         "SQL",
         "Backend / Batch",
-        "Selenium (בסיסי)",
-        "Java (בסיסי)"
+        "Selenium",
+        "Java"
       ],
       "missing": [
         "Playwright",
         "C / C++"
       ],
       "firstSeenAt": "2026-11-17T04:00:55.392Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "SQL",
+        "Backend / Batch",
+        "Selenium",
+        "Java",
+        "Playwright",
+        "C / C++"
+      ]
     },
     {
       "id": "logica:21396",
@@ -133,10 +141,16 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-16T09:53:49.023Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Jira / Xray",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "ness:43683",
@@ -161,10 +175,13 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-16T08:04:56.226Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "yael:26037",
@@ -212,7 +229,7 @@
       "title": "בודק תוכנה באגף ביטוח חיים ובריאות",
       "agency": "UCL Group",
       "snippet": "לחברה פיננסית המובילה בתחומה דרוש/ה בודק/ת תוכנה לביצוע בדיקות במערכות ביטוח חיים, כתיבת תסריטי בדיקות, איתור ותיעוד תקלות ועבודה שוטפת מול צוותי פיתוח וניתוח מערכות. דרישות התפקיד: בוגרי קורס בדיקות תוכנה  חובה ניסיון של שנתיים לפחות בבדיקות תוכנה בתחום ביטוח חיים ובריאות  חובה ניסיון מוכח בעבודה עם SQL – יתרון משמעותי היכרות עם סביבות AS-400 – יתרון",
-      "postedAt": "2026-11-17T17:01:03.000Z",
+      "postedAt": "2026-11-17T17:49:02.000Z",
       "tags": [
         "דאטה/DB",
         "פינטק/בנקאות/ביטוח"
@@ -226,10 +243,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-15T14:01:04.074Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "SQL"
+      ]
     },
     {
       "id": "mertens:38075",
@@ -253,10 +273,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-15T12:01:09.508Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "mertens:38088",
@@ -278,10 +301,13 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-15T12:01:09.508Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "ucl:c6ea593430630",
@@ -337,10 +363,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-15T10:01:09.125Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "SQL"
+      ]
     },
     {
       "id": "mertens:38086",
@@ -427,10 +458,18 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-13T04:01:07.556Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "API testing",
+        "Jira / Xray",
+        "Agile",
+        "CI/CD",
+        "ISTQB",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "comblack:25936",
@@ -461,7 +500,7 @@
         "Postman",
         "SOAP",
         "SQL",
-        "Selenium (בסיסי)"
+        "Selenium"
       ],
       "missing": [
         "C#",
@@ -469,10 +508,21 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-11-13T04:01:07.556Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SOAP",
+        "SQL",
+        "Selenium",
+        "C#",
+        "Playwright",
+        "CI/CD"
+      ]
     },
     {
       "id": "yael:26019",
@@ -499,10 +549,16 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-13T01:01:04.726Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "comblack:25901",
@@ -540,10 +596,21 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-11-12T04:00:56.140Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Backend / Batch",
+        "Agile",
+        "ISTQB"
+      ]
     },
     {
       "id": "comblack:25902",
@@ -571,10 +638,15 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-12T04:00:56.140Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "comblack:25911",
@@ -604,10 +676,16 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-12T04:00:56.140Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "yael:26012",
@@ -632,10 +710,15 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-11T22:01:09.865Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "ness:43666",
@@ -659,10 +742,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-11T16:01:04.099Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Jira / Xray"
+      ]
     },
     {
       "id": "ness:43665",
@@ -690,10 +776,14 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-11T14:00:53.795Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "ness:43659",
@@ -721,10 +811,14 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-11T13:01:04.904Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "mertens:38052",
@@ -873,10 +967,14 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-10T13:53:41.494Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "horizontech:47324",
@@ -1118,10 +1216,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-09T15:01:15.248Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "ness:43641",
@@ -1244,10 +1345,19 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-08T12:01:06.902Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Mobile (iOS/Android)",
+        "Agile"
+      ]
     },
     {
       "id": "mobileye:28d00939-d06e-4f6d-84aa-4f155fe88b62",
@@ -1356,10 +1466,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-05T08:01:10.470Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR"
+      ]
     },
     {
       "id": "ness:43622",
@@ -1381,10 +1496,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-11-05T08:01:10.470Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "mertens:37989",
@@ -1409,9 +1525,10 @@
       "missing": [],
       "firstSeenAt": "2026-11-04T10:32:02.079Z",
       "lastSeenAt": "2026-11-17T14:01:20.486Z",
-      "missingStreak": 2,
-      "state": "active",
-      "baseline": false
+      "missingStreak": 3,
+      "state": "closed",
+      "baseline": false,
+      "closedAt": "2026-11-17T17:49:07.984Z"
     },
     {
       "id": "mobileye:9094ef44-cd99-4b42-ad8d-eb5f99beb5b1",
@@ -1472,10 +1589,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-04T09:01:09.094Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "comblack:25772",
@@ -1504,10 +1624,15 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-04T04:01:20.572Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "yael:25950",
@@ -1532,10 +1657,15 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-03T14:00:58.780Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "logica:21399",
@@ -1617,10 +1747,14 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-11-03T10:00:57.863Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "comblack:25740",
@@ -1654,10 +1788,17 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-03T04:01:03.350Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "JMeter / עומסים",
+        "Mobile (iOS/Android)",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "yael:h-7fdcd7a60069",
@@ -1680,11 +1821,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-02T12:01:09.707Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "reshet13:h-3995ed8b943d",
@@ -1743,10 +1887,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-11-01T16:00:52.201Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "STP/STD/STR"
+      ]
     },
     {
       "id": "mobileye:b1883e14-5a78-4cd4-af6d-f22790187366",
@@ -1817,18 +1964,28 @@
         "API testing",
         "Postman",
         "JMeter / עומסים",
-        "Selenium (בסיסי)",
-        "Java (בסיסי)",
-        "JavaScript (בסיסי)"
+        "Selenium",
+        "Java",
+        "JavaScript"
       ],
       "missing": [
         "Python"
       ],
       "firstSeenAt": "2026-11-01T12:01:12.062Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "API testing",
+        "Postman",
+        "JMeter / עומסים",
+        "Selenium",
+        "Java",
+        "JavaScript",
+        "Python"
+      ]
     },
     {
       "id": "shva:34.96E",
@@ -1861,16 +2018,26 @@
         "Postman",
         "SQL",
         "Jira / Xray",
-        "JavaScript (בסיסי)"
+        "JavaScript"
       ],
       "missing": [
         "Python"
       ],
       "firstSeenAt": "2026-11-01T11:01:08.017Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Jira / Xray",
+        "JavaScript",
+        "Python"
+      ]
     },
     {
       "id": "mertens:37939",
@@ -2005,10 +2172,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-29T13:00:39.193Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "logica:21361",
@@ -2050,10 +2218,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-29T12:00:40.209Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "yael:h-48c5a8f88f35",
@@ -2076,11 +2245,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T12:00:40.209Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Manual / E2E",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "gotfriends:150933",
@@ -2308,10 +2481,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "SQL",
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "logon:15171",
@@ -2336,10 +2514,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "logon:15181",
@@ -2373,10 +2552,17 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "SQL",
+        "Jira / Xray"
+      ]
     },
     {
       "id": "logon:15260",
@@ -2398,14 +2584,17 @@
       ],
       "score": 72,
       "matched": [
-        "JavaScript (בסיסי)"
+        "JavaScript"
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "JavaScript"
+      ]
     },
     {
       "id": "logon:15402",
@@ -2432,10 +2621,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing"
+      ]
     },
     {
       "id": "logon:15421",
@@ -2470,10 +2662,15 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "SQL",
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "logon:15659",
@@ -2501,17 +2698,24 @@
       "matched": [
         "API testing",
         "Mobile (iOS/Android)",
-        "Java (בסיסי)"
+        "Java"
       ],
       "missing": [
         "Appium",
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "Mobile (iOS/Android)",
+        "Java",
+        "Appium",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:15793",
@@ -2538,10 +2742,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR"
+      ]
     },
     {
       "id": "logon:15795",
@@ -2568,10 +2776,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "logon:15798",
@@ -2599,10 +2810,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL"
+      ]
     },
     {
       "id": "logon:15811",
@@ -2636,10 +2851,18 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "API testing",
+        "Postman",
+        "Swagger",
+        "Mobile (iOS/Android)",
+        "Agile"
+      ]
     },
     {
       "id": "logon:15824",
@@ -2670,10 +2893,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Agile"
+      ]
     },
     {
       "id": "logon:16567",
@@ -2704,10 +2932,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "API testing",
+        "SQL"
+      ]
     },
     {
       "id": "logon:16901",
@@ -2737,10 +2970,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "SQL"
+      ]
     },
     {
       "id": "logon:17320",
@@ -2770,10 +3008,14 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Python"
+      ]
     },
     {
       "id": "logon:17493",
@@ -2806,10 +3048,16 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "רגרסיה / סניטי",
+        "SQL",
+        "ISTQB",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "logon:17521",
@@ -2836,10 +3084,13 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Python"
+      ]
     },
     {
       "id": "logon:17598",
@@ -2868,10 +3119,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "Mobile (iOS/Android)",
+        "Agile"
+      ]
     },
     {
       "id": "logon:18158",
@@ -2902,10 +3158,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Jira / Xray"
+      ]
     },
     {
       "id": "logon:18822",
@@ -2936,10 +3197,15 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Agile",
+        "Linux"
+      ]
     },
     {
       "id": "logon:18996",
@@ -2972,10 +3238,16 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "SQL"
+      ]
     },
     {
       "id": "logon:19013",
@@ -3006,10 +3278,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Jira / Xray"
+      ]
     },
     {
       "id": "logon:19219",
@@ -3044,10 +3321,19 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "API testing",
+        "Postman",
+        "Swagger",
+        "Mobile (iOS/Android)",
+        "Backend / Batch",
+        "Agile"
+      ]
     },
     {
       "id": "logon:19241",
@@ -3079,18 +3365,29 @@
         "Postman",
         "JMeter / עומסים",
         "AWS",
-        "Java (בסיסי)",
-        "JavaScript (בסיסי)"
+        "Java",
+        "JavaScript"
       ],
       "missing": [
         "Python",
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "רגרסיה / סניטי",
+        "API testing",
+        "Postman",
+        "JMeter / עומסים",
+        "AWS",
+        "Java",
+        "JavaScript",
+        "Python",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:19491",
@@ -3124,10 +3421,18 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "Postman",
+        "Swagger",
+        "Mobile (iOS/Android)",
+        "Backend / Batch",
+        "Agile"
+      ]
     },
     {
       "id": "logon:19575",
@@ -3156,10 +3461,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "רגרסיה / סניטי",
+        "Jira / Xray",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "logon:19590",
@@ -3189,10 +3499,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "logon:19640",
@@ -3228,10 +3541,19 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "SQL",
+        "C#",
+        "Playwright",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:19642",
@@ -3265,10 +3587,18 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "API testing",
+        "Backend / Batch",
+        "C#",
+        "Playwright",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:19644",
@@ -3301,10 +3631,17 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "Backend / Batch",
+        "C#",
+        "Playwright",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:19648",
@@ -3333,8 +3670,8 @@
         "Kafka",
         "MQ",
         "Backend / Batch",
-        "Selenium (בסיסי)",
-        "Java (בסיסי)"
+        "Selenium",
+        "Java"
       ],
       "missing": [
         "C#",
@@ -3342,10 +3679,22 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "SQL",
+        "Kafka",
+        "MQ",
+        "Backend / Batch",
+        "Selenium",
+        "Java",
+        "C#",
+        "Playwright",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:19654",
@@ -3373,16 +3722,24 @@
         "API testing",
         "SQL",
         "Backend / Batch",
-        "Selenium (בסיסי)"
+        "Selenium"
       ],
       "missing": [
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "API testing",
+        "SQL",
+        "Backend / Batch",
+        "Selenium",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "logon:19656",
@@ -3407,7 +3764,7 @@
       "matched": [
         "SQL",
         "Backend / Batch",
-        "Selenium (בסיסי)"
+        "Selenium"
       ],
       "missing": [
         "Playwright",
@@ -3415,10 +3772,18 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL",
+        "Backend / Batch",
+        "Selenium",
+        "Playwright",
+        "CI/CD",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "logon:19658",
@@ -3442,7 +3807,7 @@
       "score": 25,
       "matched": [
         "SQL",
-        "Selenium (בסיסי)"
+        "Selenium"
       ],
       "missing": [
         "CI/CD",
@@ -3450,10 +3815,16 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL",
+        "Selenium",
+        "CI/CD",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "logon:20021",
@@ -3489,10 +3860,19 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "Swagger",
+        "SQL",
+        "Backend / Batch",
+        "Agile"
+      ]
     },
     {
       "id": "logon:20216",
@@ -3520,10 +3900,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL",
+        "Agile"
+      ]
     },
     {
       "id": "logon:20228",
@@ -3554,10 +3938,17 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "Postman",
+        "Swagger",
+        "Backend / Batch",
+        "Python"
+      ]
     },
     {
       "id": "logon:20274",
@@ -3593,10 +3984,17 @@
         "Appium"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "JMeter / עומסים",
+        "Mobile (iOS/Android)",
+        "Agile",
+        "Appium"
+      ]
     },
     {
       "id": "logon:20313",
@@ -3633,10 +4031,17 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "JMeter / עומסים",
+        "Mobile (iOS/Android)",
+        "Appium",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:20318",
@@ -3665,10 +4070,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "logon:20467",
@@ -3699,10 +4107,16 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "API testing",
+        "Postman",
+        "Swagger"
+      ]
     },
     {
       "id": "logon:20526",
@@ -3734,10 +4148,16 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "SQL"
+      ]
     },
     {
       "id": "logon:20528",
@@ -3770,17 +4190,30 @@
         "SQL",
         "Mobile (iOS/Android)",
         "Backend / Batch",
-        "Selenium (בסיסי)"
+        "Selenium"
       ],
       "missing": [
         "Playwright",
         "Cypress"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Mobile (iOS/Android)",
+        "Backend / Batch",
+        "Selenium",
+        "Playwright",
+        "Cypress"
+      ]
     },
     {
       "id": "logon:20541",
@@ -3821,10 +4254,21 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Jira / Xray",
+        "Mobile (iOS/Android)",
+        "Agile",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:20543",
@@ -3855,10 +4299,16 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "Postman",
+        "SQL",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "logon:20600",
@@ -3893,10 +4343,19 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "Swagger",
+        "AI agents for QA",
+        "Python"
+      ]
     },
     {
       "id": "logon:20617",
@@ -3922,8 +4381,8 @@
       "score": 26,
       "matched": [
         "API testing",
-        "Java (בסיסי)",
-        "JavaScript (בסיסי)",
+        "Java",
+        "JavaScript",
         "AI agents for QA"
       ],
       "missing": [
@@ -3933,10 +4392,19 @@
         "6+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "Java",
+        "JavaScript",
+        "AI agents for QA",
+        "Python",
+        "TypeScript",
+        "CI/CD"
+      ]
     },
     {
       "id": "logon:20663",
@@ -3967,10 +4435,17 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-29T10:44:01.496Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "Postman",
+        "Swagger",
+        "Backend / Batch",
+        "Agile"
+      ]
     },
     {
       "id": "ness:43572",
@@ -3996,10 +4471,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-28T15:00:42.292Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Backend / Batch",
+        "Agile"
+      ]
     },
     {
       "id": "yael:25909",
@@ -4029,10 +4508,17 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-28T12:00:41.651Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Mobile (iOS/Android)",
+        "Backend / Batch",
+        "Playwright"
+      ]
     },
     {
       "id": "ness:43561",
@@ -4054,10 +4540,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-28T08:00:35.209Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "comblack:25646",
@@ -4094,10 +4581,18 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-27T04:00:30.782Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Mobile (iOS/Android)",
+        "Backend / Batch",
+        "C#",
+        "Playwright"
+      ]
     },
     {
       "id": "ness:43562",
@@ -4125,10 +4620,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-26T15:00:43.248Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "SQL"
+      ]
     },
     {
       "id": "ness:43550",
@@ -4154,10 +4653,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-26T14:00:39.150Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "ness:43559",
@@ -4183,10 +4685,14 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-26T14:00:39.150Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "yael:25900",
@@ -4244,10 +4750,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-26T06:58:15.618Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "comblack:25618",
@@ -4312,10 +4819,13 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-25T22:00:34.487Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "logica:21315",
@@ -4369,10 +4879,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-25T09:00:31.143Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "ness:43531",
@@ -4398,10 +4911,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-25T07:00:32.189Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "ness:43532",
@@ -4426,8 +4942,8 @@
       "score": 34,
       "matched": [
         "Manual / E2E",
-        "Selenium (בסיסי)",
-        "JavaScript (בסיסי)",
+        "Selenium",
+        "JavaScript",
         "Agile"
       ],
       "missing": [
@@ -4439,10 +4955,22 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-25T07:00:32.189Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "Selenium",
+        "JavaScript",
+        "Agile",
+        "Python",
+        "C#",
+        "TypeScript",
+        "Playwright",
+        "Appium",
+        "CI/CD"
+      ]
     },
     {
       "id": "ness:43535",
@@ -4464,10 +4992,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-25T07:00:32.189Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "ness:43536",
@@ -4502,10 +5031,19 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-25T07:00:32.189Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "API testing",
+        "Postman",
+        "Swagger",
+        "SQL",
+        "Kafka",
+        "Backend / Batch",
+        "Python"
+      ]
     },
     {
       "id": "logica:21302",
@@ -4553,10 +5091,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-21T12:00:39.495Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "horizontech:47200",
@@ -4574,10 +5113,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-21T10:00:39.189Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "mobileye:0a1d7baf-bfbe-466a-b12b-05ca3936108c",
@@ -4741,7 +5281,7 @@
         "SQL",
         "Jira / Xray",
         "Backend / Batch",
-        "Selenium (בסיסי)"
+        "Selenium"
       ],
       "missing": [
         "Playwright",
@@ -4749,10 +5289,23 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-21T09:00:34.373Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Jira / Xray",
+        "Backend / Batch",
+        "Selenium",
+        "Playwright",
+        "CI/CD"
+      ]
     },
     {
       "id": "yael:25858",
@@ -4778,10 +5331,14 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-20T13:00:36.717Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "STP/STD/STR",
+        "ISTQB"
+      ]
     },
     {
       "id": "horizontech:47271",
@@ -4797,10 +5354,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-20T09:00:33.741Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "ucl:ceef939c151ca",
@@ -4810,7 +5368,7 @@
       "title": "בודק/ת אוטומציה",
       "agency": "UCL Group",
       "snippet": "לחברה גדולה היושבת ברמת גן (בורסה על קו רכבת) דרוש/ה בודק/ת אוטומציה במסגרת התפקיד: ביצוע בדיקות אוטומציה למערכות תוכנה, כולל פיתוח ותחזוקה של תסריטי בדיקות, בדיקות API ועבודה מול בסיסי נתונים. דרישות התפקיד: לפחות 3 שנות ניסיון בבדיקות אוטומציה – חובה חובה ניסיון של שנה לפחות בפיתוח ב-Java באמצעות Selenium ו/או Cucumber. ניסיון בבדיקות API. שליטה טובה ב-SQL וכתיבת שאילתות מול בסיסי נתונים.",
-      "postedAt": "2026-11-17T17:01:03.000Z",
+      "postedAt": "2026-11-17T17:49:03.000Z",
       "tags": [
         "אוטומציה",
         "API/Backend",
@@ -4827,15 +5385,21 @@
       "matched": [
         "API testing",
         "SQL",
-        "Selenium (בסיסי)",
-        "Java (בסיסי)"
+        "Selenium",
+        "Java"
       ],
       "missing": [],
       "firstSeenAt": "2026-10-19T09:00:38.438Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "API testing",
+        "SQL",
+        "Selenium",
+        "Java"
+      ]
     },
     {
       "id": "gotfriends:155305",
@@ -4937,10 +5501,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-18T07:00:36.625Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "comblack:25451",
@@ -4990,7 +5555,7 @@
       "title": "בודק/ת אוטומציה",
       "agency": "UCL Group",
       "snippet": "לחברה גדולה ויציבה דרוש/ה מפתח/ת אוטומציה למשרה מלאה במתכונת היברידית. במסגרת התפקיד פיתוח תשתיות אוטומציה מ-0 ועבודה כחלק מצוות בסביבה טכנולוגית עשיה ומגוונת. דרישות התפקיד: ניסיון של 4 שנים לפחות בבדיקות תוכנה ידניות – חובה ניסיון בעבודה עם #C או JAVA – חובה ניסיון מוכח בSELENIUM – חובה",
-      "postedAt": "2026-11-17T17:01:03.000Z",
+      "postedAt": "2026-11-17T17:49:03.000Z",
       "tags": [
         "בדיקות ידניות/E2E",
         "אוטומציה"
@@ -5003,17 +5568,23 @@
       "score": 66,
       "matched": [
         "Manual / E2E",
-        "Selenium (בסיסי)",
-        "Java (בסיסי)"
+        "Selenium",
+        "Java"
       ],
       "missing": [
         "C / C++"
       ],
       "firstSeenAt": "2026-10-15T19:23:51.235Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Selenium",
+        "Java",
+        "C / C++"
+      ]
     },
     {
       "id": "ucl:c6e8b775e9399",
@@ -5023,7 +5594,7 @@
       "title": "בודק/ת תוכנה למערכות פיננסיות",
       "agency": "UCL Group",
       "snippet": "לחברה פיננסית היושבת במרכז הארץ על קו רכבת דרוש/ה בודק/ת תוכנה למערכות פיננסיות דרישות: ניסיון של שנתיים ומעלה בבדיקות תוכנה ידניות – חובה ניסיון קודם בתפקידים פיננסיים (בנק/ביטוח) – חובה ניסיון עם AS400 – יתרון משמעותי SQL – ברמה טובה – יתרון משמעותי",
-      "postedAt": "2026-11-17T17:01:03.000Z",
+      "postedAt": "2026-11-17T17:49:02.000Z",
       "tags": [
         "בדיקות ידניות/E2E",
         "דאטה/DB",
@@ -5041,10 +5612,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:23:51.235Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL"
+      ]
     },
     {
       "id": "ucl:c7854c97e7d9e",
@@ -5054,7 +5629,7 @@
       "title": "בודק/ת תוכנה ידני",
       "agency": "UCL Group",
       "snippet": "לארגון גדול ויציב באזור המרכז דרוש/ה בודק/ת תוכנה ידני. במסגרת התפקיד עבודה כחלק מצוות בדיקות, ביצוע בדיקות E2E למערכות ליבה ואתרי WEB. דרישות: ניסיון של שנתיים ומעלה בבדיקות תוכנה ידניות למערכות ליבה/WEB – חובה ! ניסיון מוכח בבדיקת ממשקי WEB בין מערכות – חובה ! ניסיון עבודה עם SQL – ברמה גבוהה – חובה ! ידע/היכרות עם תחום האוטומציה – יתרון משמעותי",
-      "postedAt": "2026-11-17T17:01:02.000Z",
+      "postedAt": "2026-11-17T17:49:02.000Z",
       "tags": [
         "בדיקות ידניות/E2E",
         "אוטומציה",
@@ -5072,10 +5647,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:23:51.235Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL"
+      ]
     },
     {
       "id": "horizontech:36068",
@@ -5091,10 +5670,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:46133",
@@ -5110,10 +5690,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:46280",
@@ -5129,10 +5710,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:46469",
@@ -5150,10 +5732,13 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "horizontech:46649",
@@ -5169,10 +5754,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:46756",
@@ -5188,10 +5774,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:46917",
@@ -5209,10 +5796,13 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "horizontech:46957",
@@ -5228,10 +5818,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:47017",
@@ -5252,10 +5843,14 @@
         "Playwright"
       ],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "C#",
+        "Playwright"
+      ]
     },
     {
       "id": "horizontech:47053",
@@ -5291,10 +5886,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:47073",
@@ -5310,10 +5906,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:47078",
@@ -5329,10 +5926,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:47107",
@@ -5348,10 +5946,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:47140",
@@ -5369,10 +5968,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "horizontech:47166",
@@ -5388,10 +5988,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-15T19:18:20.530Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "mobileye:eb0fa8ab-c69b-495b-87e2-67ce9bf6b61a",
@@ -5491,10 +6092,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-14T10:00:38.674Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "mobileye:e447ddd1-b3aa-4afe-b23e-b40ec58f8a08",
@@ -5651,10 +6253,16 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-08T21:00:42.629Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "ness:43421",
@@ -5679,10 +6287,14 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-08T07:00:34.623Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Python",
+        "C / C++"
+      ]
     },
     {
       "id": "ness:43450",
@@ -5717,8 +6329,8 @@
         "SQL",
         "Jira / Xray",
         "Mobile (iOS/Android)",
-        "Selenium (בסיסי)",
-        "JavaScript (בסיסי)",
+        "Selenium",
+        "JavaScript",
         "Agile"
       ],
       "missing": [
@@ -5728,10 +6340,26 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-08T07:00:34.623Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Jira / Xray",
+        "Mobile (iOS/Android)",
+        "Selenium",
+        "JavaScript",
+        "Agile",
+        "C#",
+        "TypeScript",
+        "Playwright",
+        "Cypress"
+      ]
     },
     {
       "id": "mobileye:eb3dfa0f-563f-4734-824f-39c3ae88685e",
@@ -5791,10 +6419,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-07T08:48:31.313Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "yael:h-7065b74156e7",
@@ -5822,11 +6453,15 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-07T00:00:30.227Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Backend / Batch",
+        "C#"
+      ]
     },
     {
       "id": "harel:5517",
@@ -6324,10 +6959,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T10:27:15.578Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Jira / Xray",
+        "TestRail"
+      ]
     },
     {
       "id": "logica:20773",
@@ -6460,10 +7100,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "mertens:36969",
@@ -6511,10 +7152,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "mertens:37355",
@@ -6538,10 +7180,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "mertens:37459",
@@ -6565,10 +7210,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "mertens:37471",
@@ -6588,10 +7236,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "mertens:37534",
@@ -6616,10 +7265,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "mertens:37611",
@@ -6641,10 +7293,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-06T06:40:34.003Z",
-      "lastSeenAt": "2026-11-17T16:01:13.447Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ozsoftware:134",
@@ -6668,10 +7321,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ozsoftware:148",
@@ -6696,10 +7350,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ozsoftware:152",
@@ -6724,10 +7379,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ozsoftware:167",
@@ -6752,10 +7408,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ozsoftware:238",
@@ -6779,10 +7436,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ozsoftware:239",
@@ -6807,10 +7465,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:46:44.422Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ness:43420",
@@ -6832,10 +7491,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-05T11:00:32.310Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": false
+      "baseline": false,
+      "requires": []
     },
     {
       "id": "yael:25760",
@@ -6858,11 +7518,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-05T09:00:32.334Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": false,
-      "reappearedAt": "2026-11-03T14:00:58.780Z"
+      "reappearedAt": "2026-11-03T14:00:58.780Z",
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "yael:25753",
@@ -14011,10 +14674,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "aman:https://www.aman-global.com/careers/%d7%91%d7%93%d7%99%d7%a7%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%94-qa/%d7%91%d7%95%d7%93%d7%a7-%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%94-%d7%99%d7%93%d7%a0%d7%99/",
@@ -14045,10 +14711,18 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Mobile (iOS/Android)",
+        "ISTQB"
+      ]
     },
     {
       "id": "aman:https://www.aman-global.com/careers/%d7%91%d7%93%d7%99%d7%a7%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%94-qa/%d7%91%d7%95%d7%93%d7%a7-%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%94-3/",
@@ -14073,9 +14747,9 @@
       "matched": [
         "API testing",
         "SQL",
-        "Selenium (בסיסי)",
-        "Java (בסיסי)",
-        "JavaScript (בסיסי)",
+        "Selenium",
+        "Java",
+        "JavaScript",
         "Agile"
       ],
       "missing": [
@@ -14083,10 +14757,20 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "SQL",
+        "Selenium",
+        "Java",
+        "JavaScript",
+        "Agile",
+        "Playwright",
+        "Cypress"
+      ]
     },
     {
       "id": "aman:https://www.aman-global.com/careers/%d7%91%d7%93%d7%99%d7%a7%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%94-qa/%d7%91%d7%95%d7%93%d7%a7-%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%94-4/",
@@ -14111,10 +14795,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "SQL"
+      ]
     },
     {
       "id": "aman:https://www.aman-global.com/careers/%d7%91%d7%93%d7%99%d7%a7%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%94-qa/%d7%91%d7%95%d7%93%d7%a7-%d7%aa-sap/",
@@ -14142,10 +14830,14 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "aman:https://www.aman-global.com/careers/%d7%91%d7%93%d7%99%d7%a7%d7%95%d7%aa-%d7%aa%d7%95%d7%9b%d7%a0%d7%94-qa/%d7%a8%d7%a6-%d7%91%d7%93%d7%99%d7%a7%d7%95%d7%aa/",
@@ -14168,10 +14860,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "comblack:21820",
@@ -14201,10 +14894,15 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "Backend / Batch",
+        "C#"
+      ]
     },
     {
       "id": "comblack:21821",
@@ -14226,10 +14924,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "comblack:21822",
@@ -14259,10 +14958,17 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Backend / Batch",
+        "Python",
+        "C#",
+        "Linux"
+      ]
     },
     {
       "id": "comblack:22249",
@@ -14288,7 +14994,7 @@
         "STP/STD/STR",
         "API testing",
         "Jira / Xray",
-        "Java (בסיסי)",
+        "Java",
         "Agile"
       ],
       "missing": [
@@ -14297,10 +15003,20 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "API testing",
+        "Jira / Xray",
+        "Java",
+        "Agile",
+        "Python",
+        "C#",
+        "CI/CD"
+      ]
     },
     {
       "id": "comblack:22266",
@@ -14326,7 +15042,7 @@
         "STP/STD/STR",
         "API testing",
         "Jira / Xray",
-        "Java (בסיסי)",
+        "Java",
         "Agile"
       ],
       "missing": [
@@ -14335,10 +15051,20 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "API testing",
+        "Jira / Xray",
+        "Java",
+        "Agile",
+        "Python",
+        "C#",
+        "CI/CD"
+      ]
     },
     {
       "id": "comblack:22267",
@@ -14364,7 +15090,7 @@
         "STP/STD/STR",
         "API testing",
         "Jira / Xray",
-        "Java (בסיסי)",
+        "Java",
         "Agile"
       ],
       "missing": [
@@ -14373,10 +15099,20 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "API testing",
+        "Jira / Xray",
+        "Java",
+        "Agile",
+        "Python",
+        "C#",
+        "CI/CD"
+      ]
     },
     {
       "id": "comblack:24438",
@@ -14410,10 +15146,18 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "SQL",
+        "MongoDB",
+        "Jira / Xray",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "comblack:24503",
@@ -14441,10 +15185,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL"
+      ]
     },
     {
       "id": "comblack:24553",
@@ -14474,10 +15221,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "commit:50.F67",
@@ -14514,7 +15265,7 @@
         "API testing",
         "Jira / Xray",
         "Mobile (iOS/Android)",
-        "Selenium (בסיסי)",
+        "Selenium",
         "AI agents for QA"
       ],
       "missing": [
@@ -14525,10 +15276,25 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Jira / Xray",
+        "Mobile (iOS/Android)",
+        "Selenium",
+        "AI agents for QA",
+        "Python",
+        "TypeScript",
+        "Playwright",
+        "Cypress",
+        "CI/CD"
+      ]
     },
     {
       "id": "commit:73.D60",
@@ -14569,8 +15335,8 @@
         "MQ",
         "AWS",
         "Backend / Batch",
-        "Selenium (בסיסי)",
-        "JavaScript (בסיסי)"
+        "Selenium",
+        "JavaScript"
       ],
       "missing": [
         "C#",
@@ -14581,10 +15347,31 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Kafka",
+        "JMeter / עומסים",
+        "MQ",
+        "AWS",
+        "Backend / Batch",
+        "Selenium",
+        "JavaScript",
+        "C#",
+        "TypeScript",
+        "Playwright",
+        "Cypress",
+        "Kubernetes / Docker",
+        "CI/CD"
+      ]
     },
     {
       "id": "gotfriends:128176",
@@ -28641,10 +29428,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "gtech:h-bca1c73f3106",
@@ -28666,10 +29456,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "gtech:h-f98b6e766ed5",
@@ -28687,10 +29481,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ibi:1730",
@@ -28710,10 +29505,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "inmanage:18",
@@ -28737,10 +29535,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Jira / Xray",
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "masav:5753",
@@ -28761,10 +29564,13 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Python"
+      ]
     },
     {
       "id": "moveo:h-1ddedc6f58f5",
@@ -28824,10 +29630,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "moveo:h-36cf39dac8cc",
@@ -28856,10 +29666,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "API testing"
+      ]
     },
     {
       "id": "moveo:h-de92d9fee60d",
@@ -28887,10 +29701,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Agile"
+      ]
     },
     {
       "id": "ness:41059",
@@ -28917,10 +29735,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR"
+      ]
     },
     {
       "id": "ness:41063",
@@ -28947,8 +29769,8 @@
         "Kafka",
         "MQ",
         "Mobile (iOS/Android)",
-        "Selenium (בסיסי)",
-        "JavaScript (בסיסי)"
+        "Selenium",
+        "JavaScript"
       ],
       "missing": [
         "Python",
@@ -28957,10 +29779,21 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Kafka",
+        "MQ",
+        "Mobile (iOS/Android)",
+        "Selenium",
+        "JavaScript",
+        "Python",
+        "C#",
+        "TypeScript",
+        "CI/CD"
+      ]
     },
     {
       "id": "ness:41064",
@@ -28986,7 +29819,7 @@
       "matched": [
         "API testing",
         "Backend / Batch",
-        "Java (בסיסי)"
+        "Java"
       ],
       "missing": [
         "Python",
@@ -28995,10 +29828,19 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "API testing",
+        "Backend / Batch",
+        "Java",
+        "Python",
+        "TypeScript",
+        "Kubernetes / Docker",
+        "CI/CD"
+      ]
     },
     {
       "id": "ness:41065",
@@ -29029,10 +29871,16 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Mobile (iOS/Android)",
+        "Python",
+        "C#",
+        "TypeScript"
+      ]
     },
     {
       "id": "ness:42006",
@@ -29084,10 +29932,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR"
+      ]
     },
     {
       "id": "ness:42807",
@@ -29117,10 +29968,15 @@
         "Python"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Agile",
+        "Python"
+      ]
     },
     {
       "id": "ness:42830",
@@ -29147,10 +30003,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "ness:42831",
@@ -29177,8 +30037,8 @@
         "Kafka",
         "MQ",
         "Mobile (iOS/Android)",
-        "Selenium (בסיסי)",
-        "JavaScript (בסיסי)"
+        "Selenium",
+        "JavaScript"
       ],
       "missing": [
         "Python",
@@ -29186,10 +30046,20 @@
         "TypeScript"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Kafka",
+        "MQ",
+        "Mobile (iOS/Android)",
+        "Selenium",
+        "JavaScript",
+        "Python",
+        "C#",
+        "TypeScript"
+      ]
     },
     {
       "id": "ness:42883",
@@ -29219,10 +30089,16 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL",
+        "Jira / Xray",
+        "Backend / Batch",
+        "CI/CD"
+      ]
     },
     {
       "id": "ness:42914",
@@ -29254,10 +30130,16 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Jira / Xray",
+        "Python",
+        "Linux"
+      ]
     },
     {
       "id": "ness:43138",
@@ -29291,10 +30173,17 @@
         "5+ שנות ניסיון"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "SQL",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "ness:43211",
@@ -29320,10 +30209,14 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "ness:43215",
@@ -29359,10 +30252,20 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "Swagger",
+        "SQL",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "ness:43277",
@@ -29389,10 +30292,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL"
+      ]
     },
     {
       "id": "ness:43310",
@@ -29420,10 +30326,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Postman",
+        "SQL",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "ness:43350",
@@ -29447,10 +30358,11 @@
       "matched": [],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": []
     },
     {
       "id": "ness:43351",
@@ -29475,10 +30387,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR"
+      ]
     },
     {
       "id": "ness:43353",
@@ -29507,10 +30422,15 @@
         "Linux"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "Linux"
+      ]
     },
     {
       "id": "ness:43357",
@@ -29584,10 +30504,17 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "Backend / Batch",
+        "Python",
+        "Playwright",
+        "CI/CD"
+      ]
     },
     {
       "id": "ness:43392",
@@ -29613,10 +30540,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR"
+      ]
     },
     {
       "id": "tesnet:h-069f91dacf6a",
@@ -29643,10 +30573,14 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "tesnet:h-1b57eba3473c",
@@ -29676,10 +30610,16 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "tesnet:h-29457cbce713",
@@ -29702,15 +30642,20 @@
       "score": 84,
       "matched": [
         "SQL",
-        "Selenium (בסיסי)",
-        "Java (בסיסי)"
+        "Selenium",
+        "Java"
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL",
+        "Selenium",
+        "Java"
+      ]
     },
     {
       "id": "tesnet:h-4c3aba57eac7",
@@ -29742,10 +30687,18 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "Agile"
+      ]
     },
     {
       "id": "tesnet:h-69bf4ffd6aad",
@@ -29771,10 +30724,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL"
+      ]
     },
     {
       "id": "tesnet:h-6b987c77ef7d",
@@ -29800,10 +30757,13 @@
         "C#"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "C#"
+      ]
     },
     {
       "id": "tesnet:h-80e7cdfb258d",
@@ -29829,10 +30789,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "SQL"
+      ]
     },
     {
       "id": "tesnet:h-aebdd50c727b",
@@ -29857,10 +30820,13 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "tesnet:h-be1d07a95466",
@@ -29884,17 +30850,23 @@
       "score": 53,
       "matched": [
         "Mobile (iOS/Android)",
-        "Selenium (בסיסי)",
-        "Java (בסיסי)"
+        "Selenium",
+        "Java"
       ],
       "missing": [
         "Appium"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Mobile (iOS/Android)",
+        "Selenium",
+        "Java",
+        "Appium"
+      ]
     },
     {
       "id": "tesnet:h-d6dbd722dfed",
@@ -29923,10 +30895,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL",
+        "Mobile (iOS/Android)"
+      ]
     },
     {
       "id": "tesnet:h-da25eb9d085a",
@@ -29954,10 +30931,15 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T17:01:20.099Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "yael:24669",
@@ -29994,10 +30976,20 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "API testing",
+        "Postman",
+        "SOAP",
+        "SQL",
+        "Backend / Batch",
+        "CI/CD"
+      ]
     },
     {
       "id": "yael:25117",
@@ -30019,11 +31011,15 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "endClient": "ארגון בטחוני מוביל"
+      "endClient": "ארגון בטחוני מוביל",
+      "requires": [
+        "Backend / Batch",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "yael:25411",
@@ -30047,10 +31043,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "SQL"
+      ]
     },
     {
       "id": "yael:25525",
@@ -30084,10 +31084,21 @@
         "ISTQB"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "רגרסיה / סניטי",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "Swagger",
+        "SQL",
+        "Backend / Batch",
+        "ISTQB"
+      ]
     },
     {
       "id": "yael:25640",
@@ -30119,8 +31130,8 @@
         "Jira / Xray",
         "Mobile (iOS/Android)",
         "Backend / Batch",
-        "Selenium (בסיסי)",
-        "JavaScript (בסיסי)",
+        "Selenium",
+        "JavaScript",
         "Agile"
       ],
       "missing": [
@@ -30130,10 +31141,27 @@
         "Cypress"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "Manual / E2E",
+        "STP/STD/STR",
+        "API testing",
+        "Postman",
+        "SQL",
+        "Jira / Xray",
+        "Mobile (iOS/Android)",
+        "Backend / Batch",
+        "Selenium",
+        "JavaScript",
+        "Agile",
+        "C#",
+        "TypeScript",
+        "Playwright",
+        "Cypress"
+      ]
     },
     {
       "id": "yael:25651",
@@ -30160,10 +31188,15 @@
         "Salesforce / SAP"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
-      "baseline": true
+      "baseline": true,
+      "requires": [
+        "STP/STD/STR",
+        "ISTQB",
+        "Salesforce / SAP"
+      ]
     },
     {
       "id": "yael:h-44ff88f0f9a0",
@@ -30186,11 +31219,16 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Python",
+        "CI/CD",
+        "C / C++"
+      ]
     },
     {
       "id": "yael:h-4e2f699959ee",
@@ -30234,7 +31272,7 @@
       "regions": [],
       "score": 54,
       "matched": [
-        "Java (בסיסי)"
+        "Java"
       ],
       "missing": [
         "Python",
@@ -30242,11 +31280,17 @@
         "CI/CD"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Java",
+        "Python",
+        "C#",
+        "CI/CD"
+      ]
     },
     {
       "id": "yael:h-6df7a672d27d",
@@ -30269,11 +31313,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "yael:h-91ae05eece51",
@@ -30296,11 +31343,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "yael:h-ac887f31f364",
@@ -30323,11 +31373,16 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Python",
+        "CI/CD",
+        "C / C++"
+      ]
     },
     {
       "id": "yael:h-bc2682a55efe",
@@ -30350,11 +31405,14 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Manual / E2E"
+      ]
     },
     {
       "id": "yael:h-bf8bc30be9d0",
@@ -30377,11 +31435,15 @@
       ],
       "missing": [],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "STP/STD/STR",
+        "Backend / Batch"
+      ]
     },
     {
       "id": "yael:h-d9db6cf7345f",
@@ -30408,11 +31470,17 @@
         "C / C++"
       ],
       "firstSeenAt": "2026-10-04T08:27:15.595Z",
-      "lastSeenAt": "2026-11-17T14:01:20.486Z",
+      "lastSeenAt": "2026-11-17T17:49:07.984Z",
       "missingStreak": 0,
       "state": "active",
       "baseline": true,
-      "reappearedAt": "2026-11-15T08:01:01.730Z"
+      "reappearedAt": "2026-11-15T08:01:01.730Z",
+      "requires": [
+        "Backend / Batch",
+        "Python",
+        "C#",
+        "C / C++"
+      ]
     }
   ],
   "aliases": {
@@ -30730,5 +31798,326 @@
     "ucl:61015": "ucl:c938fd0a412fb",
     "ucl:61029": "ucl:c4d4a4e6c657b",
     "ucl:61045": "ucl:c7854c97e7d9e"
+  },
+  "scoring": {
+    "skills": [
+      {
+        "label": "Manual / E2E",
+        "terms": [
+          "manual",
+          "ידני",
+          "ידניות",
+          "E2E",
+          "end to end"
+        ]
+      },
+      {
+        "label": "רגרסיה / סניטי",
+        "terms": [
+          "regression",
+          "רגרסיה",
+          "sanity",
+          "סניטי"
+        ]
+      },
+      {
+        "label": "STP/STD/STR",
+        "terms": [
+          "STP",
+          "STD",
+          "STR",
+          "תרחישי בדיקה",
+          "test plan",
+          "test cases"
+        ]
+      },
+      {
+        "label": "API testing",
+        "terms": [
+          "API",
+          "REST",
+          "RESTful"
+        ]
+      },
+      {
+        "label": "Postman",
+        "terms": [
+          "Postman"
+        ]
+      },
+      {
+        "label": "SOAP",
+        "terms": [
+          "SOAP"
+        ]
+      },
+      {
+        "label": "Swagger",
+        "terms": [
+          "Swagger",
+          "OpenAPI"
+        ]
+      },
+      {
+        "label": "SQL",
+        "terms": [
+          "SQL",
+          "SSMS",
+          "Teradata",
+          "T-SQL"
+        ]
+      },
+      {
+        "label": "MongoDB",
+        "terms": [
+          "MongoDB",
+          "Mongo",
+          "DocumentDB"
+        ]
+      },
+      {
+        "label": "Splunk",
+        "terms": [
+          "Splunk"
+        ]
+      },
+      {
+        "label": "Kafka",
+        "terms": [
+          "Kafka"
+        ]
+      },
+      {
+        "label": "JMeter / עומסים",
+        "terms": [
+          "JMeter",
+          "load test",
+          "load testing",
+          "עומסים"
+        ]
+      },
+      {
+        "label": "MQ",
+        "terms": [
+          "MQ",
+          "IBM MQ",
+          "RabbitMQ"
+        ]
+      },
+      {
+        "label": "AWS",
+        "terms": [
+          "AWS",
+          "EKS",
+          "SQS"
+        ]
+      },
+      {
+        "label": "Jira / Xray",
+        "terms": [
+          "Jira",
+          "Xray"
+        ]
+      },
+      {
+        "label": "TestRail",
+        "terms": [
+          "TestRail"
+        ]
+      },
+      {
+        "label": "Figma / Zeplin",
+        "terms": [
+          "Figma",
+          "Zeplin"
+        ]
+      },
+      {
+        "label": "Mobile (iOS/Android)",
+        "terms": [
+          "mobile",
+          "מובייל",
+          "iOS",
+          "Android",
+          "אנדרואיד"
+        ]
+      },
+      {
+        "label": "Backend / Batch",
+        "terms": [
+          "backend",
+          "back-end",
+          "batch",
+          "באצ'",
+          "אצווה",
+          "integration",
+          "אינטגרציה"
+        ]
+      },
+      {
+        "label": "Selenium",
+        "terms": [
+          "Selenium"
+        ]
+      },
+      {
+        "label": "Java",
+        "terms": [
+          "Java"
+        ]
+      },
+      {
+        "label": "JavaScript",
+        "terms": [
+          "JavaScript",
+          "JS"
+        ]
+      },
+      {
+        "label": "Agile",
+        "terms": [
+          "Agile",
+          "Scrum",
+          "אג'ייל"
+        ]
+      },
+      {
+        "label": "AI agents for QA",
+        "terms": [
+          "AI agents",
+          "LLM",
+          "GenAI",
+          "Generative AI"
+        ]
+      },
+      {
+        "label": "Python",
+        "terms": [
+          "Python",
+          "pytest"
+        ]
+      },
+      {
+        "label": "C#",
+        "terms": [
+          "C#",
+          ".NET",
+          "dotnet"
+        ]
+      },
+      {
+        "label": "TypeScript",
+        "terms": [
+          "TypeScript"
+        ]
+      },
+      {
+        "label": "Playwright",
+        "terms": [
+          "Playwright"
+        ]
+      },
+      {
+        "label": "Cypress",
+        "terms": [
+          "Cypress"
+        ]
+      },
+      {
+        "label": "Appium",
+        "terms": [
+          "Appium"
+        ]
+      },
+      {
+        "label": "Kubernetes / Docker",
+        "terms": [
+          "Kubernetes",
+          "k8s",
+          "Docker"
+        ]
+      },
+      {
+        "label": "CI/CD",
+        "terms": [
+          "CI/CD",
+          "Jenkins",
+          "GitHub Actions",
+          "GitLab CI",
+          "Azure DevOps"
+        ]
+      },
+      {
+        "label": "C / C++",
+        "terms": [
+          "C++",
+          "re:\\bc\\b(?=\\s*(?:/|,|and|או|ו-))"
+        ]
+      },
+      {
+        "label": "Go",
+        "terms": [
+          "Golang"
+        ]
+      },
+      {
+        "label": "Robot Framework",
+        "terms": [
+          "Robot Framework"
+        ]
+      },
+      {
+        "label": "ISTQB",
+        "terms": [
+          "ISTQB"
+        ]
+      },
+      {
+        "label": "Linux",
+        "terms": [
+          "Linux",
+          "Bash",
+          "shell scripting"
+        ]
+      },
+      {
+        "label": "Salesforce / SAP",
+        "terms": [
+          "Salesforce",
+          "SAP"
+        ]
+      }
+    ],
+    "have": [
+      "Manual / E2E",
+      "רגרסיה / סניטי",
+      "STP/STD/STR",
+      "API testing",
+      "Postman",
+      "SOAP",
+      "Swagger",
+      "SQL",
+      "MongoDB",
+      "Splunk",
+      "Kafka",
+      "JMeter / עומסים",
+      "MQ",
+      "AWS",
+      "Jira / Xray",
+      "TestRail",
+      "Figma / Zeplin",
+      "Mobile (iOS/Android)",
+      "Backend / Batch",
+      "Selenium",
+      "Java",
+      "JavaScript",
+      "Agile",
+      "AI agents for QA"
+    ],
+    "yearsExperience": 2,
+    "bonusTags": {
+      "פינטק/בנקאות/ביטוח": 10,
+      "גיימינג/אודיו/מדיה": 8
+    }
   }
 }
