@@ -1,11 +1,13 @@
 import {
   compileTerms,
   normalizeText,
+  scoreJob,
   termToRegExp,
   type RegionId,
+  type ScoringConfig,
   type Seniority,
 } from '@qa-radar/shared';
-import type { AppConfig } from '../config.ts';
+import type { AppConfig, Profile } from '../config.ts';
 
 export interface QaDecision {
   qa: boolean;
@@ -23,6 +25,22 @@ export interface Classification {
   score: number;
   matched: string[];
   missing: string[];
+  /** Every known skill the job mentions (see `scoringConfigOf`), whether or not I have it. */
+  requires: string[];
+}
+
+/**
+ * The skills the radar recognises and the profile's scoring rules, as written into jobs.json for the
+ * dashboard. The skills are the profile's "have" list followed by its "gaps" list, so a job's
+ * `requires` keeps the order the ✓ and ✗ lists have always had.
+ */
+export function scoringConfigOf(profile: Profile): ScoringConfig {
+  return {
+    skills: [...profile.skills, ...profile.gaps].map((s) => ({ label: s.label, terms: [...s.terms] })),
+    have: profile.skills.map((s) => s.label),
+    yearsExperience: profile.yearsExperience,
+    bonusTags: { ...profile.bonusTags },
+  };
 }
 
 export interface ClassifyInput {
@@ -112,8 +130,9 @@ export function createClassifier(config: AppConfig): Classifier {
     .filter(([id]) => id !== 'remote')
     .map(([id, r]) => ({ id, matcher: compileTerms(r.aliases, { inflect: false }) }));
   const remote = compileTerms(regions.regions.remote?.aliases ?? [], { inflect: false });
-  const skills = profile.skills.map((s) => ({ label: s.label, matcher: compileTerms(s.terms) }));
-  const gaps = profile.gaps.map((s) => ({ label: s.label, matcher: compileTerms(s.terms) }));
+  const scoring = scoringConfigOf(profile);
+  const skills = scoring.skills.map((s) => ({ label: s.label, matcher: compileTerms(s.terms) }));
+  const have = new Set(scoring.have);
   const home = regions.cities.find((c) => c.name === profile.home);
   if (!home) throw new Error(`profile.home "${profile.home}" is not listed in config/regions.yaml`);
 
@@ -210,34 +229,20 @@ export function createClassifier(config: AppConfig): Classifier {
     const level = seniorityOf(title, yearsRequired);
     const place = locate(title, description, location);
 
-    // Transparent rule-based score: every point can be traced to a ✓/✗ item or a stated rule.
-    const matched = skills.filter((s) => s.matcher.test(all)).map((s) => s.label);
-    const missing = gaps.filter((g) => g.matcher.test(all)).map((g) => g.label);
-    let score = 50;
-    score += Math.min(matched.length * 6, 30);
-    score -= Math.min(missing.length * 6, 24);
-    score += Math.min(
-      jobTags.reduce((sum, tag) => sum + (profile.bonusTags[tag] ?? 0), 0),
-      15,
+    // Transparent rule-based score (shared with the dashboard, which can re-score against a CV).
+    const requires = skills.filter((s) => s.matcher.test(all)).map((s) => s.label);
+    const scored = scoreJob(
+      { requires, tags: jobTags, seniority: level, yearsRequired },
+      { have, yearsExperience: profile.yearsExperience, bonusTags: profile.bonusTags },
     );
-    score += { junior: 8, mid: 10, senior: -10, management: -15, unknown: 0 }[level];
-    if (yearsRequired !== undefined) {
-      const gap = yearsRequired - profile.yearsExperience;
-      if (gap <= 1) score += 6;
-      else if (yearsRequired >= 5) {
-        score -= 15;
-        missing.push(`${yearsRequired}+ שנות ניסיון`);
-      } else score -= 3 * gap;
-    }
 
     return {
       tags: jobTags,
       seniority: level,
       yearsRequired,
       ...place,
-      score: Math.max(0, Math.min(100, Math.round(score))),
-      matched,
-      missing,
+      ...scored,
+      requires,
     };
   }
 

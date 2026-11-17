@@ -3,7 +3,7 @@ import { ADAPTERS } from '../adapters/index.ts';
 import type { AppConfig, SourceConfig } from '../config.ts';
 import { PoliteClient } from '../http.ts';
 import { isSourceDue } from '../schedule.ts';
-import { createClassifier, type Classifier } from './classify.ts';
+import { createClassifier, scoringConfigOf, type Classifier } from './classify.ts';
 import { normalizeJobs } from './normalize.ts';
 import { mergeRun, type SourceRunResult } from './state.ts';
 import { rekeyJobs, rekeyRules } from './rekey.ts';
@@ -180,6 +180,7 @@ export async function collect(options: CollectOptions): Promise<CollectResult> {
       generatedAt: nowIso,
       jobs: merged.jobs,
       ...(Object.keys(rekeyed.aliases).length ? { aliases: rekeyed.aliases } : {}),
+      scoring: scoringConfigOf(config.profile),
     },
     health: { version: 1, generatedAt: nowIso, sources },
     archived: merged.archived,

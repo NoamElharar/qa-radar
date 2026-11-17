@@ -58,12 +58,16 @@ async function main(): Promise<void> {
   // due, leave the data files untouched so the run is a true no-op (no commit, no redeploy) — unless
   // sources.yaml changed (a new link-out source, edited quick links): then only the health file is updated.
   if (!result.results.length) {
-    // A new idFromUrl/idFromContent rule re-keyed jobs: save that now rather than at the next due run.
+    // A new idFromUrl/idFromContent rule re-keyed jobs, or profile.yaml changed the scoring rules the
+    // dashboard re-scores with: save that now rather than at the next due run.
     const rekeyed = JSON.stringify(previous.jobs.aliases ?? {}) !== JSON.stringify(result.jobs.aliases ?? {});
-    if (rekeyed && !values['dry-run']) {
+    const rescored = JSON.stringify(previous.jobs.scoring) !== JSON.stringify(result.jobs.scoring);
+    if ((rekeyed || rescored) && !values['dry-run']) {
       writeState(paths, result.jobs, result.health);
       appendArchive(paths, result.archived);
-      log(`no source is due yet — job ids were re-keyed (idFromUrl/idFromContent), wrote ${paths.jobs}`);
+      log(
+        `no source is due yet — ${rekeyed ? 'job ids were re-keyed (idFromUrl/idFromContent)' : 'the scoring rules changed (profile.yaml)'}, wrote ${paths.jobs}`,
+      );
       return;
     }
     if (healthChanged(previous.health, result.health) && !values['dry-run']) {

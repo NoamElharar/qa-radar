@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it } from 'vitest';
 import { loadConfig } from '../src/config.ts';
-import { createClassifier, parseYearsRequired, type Classifier } from '../src/pipeline/classify.ts';
+import { createClassifier, parseYearsRequired, scoringConfigOf, type Classifier } from '../src/pipeline/classify.ts';
 import { normalizeText } from '@qa-radar/shared';
 
 // These tests run against the real config/*.yaml, so they double as regression tests for
@@ -164,5 +164,28 @@ describe('match score', () => {
     const base = classifier.classify({ title: 'בודק/ת תוכנה' }).score;
     const fintech = classifier.classify({ title: 'בודק/ת תוכנה למערכות בנקאיות' }).score;
     expect(fintech).toBeGreaterThan(base);
+  });
+
+  it('records every skill the job asks for, had or not, so the dashboard can re-score it against a CV', () => {
+    const c = classifier.classify({
+      title: 'בודק/ת תוכנה ידני/ת',
+      description: 'בדיקות API עם Postman, כתיבת שאילתות SQL, עבודה ב-Jira. יתרון: Python. ניסיון של שנתיים.',
+    });
+    // The profile's "have" skills first, then its gaps — the order of the ✓ and ✗ lists.
+    expect(c.requires).toEqual([...c.matched, ...c.missing.filter((m) => !m.includes('שנות ניסיון'))]);
+    expect(c.requires).toContain('Python');
+  });
+});
+
+describe('scoring config (written into jobs.json for the dashboard)', () => {
+  it('lists every skill once, says which ones the profile has, and carries the scoring rules', () => {
+    const config = loadConfig();
+    const scoring = scoringConfigOf(config.profile);
+    const labels = scoring.skills.map((s) => s.label);
+    expect(new Set(labels).size).toBe(labels.length);
+    expect(scoring.have).toEqual(config.profile.skills.map((s) => s.label));
+    expect(labels.slice(scoring.have.length)).toEqual(config.profile.gaps.map((s) => s.label));
+    expect(scoring.yearsExperience).toBe(config.profile.yearsExperience);
+    expect(scoring.bonusTags).toEqual(config.profile.bonusTags);
   });
 });

@@ -1,3 +1,5 @@
+import type { ScoringConfig } from './score.ts';
+
 /** How a job reached us: straight from the hiring company, via an agency/outsourcer, or via a job board. */
 export type SourceType = 'direct' | 'agency' | 'board';
 
@@ -35,6 +37,11 @@ export interface Job {
   score: number;
   matched: string[];
   missing: string[];
+  /**
+   * Skills the job's full text mentions (labels from `JobsFile.scoring.skills`), so the dashboard can
+   * re-score the job against the user's CV. Missing on jobs collected before this field existed.
+   */
+  requires?: string[];
   /** Short plain-text excerpt of the description (search + context). */
   snippet?: string;
   /** Publication date reported by the source (ISO). Informational only — never drives badges. */
@@ -61,6 +68,8 @@ export interface JobsFile {
    * Personal statuses saved under an old id follow the job.
    */
   aliases?: Record<string, string>;
+  /** The skills and rules the scores were computed with — lets the dashboard re-score against a CV. */
+  scoring?: ScoringConfig;
 }
 
 export type SourceStatus = 'ok' | 'error' | 'suspect' | 'disabled' | 'link-out';

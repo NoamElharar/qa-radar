@@ -1,5 +1,7 @@
 # My matching profile. The match score (0–100) and the ✓/✗ lists on each job card come from here.
 # Deliberately generic: no employer names (the "hide company" list lives only in the browser).
+# `skills` + `gaps` together are every skill the radar recognises: in job texts, and in a CV analyzed on
+# the dashboard, which then scores jobs against the CV's skills instead of this fixed list.
 
 home: קריית עקרון
 yearsExperience: 2
@@ -45,11 +47,11 @@ skills:
     terms: [mobile, מובייל, iOS, Android, אנדרואיד]
   - label: Backend / Batch
     terms: [backend, back-end, batch, באצ', אצווה, integration, אינטגרציה]
-  - label: Selenium (בסיסי)
+  - label: Selenium # basic level
     terms: [Selenium]
-  - label: Java (בסיסי)
+  - label: Java # basic level
     terms: [Java]
-  - label: JavaScript (בסיסי)
+  - label: JavaScript # basic level
     terms: [JavaScript, JS]
   - label: Agile
     terms: [Agile, Scrum, אג'ייל]
