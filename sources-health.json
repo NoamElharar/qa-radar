@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-17T16:01:13.447Z",
+  "generatedAt": "2026-11-17T17:01:20.099Z",
   "sources": [
     {
       "id": "linkedin",
@@ -129,7 +129,7 @@
       "tier": "B",
       "homepage": "https://www.gotfriends.co.il/jobslobby/qa/",
       "status": "error",
-      "consecutiveFailures": 1,
+      "consecutiveFailures": 2,
       "baselineDone": true,
       "recentCounts": [
         588,
@@ -143,12 +143,12 @@
         588,
         588
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
       "lastSuccessAt": "2026-11-17T15:01:17.708Z",
       "fetched": 0,
       "kept": 0,
       "error": "HTTP 403 for https://www.gotfriends.co.il/jobslobby/qa/?page=1",
-      "durationMs": 2167
+      "durationMs": 2316
     },
     {
       "id": "goozali",
@@ -178,7 +178,6 @@
       "consecutiveFailures": 0,
       "baselineDone": true,
       "recentCounts": [
-        243,
         242,
         240,
         240,
@@ -187,13 +186,14 @@
         240,
         240,
         240,
-        240
+        240,
+        241
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
-      "fetched": 240,
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
+      "fetched": 241,
       "kept": 46,
-      "durationMs": 3192
+      "durationMs": 4612
     },
     {
       "id": "proceed",
@@ -252,11 +252,11 @@
         15,
         15
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 15,
       "kept": 3,
-      "durationMs": 6154
+      "durationMs": 5959
     },
     {
       "id": "sqlink",
@@ -291,7 +291,6 @@
       "consecutiveFailures": 0,
       "baselineDone": true,
       "recentCounts": [
-        164,
         163,
         163,
         167,
@@ -300,13 +299,14 @@
         166,
         165,
         167,
+        167,
         167
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 167,
       "kept": 9,
-      "durationMs": 7984
+      "durationMs": 8800
     },
     {
       "id": "compie",
@@ -329,11 +329,11 @@
         15,
         15
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 15,
       "kept": 0,
-      "durationMs": 2125
+      "durationMs": 2420
     },
     {
       "id": "commit",
@@ -345,7 +345,6 @@
       "consecutiveFailures": 0,
       "baselineDone": true,
       "recentCounts": [
-        113,
         107,
         113,
         113,
@@ -354,13 +353,14 @@
         117,
         117,
         117,
+        117,
         117
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 117,
       "kept": 2,
-      "durationMs": 4247
+      "durationMs": 6938
     },
     {
       "id": "comblack",
@@ -383,11 +383,11 @@
         290,
         290
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 290,
       "kept": 18,
-      "durationMs": 11665
+      "durationMs": 12354
     },
     {
       "id": "tesnet",
@@ -410,11 +410,11 @@
         31,
         31
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 31,
       "kept": 11,
-      "durationMs": 3048
+      "durationMs": 3755
     },
     {
       "id": "aman",
@@ -437,11 +437,11 @@
         7,
         7
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 7,
       "kept": 6,
-      "durationMs": 2514
+      "durationMs": 2778
     },
     {
       "id": "medulla",
@@ -449,8 +449,8 @@
       "type": "agency",
       "tier": "A",
       "homepage": "https://medulla.co.il/new-jobs/",
-      "status": "ok",
-      "consecutiveFailures": 0,
+      "status": "error",
+      "consecutiveFailures": 1,
       "baselineDone": true,
       "recentCounts": [
         30,
@@ -464,11 +464,12 @@
         30,
         30
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
       "lastSuccessAt": "2026-11-17T16:01:13.447Z",
-      "fetched": 30,
+      "fetched": 0,
       "kept": 0,
-      "durationMs": 8924
+      "error": "robots.txt unavailable for https://medulla.co.il (unreachable: fetch failed) — skipped this run to be safe",
+      "durationMs": 10610
     },
     {
       "id": "amanet",
@@ -730,11 +731,11 @@
         66,
         66
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 66,
       "kept": 6,
-      "durationMs": 6825
+      "durationMs": 7371
     },
     {
       "id": "mertens",
@@ -742,8 +743,8 @@
       "type": "agency",
       "tier": "B",
       "homepage": "https://mertens.malam.com/career/",
-      "status": "ok",
-      "consecutiveFailures": 0,
+      "status": "error",
+      "consecutiveFailures": 1,
       "baselineDone": true,
       "recentCounts": [
         268,
@@ -757,11 +758,12 @@
         257,
         257
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
       "lastSuccessAt": "2026-11-17T16:01:13.447Z",
-      "fetched": 257,
-      "kept": 12,
-      "durationMs": 6320
+      "fetched": 0,
+      "kept": 0,
+      "error": "HTTP 403 for https://mertens.malam.com/%d7%a8%d7%a9%d7%99%d7%9e%d7%aa-%d7%9e%d7%a9%d7%a8%d7%95%d7%aa-%d7%a8%d7%92%d7%99%d7%9c/?prof=&loc=&t=",
+      "durationMs": 3520
     },
     {
       "id": "bynet",
@@ -774,7 +776,7 @@
       "baselineDone": true,
       "recentCounts": [
         35,
-        35,
+        34,
         34,
         34,
         34,
@@ -784,11 +786,11 @@
         34,
         34
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 34,
       "kept": 0,
-      "durationMs": 6211
+      "durationMs": 4674
     },
     {
       "id": "malamteam",
@@ -970,8 +972,8 @@
       "type": "agency",
       "tier": "B",
       "homepage": "https://horizontech.co.il/שירותים/קריירה/",
-      "status": "ok",
-      "consecutiveFailures": 0,
+      "status": "error",
+      "consecutiveFailures": 1,
       "baselineDone": true,
       "recentCounts": [
         249,
@@ -985,11 +987,12 @@
         249,
         249
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
       "lastSuccessAt": "2026-11-17T16:01:13.447Z",
-      "fetched": 249,
-      "kept": 19,
-      "durationMs": 11893
+      "fetched": 0,
+      "kept": 0,
+      "error": "no job items matched \"div.job-container\" — the page layout changed or the site served a block page",
+      "durationMs": 4382
     },
     {
       "id": "peax",
@@ -1005,12 +1008,12 @@
       ],
       "note": "תנאי השימוש אוסרים העתקה, הצגה או הנגשה לציבור של תוכן האתר ויצירת מאגר ממנו — הרדאר רק סופר משרות QA ולא שומר את תוכנן",
       "status": "link-out",
-      "consecutiveFailures": 42,
+      "consecutiveFailures": 43,
       "baselineDone": false,
       "recentCounts": [],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
       "error": "HTTP 403 for https://peax.co.il/career/",
-      "durationMs": 3927
+      "durationMs": 4428
     },
     {
       "id": "qualityai",
@@ -1029,11 +1032,11 @@
       "consecutiveFailures": 0,
       "baselineDone": false,
       "recentCounts": [],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 68,
       "kept": 28,
-      "durationMs": 12382,
+      "durationMs": 12358,
       "watch": [
         {
           "key": "3221a705de67",
@@ -1218,19 +1221,19 @@
         59,
         59,
         59,
-        59,
         58,
         58,
         57,
         57,
         60,
+        59,
         59
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 59,
       "kept": 5,
-      "durationMs": 4273
+      "durationMs": 5734
     },
     {
       "id": "inmanage",
@@ -1253,11 +1256,11 @@
         17,
         17
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 17,
       "kept": 1,
-      "durationMs": 3482
+      "durationMs": 4627
     },
     {
       "id": "moveo",
@@ -1269,7 +1272,7 @@
       "consecutiveFailures": 0,
       "baselineDone": true,
       "recentCounts": [
-        69,
+        68,
         68,
         68,
         68,
@@ -1280,11 +1283,11 @@
         68,
         68
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 68,
       "kept": 5,
-      "durationMs": 3301
+      "durationMs": 5470
     },
     {
       "id": "logon",
@@ -1292,8 +1295,8 @@
       "type": "agency",
       "tier": "B",
       "homepage": "https://b.log-on.com/חיפוש-משרות-בהייטק/?areas=786,571,568,569",
-      "status": "ok",
-      "consecutiveFailures": 0,
+      "status": "error",
+      "consecutiveFailures": 1,
       "baselineDone": true,
       "recentCounts": [
         53,
@@ -1307,11 +1310,12 @@
         53,
         53
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
       "lastSuccessAt": "2026-11-17T16:01:13.447Z",
-      "fetched": 53,
-      "kept": 49,
-      "durationMs": 19821
+      "fetched": 0,
+      "kept": 0,
+      "error": "HTTP 403 for https://b.log-on.com/%D7%97%D7%99%D7%A4%D7%95%D7%A9-%D7%9E%D7%A9%D7%A8%D7%95%D7%AA-%D7%91%D7%94%D7%99%D7%99%D7%98%D7%A7/?areas=786,314,570,571,143,573,568,745,666,569,513,223,319,593,523,529,346,623,327",
+      "durationMs": 5059
     },
     {
       "id": "abra",
@@ -1357,11 +1361,11 @@
         1,
         1
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 1,
       "kept": 1,
-      "durationMs": 4019
+      "durationMs": 5390
     },
     {
       "id": "dialog",
@@ -1397,16 +1401,16 @@
         11,
         11,
         11,
-        11,
+        10,
         10,
         10,
         10
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 10,
       "kept": 0,
-      "durationMs": 6329
+      "durationMs": 8902
     },
     {
       "id": "max",
@@ -1528,11 +1532,11 @@
         54,
         54
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 54,
       "kept": 1,
-      "durationMs": 3871
+      "durationMs": 6613
     },
     {
       "id": "mataf",
@@ -1581,11 +1585,11 @@
         4,
         4
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 4,
       "kept": 2,
-      "durationMs": 8836
+      "durationMs": 11200
     },
     {
       "id": "masav",
@@ -1608,11 +1612,11 @@
         4,
         4
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 4,
       "kept": 1,
-      "durationMs": 4618
+      "durationMs": 5709
     },
     {
       "id": "pelecard",
@@ -1801,7 +1805,7 @@
         41,
         41,
         41,
-        41,
+        39,
         39,
         39,
         39,
@@ -1809,11 +1813,11 @@
         39,
         39
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 39,
       "kept": 0,
-      "durationMs": 4114
+      "durationMs": 4654
     },
     {
       "id": "mobileye",
@@ -1882,7 +1886,7 @@
         25,
         25,
         25,
-        25,
+        24,
         24,
         24,
         24,
@@ -1890,11 +1894,11 @@
         24,
         24
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 24,
       "kept": 0,
-      "durationMs": 3742
+      "durationMs": 4631
     },
     {
       "id": "playperfect",
@@ -1917,11 +1921,11 @@
         9,
         9
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 9,
       "kept": 0,
-      "durationMs": 11523
+      "durationMs": 14092
     },
     {
       "id": "superplay",
@@ -2294,16 +2298,16 @@
         20,
         20,
         20,
-        20,
+        21,
         21,
         21,
         21
       ],
-      "lastRunAt": "2026-11-17T16:01:13.447Z",
-      "lastSuccessAt": "2026-11-17T16:01:13.447Z",
+      "lastRunAt": "2026-11-17T17:01:20.099Z",
+      "lastSuccessAt": "2026-11-17T17:01:20.099Z",
       "fetched": 21,
       "kept": 0,
-      "durationMs": 13446
+      "durationMs": 16745
     }
   ]
 }
