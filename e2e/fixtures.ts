@@ -1,4 +1,22 @@
-import type { HealthFile, Job, JobsFile, SourceHealth } from '@qa-radar/shared';
+import type { HealthFile, Job, JobsFile, ScoringConfig, SourceHealth } from '@qa-radar/shared';
+
+/** The skills the fixture jobs mention, and the fixed profile they were scored against. */
+export const SCORING: ScoringConfig = {
+  skills: [
+    { label: 'Manual / E2E', terms: ['manual', 'ידני', 'ידניות', 'E2E'] },
+    { label: 'API testing', terms: ['API', 'REST'] },
+    { label: 'SQL', terms: ['SQL'] },
+    { label: 'Postman', terms: ['Postman'] },
+    { label: 'Mobile (iOS/Android)', terms: ['mobile', 'מובייל', 'iOS', 'Android'] },
+    { label: 'Java', terms: ['Java'] },
+    { label: 'Python', terms: ['Python', 'pytest'] },
+    { label: 'Playwright', terms: ['Playwright'] },
+    { label: 'TypeScript', terms: ['TypeScript'] },
+  ],
+  have: ['Manual / E2E', 'API testing', 'SQL', 'Postman', 'Mobile (iOS/Android)', 'Java'],
+  yearsExperience: 2,
+  bonusTags: { 'פינטק/בנקאות/ביטוח': 10 },
+};
 
 /**
  * Deterministic dashboard data for the end-to-end tests. Timestamps are relative to `now`, so the
@@ -33,6 +51,7 @@ function job(now: number, id: string, title: string, extra: Partial<Job>): Job {
     score: 70,
     matched: ['Manual / E2E'],
     missing: [],
+    requires: ['Manual / E2E'],
     snippet: 'בדיקות ידניות ואוטומציה למערכות פיננסיות.',
     firstSeenAt,
     lastSeenAt: new Date(now).toISOString(),
@@ -57,9 +76,16 @@ export function buildFixtures(now = Date.now()): { jobs: JobsFile; health: Healt
       score: 88,
       matched: ['Playwright', 'API'],
       missing: ['Java'],
+      requires: ['API testing', 'Java', 'Playwright'],
       firstSeenAt: iso(5 * HOUR),
     }),
-    job(now, 'long', TITLES.longNew, { score: 61, firstSeenAt: iso(1 * HOUR), seniority: 'senior', yearsRequired: 5 }),
+    job(now, 'long', TITLES.longNew, {
+      score: 61,
+      firstSeenAt: iso(1 * HOUR),
+      seniority: 'senior',
+      yearsRequired: 5,
+      requires: ['Playwright', 'TypeScript'],
+    }),
     job(now, 'back', TITLES.back, { firstSeenAt: iso(20 * 24 * HOUR), reappearedAt: iso(1 * HOUR), score: 55 }),
     job(now, 'baseline', TITLES.baseline, { firstSeenAt: iso(3 * 24 * HOUR), baseline: true, score: 66 }),
     job(now, 'north', TITLES.north, { regions: ['north'], city: 'חיפה', distanceKm: 105, score: 50 }),
@@ -121,6 +147,7 @@ export function buildFixtures(now = Date.now()): { jobs: JobsFile; health: Healt
       jobs,
       // A source re-published the manual-QA job twice under other ids before it got its stable id.
       aliases: { 'fixture:manual-repost-1': 'fixture:manual', 'fixture:manual-repost-2': 'fixture:manual' },
+      scoring: SCORING,
     },
     health: { version: 1, generatedAt: iso(30 * 60_000), sources },
   };

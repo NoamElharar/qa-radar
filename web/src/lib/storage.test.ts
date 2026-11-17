@@ -10,12 +10,14 @@ import {
   LEGACY_STATUSES,
   mergeHistories,
   mergePersonalChanges,
+  sanitizeCv,
   STATUS_DESCRIPTIONS,
   STATUS_LABELS,
   STATUS_ORDER,
   withoutStep,
   withStatus,
   withStepDate,
+  type CvProfile,
   type PersonalData,
   type StatusEntry,
 } from './storage.ts';
@@ -336,5 +338,51 @@ describe('two open tabs', () => {
     const merged = mergePersonalChanges(before, after, stored);
     expect(merged.hiddenCompanies).toEqual(['חברה ב', 'חברה ג']); // "אקמה" unhidden here, "חברה ב" hidden there
     expect(merged.quickChecks).toEqual({ dialog: at(2), sqlink: at(3) });
+  });
+
+  it('keeps the CV another tab saved unless this tab changed it', () => {
+    const cv = (day: number, skills: string[]): CvProfile => ({
+      skills,
+      yearsExperience: 2,
+      active: true,
+      analyzedAt: at(day),
+      updatedAt: at(day),
+    });
+    const there = { ...stored, cv: cv(2, ['SQL']) };
+    const statusOnly = { ...before, statuses: { ...before.statuses, ness: entry('applied', 3) } };
+    expect(mergePersonalChanges(before, statusOnly, there).cv).toEqual(cv(2, ['SQL']));
+    const newCv = { ...before, cv: cv(3, ['SQL', 'Postman']) };
+    expect(mergePersonalChanges(before, newCv, there).cv).toEqual(cv(3, ['SQL', 'Postman']));
+    const removed = { ...before, cv: undefined };
+    expect(mergePersonalChanges({ ...before, cv: cv(1, ['SQL']) }, removed, there).cv).toBeUndefined();
+  });
+});
+
+describe('CV profile', () => {
+  const at = (day: number) => `2026-11-${String(day).padStart(2, '0')}T10:00:00.000Z`;
+  const cv = (day: number, skills: string[]): CvProfile => ({
+    skills,
+    yearsExperience: 2,
+    active: true,
+    fileName: 'cv.pdf',
+    analyzedAt: at(day),
+    updatedAt: at(day),
+  });
+
+  it('reads what this version can use and drops the rest', () => {
+    expect(sanitizeCv(undefined)).toBeUndefined();
+    expect(sanitizeCv({ skills: 'SQL', analyzedAt: at(1), updatedAt: at(1) })).toBeUndefined();
+    expect(
+      sanitizeCv({ skills: ['SQL', 'SQL', '', 7, 'Postman'], yearsExperience: 99, analyzedAt: at(1), updatedAt: at(1), text: 'the whole CV' }),
+    ).toEqual({ skills: ['SQL', 'Postman'], yearsExperience: 50, active: true, analyzedAt: at(1), updatedAt: at(1) });
+  });
+
+  it('travels with the JSON backup; the newer copy wins', () => {
+    const backup = (data: PersonalData) => JSON.stringify({ ...data, app: 'qa-radar' });
+    const mine = { ...empty(), cv: cv(10, ['SQL']) };
+    expect(importPersonal(mine, backup({ ...empty(), cv: cv(12, ['SQL', 'Postman']) })).cv?.skills).toEqual(['SQL', 'Postman']);
+    expect(importPersonal(mine, backup({ ...empty(), cv: cv(5, ['Python']) })).cv?.skills).toEqual(['SQL']);
+    expect(importPersonal(empty(), backup({ ...empty(), cv: cv(5, ['Python']) })).cv?.skills).toEqual(['Python']);
+    expect(importPersonal(mine, backup(empty())).cv?.skills).toEqual(['SQL']); // an older backup without a CV
   });
 });

@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@qa-radar/shared": "*",
+    "fflate": "0.8.3",
+    "pdfjs-dist": "6.5.438",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

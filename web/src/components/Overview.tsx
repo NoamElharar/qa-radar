@@ -44,6 +44,8 @@ export interface OverviewProps {
   onOpenSources: () => void;
   /** Scrolls to a part of this page: today's new jobs, or the boards to check by hand. */
   onJumpTo: (id: 'new-jobs' | 'manual-boards') => void;
+  /** "התאמה לפי קורות החיים" (compact), below the summary cards. */
+  cvPanel?: ReactNode;
 }
 
 /** "סקירה": the first thing on the home screen — what is new, what is waiting, what is moving. */
@@ -62,6 +64,7 @@ export function Overview({
   onOpenStats,
   onOpenSources,
   onJumpTo,
+  cvPanel,
 }: OverviewProps) {
   const items = useMemo(() => buildItems(statuses, jobsById), [statuses, jobsById]);
   const stats = useMemo(() => computeStats(collectFacts(items, (id) => sourceById.get(id)), now), [items, sourceById, now]);
@@ -203,6 +206,8 @@ export function Overview({
 
         <SourcesCard sources={sources} boardsTotal={boardsTotal} boardsPending={boardsPending} onOpenSources={onOpenSources} onJumpTo={onJumpTo} />
       </div>
+
+      {cvPanel}
     </section>
   );
 }

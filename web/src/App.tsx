@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { isNewSince, type Job, type SourceType } from '@qa-radar/shared';
 import { Header, ViewNav } from './components/Chrome.tsx';
+import { CvPanel } from './components/CvPanel.tsx';
 import { AlertIcon } from './components/icons.tsx';
 import { FilterSheet, type FilterOptions } from './components/FilterSheet.tsx';
 import { JobCard } from './components/JobCard.tsx';
@@ -29,6 +30,7 @@ import {
   type ThemePreference,
 } from './lib/storage.ts';
 import { asOf } from './lib/overview.ts';
+import { rescoreJobs } from './lib/cv.ts';
 import { israelDayKey, relativeTime } from './lib/time.ts';
 import { useUrlFilters } from './lib/useUrlFilters.ts';
 
@@ -105,7 +107,16 @@ export function App() {
     };
   }, []);
 
-  const jobs = useMemo(() => data?.jobs.jobs ?? [], [data]);
+  // Jobs as collected (scored against config/profile.yaml) — and, when my CV is on, re-scored against
+  // its skills. Everything below (filters, "minimum score", sorting, cards) uses the re-scored list.
+  const collected = useMemo(() => data?.jobs.jobs ?? [], [data]);
+  const scoring = data?.jobs.scoring;
+  const cv = personal.cv;
+  const cvOn = Boolean(cv?.active && scoring);
+  const jobs = useMemo(
+    () => (cv?.active && scoring ? rescoreJobs(collected, scoring, cv) : collected),
+    [collected, scoring, cv],
+  );
   const sources = useMemo(() => data?.health.sources ?? [], [data]);
   const sourceById = useMemo(() => new Map(sources.map((s) => [s.id, s])), [sources]);
   const jobsById = useMemo(() => new Map(jobs.map((j) => [j.id, j])), [jobs]);
@@ -240,6 +251,21 @@ export function App() {
     updatePersonal({ ...personal, hiddenCompanies: personal.hiddenCompanies.filter((n) => n !== name) });
   const markChecked = (sourceId: string) =>
     updatePersonal({ ...personal, quickChecks: { ...personal.quickChecks, [sourceId]: new Date().toISOString() } });
+  const updateCv = (next: PersonalData['cv']) => updatePersonal({ ...personal, cv: next });
+  const openCv = () => {
+    setView('mine');
+    setJump('cv');
+  };
+  const cvPanel = (variant: 'home' | 'full') => (
+    <CvPanel
+      variant={variant}
+      cv={personal.cv}
+      scoring={scoring}
+      jobs={collected}
+      onChange={updateCv}
+      onManage={variant === 'home' ? openCv : undefined}
+    />
+  );
 
   const doExport = () => {
     const blob = new Blob([exportPersonal(personal)], { type: 'application/json' });
@@ -296,6 +322,7 @@ export function App() {
             onOpenStats={() => setView('stats')}
             onOpenSources={() => setView('sources')}
             onJumpTo={jumpTo}
+            cvPanel={cvPanel('home')}
           />
         )}
 
@@ -347,6 +374,7 @@ export function App() {
                     onStatus={setStatus}
                     onOpen={onOpen}
                     onHideCompany={hideCompany}
+                    scoredByCv={cvOn && Boolean(job.requires)}
                   />
                 </li>
               ))}
@@ -388,6 +416,7 @@ export function App() {
               onUnhide={unhideCompany}
               onExport={doExport}
               onImport={doImport}
+              cvPanel={cvPanel('full')}
             />
           </>
         )}

@@ -229,21 +229,58 @@ export function mergeHistories(entries: StatusEntry[]): StatusStep[] {
   return collapse(all);
 }
 
+/**
+ * "התאמה לפי קורות החיים": the skills found in my CV (then confirmed or edited). Only the skill names are
+ * kept — never the CV's text, which has my name, phone and employer in it.
+ */
+export interface CvProfile {
+  /** Skill labels (from jobs.json's `scoring.skills`) to score jobs with. */
+  skills: string[];
+  yearsExperience: number;
+  /** Score jobs with these skills instead of the fixed profile. */
+  active: boolean;
+  fileName?: string;
+  /** When the CV was last analyzed. */
+  analyzedAt: string;
+  /** Last change of any kind — the newer copy wins when a backup is imported. */
+  updatedAt: string;
+}
+
 export interface PersonalData {
   version: 1;
   statuses: Record<string, StatusEntry>;
   hiddenCompanies: string[];
   quickChecks: Record<string, string>;
   lastVisitAt?: string;
+  cv?: CvProfile;
 }
 
 const KEYS = {
   statuses: 'qa-radar:statuses',
   hidden: 'qa-radar:hidden-companies',
   quick: 'qa-radar:quick-checks',
+  cv: 'qa-radar:cv',
   lastVisit: 'qa-radar:last-visit',
   theme: 'qa-radar:theme',
 } as const;
+
+const isIso = (v: unknown): v is string => typeof v === 'string' && !Number.isNaN(Date.parse(v));
+
+/** A stored or imported CV profile, or undefined when it isn't one this version can read. */
+export function sanitizeCv(raw: unknown): CvProfile | undefined {
+  if (!raw || typeof raw !== 'object') return undefined;
+  const r = raw as Record<string, unknown>;
+  if (!Array.isArray(r.skills) || !isIso(r.analyzedAt) || !isIso(r.updatedAt)) return undefined;
+  const years = typeof r.yearsExperience === 'number' && Number.isFinite(r.yearsExperience) ? r.yearsExperience : 0;
+  return {
+    skills: [...new Set(r.skills.filter((s): s is string => typeof s === 'string' && s.trim() !== ''))],
+    yearsExperience: Math.max(0, Math.min(50, Math.round(years))),
+    active: r.active !== false,
+    ...(typeof r.fileName === 'string' && r.fileName ? { fileName: r.fileName } : {}),
+    analyzedAt: r.analyzedAt,
+    updatedAt: r.updatedAt,
+  };
+}
 
 function read<T>(key: string, fallback: T): T {
   try {
@@ -276,6 +313,7 @@ export function loadPersonal(): PersonalData {
     hiddenCompanies: read(KEYS.hidden, []),
     quickChecks: read(KEYS.quick, {}),
     lastVisitAt,
+    cv: sanitizeCv(read<unknown>(KEYS.cv, undefined)),
   };
 }
 
@@ -283,6 +321,7 @@ export function savePersonal(data: PersonalData): void {
   write(KEYS.statuses, data.statuses);
   write(KEYS.hidden, data.hiddenCompanies);
   write(KEYS.quick, data.quickChecks);
+  write(KEYS.cv, data.cv);
 }
 
 const same = (a: unknown, b: unknown) => a === b || JSON.stringify(a) === JSON.stringify(b);
@@ -310,6 +349,8 @@ export function mergePersonalChanges(before: PersonalData, after: PersonalData, 
     statuses: applyChanges(before.statuses, after.statuses, stored.statuses),
     hiddenCompanies: [...new Set([...stored.hiddenCompanies, ...added])].filter((name) => !removed.has(name)),
     quickChecks: applyChanges(before.quickChecks, after.quickChecks, stored.quickChecks),
+    // The CV is one setting: this tab's change wins, otherwise keep what another tab saved.
+    cv: same(before.cv, after.cv) ? stored.cv : after.cv,
   };
 }
 
@@ -338,7 +379,8 @@ export function refreshPersonal(current: PersonalData): PersonalData {
   const unchanged =
     same(stored.statuses, current.statuses) &&
     same(stored.hiddenCompanies, current.hiddenCompanies) &&
-    same(stored.quickChecks, current.quickChecks);
+    same(stored.quickChecks, current.quickChecks) &&
+    same(stored.cv, current.cv);
   return unchanged ? current : { ...stored, lastVisitAt: current.lastVisitAt };
 }
 
@@ -361,7 +403,7 @@ export function saveTheme(theme: ThemePreference): void {
   write(KEYS.theme, theme);
 }
 
-/** JSON backup of everything personal (statuses, notes, hidden companies, checks). */
+/** JSON backup of everything personal (statuses, notes, hidden companies, checks, CV skills). */
 export function exportPersonal(data: PersonalData): string {
   return JSON.stringify({ ...data, exportedAt: new Date().toISOString(), app: 'qa-radar' }, null, 2);
 }
@@ -393,10 +435,12 @@ export function importPersonal(current: PersonalData, json: string): PersonalDat
     const existing = statuses[id];
     if (!existing || entry.updatedAt > existing.updatedAt) statuses[id] = entry;
   }
+  const cv = sanitizeCv(incoming.cv);
   return {
     ...current,
     statuses,
     hiddenCompanies: [...new Set([...current.hiddenCompanies, ...(incoming.hiddenCompanies ?? [])])],
     quickChecks: { ...(incoming.quickChecks ?? {}), ...current.quickChecks },
+    cv: cv && (!current.cv || cv.updatedAt > current.cv.updatedAt) ? cv : current.cv,
   };
 }

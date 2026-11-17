@@ -30,12 +30,13 @@ const RING = 2 * Math.PI * 17;
  * The match score as a ring that fills to the score (out of 100). The number inside carries the
  * meaning; the arc's color (green 70+, amber 40+, gray below) only repeats it.
  */
-function ScoreRing({ score, className = '' }: { score: number; className?: string }) {
+function ScoreRing({ score, byCv, className = '' }: { score: number; byCv: boolean; className?: string }) {
   const tone =
     score >= 70 ? 'text-mint-500 dark:text-mint-300' : score >= 40 ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400 dark:text-slate-500';
   const value = Math.max(0, Math.min(100, score));
+  const label = byCv ? 'ציון התאמה לקורות החיים' : 'ציון התאמה לפרופיל';
   return (
-    <span className={`relative grid size-11 shrink-0 place-items-center ${className}`} title="ציון התאמה לפרופיל">
+    <span className={`relative grid size-11 shrink-0 place-items-center ${className}`} title={label}>
       <svg viewBox="0 0 40 40" className="absolute inset-0 size-full -rotate-90" aria-hidden="true">
         <circle cx="20" cy="20" r="17" fill="none" strokeWidth="3" className="stroke-brand-100 dark:stroke-slate-700" />
         <circle
@@ -51,7 +52,7 @@ function ScoreRing({ score, className = '' }: { score: number; className?: strin
         />
       </svg>
       <span className="text-sm font-bold tabular-nums">
-        <span className="sr-only">ציון התאמה </span>
+        <span className="sr-only">{label} </span>
         {score}
       </span>
     </span>
@@ -80,6 +81,8 @@ export interface JobCardProps {
   onStatus: (job: Job, status: JobStatus | undefined) => void;
   onOpen: (job: Job) => void;
   onHideCompany: (name: string) => void;
+  /** The score, ✓ and ✗ were computed against my CV's skills, not the fixed profile. */
+  scoredByCv?: boolean;
 }
 
 interface MenuPlacement {
@@ -119,7 +122,7 @@ function placeMenu(button: HTMLElement, need: number): MenuPlacement {
     : { up: false, maxHeight: Math.max(120, room.below) };
 }
 
-export function JobCard({ job, sourceName, status, highlight, now, onStatus, onOpen, onHideCompany }: JobCardProps) {
+export function JobCard({ job, sourceName, status, highlight, now, onStatus, onOpen, onHideCompany, scoredByCv = false }: JobCardProps) {
   const [expanded, setExpanded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuPlace, setMenuPlace] = useState<MenuPlacement>({ up: true });
@@ -219,7 +222,7 @@ export function JobCard({ job, sourceName, status, highlight, now, onStatus, onO
             )}
           </p>
         </div>
-        <ScoreRing score={job.score} className="xl:col-start-3 xl:row-span-3 xl:row-start-1" />
+        <ScoreRing score={job.score} byCv={scoredByCv} className="xl:col-start-3 xl:row-span-3 xl:row-start-1" />
       </div>
 
       {/* Location · distance · first seen */}
