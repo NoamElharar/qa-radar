@@ -20,7 +20,7 @@ export const STALE_DAYS = 14;
 const DAY_MS = 864e5;
 
 export type MineFlag = 'pinned' | 'stale' | 'notes' | 'manual' | 'overlap';
-export type MineSort = 'updated' | 'applied' | 'waiting' | 'company';
+export type MineSort = 'updated' | 'applied' | 'waiting' | 'company' | 'mine';
 export type AppliedWindow = 'any' | '7d' | '30d' | '90d';
 
 export interface MineFilters {
@@ -47,6 +47,7 @@ export const MINE_SORT_LABELS: Record<MineSort, string> = {
   applied: 'הוגש לאחרונה',
   waiting: 'ממתינות הכי הרבה זמן',
   company: 'חברה (א–ת)',
+  mine: 'הסדר שלי',
 };
 
 export const APPLIED_WINDOW_LABELS: Record<AppliedWindow, string> = {
@@ -208,18 +209,84 @@ export function applyMineFilters(items: MineItem[], f: MineFilters, now: Date): 
     company: (a, b) =>
       (a.company ?? '').localeCompare(b.company ?? '', 'he') ||
       a.title.localeCompare(b.title, 'he'),
+    mine: compareMyOrder,
   };
   return filtered.sort(compare[f.sort]);
 }
 
-/** Pinned items first (most recently pinned on top), then the rest grouped by status in GROUP_ORDER. */
-export function groupItems(items: MineItem[]): {
+/**
+ * "הסדר שלי": entries not placed by hand yet (new, or just moved to this group by a new status) on
+ * top, newest update first — so the first time it starts out like "עודכן לאחרונה" — then the rest
+ * by the position they were dragged to.
+ */
+export function compareMyOrder(a: MineItem, b: MineItem): number {
+  const ao = a.entry.order;
+  const bo = b.entry.order;
+  if (ao === undefined && bo !== undefined) return -1;
+  if (bo === undefined && ao !== undefined) return 1;
+  return (ao ?? 0) - (bo ?? 0) || b.entry.updatedAt.localeCompare(a.entry.updatedAt);
+}
+
+/** The gap between neighbours when a list is numbered afresh. */
+export const ORDER_STEP = 1024;
+
+/**
+ * Move `id` so it lands at index `to` of the list as shown (`shown`: ids in display order, maybe
+ * filtered). `list` is the whole list it belongs to — its status group or the pinned section,
+ * unfiltered, in "הסדר שלי" order — so hidden entries keep their places. Returns the new `order` of
+ * every entry that changes: usually only the moved one; the whole list when it has to be numbered
+ * afresh (entries not placed yet, or no room left between two neighbours).
+ */
+export function moveWithin(
+  list: readonly MineItem[],
+  shown: readonly string[],
+  id: string,
+  to: number,
+): Record<string, number> {
+  const others = shown.filter((x) => x !== id);
+  if (!others.length || !list.some((i) => i.id === id)) return {};
+  const at = Math.max(0, Math.min(to, others.length));
+  const rest = list.map((i) => i.id).filter((x) => x !== id);
+  // Land right after the shown entry above it, or right before the one below when it goes first.
+  const insertAt = at > 0 ? rest.indexOf(others[at - 1]!) + 1 : rest.indexOf(others[0]!);
+  const next = [...rest.slice(0, insertAt), id, ...rest.slice(insertAt)];
+  if (next.every((x, i) => x === list[i]!.id)) return {};
+
+  const orderOf = new Map(list.map((i) => [i.id, i.entry.order]));
+  const above = insertAt > 0 ? orderOf.get(next[insertAt - 1]!) : undefined;
+  const below = insertAt < next.length - 1 ? orderOf.get(next[insertAt + 1]!) : undefined;
+  const allPlaced = next.every((x) => x === id || orderOf.get(x) !== undefined);
+  if (allPlaced) {
+    if (above !== undefined && below !== undefined && below - above > 1e-6) return { [id]: (above + below) / 2 };
+    if (insertAt === 0 && below !== undefined) return { [id]: below - ORDER_STEP };
+    if (insertAt === next.length - 1 && above !== undefined) return { [id]: above + ORDER_STEP };
+  }
+  const changes: Record<string, number> = {};
+  next.forEach((x, i) => {
+    const value = (i + 1) * ORDER_STEP;
+    if (orderOf.get(x) !== value) changes[x] = value;
+  });
+  return changes;
+}
+
+/**
+ * Pinned items first, then the rest grouped by status in GROUP_ORDER. Pinned items are most
+ * recently pinned first, or in "הסדר שלי" when that is the sort.
+ */
+export function groupItems(
+  items: MineItem[],
+  sort: MineSort = 'updated',
+): {
   pinned: MineItem[];
   groups: Array<{ status: JobStatus; items: MineItem[] }>;
 } {
   const pinned = items
     .filter((i) => i.entry.pinned)
-    .sort((a, b) => (b.entry.pinnedAt ?? '').localeCompare(a.entry.pinnedAt ?? ''));
+    .sort(
+      sort === 'mine'
+        ? compareMyOrder
+        : (a, b) => (b.entry.pinnedAt ?? '').localeCompare(a.entry.pinnedAt ?? ''),
+    );
   const rest = items.filter((i) => !i.entry.pinned);
   const groups = GROUP_ORDER.map((status) => ({
     status,

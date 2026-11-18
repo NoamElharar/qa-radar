@@ -108,6 +108,17 @@ export const PulseIcon = (p: IconProps) => (
     <path d="M3 12h4l3-8 4 16 3-8h4" />
   </Svg>
 );
+/** Six dots (⋮⋮): "drag me". */
+export const GripIcon = (p: IconProps) => (
+  <Svg {...p} fill="currentColor" stroke="none">
+    <circle cx="9" cy="6" r="1.6" />
+    <circle cx="15" cy="6" r="1.6" />
+    <circle cx="9" cy="12" r="1.6" />
+    <circle cx="15" cy="12" r="1.6" />
+    <circle cx="9" cy="18" r="1.6" />
+    <circle cx="15" cy="18" r="1.6" />
+  </Svg>
+);
 /** A document with an arrow up: "upload a CV". */
 export const UploadDocIcon = (p: IconProps) => (
   <Svg {...p}>

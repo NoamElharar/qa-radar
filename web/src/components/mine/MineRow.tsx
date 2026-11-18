@@ -24,8 +24,19 @@ import {
   type StatusEntry,
 } from '../../lib/storage.ts';
 import { formatDate, israelDayKey, relativeTime } from '../../lib/time.ts';
-import { AlertIcon, ClockIcon, CloseIcon, ExternalIcon, NoteIcon, PenIcon, PinIcon } from '../icons.tsx';
+import {
+  AlertIcon,
+  ArrowDownIcon,
+  ArrowUpIcon,
+  ClockIcon,
+  CloseIcon,
+  ExternalIcon,
+  NoteIcon,
+  PenIcon,
+  PinIcon,
+} from '../icons.tsx';
 import { NotesField } from './NotesField.tsx';
+import type { RowSortable } from './SortableRows.tsx';
 import { StatusDot } from './StatusDot.tsx';
 
 interface Props {
@@ -42,6 +53,8 @@ interface Props {
   overlap?: ClientOverlap;
   /** Show every application to this end client (sets the search). */
   onShowClient: (client: string) => void;
+  /** "הסדר שלי": the row can be dragged and moved a step up or down. */
+  sortable?: RowSortable;
 }
 
 /**
@@ -243,6 +256,7 @@ export const MineRow = memo(function MineRow({
   showStatus,
   overlap,
   onShowClient,
+  sortable,
 }: Props) {
   const { id, entry, title, company, url, gone, job } = item;
   const stale = isStale(entry, now);
@@ -253,7 +267,17 @@ export const MineRow = memo(function MineRow({
   const clientHint = job && !job.agency ? job.company : job?.endClient && `במודעה: ${job.endClient}`;
 
   return (
-    <li className={expanded ? 'bg-slate-50/80 dark:bg-slate-800/40' : ''}>
+    <li
+      ref={sortable?.setNodeRef}
+      style={sortable?.style}
+      className={
+        sortable?.dragging
+          ? 'bg-surface shadow-float'
+          : expanded
+            ? 'bg-slate-50/80 dark:bg-slate-800/40'
+            : ''
+      }
+    >
       <div className="flex items-start gap-1 px-2 py-2.5 sm:px-3">
         <button
           type="button"
@@ -331,10 +355,35 @@ export const MineRow = memo(function MineRow({
             {STATUS_LABELS[entry.status]}
           </span>
         )}
+        {sortable?.handle}
       </div>
 
       {expanded && (
         <div className="space-y-3 px-3 pb-4 ps-11">
+          {/* Moving without dragging (a phone, a keyboard, or just easier) — first, so it needs no scrolling. */}
+          {(sortable?.moveUp || sortable?.moveDown) && (
+            <div className="flex flex-wrap items-center gap-2 text-sm" role="group" aria-label="המקום ברשימה">
+              {sortable.moveUp && (
+                <button
+                  type="button"
+                  onClick={sortable.moveUp}
+                  className="inline-flex min-h-11 items-center gap-1 rounded-lg border border-slate-300 px-3 dark:border-slate-700"
+                >
+                  <ArrowUpIcon className="shrink-0" /> העבר למעלה
+                </button>
+              )}
+              {sortable.moveDown && (
+                <button
+                  type="button"
+                  onClick={sortable.moveDown}
+                  className="inline-flex min-h-11 items-center gap-1 rounded-lg border border-slate-300 px-3 dark:border-slate-700"
+                >
+                  <ArrowDownIcon className="shrink-0" /> העבר למטה
+                </button>
+              )}
+            </div>
+          )}
+
           <div role="radiogroup" aria-label="סטטוס" className="flex flex-wrap gap-2">
             {/* A legacy status (the unsorted "ראיון") shows only on the entry that still has it. */}
             {ALL_STATUSES.filter((s) => !LEGACY_STATUSES.has(s) || s === entry.status).map((s: JobStatus) => (

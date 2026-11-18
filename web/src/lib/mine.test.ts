@@ -13,6 +13,7 @@ import {
   sameCompany,
   mineFiltersFromParams,
   mineStats,
+  moveWithin,
   visiblePipeline,
   weekStart,
   writeMineParams,
@@ -461,5 +462,74 @@ describe('end client — the company the job is really at', () => {
     );
     expect(ids(applyMineFilters(items, f({ q: 'בטא' }), now))).toEqual(['c']);
     expect(knownClients(items)).toEqual(['אקמה', 'בטא']);
+  });
+});
+
+describe('"הסדר שלי" — my own order', () => {
+  // Four applications, a newest … d oldest; none placed by hand yet.
+  const statuses = {
+    a: entry({ updatedAt: daysAgo(1) }),
+    b: entry({ updatedAt: daysAgo(2) }),
+    c: entry({ updatedAt: daysAgo(3) }),
+    d: entry({ updatedAt: daysAgo(4) }),
+  };
+  const mine = (s: Record<string, StatusEntry>) =>
+    applyMineFilters(buildItems(s, new Map()), f({ sort: 'mine' }), now);
+  /** Apply the changes moveWithin returns, as App does. */
+  const apply = (s: Record<string, StatusEntry>, changes: Record<string, number>) =>
+    Object.fromEntries(Object.entries(s).map(([id, e]) => [id, id in changes ? { ...e, order: changes[id] } : e]));
+
+  it('starts out like "עודכן לאחרונה", so choosing it moves nothing', () => {
+    expect(ids(mine(statuses))).toEqual(['a', 'b', 'c', 'd']);
+  });
+
+  it('the first move numbers the whole list; later moves change only the moved entry', () => {
+    const list = mine(statuses);
+    const first = moveWithin(list, ids(list), 'd', 0);
+    expect(first).toEqual({ d: 1024, a: 2048, b: 3072, c: 4096 });
+    const placed = apply(statuses, first);
+    expect(ids(mine(placed))).toEqual(['d', 'a', 'b', 'c']);
+
+    const second = moveWithin(mine(placed), ['d', 'a', 'b', 'c'], 'c', 1); // between d and a
+    expect(second).toEqual({ c: 1536 });
+    expect(ids(mine(apply(placed, second)))).toEqual(['d', 'c', 'a', 'b']);
+    // To the very top / bottom: one step past the end.
+    expect(moveWithin(mine(placed), ['d', 'a', 'b', 'c'], 'b', 0)).toEqual({ b: 0 });
+    expect(moveWithin(mine(placed), ['d', 'a', 'b', 'c'], 'a', 3)).toEqual({ a: 5120 });
+  });
+
+  it('inside a filter, hidden entries keep their places', () => {
+    const placed = apply(statuses, { a: 1024, b: 2048, c: 3072, d: 4096 });
+    // Only b and d are shown; d goes above b — and lands right before b, not at the very top.
+    const changes = moveWithin(mine(placed), ['b', 'd'], 'd', 0);
+    expect(ids(mine(apply(placed, changes)))).toEqual(['a', 'd', 'b', 'c']);
+  });
+
+  it('a new application, or one with a new status, starts at the top of its group', () => {
+    const placed = apply(statuses, { a: 1024, b: 2048, c: 3072, d: 4096 });
+    const withNew = { ...placed, e: entry({ updatedAt: daysAgo(0) }) };
+    expect(ids(mine(withNew))).toEqual(['e', 'a', 'b', 'c', 'd']);
+  });
+
+  it('dropping an entry where it already is changes nothing', () => {
+    const list = mine(statuses);
+    expect(moveWithin(list, ids(list), 'b', 1)).toEqual({});
+    expect(moveWithin(list, ['b'], 'b', 0)).toEqual({});
+  });
+
+  it('pinned entries follow "הסדר שלי" too; other sorts keep the most recently pinned first', () => {
+    const pins = {
+      x: entry({ pinned: true, pinnedAt: daysAgo(1), order: 2048 }),
+      y: entry({ pinned: true, pinnedAt: daysAgo(2), order: 1024 }),
+    };
+    const items = buildItems(pins, new Map());
+    expect(ids(groupItems(items, 'mine').pinned)).toEqual(['y', 'x']);
+    expect(ids(groupItems(items).pinned)).toEqual(['x', 'y']);
+  });
+
+  it('is kept in the URL like the other sorts', () => {
+    const p = writeMineParams(new URLSearchParams(), f({ sort: 'mine' }));
+    expect(p.get('msort')).toBe('mine');
+    expect(mineFiltersFromParams(p).sort).toBe('mine');
   });
 });

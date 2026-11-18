@@ -110,6 +110,12 @@ export interface StatusEntry {
   /** Pinned entries are shown first in "המועמדויות שלי". */
   pinned?: boolean;
   pinnedAt?: string;
+  /**
+   * Position in "הסדר שלי" (lower = higher up), within the entry's group. Missing = not placed by
+   * hand yet: such entries sit at the top of their group, newest update first. Dragging changes
+   * this only, never `updatedAt`; a new status or (un)pinning clears it (the entry joins another list).
+   */
+  order?: number;
   /** Added by hand for a job the collector never saw (id starts with "manual:"). */
   manual?: boolean;
   /** Where I applied, e.g. "LinkedIn", "AllJobs", "חבר מביא חבר". */
@@ -183,7 +189,9 @@ export function historyOf(entry: StatusEntry): StatusStep[] {
 
 /** The entry with `status` set as of `at`, appended to its history when it is a new step. */
 export function withStatus(prev: StatusEntry | undefined, status: JobStatus, at: string): StatusEntry {
-  const base: StatusEntry = prev ?? { status, updatedAt: at };
+  // A new status moves the entry to another group in "הסדר שלי", where it starts at the top.
+  const { order: _order, ...unplaced } = prev ?? { status, updatedAt: at };
+  const base: StatusEntry = prev && prev.status === status ? prev : unplaced;
   const steps = prev ? historyOf(prev) : [];
   const history =
     isStepStatus(status) && steps[steps.length - 1]?.status !== status
@@ -417,7 +425,7 @@ export function importPersonal(current: PersonalData, json: string): PersonalDat
   const statuses = { ...current.statuses };
   for (const [id, raw] of Object.entries(incoming.statuses ?? {})) {
     // Older backups have no interviewFormat, endClient or history; values this version can't read are dropped.
-    const { interviewFormat, endClient, history, ...rest } = raw;
+    const { interviewFormat, endClient, history, order, ...rest } = raw;
     const steps = Array.isArray(history)
       ? collapse(
           history
@@ -431,6 +439,7 @@ export function importPersonal(current: PersonalData, json: string): PersonalDat
       ...(isInterviewFormat(interviewFormat) ? { interviewFormat } : {}),
       ...(typeof endClient === 'string' && endClient.trim() ? { endClient: endClient.trim() } : {}),
       ...(steps.length ? { history: steps } : {}),
+      ...(typeof order === 'number' && Number.isFinite(order) ? { order } : {}),
     };
     const existing = statuses[id];
     if (!existing || entry.updatedAt > existing.updatedAt) statuses[id] = entry;

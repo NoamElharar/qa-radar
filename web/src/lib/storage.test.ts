@@ -386,3 +386,20 @@ describe('CV profile', () => {
     expect(importPersonal(mine, backup(empty())).cv?.skills).toEqual(['SQL']); // an older backup without a CV
   });
 });
+
+describe('"הסדר שלי" position', () => {
+  const at = '2026-11-18T10:00:00.000Z';
+  const placed: StatusEntry = { status: 'applied', updatedAt: '2026-11-10T10:00:00.000Z', order: 2048 };
+
+  it('a new status clears it (the entry starts at the top of its new group); the same status keeps it', () => {
+    expect(withStatus(placed, 'recruiter_call', at).order).toBeUndefined();
+    expect(withStatus(placed, 'applied', at).order).toBe(2048);
+  });
+
+  it('travels with the JSON backup; a value that is not a number is dropped', () => {
+    const backup = (order: unknown) =>
+      JSON.stringify({ app: 'qa-radar', statuses: { x: { ...placed, order } } });
+    expect(importPersonal(empty(), backup(1536)).statuses.x!.order).toBe(1536);
+    expect(importPersonal(empty(), backup('first')).statuses.x).not.toHaveProperty('order');
+  });
+});

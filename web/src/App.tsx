@@ -235,14 +235,26 @@ export function App() {
   };
   const addManual = (id: string, entry: StatusEntry) =>
     updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: entry } });
-  /** Pinning is about display order only, so it doesn't count as an update (keeps "waiting" timers honest). */
+  /**
+   * Pinning is about display order only, so it doesn't count as an update (keeps "waiting" timers
+   * honest). It moves the entry to another list, where "הסדר שלי" starts it at the top.
+   */
   const togglePin = (id: string) => {
     const prev = statuses[id];
     if (!prev) return;
     const next: StatusEntry = prev.pinned
-      ? { ...prev, pinned: undefined, pinnedAt: undefined }
-      : { ...prev, pinned: true, pinnedAt: new Date().toISOString() };
+      ? { ...prev, pinned: undefined, pinnedAt: undefined, order: undefined }
+      : { ...prev, pinned: true, pinnedAt: new Date().toISOString(), order: undefined };
     updatePersonal({ ...personal, statuses: { ...personal.statuses, [id]: next } });
+  };
+  /** "הסדר שלי": new positions after a move. Like pinning, not an update. */
+  const reorder = (changes: Record<string, number>) => {
+    const next = { ...personal.statuses };
+    for (const [id, order] of Object.entries(changes)) {
+      const prev = statuses[id];
+      if (prev) next[id] = { ...prev, order };
+    }
+    updatePersonal({ ...personal, statuses: next });
   };
   const clearEntry = (id: string) => {
     const next = { ...personal.statuses };
@@ -420,6 +432,7 @@ export function App() {
               onUnhide={unhideCompany}
               onExport={doExport}
               onImport={doImport}
+              onReorder={reorder}
               cvPanel={cvPanel('full')}
             />
           </>

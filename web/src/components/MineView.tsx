@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState, type ReactNode } from 'react';
+import { lazy, Suspense, useCallback, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { Job } from '@qa-radar/shared';
 import {
   activeMineFilterCount,
@@ -34,6 +34,7 @@ import {
   ChevronDownIcon,
   ClockIcon,
   GearIcon,
+  GripIcon,
   NoteIcon,
   PenIcon,
   PinIcon,
@@ -41,6 +42,10 @@ import {
 } from './icons.tsx';
 import { AddApplication } from './mine/AddApplication.tsx';
 import { MineRow } from './mine/MineRow.tsx';
+import type { RowSortable } from './mine/SortableRows.tsx';
+
+// The drag-and-drop library loads only when "הסדר שלי" is on (it is the only place rows move).
+const SortableRows = lazy(() => import('./mine/SortableRows.tsx').then((m) => ({ default: m.SortableRows })));
 import { MineSummary } from './mine/MineSummary.tsx';
 import { StatusDot } from './mine/StatusDot.tsx';
 
@@ -58,6 +63,8 @@ interface Props {
   onHide: (name: string) => void;
   onExport: () => void;
   onImport: (json: string) => void;
+  /** "הסדר שלי": save the new positions of moved rows (never counts as an update). */
+  onReorder: (changes: Record<string, number>) => void;
   /** "התאמה לפי קורות החיים", shown above the settings. */
   cvPanel?: ReactNode;
 }
@@ -103,6 +110,7 @@ export function MineView({
   onHide,
   onExport,
   onImport,
+  onReorder,
   cvPanel,
 }: Props) {
   const [filters, setFilters] = useMineFilters();
@@ -118,7 +126,16 @@ export function MineView({
   );
   const stats = useMemo(() => mineStats(items, now), [items, now]);
   const visible = useMemo(() => applyMineFilters(items, filters, now), [items, filters, now]);
-  const { pinned, groups } = useMemo(() => groupItems(visible), [visible]);
+  const { pinned, groups } = useMemo(() => groupItems(visible, filters.sort), [visible, filters.sort]);
+  const myOrder = filters.sort === 'mine';
+  // "הסדר שלי": every section unfiltered, so a move inside a filter keeps the hidden rows in place.
+  const fullLists = useMemo(
+    () =>
+      myOrder
+        ? groupItems(applyMineFilters(items, { ...DEFAULT_MINE_FILTERS, sort: 'mine' }, now), 'mine')
+        : undefined,
+    [myOrder, items, now],
+  );
   const overlaps = useMemo(() => clientOverlaps(items), [items]);
   const clashCount = useMemo(
     () => [...overlaps.values()].filter((o) => o.conflict).length,
@@ -152,25 +169,42 @@ export function MineView({
   const isCollapsed = (s: JobStatus) =>
     collapsed.has(s) && !filters.statuses.includes(s) && !filters.q;
 
-  const renderRows = (list: MineItem[], showStatus = false) => (
-    <ul className="divide-y divide-slate-100 dark:divide-slate-800">
-      {list.map((item) => (
-        <MineRow
-          key={item.id}
-          item={item}
-          now={now}
-          expanded={expanded.has(item.id)}
-          onToggleExpand={toggleExpand}
-          onTogglePin={onTogglePin}
-          onUpdate={onUpdate}
-          onRemove={onClear}
-          showStatus={showStatus}
-          overlap={overlaps.get(item.id)}
-          onShowClient={showClient}
-        />
-      ))}
-    </ul>
+  const row = (item: MineItem, showStatus: boolean, sortable?: RowSortable) => (
+    <MineRow
+      key={item.id}
+      item={item}
+      now={now}
+      expanded={expanded.has(item.id)}
+      onToggleExpand={toggleExpand}
+      onTogglePin={onTogglePin}
+      onUpdate={onUpdate}
+      onRemove={onClear}
+      showStatus={showStatus}
+      overlap={overlaps.get(item.id)}
+      onShowClient={showClient}
+      sortable={sortable}
+    />
   );
+  /** `full`: the whole section in "הסדר שלי" — given only in that sort, where rows can be moved. */
+  const renderRows = (list: MineItem[], showStatus = false, full?: MineItem[]) => {
+    const plain = (
+      <ul className="divide-y divide-slate-100 dark:divide-slate-800">
+        {list.map((item) => row(item, showStatus))}
+      </ul>
+    );
+    if (!full) return plain;
+    // Until the drag-and-drop code has loaded, the same rows without handles.
+    return (
+      <Suspense fallback={plain}>
+        <SortableRows
+          items={list}
+          list={full}
+          onReorder={onReorder}
+          renderRow={(item, sortable) => row(item, showStatus, sortable)}
+        />
+      </Suspense>
+    );
+  };
 
   return (
     <div className="space-y-4">
@@ -312,6 +346,15 @@ export function MineView({
                 ? `${items.length} משרות`
                 : `מציג ${visible.length} מתוך ${items.length}`}
             </p>
+            {myOrder && (
+              <p className="flex items-start gap-1.5 text-xs text-muted">
+                <GripIcon className="mt-px shrink-0" />
+                <span>
+                  גרירה של ⋮⋮ משנה את הסדר בתוך כל קבוצה. אפשר גם לפתוח שורה ולבחור "העבר למעלה" או
+                  "העבר למטה".
+                </span>
+              </p>
+            )}
           </div>
 
           {!visible.length && (
@@ -333,7 +376,7 @@ export function MineView({
                 <PinIcon className="shrink-0" />
                 נעוצים · {pinned.length}
               </h3>
-              {renderRows(pinned, true)}
+              {renderRows(pinned, true, fullLists?.pinned)}
             </section>
           )}
 
@@ -371,7 +414,11 @@ export function MineView({
                 </h3>
                 {!closed && (
                   <div className="border-t border-slate-100 dark:border-slate-800">
-                    {renderRows(groupList.slice(0, limit))}
+                    {renderRows(
+                      groupList.slice(0, limit),
+                      false,
+                      fullLists?.groups.find((g) => g.status === status)?.items,
+                    )}
                     {groupList.length > limit && (
                       <button
                         type="button"
