@@ -117,6 +117,24 @@ describe('location', () => {
     ]);
   });
 
+  it.each([
+    'משרה מלאה מהמשרד (ללא עבודה היברידית)', // Banani HR's Manual QA job
+    'אין אפשרות לעבודה מהבית',
+    'וללא עבודה מהבית',
+    'No remote work, 5 days a week in the office',
+  ])('does not flag remote work the job rules out: %s', (description) => {
+    expect(classifier.classify({ title: 'QA', location: 'רחובות', description }).regions).toEqual(['shfela']);
+  });
+
+  it.each([
+    'ללא תואר, עבודה היברידית', // the negation belongs to another phrase
+    'עבודה היברידית, ללא נסיעות',
+    'לא רק מהבית — יומיים במשרד', // "not only from home" is still hybrid
+    'ללא עבודה מהמשרד בימי שישי, עבודה מהבית פעמיים בשבוע', // one plain mention is enough
+  ])('still flags remote work next to an unrelated negation: %s', (description) => {
+    expect(classifier.classify({ title: 'QA', location: 'רחובות', description }).regions).toContain('remote');
+  });
+
   it('computes distance from home (קריית עקרון)', () => {
     expect(classifier.classify({ title: 'QA', location: 'רחובות' }).distanceKm).toBeLessThanOrEqual(6);
     expect(classifier.classify({ title: 'QA', location: 'חיפה' }).distanceKm).toBeGreaterThan(90);

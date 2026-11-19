@@ -67,7 +67,14 @@ const REGION_WORDS: Record<string, RegionId> = {
 const REGION_PHRASE =
   /(?<![א-ת])(?:(?:ב|ל|מ)?אזור\s+|ב|ל)ה?(מרכז|שפלה|שרון|צפון|דרום)(?![א-ת])|(?<![א-ת])[בל]?גוש\s+דן(?![א-ת])/g;
 
-const EXPERIENCE_WORD = /ניסיון|נסיון|ותק|experience/;
+/**
+ * A negation right before a remote-work word: "ללא עבודה היברידית", "אין אפשרות לעבודה מהבית",
+ * "no remote". At most two plain words in between, so "ללא תואר, עבודה היברידית" (no degree needed,
+ * hybrid work) still counts as hybrid. A bare "לא" is left out: "לא רק מהבית" (not only from home) is hybrid.
+ */
+const NEGATION_BEFORE = /(?<![א-ת\w])ו?(?:ללא|בלי|אין|no|without)(?:\s+[^\s,.;:!?()|•/-]+){0,2}\s+$/;
+
+const EXPERIENCE_WORD =/ניסיון|נסיון|ותק|experience/;
 const YEARS_NUMERIC =
   /(\d{1,2})\s*\+?\s*(?:(?:-|עד)\s*\d{1,2}\s*\+?\s*)?(?:שנות|שנים|שנה|years?|yrs)(?![א-ת])/g;
 const YEARS_WORDS: Array<[RegExp, number]> = [
@@ -129,7 +136,12 @@ export function createClassifier(config: AppConfig): Classifier {
   const regionAliases = (Object.entries(regions.regions) as Array<[RegionId, { aliases: string[] }]>)
     .filter(([id]) => id !== 'remote')
     .map(([id, r]) => ({ id, matcher: compileTerms(r.aliases, { inflect: false }) }));
-  const remote = compileTerms(regions.regions.remote?.aliases ?? [], { inflect: false });
+  const remoteWords = (regions.regions.remote?.aliases ?? []).map(
+    (t) => new RegExp(termToRegExp(t, { inflect: false }).source, 'gi'),
+  );
+  /** Remote/hybrid work is mentioned at least once without a negation right before it. */
+  const mentionsRemote = (text: string) =>
+    remoteWords.some((re) => [...text.matchAll(re)].some((m) => !NEGATION_BEFORE.test(text.slice(0, m.index))));
   const scoring = scoringConfigOf(profile);
   const skills = scoring.skills.map((s) => ({ label: s.label, matcher: compileTerms(s.terms) }));
   const have = new Set(scoring.have);
@@ -196,7 +208,7 @@ export function createClassifier(config: AppConfig): Classifier {
       if (!matchedCities.length) regionPhrases(head).forEach((r) => regionSet.add(r));
     }
     for (const c of matchedCities) c.regions.forEach((r) => regionSet.add(r));
-    if (remote.test(`${title} ${location} ${description}`)) regionSet.add('remote');
+    if (mentionsRemote(`${title} ${location} ${description}`)) regionSet.add('remote');
     const distances = matchedCities.map((c) => haversineKm(home!.lat, home!.lon, c.lat, c.lon));
     return {
       city: matchedCities[0]?.name,
