@@ -554,6 +554,16 @@ sources:
     idFromContent: true
     options: { baseUrl: 'https://ucl-group.co.il', postType: jobs }
 
+  - id: banani-hr
+    name: Banani HR
+    type: agency
+    tier: A
+    adapter: wp-rest
+    homepage: https://banani-hr.com/open-positions/
+    # The jobs page and the public WordPress API list the same posts (synced from the agency's own
+    # system about twice a day); robots.txt asks for 10 s between requests, which the collector honours.
+    options: { baseUrl: 'https://banani-hr.com', postType: jobs }
+
   - id: inmanage
     name: InManage
     type: agency
