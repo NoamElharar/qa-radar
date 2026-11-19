@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-19T11:01:12.408Z",
+  "generatedAt": "2026-11-19T11:31:48.643Z",
   "sources": [
     {
       "id": "linkedin",
@@ -1440,6 +1440,24 @@
       "fetched": 59,
       "kept": 5,
       "durationMs": 4861
+    },
+    {
+      "id": "banani-hr",
+      "name": "Banani HR",
+      "type": "agency",
+      "tier": "A",
+      "homepage": "https://banani-hr.com/open-positions/",
+      "status": "ok",
+      "consecutiveFailures": 0,
+      "baselineDone": true,
+      "recentCounts": [
+        21
+      ],
+      "lastRunAt": "2026-11-19T11:31:48.643Z",
+      "lastSuccessAt": "2026-11-19T11:31:48.643Z",
+      "fetched": 21,
+      "kept": 1,
+      "durationMs": 2863
     },
     {
       "id": "inmanage",
