@@ -105,7 +105,7 @@ export function QuickLaunch({ sources, checks, now, onChecked }: Props) {
                       href={l.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center gap-1 rounded-lg bg-brand-50 px-3 text-sm font-medium text-brand-800 hover:bg-brand-100 dark:bg-brand-900/50 dark:text-brand-100"
+                      className="inline-flex min-h-11 items-center gap-1 rounded-lg bg-brand-50 px-3 text-sm font-medium text-brand-800 hover:bg-brand-100 dark:bg-brand-900/50 dark:text-brand-100 dark:hover:bg-brand-800"
                     >
                       {l.label} <ExternalIcon />
                     </a>
