@@ -67,6 +67,10 @@ interface Props {
   onReorder: (changes: Record<string, number>) => void;
   /** "התאמה לפי קורות החיים", shown above the settings. */
   cvPanel?: ReactNode;
+  /** "סנכרון בין מכשירים", below the CV panel. */
+  syncPanel?: ReactNode;
+  /** This device syncs with the cloud (so nothing here is "only in this browser"). */
+  synced?: boolean;
 }
 
 const FLAGS: Record<MineFlag, { label: string; Icon: (p: { className?: string }) => ReactNode }> = {
@@ -112,6 +116,8 @@ export function MineView({
   onImport,
   onReorder,
   cvPanel,
+  syncPanel,
+  synced = false,
 }: Props) {
   const [filters, setFilters] = useMineFilters();
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(new Set());
@@ -441,6 +447,8 @@ export function MineView({
 
       {cvPanel}
 
+      {syncPanel}
+
       <details className="group rounded-2xl border border-line bg-surface shadow-card">
         <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-3 text-sm font-semibold [&::-webkit-details-marker]:hidden">
           <GearIcon className="shrink-0 text-muted" />
@@ -455,7 +463,8 @@ export function MineView({
           <div>
             <h4 className="text-sm font-semibold">חברות מוסתרות</h4>
             <p className="mb-3 text-xs text-muted">
-              משרות שמזכירות את השמות האלה לא יוצגו. נשמר רק בדפדפן הזה.
+              משרות שמזכירות את השמות האלה לא יוצגו.{' '}
+              {synced ? 'מסונכרן לכל המכשירים שלך.' : 'נשמר רק בדפדפן הזה.'}
             </p>
             <div className="flex flex-wrap gap-2">
               {personal.hiddenCompanies.map((name) => (
@@ -498,8 +507,9 @@ export function MineView({
           <div>
             <h4 className="text-sm font-semibold">גיבוי</h4>
             <p className="mb-3 text-xs text-muted">
-              הסטטוסים, ההערות, הנעיצות והכישורים מקורות החיים נשמרים רק בדפדפן הזה. כדאי לייצא גיבוי
-              מדי פעם (וכדי להעביר לטלפון אחר).
+              {synced
+                ? 'הסטטוסים, ההערות, הנעיצות והכישורים מקורות החיים נשמרים בדפדפן הזה ובענן. קובץ גיבוי עדיין שימושי לשמירה אצלך.'
+                : 'הסטטוסים, ההערות, הנעיצות והכישורים מקורות החיים נשמרים רק בדפדפן הזה. כדאי לייצא גיבוי מדי פעם (וכדי להעביר לטלפון אחר).'}
             </p>
             <div className="flex gap-2">
               <button

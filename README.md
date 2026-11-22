@@ -17,6 +17,7 @@ A personal radar for **QA / Test Engineer jobs in Israel**. A polite, scheduled 
 - **Statistics tab (סטטיסטיקה):** a funnel (applied → answered → call → interview → offer), answers per agency, each week's applications with how many got an answer, and the time to the first answer. Computed in the browser from every application's dated status history, with the count next to every percentage and no percentage under 5 applications.
 - **My own order in "שלי" (הסדר שלי):** drag an application up or down by its ⋮⋮ handle (mouse or finger), move it from the keyboard (Space, arrows, Space — announced in Hebrew), or use "העבר למעלה / למטה" without dragging. Within each status group and the pinned section, also inside a filter (hidden applications keep their places). A move never counts as an update.
 - **CV matching (התאמה לפי קורות החיים):** upload a CV (PDF or Word) once in a while and every job is re-scored against the skills it mentions — the same transparent formula, with ✓/✗ against the CV instead of the fixed profile. The file is read in the browser only and never stored: just the list of skill names (editable). It shows how the open jobs' scores would change before you save, and which skills open jobs ask for most that the CV doesn't mention.
+- **Sync between devices (סנכרון בין מכשירים), optional:** sign in with Google once per device and "שלי" — applications, statuses, notes, pins, "הסדר שלי", hidden companies, "בדקתי" checks and the CV skills — follows you between phone and computer, live. Works offline and catches up on reconnect; each application syncs on its own, so edits to different jobs never collide, and when the same one changed on two devices the later change wins (deletions too). The first link keeps a backup of the device's data first. Firebase loads only once sync is used. See [Sync between devices](#sync-between-devices).
 - **Link-out panel** for sites that must not be scraped (LinkedIn, Glassdoor, Indeed, boards whose terms forbid it, Cloudflare-protected sites): one-tap "last 24 hours" searches and a "בדקתי" button that remembers when I last checked.
 - **Source health page:** last successful run, jobs found, errors, suspicious drops.
 
@@ -128,6 +129,18 @@ GitHub's `schedule` trigger is best-effort (it can be delayed for hours, especia
 Timed runs pass `force=false`, so they still follow the Israel-time schedule and each source's `everyHours`; duplicate triggers are harmless. Renew the token before it expires.
 
 No secrets are needed for Phase 1 (Telegram alerts arrive in Phase 2 and will use `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` repository secrets).
+
+### Sync between devices
+
+Optional. Without it everything in "שלי" stays in the browser (and the card doesn't appear). With it, "שלי" lives in your own [Firebase](https://firebase.google.com) project (free Spark plan, no card):
+
+1. **Create a project** in the [Firebase console](https://console.firebase.google.com) (Google Analytics not needed).
+2. **Authentication → Get started → Sign-in method → Google → Enable.** Then **Settings → Authorized domains → Add domain:** `noamelharar.github.io` (`localhost` is there already).
+3. **Firestore Database → Create database**, production mode, a location near you. In **Rules**, paste [`firestore.rules`](firestore.rules) and publish.
+4. **Project settings → General → Your apps → Web (`</>`)**: register an app (no Hosting). Copy `apiKey`, `authDomain`, `projectId` and `appId` into the repository's **Settings → Secrets and variables → Actions → Variables** as `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `FIREBASE_PROJECT_ID`, `FIREBASE_APP_ID` (for local development: `web/.env.local`, see [`web/.env.example`](web/.env.example)). These values are public by design — sign-in and the rules are what protect the data. Redeploy.
+5. Sign in from "שלי" → "סנכרון בין מכשירים". The first time, the database still refuses (the rules name no owner yet): copy your **User UID** from **Authentication → Users**, put it in place of `OWNER_UID` in the rules, publish, and tap "ניסיון נוסף". Then sign in on your other devices.
+
+How it works: every item of "שלי" is one document, `users/{uid}/items/{key}`, holding the item as JSON text and the time of its last change on the device that made it. The browser keeps its own copy in `localStorage` (so the site works offline and loads instantly); on connecting, a device compares everything with the cloud and keeps the newer copy of each item, then listens for changes. Deleted items stay as empty markers so that a device that was offline can't bring them back. The CV file itself is never uploaded — only the skill list, as before. Code: `web/src/lib/sync/` (the merge rules in `model.ts` have their own tests; `e2e/sync.spec.ts` runs two devices against a stand-in cloud).
 
 ## Project structure
 

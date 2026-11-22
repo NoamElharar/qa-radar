@@ -270,6 +270,9 @@ const KEYS = {
   cv: 'qa-radar:cv',
   lastVisit: 'qa-radar:last-visit',
   theme: 'qa-radar:theme',
+  clocks: 'qa-radar:clocks',
+  syncDevice: 'qa-radar:sync-device',
+  preSyncBackup: 'qa-radar:pre-sync-backup',
 } as const;
 
 const isIso = (v: unknown): v is string => typeof v === 'string' && !Number.isNaN(Date.parse(v));
@@ -396,6 +399,46 @@ export function saveLastVisit(iso: string): void {
   write(KEYS.lastVisit, iso);
 }
 
+/** When each synced item last changed on this device (see lib/sync/model.ts). */
+export function loadClocks(): Record<string, string> {
+  const clocks = read<unknown>(KEYS.clocks, {});
+  return clocks && typeof clocks === 'object' && !Array.isArray(clocks) ? (clocks as Record<string, string>) : {};
+}
+
+export function saveClocks(clocks: Record<string, string>): void {
+  write(KEYS.clocks, clocks);
+}
+
+/** This device's sync link: on once a sign-in succeeded here, so the sync code loads on the next visit. */
+export interface SyncDevice {
+  linked: boolean;
+  email?: string;
+  lastSyncedAt?: string;
+}
+
+export function loadSyncDevice(): SyncDevice {
+  const raw = read<Partial<SyncDevice> | null>(KEYS.syncDevice, null);
+  return {
+    linked: raw?.linked === true,
+    ...(typeof raw?.email === 'string' ? { email: raw.email } : {}),
+    ...(isIso(raw?.lastSyncedAt) ? { lastSyncedAt: raw.lastSyncedAt } : {}),
+  };
+}
+
+export function saveSyncDevice(device: SyncDevice): void {
+  write(KEYS.syncDevice, device.linked ? device : undefined);
+}
+
+/**
+ * Before this device's data first meets the cloud copy of an account, keep a backup of it here
+ * (once per account), in case the merge isn't what I expected.
+ */
+export function keepPreSyncBackup(uid: string, data: PersonalData): void {
+  const existing = read<{ uid?: string } | null>(KEYS.preSyncBackup, null);
+  if (existing?.uid === uid) return;
+  write(KEYS.preSyncBackup, { uid, savedAt: new Date().toISOString(), backup: exportPersonal(data) });
+}
+
 export type ThemePreference = 'system' | 'light' | 'dark';
 
 export function loadTheme(): ThemePreference {
@@ -416,6 +459,32 @@ export function exportPersonal(data: PersonalData): string {
   return JSON.stringify({ ...data, exportedAt: new Date().toISOString(), app: 'qa-radar' }, null, 2);
 }
 
+/**
+ * A status entry from a backup or from another device, or undefined when it isn't one this version
+ * can read. Older backups have no interviewFormat, endClient or history; values this version can't
+ * read are dropped.
+ */
+export function sanitizeEntry(raw: unknown): StatusEntry | undefined {
+  if (!raw || typeof raw !== 'object') return undefined;
+  const { interviewFormat, endClient, history, order, ...rest } = raw as StatusEntry;
+  if (!ALL_STATUSES.includes(rest.status) || !isIso(rest.updatedAt)) return undefined;
+  const steps = Array.isArray(history)
+    ? collapse(
+        history
+          .filter(isStep)
+          .filter((s) => isStepStatus(s.status))
+          .map((s) => ({ status: s.status, at: s.at, ...(s.estimated === true ? { estimated: true as const } : {}) })),
+      )
+    : [];
+  return {
+    ...rest,
+    ...(isInterviewFormat(interviewFormat) ? { interviewFormat } : {}),
+    ...(typeof endClient === 'string' && endClient.trim() ? { endClient: endClient.trim() } : {}),
+    ...(steps.length ? { history: steps } : {}),
+    ...(typeof order === 'number' && Number.isFinite(order) ? { order } : {}),
+  };
+}
+
 /** Merge a backup into the current data. Newer status entries win; lists are unioned. */
 export function importPersonal(current: PersonalData, json: string): PersonalData {
   const incoming = JSON.parse(json) as Partial<PersonalData> & { app?: string };
@@ -424,23 +493,8 @@ export function importPersonal(current: PersonalData, json: string): PersonalDat
   }
   const statuses = { ...current.statuses };
   for (const [id, raw] of Object.entries(incoming.statuses ?? {})) {
-    // Older backups have no interviewFormat, endClient or history; values this version can't read are dropped.
-    const { interviewFormat, endClient, history, order, ...rest } = raw;
-    const steps = Array.isArray(history)
-      ? collapse(
-          history
-            .filter(isStep)
-            .filter((s) => isStepStatus(s.status))
-            .map((s) => ({ status: s.status, at: s.at, ...(s.estimated === true ? { estimated: true as const } : {}) })),
-        )
-      : [];
-    const entry: StatusEntry = {
-      ...rest,
-      ...(isInterviewFormat(interviewFormat) ? { interviewFormat } : {}),
-      ...(typeof endClient === 'string' && endClient.trim() ? { endClient: endClient.trim() } : {}),
-      ...(steps.length ? { history: steps } : {}),
-      ...(typeof order === 'number' && Number.isFinite(order) ? { order } : {}),
-    };
+    const entry = sanitizeEntry(raw);
+    if (!entry) continue;
     const existing = statuses[id];
     if (!existing || entry.updatedAt > existing.updatedAt) statuses[id] = entry;
   }

@@ -100,6 +100,13 @@ jobs:
 
       - name: Build dashboard
         if: steps.publish.outputs.publish == 'true'
+        env:
+          # "סנכרון בין מכשירים": the Firebase web app's settings, public by design (repository
+          # Settings → Secrets and variables → Actions → Variables). Unset: the site builds without sync.
+          VITE_FIREBASE_API_KEY: ${{ vars.FIREBASE_API_KEY }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ vars.FIREBASE_AUTH_DOMAIN }}
+          VITE_FIREBASE_PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_APP_ID: ${{ vars.FIREBASE_APP_ID }}
         run: |
           npm run build
           mkdir -p web/dist/data

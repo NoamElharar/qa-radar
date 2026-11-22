@@ -6,6 +6,7 @@ import { AlertIcon } from './components/icons.tsx';
 import { FilterSheet, type FilterOptions } from './components/FilterSheet.tsx';
 import { JobCard } from './components/JobCard.tsx';
 import { MineView } from './components/MineView.tsx';
+import { SyncPanel } from './components/mine/SyncPanel.tsx';
 import { ManualBoardsCard, Overview } from './components/Overview.tsx';
 import { QuickLaunch } from './components/QuickLaunch.tsx';
 import { SourcesView } from './components/SourcesView.tsx';
@@ -33,6 +34,8 @@ import { asOf } from './lib/overview.ts';
 import { rescoreJobs, rescoreWatched } from './lib/cv.ts';
 import { israelDayKey, relativeTime } from './lib/time.ts';
 import { useUrlFilters } from './lib/useUrlFilters.ts';
+import { recordLocalChange } from './lib/sync/local.ts';
+import { useSync } from './lib/sync/useSync.ts';
 
 const PAGE_SIZE = 50;
 
@@ -86,9 +89,18 @@ export function App() {
   useLayoutEffect(() => {
     shown.current = personal;
   }, [personal]);
-  const updatePersonal = useCallback((next: PersonalData) => {
-    setPersonal(savePersonalChanges(shown.current, next));
-  }, []);
+  // Another device changed something (sync applied it to storage): show it.
+  const sync = useSync(useCallback(() => setPersonal(refreshPersonal), []));
+  const { push } = sync;
+  const updatePersonal = useCallback(
+    (next: PersonalData) => {
+      const before = shown.current;
+      setPersonal(savePersonalChanges(before, next));
+      // Dated even when not syncing, so a first sync knows which copy of each item is newer.
+      push(recordLocalChange(before, next));
+    },
+    [push],
+  );
 
   // Another tab (or one left open on the phone) saved something: show it here too.
   useEffect(() => {
@@ -434,6 +446,8 @@ export function App() {
               onImport={doImport}
               onReorder={reorder}
               cvPanel={cvPanel('full')}
+              syncPanel={<SyncPanel sync={sync} now={now} />}
+              synced={['synced', 'saving', 'offline', 'connecting'].includes(sync.state.kind)}
             />
           </>
         )}
