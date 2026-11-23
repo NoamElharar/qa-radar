@@ -856,5 +856,42 @@
     "state": "closed",
     "baseline": false,
     "closedAt": "2026-11-09T06:00:52.858Z"
+  },
+  {
+    "id": "mobileye:b279801b-89b2-4e67-a095-0c8435580997",
+    "sourceId": "mobileye",
+    "sourceJobId": "b279801b-89b2-4e67-a095-0c8435580997",
+    "url": "https://careers.mobileye.com/jobs/experienced-test-automation-engineer/b279801b-89b2-4e67-a095-0c8435580997",
+    "title": "Experienced Test Automation Engineer",
+    "company": "Mobileye",
+    "locationText": "Jerusalem",
+    "snippet": "Software About the team:The SW validation team plays a key role in enabling the next generation of autonomous driving technologies. In their primarily Python-based development environment, they are responsible for developing and maintaining test content for the autonomous vehicle brain, supporting complex end-to-end validation flows across the system. As part of the full autonomous driving pipeline, they work closely with cutting-edge technologies and gain direct exposure to the real-world impact of their work — helping bring some of Mobileye’s most advanced autonomous driving capabilities…",
+    "tags": [
+      "בדיקות ידניות/E2E",
+      "אוטומציה",
+      "ענן/DevOps"
+    ],
+    "seniority": "mid",
+    "yearsRequired": 3,
+    "city": "ירושלים",
+    "regions": [
+      "jerusalem"
+    ],
+    "distanceKm": 38,
+    "score": 54,
+    "matched": [
+      "Manual / E2E"
+    ],
+    "missing": [
+      "Python",
+      "CI/CD",
+      "Linux"
+    ],
+    "firstSeenAt": "2026-10-06T10:27:15.578Z",
+    "lastSeenAt": "2026-11-09T10:00:51.625Z",
+    "missingStreak": 3,
+    "state": "closed",
+    "baseline": true,
+    "closedAt": "2026-11-09T19:01:06.346Z"
   }
 ]
